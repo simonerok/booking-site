@@ -106,7 +106,7 @@ export default function Form({ spots }) {
 }
 
 export async function getServerSideProps() {
-  const api = "https://nova-enchanted-confidence.glitch.me/available-spots";
+  const api = "http://localhost:8080/available-spots";
   const res = await fetch(api);
   const data = await res.json();
   console.log(data);
