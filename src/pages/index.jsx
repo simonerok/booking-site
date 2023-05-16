@@ -2,7 +2,7 @@ import styles from "@/styles/Home.module.css";
 // import Button from "@mui/material";
 import Landing from "@/components/Landing";
 import Head from "next/head";
-import ProgramSite from "@/components/programSite";
+import ProgramSite from "@/components/ProgramSite";
 
 export default function Home({ bandData }) {
   // console.log(bandData);
@@ -27,7 +27,11 @@ export default function Home({ bandData }) {
   );
 }
 export async function getServerSideProps() {
-  const apiEndpoints = ["http://localhost:8080/bands", "http://localhost:8080/schedule", "http://localhost:8080/available-spots"];
+  const apiEndpoints = [
+    "http://localhost:8080/bands",
+    "http://localhost:8080/schedule",
+    "http://localhost:8080/available-spots",
+  ];
 
   // mapper igennem hver array alt efter hvilket endpoint det er og fetcher
   const apiRequest = apiEndpoints.map((endpoint) => fetch(endpoint));
