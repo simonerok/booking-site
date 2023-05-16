@@ -27,11 +27,12 @@ export default function Home({ bandData }) {
   );
 }
 export async function getServerSideProps() {
-  const apiEndpoints = [
-    "http://localhost:8080/bands",
-    "http://localhost:8080/schedule",
-    "http://localhost:8080/available-spots",
-  ];
+  // const apiEndpoints = [
+  //   "http://localhost:8080/bands",
+  //   "http://localhost:8080/schedule",
+  //   "http://localhost:8080/available-spots",
+  // ];
+  const apiEndpoints = ["https://nova-enchanted-confidence.glitch.me/bands"];
 
   // mapper igennem hver array alt efter hvilket endpoint det er og fetcher
   const apiRequest = apiEndpoints.map((endpoint) => fetch(endpoint));
