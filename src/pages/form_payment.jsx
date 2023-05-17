@@ -10,18 +10,22 @@ import { useContext, useRef } from "react";
 import styles from "../styles/Form.module.css";
 import { TicketContext } from "@/contexts/ticketContext";
 
-export default function FormPay({}) {
+export default function FormPay() {
   const ref = useRef(null);
   const inputRef = useRef(null);
   const ticketInfo = useContext(TicketContext);
+
   console.log(ticketInfo);
+  console.log(ticketInfo.value);
   return (
     <>
       <h1>Payment details</h1>
       <article>
         <h2>Overview</h2>
         <article className="TicketOverview_container">
-          {/* Fetch data from tickets */}
+          {/* Fetch data from tickets with TicketContext*/}
+          <p>{ticketInfo.name}</p>
+          <p>{ticketInfo.email}</p>
           {/* date */}
           {/* number of tickets/ ticket type */}
         </article>
