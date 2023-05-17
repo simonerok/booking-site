@@ -6,12 +6,15 @@ import {
   FormGroup,
 } from "@mui/material";
 import { IMaskInput } from "react-imask";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import styles from "../styles/Form.module.css";
+import { TicketContext } from "@/contexts/ticketContext";
 
 export default function FormPay({}) {
   const ref = useRef(null);
   const inputRef = useRef(null);
+  const ticketInfo = useContext(TicketContext);
+  console.log(ticketInfo);
   return (
     <>
       <h1>Payment details</h1>
@@ -32,12 +35,14 @@ export default function FormPay({}) {
                 id="outlined-required"
                 label="Name"
                 placeholder={"fx: John Doe"}
+                required
               />
               <br></br>
               <TextField
                 id="outlined-required"
                 label="Email"
                 placeholder={"fx: JohnDoe@gmail.com"}
+                required
               />
               <br></br>
               <TextField
@@ -56,6 +61,7 @@ export default function FormPay({}) {
                   id="standard-card"
                   label="Credit Card No."
                   placeholder={"fx: XXXX-XXXX-XXXX-XXXX"}
+                  required
                 />
                 <TextField type="month" />
 
