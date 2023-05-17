@@ -1,20 +1,10 @@
 import { useState } from "react";
-import {
-  InputLabel,
-  FormControl,
-  Card,
-  CardContent,
-  TextField,
-  Select,
-  Checkbox,
-  FormGroup,
-  FormControlLabel,
-  MenuItem,
-} from "@mui/material";
+import { InputLabel, FormControl, Card, CardContent, TextField, Select, Checkbox, FormGroup, FormControlLabel, MenuItem } from "@mui/material";
+import { getServerSideProps } from "./index.jsx";
 
 import styles from "../styles/Form.module.css";
 
-export default function Form({ spots }) {
+export default function Form({ spotData }) {
   const [selectedSpot, setSelectedSpot] = useState("");
   const [selectedArea, setSelectedArea] = useState("");
 
@@ -34,59 +24,26 @@ export default function Form({ spots }) {
               <TextField type="date"></TextField>
               <TextField type="number" label="Number of tickets" />
 
-              <InputLabel
-                id="dropdown-label"
-                label="ticket-type"
-                placeholder="Ticket-type"
-                className={styles.dropdownLabel}
-                style={{ position: "relative" }}
-              >
+              <InputLabel id="dropdown-label" label="ticket-type" placeholder="Ticket-type" className={styles.dropdownLabel} style={{ position: "relative" }}>
                 Choose ticket type
               </InputLabel>
-              <Select
-                labelId="ticket-type"
-                id="dropdowm"
-                label="Ticket-Type"
-                value={(selectedSpot, selectedArea)}
-                onChange={handleChange}
-              >
+              <Select labelId="ticket-type" id="dropdowm" label="Ticket-Type" value={(selectedSpot, selectedArea)} onChange={handleChange}>
                 <MenuItem value="reg">Regular</MenuItem>
                 <MenuItem value="vip">VIP</MenuItem>
               </Select>
               <h2>Available Spots:</h2>
-              <FormGroup
-                labelId="dropdown-label"
-                id="dropdowm"
-                label="Available spots"
-                value={(selectedSpot, selectedArea)}
-                onChange={handleChange}
-              >
-                {spots.map((spot, availability) => (
+              <FormGroup labelId="dropdown-label" id="dropdowm" label="Available spots" value={(selectedSpot, selectedArea)} onChange={handleChange}>
+                {spotData.map((spot, availability) => (
                   <p key={availability} value={(spot.available, spot.area)}>
                     {spot.area + ": " + spot.available}
                   </p>
                 ))}
-                <InputLabel
-                  id="dropdown-label"
-                  label="spots"
-                  placeholder="form"
-                  className={styles.dropdownLabel}
-                  style={{ position: "relative" }}
-                >
+                <InputLabel id="dropdown-label" label="spots" placeholder="form" className={styles.dropdownLabel} style={{ position: "relative" }}>
                   Choose Camp
                 </InputLabel>
-                <Select
-                  labelId="dropdown-label"
-                  id="dropdowm"
-                  label="Available spots"
-                  value={(selectedSpot, selectedArea)}
-                  onChange={handleChange}
-                >
-                  {spots.map((spot, availability) => (
-                    <MenuItem
-                      key={availability}
-                      value={(spot.available, spot.area)}
-                    >
+                <Select labelId="dropdown-label" id="dropdowm" label="Available spots" value={(selectedSpot, selectedArea)} onChange={handleChange}>
+                  {spotData.map((spot, availability) => (
+                    <MenuItem key={availability} value={(spot.available, spot.area)}>
                       {spot.area}
                     </MenuItem>
                   ))}
@@ -105,7 +62,7 @@ export default function Form({ spots }) {
   );
 }
 
-export async function getServerSideProps() {
+/* export async function getServerSideProps() {
   const api = "http://localhost:8080/available-spots";
   const res = await fetch(api);
   const data = await res.json();
@@ -113,4 +70,6 @@ export async function getServerSideProps() {
   return {
     props: { spots: data },
   };
-}
+} */
+
+export { getServerSideProps };
