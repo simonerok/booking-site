@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { InputLabel, FormControl, Card, CardContent, TextField, Select, Checkbox, FormGroup, FormControlLabel, MenuItem } from "@mui/material";
 import { getServerSideProps } from "./index.jsx";
-
+import MyButton from "@/components/MyButton.jsx";
 import styles from "../styles/Form.module.css";
 
+/* henter spotData fra getServerSideProps som er importeret fra index */
 export default function Form({ spotData }) {
   const [selectedSpot, setSelectedSpot] = useState("");
   const [selectedArea, setSelectedArea] = useState("");
@@ -57,19 +58,10 @@ export default function Form({ spotData }) {
             </CardContent>
           </Card>
         </FormControl>
+        <MyButton>Go to payment</MyButton>
       </form>
     </>
   );
 }
-
-/* export async function getServerSideProps() {
-  const api = "http://localhost:8080/available-spots";
-  const res = await fetch(api);
-  const data = await res.json();
-  console.log(data);
-  return {
-    props: { spots: data },
-  };
-} */
 
 export { getServerSideProps };
