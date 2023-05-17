@@ -1,6 +1,6 @@
 import Button from "@mui/material/Button";
 
-export default function MyButton({ children }) {
+export default function MyButton({ onClick, children }) {
   return (
     <Button
       variant="contained"
@@ -13,8 +13,10 @@ export default function MyButton({ children }) {
         ":hover": {
           bgcolor: "#DCF2C7",
           border: "none",
+          color: "black",
         },
       }}
+      onClick={onClick}
     >
       {children}
     </Button>

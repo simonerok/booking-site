@@ -2,6 +2,9 @@
 
 .formWrapper {
   display: grid;
+  margin-bottom: 2rem;
+  /*  padding: 2rem; */
+  max-width: 350px;
 }
 
 /* retter label tekst på dropdown */
@@ -11,4 +14,14 @@
   left: 0;
   bottom: 0;
   top: 20px;
+}
+
+.inputField {
+  max-width: 350px;
+}
+
+.campText p {
+  margin: 0px;
+  font-size: 2rem;
+  margin-block: 1rem;
 }
