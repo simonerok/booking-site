@@ -28,7 +28,7 @@ export default function Form({ spotData }) {
       <h1>Ticket details</h1>
       <form>
         <FormControl variant="filled">
-          <Card>
+          <Card className={styles.cardBackgroun}>
             <CardContent className={styles.formWrapper}>
               <h2>Tickets</h2>
               <TextField className={styles.inputField} type="date"></TextField>
@@ -86,13 +86,16 @@ export default function Form({ spotData }) {
                 </div>
               </FormGroup>
             </CardContent>
-            <MyButton
-              onClick={() => {
-                console.log("clicked");
-              }}
-            >
-              Go to payment
-            </MyButton>
+            <div className={styles.btn_container}>
+              <MyButton
+                className={styles.form_btn}
+                onClick={() => {
+                  console.log("clicked");
+                }}
+              >
+                Go to payment
+              </MyButton>
+            </div>
           </Card>
         </FormControl>
       </form>

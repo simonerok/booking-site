@@ -3,7 +3,6 @@
 .formWrapper {
   display: grid;
   margin-bottom: 2rem;
-  /*  padding: 2rem; */
   max-width: 350px;
 }
 
@@ -24,4 +23,18 @@
   margin: 0px;
   font-size: 2rem;
   margin-block: 1rem;
+}
+
+/* knap */
+.btn_container {
+  display: flex;
+  justify-content: center;
+}
+
+.form_btn {
+  margin-bottom: 3rem;
+}
+
+.cardBackgroun {
+  background-image: ;
 }
