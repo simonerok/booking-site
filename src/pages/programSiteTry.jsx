@@ -36,19 +36,117 @@ export default function Schedule({ schedule }) {
       <h1>Program</h1>
 
       {/* {schedule with acts section} */}
-      <section>
+      <section className={stylesSchedule.programContainer}>
         <h2>Monday</h2>
-        {stage === "Monday" && (
-          <>
-            {Midmon.concat(Jotmon, Vanmon).map((bandEvent) => {
-              if (bandEvent.act.includes("break")) {
-                // Skip rendering the band event if it includes "break"
-                return null;
-              }
-              return <p key={bandEvent.act}>{bandEvent.act}</p>;
-            })}
-          </>
-        )}
+        <>
+          {Midmon.concat(Jotmon, Vanmon).map((bandEvent) => {
+            if (bandEvent.act.includes("break")) {
+              // Skip rendering the band event if it includes "break"
+              return null;
+            }
+            return (
+              <p className={stylesSchedule.programText} key={bandEvent.act}>
+                {bandEvent.act} /{" "}
+              </p>
+            );
+          })}
+        </>
+      </section>
+      <section className={stylesSchedule.programContainer}>
+        <h2>Tuesday</h2>
+        <>
+          {Midtue.concat(Jottue, Vantue).map((bandEvent) => {
+            if (bandEvent.act.includes("break")) {
+              // Skip rendering the band event if it includes "break"
+              return null;
+            }
+            return (
+              <p className={stylesSchedule.programText} key={bandEvent.act}>
+                {bandEvent.act} /{" "}
+              </p>
+            );
+          })}
+        </>
+      </section>
+      <section className={stylesSchedule.programContainer}>
+        <h2>Wednesday</h2>
+        <>
+          {Midwed.concat(Jotwed, Vanwed).map((bandEvent) => {
+            if (bandEvent.act.includes("break")) {
+              // Skip rendering the band event if it includes "break"
+              return null;
+            }
+            return (
+              <p className={stylesSchedule.programText} key={bandEvent.act}>
+                {bandEvent.act} /{" "}
+              </p>
+            );
+          })}
+        </>
+      </section>
+      <section className={stylesSchedule.programContainer}>
+        <h2>Thursday</h2>
+        <>
+          {Midthu.concat(Jotmon, Vanmon).map((bandEvent) => {
+            if (bandEvent.act.includes("break")) {
+              // Skip rendering the band event if it includes "break"
+              return null;
+            }
+            return (
+              <p className={stylesSchedule.programText} key={bandEvent.act}>
+                {bandEvent.act} /{" "}
+              </p>
+            );
+          })}
+        </>
+      </section>
+      <section className={stylesSchedule.programContainer}>
+        <h2>Friday</h2>
+        <>
+          {Midfri.concat(Jotfri, Vanfri).map((bandEvent) => {
+            if (bandEvent.act.includes("break")) {
+              // Skip rendering the band event if it includes "break"
+              return null;
+            }
+            return (
+              <p className={stylesSchedule.programText} key={bandEvent.act}>
+                {bandEvent.act} /{" "}
+              </p>
+            );
+          })}
+        </>
+      </section>
+      <section className={stylesSchedule.programContainer}>
+        <h2>Saturday</h2>
+        <>
+          {Midsat.concat(Jotmon, Vanmon).map((bandEvent) => {
+            if (bandEvent.act.includes("break")) {
+              // Skip rendering the band event if it includes "break"
+              return null;
+            }
+            return (
+              <p className={stylesSchedule.programText} key={bandEvent.act}>
+                {bandEvent.act} /{" "}
+              </p>
+            );
+          })}
+        </>
+      </section>
+      <section className={stylesSchedule.programContainer}>
+        <h2>Sunday</h2>
+        <>
+          {Midsun.concat(Jotsun, Vansun).map((bandEvent) => {
+            if (bandEvent.act.includes("break")) {
+              // Skip rendering the band event if it includes "break"
+              return null;
+            }
+            return (
+              <p className={stylesSchedule.programText} key={bandEvent.act}>
+                {bandEvent.act} /{" "}
+              </p>
+            );
+          })}
+        </>
       </section>
     </>
   );

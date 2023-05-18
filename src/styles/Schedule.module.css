@@ -2,6 +2,19 @@
  https://tinderbox.dk/program/?gad=1&gclid=CjwKCAjwjYKjBhB5EiwAiFdSfiRSNWo1SbtqktdsBSz9BluuzPH0NGo6nI9zuTTo43puyqPPzRvPhBoCFG4QAvD_BwE
  */
 
+/* PROGRAM */
+
+.programContainer {
+  text-align: center;
+  margin-inline: auto;
+  max-width: 1200px;
+}
+.programText {
+  display: inline;
+}
+
+/* SCHEDULE */
+
 .act_wrapper {
   padding-left: 80px;
   padding-right: 20px;
