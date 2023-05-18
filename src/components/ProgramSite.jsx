@@ -1,29 +1,29 @@
 // import { useContext } from "react";
 // import { ProgramContext } from "../contexts/programContext";
 // import { GetServerSideProps } from "next";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
-export default function ProgramSite() {
-  const [program, setProgram] = useState([]);
+// export default function ProgramSite() {
+//   const [program, setProgram] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:8080/bands")
-      .then((res) => res.json())
-      .then((data) => {
-        setProgram(data);
-      });
-  }, []);
+//   useEffect(() => {
+//     fetch("http://localhost:8080/bands")
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setProgram(data);
+//       });
+//   }, []);
 
-  /* map schedule på scener, så dage og de navne der spiller */
+//   /* map schedule på scener, så dage og de navne der spiller */
 
-  return (
-    <ul>
-      {program.map((band) => (
-        <li>{band.name}</li>
-      ))}
-    </ul>
-  );
-}
+//   return (
+//     <ul>
+//       {program.map((band) => (
+//         <li>{band.name}</li>
+//       ))}
+//     </ul>
+//   );
+// }
 
 // export async function getServerSideProps() {
 //   const apiSchedule = "http://localhost:8080/schedule";

@@ -16,7 +16,7 @@ export default function Home({ bandData }) {
         <link rel="icon" href="" />
       </Head>
       <Landing />
-      <ProgramSite />
+      {/* <ProgramSite /> */}
       {bandData.map((perBand) => (
         //key & value fortæller hvad bands sorteres på
         <section key={bandData.slug} value={bandData.slug}>
@@ -27,11 +27,7 @@ export default function Home({ bandData }) {
   );
 }
 export async function getServerSideProps() {
-  const apiEndpoints = [
-    "http://localhost:8080/bands",
-    "http://localhost:8080/schedule",
-    "http://localhost:8080/available-spots",
-  ];
+  const apiEndpoints = ["http://localhost:8080/bands", "http://localhost:8080/schedule", "http://localhost:8080/available-spots"];
   // const apiEndpoints = [
   //   "https://nova-enchanted-confidence.glitch.me/bands",
   //   "https://nova-enchanted-confidence.glitch.me/schedule",
