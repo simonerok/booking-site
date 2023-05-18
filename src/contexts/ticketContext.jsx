@@ -6,7 +6,7 @@ export const UpdatePaymentContext = createContext();
 
 //useReducer to manage complex states in ticketContext
 const initialState = {
-  fullname: "Yabi",
+  fullname: "",
   email: "",
   card: 0,
 };
