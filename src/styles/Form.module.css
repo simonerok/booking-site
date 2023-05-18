@@ -1,5 +1,10 @@
 /* FONTS FORM */
 
+.form {
+  text-align: center;
+  background-image: url("/booking-site/public/ticket.svg");
+}
+
 .formWrapper {
   display: grid;
   margin-bottom: 2rem;
@@ -21,8 +26,12 @@
 
 .campText p {
   margin: 0px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-block: 1rem;
+  text-align: left;
+}
+.tentOption {
+  text-align: left;
 }
 
 /* knap */

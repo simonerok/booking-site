@@ -1,8 +1,10 @@
 import Button from "@mui/material/Button";
+import styles from "../styles/Form.module.css";
 
 export default function MyButton({ onClick, children }) {
   return (
     <Button
+      className={styles.form_btn}
       variant="contained"
       sx={{
         borderRadius: 0,

@@ -11,9 +11,10 @@ import styles from "../styles/Form.module.css";
 export default function Form({ spotData }) {
   const [selectedSpot, setSelectedSpot] = useState("");
   const [selectedArea, setSelectedArea] = useState("");
+
   /* åben og luk af info ikon */
   const [open, setOpen] = useState(false);
-
+  /* tjekker staten på info ikon om det er åbent(true) eller lukket (false) */
   const handleInfoClick = () => {
     setOpen(!open);
   };
@@ -26,9 +27,9 @@ export default function Form({ spotData }) {
   return (
     <>
       <h1>Ticket details</h1>
-      <form>
+      <form className={styles.form}>
         <FormControl variant="filled">
-          <Card className={styles.cardBackgroun}>
+          <Card>
             <CardContent className={styles.formWrapper}>
               <h2>Tickets</h2>
               <TextField className={styles.inputField} type="date"></TextField>
@@ -44,6 +45,7 @@ export default function Form({ spotData }) {
               <h2>Available Spots:</h2>
               <FormGroup className={styles.campText} labelId="dropdown-label" id="dropdowm" label="Available spots" value={(selectedSpot, selectedArea)} onChange={handleChange}>
                 {spotData.map((spot, availability) => (
+                  /* Dette udskriver hvor mange spots der er ledige og på hvilken camp via map */
                   <p key={availability} value={(spot.available, spot.area)}>
                     {spot.area + ": " + spot.available}
                   </p>
@@ -53,7 +55,8 @@ export default function Form({ spotData }) {
                 </InputLabel>
                 <Select className={styles.inputField} labelId="dropdown-label" id="dropdowm" label="Available spots" value={(selectedSpot, selectedArea)} onChange={handleChange}>
                   {spotData.map((spot, availability) => (
-                    <MenuItem key={availability} value={(spot.available, spot.area)}>
+                    /* Dette viser camps i dropdown menu */
+                    <MenuItem key={availability} value={spot.area}>
                       {spot.area}
                     </MenuItem>
                   ))}
@@ -62,10 +65,10 @@ export default function Form({ spotData }) {
               <h2>Other options</h2>
               <FormGroup>
                 <FormControlLabel control={<Checkbox />} label="Green Option +249,-" />
-                <div>
+                <div className={styles.tentOption}>
                   <FormControlLabel control={<Checkbox />} label="Tent setup" />
 
-                  <div onClick={handleInfoClick} style={{ display: "inline-block", cursor: "pointer" }}>
+                  <div onClick={handleInfoClick} style={{ display: "inline-block" }}>
                     <div>
                       {!open && (
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-info-circle" viewBox="0 0 16 16">
@@ -76,8 +79,9 @@ export default function Form({ spotData }) {
                     </div>
                     {open && (
                       <div>
+                        {/* modal besked med info om priser */}
                         <Alert severity="info" sx={{ backgroundColor: "#DCF2C7" }}>
-                          2-pers: 299,- <br /> 3-pers: 399,- <br />
+                          2-pers: +299,- <br /> 3-pers: +399,- <br />
                           OBS: Including the tent
                         </Alert>
                       </div>
@@ -88,7 +92,6 @@ export default function Form({ spotData }) {
             </CardContent>
             <div className={styles.btn_container}>
               <MyButton
-                className={styles.form_btn}
                 onClick={() => {
                   console.log("clicked");
                 }}
