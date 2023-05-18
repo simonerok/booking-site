@@ -1,8 +1,16 @@
 /* FONTS FORM */
 
+.formBackground {
+  background-image: url("/ticket.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .form {
-  text-align: center;
-  background-image: url("/booking-site/public/ticket.svg");
+  display: grid;
+  place-content: center;
 }
 
 .formWrapper {
