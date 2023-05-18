@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import BookFormContext from "@/contexts/bookFormContext";
 import {
   InputLabel,
   FormControl,
@@ -16,6 +16,12 @@ import {
 import styles from "../styles/Form.module.css";
 
 export default function Form({ spots }) {
+  const [formData, setFormData] = useState({
+    date: "",
+    tickets: 0,
+    selectedArea: "",
+  });
+
   const [selectedSpot, setSelectedSpot] = useState("");
   const [selectedArea, setSelectedArea] = useState("");
 
@@ -24,16 +30,33 @@ export default function Form({ spots }) {
     setSelectedArea(event.target.value);
   };
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    // const formdate = e.target.date.value;
+    const formTicketNo = e.target.ticketNo.value;
+    const choosenArea = selectedSpot;
+    console.log(formTicketNo, choosenArea);
+    setFormData((prevData) => ({
+      ...prevData,
+      date: e.target.date.value,
+    }));
+    console.log(formData);
+  }
+
   return (
     <>
       <h1>Ticket details</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <FormControl variant="filled">
           <Card>
             <CardContent className={styles.formWrapper}>
               <h2>Tickets</h2>
-              <TextField type="date"></TextField>
-              <TextField type="number" label="Number of tickets" />
+              <TextField type="date" id="date"></TextField>
+              <TextField
+                type="number"
+                label="Number of tickets"
+                id="ticketNo"
+              />
 
               <InputLabel
                 id="dropdown-label"
@@ -57,7 +80,7 @@ export default function Form({ spots }) {
               <h2>Available Spots:</h2>
               <FormGroup
                 labelId="dropdown-label"
-                id="dropdowm"
+                id="dropdown_Spot"
                 label="Available spots"
                 value={(selectedSpot, selectedArea)}
                 onChange={handleChange}
@@ -101,6 +124,7 @@ export default function Form({ spots }) {
             </CardContent>
           </Card>
         </FormControl>
+        <button type="submit"> Submit </button>
       </form>
     </>
   );
