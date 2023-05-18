@@ -5,7 +5,7 @@ import {
   TextField,
   FormGroup,
 } from "@mui/material";
-import { IMaskInput } from "react-imask";
+import InputMask from "react-input-mask";
 import { useContext, useRef, useState } from "react";
 import styles from "../styles/Form.module.css";
 import {
@@ -32,6 +32,15 @@ export default function FormPay() {
   //   fullname: "",
   //   email: "",
   // });
+
+  //creditcard no state
+  const [creditcard, setCreditcard] = useState("");
+  const handleCCInput = ({ target: { value } }) => setCreditcard(value);
+  //creditcard exp. date state
+  const [expDate, setExpDate] = useState("");
+  const handleExpInput = ({ target: { value } }) => setExpDate(value);
+
+  //handle Submit get full payload
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -46,6 +55,7 @@ export default function FormPay() {
     });
     console.log(paymentInfo);
   }
+
   return (
     <>
       <h1>Payment details</h1>
@@ -93,33 +103,40 @@ export default function FormPay() {
               <h2>Payment</h2>
               <FormGroup variant="standard" id="paymentInfoGroup">
                 <TextField
+                  type="text"
                   id="standardCard"
                   label="Credit Card No."
-                  placeholder={"fx: XXXX-XXXX-XXXX-XXXX"}
                   required
-                />
-                <TextField type="month" />
-
-                <IMaskInput
-                  mask={Number}
-                  radix="."
-                  value="222"
-                  unmask={true} // true|false|'typed'
-                  ref={ref}
-                  inputRef={inputRef} // access to nested input
-                  // DO NOT USE onChange TO HANDLE CHANGES!
-                  // USE onAccept INSTEAD
-                  onAccept={
-                    // depending on prop above first argument is
-                    // `value` if `unmask=false`,
-                    // `unmaskedValue` if `unmask=true`,
-                    // `typedValue` if `unmask='typed'`
-                    (value, mask) => console.log(value)
-                  }
-                  // ...and more mask props in a guide
-
-                  // input props also available
-                  placeholder="Enter number here"
+                  name="creditcard"
+                  maxlength="16"
+                  value={creditcard}
+                  onChange={handleCCInput}
+                  variant="outlined"
+                  //used InputProps for custom inputs and components with react-input-mask
+                  //chatgpt helped
+                  InputProps={{
+                    inputComponent: InputMask,
+                    inputProps: {
+                      mask: "9999 9999 9999 9999",
+                      maskChar: "-",
+                    },
+                  }}
+                ></TextField>
+                <br></br>
+                <TextField
+                  maxlength="4"
+                  type="text"
+                  id="exp.date"
+                  variant="outlined"
+                  name="expDate"
+                  label="Exp. Date (MM/YY)"
+                  onChange={handleExpInput}
+                  InputProps={{
+                    inputComponent: InputMask,
+                    inputProps: {
+                      mask: "99/99",
+                    },
+                  }}
                 />
               </FormGroup>
             </CardContent>
