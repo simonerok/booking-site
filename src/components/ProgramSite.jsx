@@ -1,20 +1,39 @@
-import { useContext } from "react";
-import { ProgramContext } from "../contexts/programContext";
-import { GetServerSideProps } from "next";
+// import { useContext } from "react";
+// import { ProgramContext } from "../contexts/programContext";
+// import { GetServerSideProps } from "next";
+import { useState, useEffect } from "react";
 
-export default function ProgramSite(bandData) {
-  /*   const artistName = useContext(ProgramContext);
-  console.log(artistName); */
-  console.log("hi");
+export default function ProgramSite() {
+  const [program, setProgram] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/bands")
+      .then((res) => res.json())
+      .then((data) => {
+        setProgram(data);
+      });
+  }, []);
+
+  /* map schedule på scener, så dage og de navne der spiller */
+
   return (
-    <section>
-      <h2>Monday</h2>
-      {/* map schedule på scener, så dage og de navne der spiller */}
-      {scheduleData.map((scene) => (
-        <h3>{scene.sc}</h3>
+    <ul>
+      {program.map((band) => (
+        <li>{band.name}</li>
       ))}
-    </section>
+    </ul>
   );
 }
 
-export { GetServerSideProps };
+// export async function getServerSideProps() {
+//   const apiSchedule = "http://localhost:8080/schedule";
+
+//   const apiRequest = [apiSchedule].map((endpoint) => fetch(endpoint));
+
+//   const res = await fetch(apiSchedule);
+//   const data = await res.json();
+//   // console.log(data);
+//   return {
+//     props: { scheduleData: data },
+//   };
+// }
