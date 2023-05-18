@@ -6,17 +6,46 @@ import {
   FormGroup,
 } from "@mui/material";
 import { IMaskInput } from "react-imask";
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import styles from "../styles/Form.module.css";
-import { TicketContext } from "@/contexts/ticketContext";
+import {
+  PaymentContext,
+  TicketProvider,
+  UpdatePaymentContext,
+} from "@/contexts/ticketContext";
+import BookFormContext from "@/contexts/bookFormContext";
 
 export default function FormPay() {
   const ref = useRef(null);
   const inputRef = useRef(null);
-  const ticketInfo = useContext(TicketContext);
+  const paymentInfo = useContext(PaymentContext);
+  const dispatch = useContext(UpdatePaymentContext);
+  // const formData = useContext(BookFormContext);
 
-  console.log(ticketInfo);
-  console.log(ticketInfo.value);
+  // console.log(formData);
+
+  // function handleEvent(event) {
+  //   console.log(event.target.value);
+  // }
+
+  // const [paymentInfo, setPaymentInfo] = useState({
+  //   fullname: "",
+  //   email: "",
+  // });
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    //dispatch function that returns new state
+    dispatch({
+      action: "SUBMIT",
+      payload: {
+        fullname: e.target.name.value,
+        email: e.target.email.value,
+        card: e.target.standardCard.value,
+      },
+    });
+    console.log(paymentInfo);
+  }
   return (
     <>
       <h1>Payment details</h1>
@@ -24,26 +53,28 @@ export default function FormPay() {
         <h2>Overview</h2>
         <article className="TicketOverview_container">
           {/* Fetch data from tickets with TicketContext*/}
-          <p>{ticketInfo.name}</p>
-          <p>{ticketInfo.email}</p>
+          {/* <p>{ticketInfo.name}</p>
+          <p>{ticketInfo.email}</p> */}
           {/* date */}
           {/* number of tickets/ ticket type */}
         </article>
       </article>
-      <form>
+      <form onSubmit={handleSubmit}>
         <FormControl variant="outlined">
           <Card>
             <CardContent className={styles.formWrapper}>
               <h2>Personal data</h2>
               <TextField
-                id="outlined-required"
+                id="name"
                 label="Name"
                 placeholder={"fx: John Doe"}
                 required
+                // onInput={handleEvent}
               />
+
               <br></br>
               <TextField
-                id="outlined-required"
+                id="email"
                 label="Email"
                 placeholder={"fx: JohnDoe@gmail.com"}
                 required
@@ -62,7 +93,7 @@ export default function FormPay() {
               <h2>Payment</h2>
               <FormGroup variant="standard" id="paymentInfoGroup">
                 <TextField
-                  id="standard-card"
+                  id="standardCard"
                   label="Credit Card No."
                   placeholder={"fx: XXXX-XXXX-XXXX-XXXX"}
                   required
@@ -94,6 +125,7 @@ export default function FormPay() {
             </CardContent>
           </Card>
         </FormControl>
+        <button type="submit">Submit</button>
       </form>
     </>
   );

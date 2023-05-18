@@ -1,20 +1,35 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
 
-export const TicketContext = createContext();
+export const PaymentContext = createContext();
 
-export const UpdateTicketContext = createContext();
+export const UpdatePaymentContext = createContext();
 
+//useReducer to manage complex states in ticketContext
+const initialState = {
+  fullname: "Yabi",
+  email: "",
+  card: 0,
+};
+
+//purpose of reducers returns the next state
+function reducer(state, action) {
+  /*action looks 
+  /* {action : "LOGIN"
+      payload: user input}
+  
+  */
+  console.log(action);
+  if (action.action === "SUBMIT") {
+    return { ...state, fullname: action.payload };
+  }
+}
 export const TicketProvider = ({ children }) => {
-  // const [ticket, setTicketInfo] = useState({});
-  const ticket = {
-    name: "John Doe",
-    email: "johndoe@example.com",
-  };
+  const [paymentInfo, dispatch] = useReducer(reducer, initialState);
   return (
-    <TicketContext.Provider value={ticket}>
-      {/* <UpdateTicketContext.Provider value={setTicketInfo}> */}
-      {children}
-      {/* </UpdateTicketContext.Provider> */}
-    </TicketContext.Provider>
+    <PaymentContext.Provider value={paymentInfo}>
+      <UpdatePaymentContext.Provider value={dispatch}>
+        {children}
+      </UpdatePaymentContext.Provider>
+    </PaymentContext.Provider>
   );
 };
