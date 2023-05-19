@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import { ProgramProvider } from "../contexts/programContext";
 import App from "next/app";
-import { TicketProvider } from "@/contexts/ticketContext";
+import { PaymentProvider } from "@/contexts/ticketContext";
 import { BookFormProvider } from "@/contexts/bookFormContext";
 // import { LocalizationProvider } from "@mui/x-date-pickers";
 // import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -9,10 +9,10 @@ import { BookFormProvider } from "@/contexts/bookFormContext";
 export default function MyApp({ Component, pageProps }) {
   return (
     <ProgramProvider>
-      <TicketProvider>
+      <PaymentProvider>
         {/* <BookFormProvider> */}
         <Component {...pageProps} />;{/* </BookFormProvider> */}
-      </TicketProvider>
+      </PaymentProvider>
     </ProgramProvider>
   );
 }

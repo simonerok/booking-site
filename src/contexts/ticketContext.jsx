@@ -19,17 +19,22 @@ function reducer(state, action) {
   
   */
   console.log(action);
-  if (action.action === "SUBMIT") {
-    return { ...state, fullname: action.payload };
+  switch (action.ation) {
+    case "SUBMIT":
+      return {
+        ...state,
+        fullname: action.payload.fullname,
+        email: action.payload.email,
+      };
+    default:
+      return state;
   }
 }
-export const TicketProvider = ({ children }) => {
+export const PaymentProvider = ({ children }) => {
   const [paymentInfo, dispatch] = useReducer(reducer, initialState);
   return (
-    <PaymentContext.Provider value={paymentInfo}>
-      <UpdatePaymentContext.Provider value={dispatch}>
-        {children}
-      </UpdatePaymentContext.Provider>
+    <PaymentContext.Provider value={{ paymentInfo, dispatch }}>
+      {children}
     </PaymentContext.Provider>
   );
 };

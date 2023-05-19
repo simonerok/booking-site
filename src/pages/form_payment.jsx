@@ -8,18 +8,14 @@ import {
 import InputMask from "react-input-mask";
 import { useContext, useRef, useState } from "react";
 import styles from "../styles/Form.module.css";
-import {
-  PaymentContext,
-  TicketProvider,
-  UpdatePaymentContext,
-} from "@/contexts/ticketContext";
+import { PaymentContext } from "@/contexts/ticketContext";
 import BookFormContext from "@/contexts/bookFormContext";
 
 export default function FormPay() {
   const ref = useRef(null);
   const inputRef = useRef(null);
-  const paymentInfo = useContext(PaymentContext);
-  const dispatch = useContext(UpdatePaymentContext);
+  const { paymentInfo, dispatch } = useContext(PaymentContext);
+
   // const formData = useContext(BookFormContext);
 
   // console.log(formData);
