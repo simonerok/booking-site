@@ -13,54 +13,86 @@ import TableRow from "@mui/material/TableRow";
 
 const columns = [
   { id: "name", label: "Stages", minWidth: 170 },
-  { id: "code", label: "10:00 - 12:00", minWidth: 100 },
+  { id: "time10", label: "10:00 - 12:00", minWidth: 100 },
   {
-    id: "population",
+    id: "time12",
     label: "12:00 - 14:00",
     minWidth: 170,
     align: "right",
-    format: (value) => value.toLocaleString("en-US"),
   },
   {
-    id: "size",
+    id: "time14",
     label: "14:00 - 16:00",
     minWidth: 170,
     align: "right",
-    format: (value) => value.toLocaleString("en-US"),
   },
   {
-    id: "density",
+    id: "time16",
     label: "16:00 - 18:00",
     minWidth: 170,
     align: "right",
     format: (value) => value.toFixed(2),
   },
   {
-    id: "density",
+    id: "1time8",
     label: "18:00 - 20:00",
     minWidth: 170,
     align: "right",
     format: (value) => value.toFixed(2),
   },
   {
-    id: "density",
+    id: "time20",
     label: "20:00 - 22:00",
     minWidth: 170,
     align: "right",
     format: (value) => value.toFixed(2),
   },
   {
-    id: "density",
+    id: "time22",
     label: "22:00 - 00:00",
+    minWidth: 170,
+    align: "right",
+    format: (value) => value.toFixed(2),
+  },
+  {
+    id: "time00",
+    label: "22:00 - 00:00",
+    minWidth: 170,
+    align: "right",
+    format: (value) => value.toFixed(2),
+  },
+  {
+    id: "time02",
+    label: "00:00 - 02:00",
+    minWidth: 170,
+    align: "right",
+    format: (value) => value.toFixed(2),
+  },
+  {
+    id: "time04",
+    label: "02:00 - 04:00",
+    minWidth: 170,
+    align: "right",
+    format: (value) => value.toFixed(2),
+  },
+  {
+    id: "time06",
+    label: "04:00 - 06:00",
+    minWidth: 170,
+    align: "right",
+    format: (value) => value.toFixed(2),
+  },
+  {
+    id: "time08",
+    label: "06:00 - 08:00",
     minWidth: 170,
     align: "right",
     format: (value) => value.toFixed(2),
   },
 ];
 
-function createData(name, code, population, size) {
-  const density = population / size;
-  return { name, code, population, size, density };
+function createData(name, time10, time12, time14, time16, time18, time20, time22, time00, time02, time04, time06, time08) {
+  return { name, time10, time12, time14, time16, time18, time20, time22, time00, time02, time04, time06, time08 };
 }
 
 const rows = [createData("Midgard", "IN", 1324171354, 3287263), createData("Vanaheim", "CN", 1403500365, 9596961), createData("Jotunheim", "IT", 60483973, 301340)];
@@ -141,37 +173,54 @@ export default function StickyHeadTable() {
       </div>
       <p className={stylesSchedule.dayName}>{day}</p>
 
-      <Paper sx={{ width: "100%", overflow: "hidden" }}>
-        <TableContainer sx={{ maxHeight: 440 }}>
-          <Table stickyHeader aria-label="sticky table">
-            <TableHead>
-              <TableRow>
-                {columns.map((column) => (
-                  <TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
-                    {column.label}
-                  </TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === "number" ? column.format(value) : value}
-                        </TableCell>
-                      );
-                    })}
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Paper>
+      <section className={stylesSchedule.scheduleSection}>
+        <div>
+          <p>Midgard</p>
+          <p>Vanaheim</p>
+          <p>Jotunheim</p>
+        </div>
+        <Paper sx={{ width: "100%", overflow: "hidden" }}>
+          <TableContainer sx={{ maxHeight: 440 }}>
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow>
+                  {columns.map((column) => (
+                    <TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
+                      {column.label}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                  return (
+                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                      {columns.map((column) => {
+                        const value = row[column.id];
+                        return (
+                          <TableCell key={column.id} align={column.align}>
+                            {column.format && typeof value === "number" ? column.format(value) : value}
+                          </TableCell>
+                        );
+                      })}
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Paper>
+      </section>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const api = "http://localhost:8080/schedule";
+  const res = await fetch(api);
+  const data = await res.json();
+  console.log(data);
+  return {
+    props: { schedule: data },
+  };
 }
