@@ -95,40 +95,73 @@ function createData(name, time10, time12, time14, time16, time18, time20, time22
   return { name, time10, time12, time14, time16, time18, time20, time22, time00, time02, time04, time06, time08 };
 }
 
+// export default function StickyHeadTable({ schedule }) {
+//   const rows = [createData(...test("mon", "Midgard")), createData(...test("mon", "Vanaheim")), createData(...test("mon", "Jotunheim"))];
+//   const rows2 = [createData(...test("tue", "Midgard")), createData(...test("tue", "Vanaheim")), createData(...test("tue", "Jotunheim"))];
+//   const [day, setDay] = useState("Monday");
+//   //filter for button days
+//   function changeDay(event) {
+//     if (event.target.value === "Monday") {
+//       setDay("Monday");
+//       console.log(day);
+//     }
+//     if (event.target.value === "Tuesday") {
+//       setDay("Tuesday");
+//       console.log(day);
+//     }
+//     if (event.target.value === "Wednesday") {
+//       setDay("Wednesday");
+//       console.log(day);
+//     }
+//     if (event.target.value === "Thursday") {
+//       setDay("Thursday");
+//       console.log(day);
+//     }
+//     if (event.target.value === "Friday") {
+//       setDay("Friday");
+//       console.log(day);
+//     }
+//     if (event.target.value === "Saturday") {
+//       setDay("Saturday");
+//       console.log(day);
+//     }
+//     if (event.target.value === "Sunday") {
+//       setDay("Sunday");
+//       console.log(day);
+//     }
+//   }
+
 export default function StickyHeadTable({ schedule }) {
-  const rows = [createData(...test("mon", "Midgard")), createData(...test("mon", "Vanaheim")), createData(...test("mon", "Jotunheim"))];
+  const rows = {
+    Monday: [createData(...test("mon", "Midgard")), createData(...test("mon", "Vanaheim")), createData(...test("mon", "Jotunheim"))],
+    Tuesday: [createData(...test("tue", "Midgard")), createData(...test("tue", "Vanaheim")), createData(...test("tue", "Jotunheim"))],
+    Wednesday: [createData(...test("wed", "Midgard")), createData(...test("wed", "Vanaheim")), createData(...test("wed", "Jotunheim"))],
+    Thursday: [createData(...test("thu", "Midgard")), createData(...test("thu", "Vanaheim")), createData(...test("thu", "Jotunheim"))],
+    Friday: [createData(...test("fri", "Midgard")), createData(...test("fri", "Vanaheim")), createData(...test("fri", "Jotunheim"))],
+    Saturday: [createData(...test("sat", "Midgard")), createData(...test("sat", "Vanaheim")), createData(...test("sat", "Jotunheim"))],
+    Sunday: [createData(...test("sun", "Midgard")), createData(...test("sun", "Vanaheim")), createData(...test("sun", "Jotunheim"))],
+  };
+
   const [day, setDay] = useState("Monday");
-  //filter for button days
-  function changeDay(event) {
-    if (event.target.value === "Monday") {
-      setDay("Monday");
-      console.log(day);
-    }
-    if (event.target.value === "Tuesday") {
-      setDay("Tuesday");
-      console.log(day);
-    }
-    if (event.target.value === "Wednesday") {
-      setDay("Wednesday");
-      console.log(day);
-    }
-    if (event.target.value === "Thursday") {
-      setDay("Thursday");
-      console.log(day);
-    }
-    if (event.target.value === "Friday") {
-      setDay("Friday");
-      console.log(day);
-    }
-    if (event.target.value === "Saturday") {
-      setDay("Saturday");
-      console.log(day);
-    }
-    if (event.target.value === "Sunday") {
-      setDay("Sunday");
-      console.log(day);
-    }
+  const [displayedDay, setDisplayedDay] = useState("Monday");
+
+  // Function to update the displayed day and rows based on the selected day
+  function updateDisplayedDay(selectedDay) {
+    setDisplayedDay(selectedDay);
   }
+
+  // Filter for button days
+  function changeDay(event) {
+    const selectedDay = event.target.value;
+    setDay(selectedDay);
+    console.log(day);
+    updateDisplayedDay(selectedDay);
+  }
+
+  // Retrieve the rows for the displayed day
+  const displayedRows = rows[displayedDay] || [];
+
+  // Rest of the component code...
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -143,6 +176,7 @@ export default function StickyHeadTable({ schedule }) {
   };
 
   function test(day, stage) {
+    // Object to store the results
     const results = [];
     //for (const day in schedule.Midgard) {
 
@@ -205,7 +239,8 @@ export default function StickyHeadTable({ schedule }) {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                {/* changed the MUI "structure" from rows to displayedRows */}
+                {displayedRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                   return (
                     <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                       {columns.map((column) => {
