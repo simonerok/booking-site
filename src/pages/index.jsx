@@ -3,6 +3,8 @@ import styles from "@/styles/Home.module.css";
 import Landing from "@/components/Landing";
 import Head from "next/head";
 import ProgramSite from "@/components/ProgramSite";
+import LandingTickets from "@/components/LandingTickets";
+import LandingArtists from "@/components/LandingArtists";
 
 export default function Home({ bandData }) {
   // console.log(bandData);
@@ -16,13 +18,30 @@ export default function Home({ bandData }) {
         <link rel="icon" href="" />
       </Head>
       <Landing />
+      <LandingTickets />
+      {/* <LandingArtists /> */}
+      <section>
+        <article>
+          {/* Display the logo */}
+          <img src={`http://localhost:8080/logos/` + bandData[3].logo} alt="Logo" />
+          <img src={`http://localhost:8080/logos/` + bandData[5].logo} alt="Logo" />
+          <img src={`http://localhost:8080/logos/` + bandData[2].logo} alt="Logo" />
+        </article>
+      </section>
+      <article>
+        <img src="" alt="" />
+      </article>
+      <article>
+        <img src="" alt="" />
+      </article>
+
       {/* <ProgramSite /> */}
-      {bandData.map((perBand) => (
+      {/* {bandData.map((perBand) => (
         //key & value fortæller hvad bands sorteres på
         <section key={bandData.slug} value={bandData.slug}>
           <h2>{perBand.name}</h2>
         </section>
-      ))}
+      ))} */}
     </>
   );
 }

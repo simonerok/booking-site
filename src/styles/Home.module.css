@@ -19,3 +19,10 @@
   background-color: white;
   cursor: pointer;
 }
+
+.ticketSection {
+  display: flex;
+}
+.ticketSection img {
+  max-width: 50rem;
+}

@@ -34,7 +34,7 @@ const columns = [
     format: (value) => value.toFixed(2),
   },
   {
-    id: "1time8",
+    id: "time18",
     label: "18:00 - 20:00",
     minWidth: 170,
     align: "right",
@@ -95,9 +95,8 @@ function createData(name, time10, time12, time14, time16, time18, time20, time22
   return { name, time10, time12, time14, time16, time18, time20, time22, time00, time02, time04, time06, time08 };
 }
 
-const rows = [createData("Midgard", "IN", 1324171354, 3287263), createData("Vanaheim", "CN", 1403500365, 9596961), createData("Jotunheim", "IT", 60483973, 301340)];
-
-export default function StickyHeadTable() {
+export default function StickyHeadTable({ schedule }) {
+  const rows = [createData(...test("mon", "Midgard")), createData(...test("mon", "Vanaheim")), createData(...test("mon", "Jotunheim"))];
   const [day, setDay] = useState("Monday");
   //filter for button days
   function changeDay(event) {
@@ -143,6 +142,20 @@ export default function StickyHeadTable() {
     setPage(0);
   };
 
+  function test(day, stage) {
+    const results = [];
+    //for (const day in schedule.Midgard) {
+
+    const activities = schedule[stage][day];
+    for (const activity of activities) {
+      if (activity.act !== "break") {
+        results.push(activity.act);
+      }
+    }
+    //}
+    console.log({ results });
+    return results;
+  }
   return (
     <>
       <h1>Schedule</h1>

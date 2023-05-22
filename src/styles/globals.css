@@ -9,6 +9,9 @@
   --p: 3.125rem;
   --p-footer: 1.875rem;
 }
+img {
+  width: 100%;
+}
 
 h1 {
   font-family: var(--heading);
