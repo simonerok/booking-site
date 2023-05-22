@@ -14,42 +14,63 @@ import BookFormContext from "@/contexts/bookFormContext";
 export default function FormPay() {
   const ref = useRef(null);
   const inputRef = useRef(null);
-  const { paymentInfo, dispatch } = useContext(PaymentContext);
+  //const { paymentInfo: ticketInfo, dispatch } = useContext(PaymentContext); //ticket booking context
+  const [formPayment, setFormPayment] = useState({
+    fullname: "",
+    email: "",
+    phone: "",
+  });
+  console.log(formPayment);
+  //handle input changes for personal info:
+  function handlePIChanges(e) {
+    const { name, value } = e.target;
+    setFormPayment((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  }
 
-  // const formData = useContext(BookFormContext);
-
-  // console.log(formData);
-
-  // function handleEvent(event) {
-  //   console.log(event.target.value);
-  // }
-
-  // const [paymentInfo, setPaymentInfo] = useState({
-  //   fullname: "",
-  //   email: "",
-  // });
-
-  //creditcard no state
+  //creditcard number state
   const [creditcard, setCreditcard] = useState("");
   const handleCCInput = ({ target: { value } }) => setCreditcard(value);
   //creditcard exp. date state
   const [expDate, setExpDate] = useState("");
   const handleExpInput = ({ target: { value } }) => setExpDate(value);
 
+  //const invalid form input - error state:
+  const [formErrors, setFormErrors] = useState({});
+
   //handle Submit get full payload
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(formPayment);
+    //chatgpt helped
+    const errors = {};
+    //set to default false with each submit
 
-    //dispatch function that returns new state
-    dispatch({
-      action: "SUBMIT",
-      payload: {
-        fullname: e.target.name.value,
-        email: e.target.email.value,
-        card: e.target.standardCard.value,
-      },
-    });
-    console.log(paymentInfo);
+    if (!formPayment.fullname) {
+      errors.name = "Name is required";
+    }
+    if (!formPayment.email || !formPayment.email.includes("@")) {
+      errors.email = "Email is required";
+    }
+    if (!formPayment.card || formPayment.card < 16) {
+      errors.creditcard = "Creditcard full no is required";
+    }
+
+    setFormErrors(errors);
+
+    if (Object.keys(errors).length === 0) {
+      //dispatch function that returns new state
+      dispatch({
+        action: "SUBMIT",
+        payload: {
+          fullname: e.target.name.value,
+          email: e.target.email.value,
+          phone: e.target.phone.value,
+        },
+      });
+    }
   }
 
   return (
@@ -71,43 +92,59 @@ export default function FormPay() {
             <CardContent className={styles.formWrapper}>
               <h2>Personal data</h2>
               <TextField
-                id="name"
+                name="fullname"
+                id="fullname"
                 label="Name"
                 placeholder={"fx: John Doe"}
                 required
-                // onInput={handleEvent}
+                onChange={handlePIChanges}
               />
 
               <br></br>
               <TextField
+                name="email"
                 id="email"
                 label="Email"
                 placeholder={"fx: JohnDoe@gmail.com"}
                 required
+                onChange={handlePIChanges}
+                error={!!formErrors.email}
+                helperText={formErrors.email}
               />
               <br></br>
               <TextField
+                name="phone"
                 type="tel"
-                id="outlined-required"
+                id="phone"
                 label="Phone"
                 maxLength="4"
                 pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"
                 placeholder={"fx: 11111111"}
                 required
+                onChange={handlePIChanges}
               />
 
               <h2>Payment</h2>
               <FormGroup variant="standard" id="paymentInfoGroup">
                 <TextField
                   type="text"
+                  name="Cardholder's name"
+                  label="Cardholder's name"
+                  required
+                ></TextField>
+                <br></br>
+                <TextField
+                  type="text"
                   id="standardCard"
                   label="Credit Card No."
                   required
                   name="creditcard"
-                  maxlength="16"
+                  maxLength="16"
                   value={creditcard}
                   onChange={handleCCInput}
                   variant="outlined"
+                  error={!!formErrors.creditcard}
+                  helperText={formErrors.creditcard}
                   //used InputProps for custom inputs and components with react-input-mask
                   //chatgpt helped
                   InputProps={{
@@ -134,11 +171,17 @@ export default function FormPay() {
                     },
                   }}
                 />
+                <TextField
+                  type="text"
+                  name="CVC"
+                  label="CVC"
+                  min="3"
+                ></TextField>
               </FormGroup>
             </CardContent>
+            <button type="submit">Submit</button>
           </Card>
         </FormControl>
-        <button type="submit">Submit</button>
       </form>
     </>
   );

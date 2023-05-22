@@ -8,7 +8,7 @@ export const UpdatePaymentContext = createContext();
 const initialState = {
   fullname: "",
   email: "",
-  card: 0,
+  phone: "",
 };
 
 //purpose of reducers returns the next state
