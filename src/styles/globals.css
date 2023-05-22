@@ -39,6 +39,9 @@ button {
   height: 3rem;
   background-color: transparent;
 }
+button:hover {
+  cursor: pointer;
+}
 
 span {
   font-weight: bold;

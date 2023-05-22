@@ -12,7 +12,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
 const columns = [
-  { id: "name", label: "Stages", minWidth: 170 },
   { id: "time10", label: "10:00 - 12:00", minWidth: 100 },
   {
     id: "time12",
@@ -91,8 +90,8 @@ const columns = [
   },
 ];
 
-function createData(name, time10, time12, time14, time16, time18, time20, time22, time00, time02, time04, time06, time08) {
-  return { name, time10, time12, time14, time16, time18, time20, time22, time00, time02, time04, time06, time08 };
+function createData(time10, time12, time14, time16, time18, time20, time22, time00, time02, time04, time06, time08) {
+  return { time10, time12, time14, time16, time18, time20, time22, time00, time02, time04, time06, time08 };
 }
 
 // export default function StickyHeadTable({ schedule }) {
@@ -159,9 +158,9 @@ export default function StickyHeadTable({ schedule }) {
   }
 
   // Retrieve the rows for the displayed day
+  // || is used to provide a fallback value, which is an empty array [].
+  // This ensures that displayedRows will always be an array, even if the displayedDay is not found in the rows object.
   const displayedRows = rows[displayedDay] || [];
-
-  // Rest of the component code...
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
