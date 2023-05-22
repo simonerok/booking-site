@@ -4,6 +4,7 @@ import styles from "../styles/Form.module.css";
 export default function MyButton({ onClick, children }) {
   return (
     <Button
+      type="submit"
       className={styles.form_btn}
       variant="contained"
       sx={{

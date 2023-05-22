@@ -4,7 +4,6 @@ import { Alert, InputLabel, FormControl, Card, CardContent, TextField, Select, C
 import { getServerSideProps } from "./index.jsx";
 import MyButton from "@/components/MyButton.jsx";
 import styles from "../styles/Form.module.css";
-import { useForm } from "react-hook-form";
 
 /* import Alert from "@/components/Alert.jsx"; */
 
@@ -13,6 +12,10 @@ export default function Form({ spotData }) {
   const [selectedSpot, setSelectedSpot] = useState("");
   const [selectedArea, setSelectedArea] = useState("");
 
+  const handleChange = (event) => {
+    setSelectedSpot(event.target.value);
+    setSelectedArea(event.target.value);
+  };
   /* åben og luk af info ikon */
   const [open, setOpen] = useState(false);
   /* tjekker staten på info ikon om det er åbent(true) eller lukket (false) */
@@ -20,22 +23,11 @@ export default function Form({ spotData }) {
     setOpen(!open);
   };
 
-  const handleChange = (event) => {
-    setSelectedSpot(event.target.value);
-    setSelectedArea(event.target.value);
-  };
-  /* submit button MUI */
-  const { handleSubmit } = useForm();
-  const onSubmit = (submitButton) => {
-    // Handle form submission logic here
-    console.log(submitButton);
-  };
-
   return (
     <>
       <h1>Ticket details</h1>
       <div className={styles.formBackground}>
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.form}>
           <FormControl variant="filled">
             <Card>
               <CardContent className={styles.formWrapper}>
@@ -99,7 +91,14 @@ export default function Form({ spotData }) {
                 </FormGroup>
               </CardContent>
               <div className={styles.btn_container}>
-                <MyButton type="submit">Go to payment</MyButton>
+                <MyButton
+                  type="submit"
+                  onClick={() => {
+                    console.log("clicked");
+                  }}
+                >
+                  Go to payment
+                </MyButton>
               </div>
             </Card>
           </FormControl>

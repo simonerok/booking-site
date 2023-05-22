@@ -1,12 +1,12 @@
 /* FONTS FORM */
 
-.formBackground {
+/* .formBackground {
   background-image: url("/ticket.svg");
   background-repeat: no-repeat;
   width: 100%;
   height: auto;
   object-fit: cover;
-}
+} */
 
 .form {
   display: grid;
