@@ -9,7 +9,7 @@ import {
   AccordionSummary,
 } from "@mui/material";
 import styles from "../styles/Form.module.css";
-import { PaymentContext } from "../contexts/ticketContext";
+import { PaymentContext } from "../contexts/bookingContext";
 import { useContext, useRef } from "react";
 
 export default function FormTab({ title }) {
