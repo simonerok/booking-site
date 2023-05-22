@@ -21,7 +21,7 @@ export default function Home({ bandData }) {
       <LandingTickets />
       {/* <LandingArtists /> */}
       <section>
-        <article>
+        <article className={styles.landingArtistGrid}>
           {/* Display the logo */}
           <img src={`http://localhost:8080/logos/` + bandData[3].logo} alt="Logo" />
           <img src={`http://localhost:8080/logos/` + bandData[5].logo} alt="Logo" />
