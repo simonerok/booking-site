@@ -9,49 +9,79 @@ import {
   AccordionSummary,
 } from "@mui/material";
 import styles from "../styles/Form.module.css";
+import { PaymentContext } from "../contexts/ticketContext";
+import { useContext, useRef } from "react";
 
 export default function FormTab({ title }) {
+  const formsEl = useRef(null);
+  //destructure context
+  const { paymentInfo, dispatch } = useContext(PaymentContext);
+  //destructure attendees array from formData
+  const { attendees } = paymentInfo;
+
+  //handle input changes for personal info:
+  function handlePIChanges(e) {
+    // setFormPayment((prevValues) => ({
+    //   ...prevValues,
+    //   [name]: value,
+    // }));
+    e.index, e.target.value;
+    dispatch({
+      type: "UPDATE_FIELD",
+      payload: {
+        [fullname]: formsEl.current.name.value,
+      },
+    });
+  }
   return (
     <Accordion>
-      <AccordionSummary>Person 1</AccordionSummary>
+      <AccordionSummary>{title}</AccordionSummary>
       <AccordionDetails>
         <form>
           <FormControl>
             <Card>
               <CardContent styles={styles.formWrapper}>
-                <h3>Personal data</h3>
-                <TextField
-                  name="fullname"
-                  id="fullname"
-                  label="Name"
-                  placeholder={"fx: John Doe"}
-                  required
-                  // onChange={handlePIChanges}
-                />
+                <h3>Personal data for {title}</h3>
+                {attendees.map((attendee, index) => (
+                  <>
+                    <TextField
+                      key={index}
+                      name="fullname"
+                      id="fullname"
+                      label="Fullname"
+                      placeholder={"fx: John Doe"}
+                      required
+                      value={attendee.fullname}
+                      onChange={handlePIChanges}
+                    />
 
-                <br></br>
-                <TextField
-                  name="email"
-                  id="email"
-                  label="Email"
-                  placeholder={"fx: JohnDoe@gmail.com"}
-                  required
-                  // onChange={handlePIChanges}
-                  // error={!!formErrors.email}
-                  // helperText={formErrors.email}
-                />
-                <br></br>
-                <TextField
-                  name="phone"
-                  type="tel"
-                  id="phone"
-                  label="Phone"
-                  maxLength="4"
-                  pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"
-                  placeholder={"fx: 11111111"}
-                  required
-                  // onChange={handlePIChanges}
-                />
+                    <br></br>
+                    <TextField
+                      name="email"
+                      id="email"
+                      label="Email"
+                      placeholder={"fx: JohnDoe@gmail.com"}
+                      required
+                      value={attendee.email}
+                      // onChange={handlePIChanges}
+                      // error={!!formErrors.email}
+                      // helperText={formErrors.email}
+                    />
+                    <br></br>
+                    <TextField
+                      name="phone"
+                      type="tel"
+                      id="phone"
+                      label="Phone"
+                      maxLength="4"
+                      pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"
+                      placeholder={"fx: 11111111"}
+                      required
+                      value={attendee.phone}
+                      // onChange={handlePIChanges}
+                    />
+                  </>
+                ))}
               </CardContent>
               {/* <button type="next">Submit</button> */}
             </Card>
