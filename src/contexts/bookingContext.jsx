@@ -3,12 +3,13 @@ import { createContext, useReducer } from "react";
 
 export const formDataContext = createContext();
 
-export const UpdatePaymentContext = createContext();
+export const UpdateFormContext = createContext();
 
 //useReducer to manage complex states in ticketContext
 //global object expanded with inspiration  from https://github.com/Robert-d-s/foofest-app/blob/tereattendees/src/components/BookingForm.js
 const initialState = {
   formData: {
+    date: "",
     ticketType: "",
     ticketAmount: 0,
     area: "",
@@ -79,10 +80,10 @@ function reducer(state, action) {
 
 export const FormDataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  //  const { currentStep, formData } = state;
+  const { formData } = state;
 
   return (
-    <formDataContext.Provider value={{ state, dispatch }}>
+    <formDataContext.Provider value={{ formData, dispatch }}>
       {children}
     </formDataContext.Provider>
   );

@@ -1,18 +1,33 @@
-import React, { useState } from "react";
-import { Alert, InputLabel, FormControl, Card, CardContent, TextField, Select, Checkbox, FormGroup, FormControlLabel, MenuItem } from "@mui/material";
+import React, { useState, useContext } from "react";
+import {
+  Alert,
+  InputLabel,
+  FormControl,
+  Card,
+  CardContent,
+  TextField,
+  Select,
+  Checkbox,
+  FormGroup,
+  FormControlLabel,
+  MenuItem,
+} from "@mui/material";
 import MyButton from "@/components/MyButton.jsx";
 import styles from "../styles/Form.module.css";
 import OtherOptionsSection from "./OtherOptions";
 import AvailableSpotsSection from "./AvailableSpots";
 import TicketsSection from "./TicketSection";
+import { formDataContext } from "@/contexts/bookingContext";
 
-export default function TicketForm({ spotData }) {
+export default function MainTicket({ spotData }) {
   console.log(spotData, "from ticket");
   const [selectedSpot, setSelectedSpot] = useState("");
   const [selectedArea, setSelectedArea] = useState("");
   const [numberOfTickets, setNumberOfTickets] = useState(0);
   const [open, setOpen] = useState(false);
 
+  //context
+  const { formData, dispatch } = useContext(formDataContext);
   const handleChange = (event) => {
     setSelectedSpot(event.target.value);
     setSelectedArea(event.target.value);
@@ -45,9 +60,23 @@ export default function TicketForm({ spotData }) {
           <FormControl variant="filled">
             <Card>
               <CardContent className={styles.formWrapper}>
-                <TicketsSection numberOfTickets={numberOfTickets} setNumberOfTickets={setNumberOfTickets} selectedSpot={selectedSpot} selectedArea={selectedArea} handleChange={handleChange} />
-                <AvailableSpotsSection areaData={spotData} selectedSpot={selectedSpot} selectedArea={selectedArea} handleChange={handleChange} />
-                <OtherOptionsSection open={open} handleInfoClick={handleInfoClick} />
+                <TicketsSection
+                  numberOfTickets={numberOfTickets}
+                  setNumberOfTickets={setNumberOfTickets}
+                  selectedSpot={selectedSpot}
+                  selectedArea={selectedArea}
+                  handleChange={handleChange}
+                />
+                <AvailableSpotsSection
+                  areaData={spotData}
+                  selectedSpot={selectedSpot}
+                  selectedArea={selectedArea}
+                  handleChange={handleChange}
+                />
+                <OtherOptionsSection
+                  open={open}
+                  handleInfoClick={handleInfoClick}
+                />
               </CardContent>
               <div className={styles.btn_container}>
                 <MyButton type="submit">Go to payment</MyButton>
