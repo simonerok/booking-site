@@ -79,10 +79,10 @@ function reducer(state, action) {
 }
 
 export const FormDataProvider = ({ children }) => {
-  const [formState, dispatch] = useReducer(reducer, initialState);
-
+  const [formData, dispatch] = useReducer(reducer, initialState);
+  console.log(formData);
   return (
-    <formDataContext.Provider value={{ formState, dispatch }}>
+    <formDataContext.Provider value={{ formData, dispatch }}>
       {children}
     </formDataContext.Provider>
   );

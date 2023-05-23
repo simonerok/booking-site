@@ -16,16 +16,17 @@ import MyButton from "@/components/MyButton.jsx";
 import styles from "../styles/Form.module.css";
 import { formDataContext } from "@/contexts/bookingContext";
 
-export default function TicketsSection({
-  globalData,
-  dispatch,
-  // numberOfTickets,
-  // setNumberOfTickets,
-  // selectedSpot,
-  // selectedArea,
-  // handleChange,
-}) {
-  // const { formData, dispatch } = useContext(formDataContext);
+export default function TicketsSection(
+  {
+    // numberOfTickets,
+    // setNumberOfTickets,
+    // selectedSpot,
+    // selectedArea,
+    // handleChange,
+  }
+) {
+  //context call for the child component
+  const { formData, dispatch } = useContext(formDataContext);
 
   return (
     <>
@@ -40,13 +41,14 @@ export default function TicketsSection({
         className={styles.inputField}
         type="number"
         label="Number of tickets"
-        value={globalData.ticketType}
-        onChange={(e) => {
+        value={formData.ticketType}
+        onChange={(e) =>
           dispatch({
-            type: "UPDATE_FIELD",
+            //dispatch to the global formData obj. with new state value
+            action: "UPDATE_FIELD",
             payload: { field: "ticketAmount", value: e.target.value },
-          });
-        }}
+          })
+        }
         // value={numberOfTickets}
         // onChange={(e) => setNumberOfTickets(e.target.value)}
       />

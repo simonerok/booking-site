@@ -26,8 +26,8 @@ export default function MainTicket({ spotData }) {
   const [numberOfTickets, setNumberOfTickets] = useState(0);
   const [open, setOpen] = useState(false);
 
-  //context
-  const { formState, dispatch } = useContext(formDataContext);
+  //context call on the parent
+  const { formData, dispatch } = useContext(formDataContext);
   const handleChange = (event) => {
     setSelectedSpot(event.target.value);
     setSelectedArea(event.target.value);
@@ -61,19 +61,19 @@ export default function MainTicket({ spotData }) {
             <Card>
               <CardContent className={styles.formWrapper}>
                 <TicketsSection
-                  globalData={formState}
-                  dispatch={dispatch}
-                  // numberOfTickets={numberOfTickets}
-                  // setNumberOfTickets={setNumberOfTickets}
-                  // selectedSpot={selectedSpot}
-                  // selectedArea={selectedArea}
-                  // handleChange={handleChange}
+                // numberOfTickets={numberOfTickets}
+                // setNumberOfTickets={setNumberOfTickets}
+                // selectedSpot={selectedSpot}
+                // selectedArea={selectedArea}
+                // handleChange={handleChange}
                 />
                 <AvailableSpotsSection
+                  globalData={formData}
+                  dispatch={dispatch}
                   areaData={spotData}
                   selectedSpot={selectedSpot}
                   selectedArea={selectedArea}
-                  handleChange={handleChange}
+                  // handleChange={handleChange}
                 />
                 <OtherOptionsSection
                   open={open}
