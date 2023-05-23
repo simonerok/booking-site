@@ -13,7 +13,6 @@ const initialState = {
     ticketType: "",
     ticketAmount: 0,
     area: "",
-    amount: 0,
     attendees: [
       {
         fullname: "",
@@ -21,7 +20,10 @@ const initialState = {
         phone: "",
       },
     ],
+    green: false,
+    tent: false,
     id: "",
+    currentStep: 0,
   },
 };
 
@@ -63,9 +65,11 @@ function reducer(state, action) {
     case "NEXT":
       return {
         ...state,
-        fullname: action.payload.fullname,
-        email: action.payload.email,
-        phone: action.payload.phone,
+        currentStep: state.currentStep + 1,
+        formData: {
+          ...state.formData,
+          ...action.payload,
+        },
       };
     case "SUBMIT":
       return {
