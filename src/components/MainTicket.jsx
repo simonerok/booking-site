@@ -28,10 +28,10 @@ export default function MainTicket({ spotData }) {
 
   //context call on the parent
   const { formData, dispatch } = useContext(formDataContext);
-  const handleChange = (event) => {
-    setSelectedSpot(event.target.value);
-    setSelectedArea(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setSelectedSpot(event.target.value);
+  //   setSelectedArea(event.target.value);
+  // };
 
   const handleInfoClick = () => {
     setOpen(!open);
@@ -39,19 +39,24 @@ export default function MainTicket({ spotData }) {
 
   function reserveSpot(e) {
     e.preventDefault();
+    handleNextFormComponent();
     fetch("http://localhost:8080/reserve-spot", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        area: selectedArea,
-        amount: numberOfTickets,
+        area: formData.formData.area, //call the formData function and anccess the formData obj with area prop value
+        amount: formData.formData.ticketAmount,
       }),
     });
-    console.log("test");
-  }
 
+    console.log("test", formData.formData.area);
+  }
+  function handleNextFormComponent() {
+    dispatch({ action: "NEXT" });
+    dispatch({ type: "CREATE_ATTENDEE_STRUCTURE" });
+  }
   return (
     <>
       <h1>Ticket details</h1>
@@ -60,19 +65,8 @@ export default function MainTicket({ spotData }) {
           <FormControl variant="filled">
             <Card>
               <CardContent className={styles.formWrapper}>
-                <TicketsSection
-                // numberOfTickets={numberOfTickets}
-                // setNumberOfTickets={setNumberOfTickets}
-                // selectedSpot={selectedSpot}
-                // selectedArea={selectedArea}
-                // handleChange={handleChange}
-                />
-                <AvailableSpotsSection
-                  areaData={spotData}
-                  selectedSpot={selectedSpot}
-                  selectedArea={selectedArea}
-                  handleChange={handleChange}
-                />
+                <TicketsSection />
+                <AvailableSpotsSection areaData={spotData} />
                 <OtherOptionsSection
                   open={open}
                   handleInfoClick={handleInfoClick}
