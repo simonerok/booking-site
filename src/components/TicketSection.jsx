@@ -17,13 +17,15 @@ import styles from "../styles/Form.module.css";
 import { formDataContext } from "@/contexts/bookingContext";
 
 export default function TicketsSection({
-  numberOfTickets,
-  setNumberOfTickets,
-  selectedSpot,
-  selectedArea,
-  handleChange,
+  globalData,
+  dispatch,
+  // numberOfTickets,
+  // setNumberOfTickets,
+  // selectedSpot,
+  // selectedArea,
+  // handleChange,
 }) {
-  const { formData, dispatch } = useContext(formDataContext);
+  // const { formData, dispatch } = useContext(formDataContext);
 
   return (
     <>
@@ -38,8 +40,15 @@ export default function TicketsSection({
         className={styles.inputField}
         type="number"
         label="Number of tickets"
-        value={numberOfTickets}
-        onChange={(e) => setNumberOfTickets(e.target.value)}
+        value={globalData.ticketType}
+        onChange={(e) => {
+          dispatch({
+            type: "UPDATE_FIELD",
+            payload: { field: "ticketAmount", value: e.target.value },
+          });
+        }}
+        // value={numberOfTickets}
+        // onChange={(e) => setNumberOfTickets(e.target.value)}
       />
       <InputLabel
         id="dropdown-label"
@@ -55,8 +64,8 @@ export default function TicketsSection({
         labelId="ticket-type"
         id="dropdowm"
         label="Ticket-Type"
-        value={selectedSpot}
-        onChange={handleChange}
+        // value={selectedSpot}
+        // onChange={handleChange}
       >
         <MenuItem value="reg">Regular 799,-</MenuItem>
         <MenuItem value="vip">VIP 1299,-</MenuItem>

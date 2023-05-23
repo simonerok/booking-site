@@ -14,7 +14,7 @@ export async function getServerSideProps() {
 }
 
 export default function BookingDisplay({ data }) {
-  const { formData, dispatch } = useContext(formDataContext);
+  const { formState, dispatch } = useContext(formDataContext);
 
-  return <MainTicket formData={{ formData, dispatch }} spotData={data} />;
+  return <MainTicket formData={{ formState, dispatch }} spotData={data} />;
 }
