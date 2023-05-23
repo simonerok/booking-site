@@ -3,6 +3,7 @@ import styles from "@/styles/Home.module.css";
 import Landing from "@/components/Landing";
 import Head from "next/head";
 import ProgramSite from "@/components/ProgramSite";
+import Link from "next/link";
 
 export default function Home({ bandData }) {
   // console.log(bandData);
@@ -15,6 +16,10 @@ export default function Home({ bandData }) {
         <link rel="stylesheet" href="https://use.typekit.net/bxq7sds.css" />
         <link rel="icon" href="" />
       </Head>
+      <Link href="/booking_display">
+        <button>mainTicket</button>
+      </Link>
+
       <Landing />
       <ProgramSite />
       {bandData.map((perBand) => (
@@ -27,11 +32,7 @@ export default function Home({ bandData }) {
   );
 }
 export async function getServerSideProps() {
-  const apiEndpoints = [
-    "http://localhost:8080/bands",
-    "http://localhost:8080/schedule",
-    "http://localhost:8080/available-spots",
-  ];
+  const apiEndpoints = ["http://localhost:8080/bands", "http://localhost:8080/schedule", "http://localhost:8080/available-spots"];
   // const apiEndpoints = [
   //   "https://nova-enchanted-confidence.glitch.me/bands",
   //   "https://nova-enchanted-confidence.glitch.me/schedule",

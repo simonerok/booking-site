@@ -3,12 +3,12 @@ import { useState } from "react";
 import { Alert, InputLabel, FormControl, Card, CardContent, TextField, Select, Checkbox, FormGroup, FormControlLabel, MenuItem } from "@mui/material";
 import MyButton from "@/components/MyButton.jsx";
 import styles from "../styles/Form.module.css";
-import { getServerSideProps } from "./index";
+import { getServerSideProps } from "../pages/index";
 
 /* import Alert from "@/components/Alert.jsx"; */
 /* henter spotData fra getServerSideProps som er importeret fra index */
 
-export default function Form({ spotData }) {
+export default function TicketForm({ spotData }) {
   const [selectedSpot, setSelectedSpot] = useState("");
   const [selectedArea, setSelectedArea] = useState("");
   const [numberOfTickets, setNumberOfTickets] = useState(0);
