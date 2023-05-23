@@ -27,8 +27,23 @@
 .days {
   display: flex;
   justify-content: center;
+
   gap: 1rem;
+  overflow-x: auto;
 }
+
+.days button {
+  flex-shrink: 0;
+  /* ensures buttons don't shrink to fit the container width. */
+  width: 10rem;
+}
+
+@media (max-width: 1215px) {
+  .days {
+    justify-content: flex-start; /* This ensures the left alignment of items */
+  }
+}
+
 .dayName {
   text-align: center;
 }
