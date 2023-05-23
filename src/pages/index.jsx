@@ -19,21 +19,7 @@ export default function Home({ bandData }) {
       </Head>
       <Landing />
       <LandingTickets />
-      {/* <LandingArtists /> */}
-      <section>
-        <article className={styles.landingArtistGrid}>
-          {/* Display the logo */}
-          <img src={`http://localhost:8080/logos/` + bandData[3].logo} alt="Logo" />
-          <img src={`http://localhost:8080/logos/` + bandData[5].logo} alt="Logo" />
-          <img src={`http://localhost:8080/logos/` + bandData[2].logo} alt="Logo" />
-        </article>
-      </section>
-      <article>
-        <img src="" alt="" />
-      </article>
-      <article>
-        <img src="" alt="" />
-      </article>
+      <LandingArtists bandData={bandData} />
 
       {/* <ProgramSite /> */}
       {/* {bandData.map((perBand) => (

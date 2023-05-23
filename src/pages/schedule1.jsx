@@ -94,42 +94,6 @@ function createData(time10, time12, time14, time16, time18, time20, time22, time
   return { time10, time12, time14, time16, time18, time20, time22, time00, time02, time04, time06, time08 };
 }
 
-// export default function StickyHeadTable({ schedule }) {
-//   const rows = [createData(...test("mon", "Midgard")), createData(...test("mon", "Vanaheim")), createData(...test("mon", "Jotunheim"))];
-//   const rows2 = [createData(...test("tue", "Midgard")), createData(...test("tue", "Vanaheim")), createData(...test("tue", "Jotunheim"))];
-//   const [day, setDay] = useState("Monday");
-//   //filter for button days
-//   function changeDay(event) {
-//     if (event.target.value === "Monday") {
-//       setDay("Monday");
-//       console.log(day);
-//     }
-//     if (event.target.value === "Tuesday") {
-//       setDay("Tuesday");
-//       console.log(day);
-//     }
-//     if (event.target.value === "Wednesday") {
-//       setDay("Wednesday");
-//       console.log(day);
-//     }
-//     if (event.target.value === "Thursday") {
-//       setDay("Thursday");
-//       console.log(day);
-//     }
-//     if (event.target.value === "Friday") {
-//       setDay("Friday");
-//       console.log(day);
-//     }
-//     if (event.target.value === "Saturday") {
-//       setDay("Saturday");
-//       console.log(day);
-//     }
-//     if (event.target.value === "Sunday") {
-//       setDay("Sunday");
-//       console.log(day);
-//     }
-//   }
-
 export default function StickyHeadTable({ schedule }) {
   const rows = {
     Monday: [createData(...test("mon", "Midgard")), createData(...test("mon", "Vanaheim")), createData(...test("mon", "Jotunheim"))],
@@ -140,6 +104,42 @@ export default function StickyHeadTable({ schedule }) {
     Saturday: [createData(...test("sat", "Midgard")), createData(...test("sat", "Vanaheim")), createData(...test("sat", "Jotunheim"))],
     Sunday: [createData(...test("sun", "Midgard")), createData(...test("sun", "Vanaheim")), createData(...test("sun", "Jotunheim"))],
   };
+
+  // export default function StickyHeadTable({ schedule }) {
+  //   const rows = [createData(...test("mon", "Midgard")), createData(...test("mon", "Vanaheim")), createData(...test("mon", "Jotunheim"))];
+  //   const rows2 = [createData(...test("tue", "Midgard")), createData(...test("tue", "Vanaheim")), createData(...test("tue", "Jotunheim"))];
+  //   const [day, setDay] = useState("Monday");
+  //   //filter for button days
+  //   function changeDay(event) {
+  //     if (event.target.value === "Monday") {
+  //       setDay("Monday");
+  //       console.log(day);
+  //     }
+  //     if (event.target.value === "Tuesday") {
+  //       setDay("Tuesday");
+  //       console.log(day);
+  //     }
+  //     if (event.target.value === "Wednesday") {
+  //       setDay("Wednesday");
+  //       console.log(day);
+  //     }
+  //     if (event.target.value === "Thursday") {
+  //       setDay("Thursday");
+  //       console.log(day);
+  //     }
+  //     if (event.target.value === "Friday") {
+  //       setDay("Friday");
+  //       console.log(day);
+  //     }
+  //     if (event.target.value === "Saturday") {
+  //       setDay("Saturday");
+  //       console.log(day);
+  //     }
+  //     if (event.target.value === "Sunday") {
+  //       setDay("Sunday");
+  //       console.log(day);
+  //     }
+  //   }
 
   const [day, setDay] = useState("Monday");
   const [displayedDay, setDisplayedDay] = useState("Monday");
