@@ -17,12 +17,17 @@ export async function getServerSideProps() {
 export default function BookingDisplay({ data }) {
   //provide the context to the component
   const { formState, dispatch } = useContext(formDataContext);
-  const [currentStep] = useState(0);
-
+  const [currentStep, setCurrentStep] = useState(0);
   switch (currentStep) {
     case 1:
       return <PersonalInfo />;
     default:
-      return <MainTicket formData={{ formState, dispatch }} spotData={data} />;
+      return (
+        <MainTicket
+          currentStepSetter={setCurrentStep}
+          formData={{ formState, dispatch }}
+          spotData={data}
+        />
+      );
   }
 }

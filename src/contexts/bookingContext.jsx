@@ -23,7 +23,6 @@ const initialState = {
     green: false,
     tent: false,
     id: "",
-    currentStep: 0,
   },
 };
 
@@ -65,7 +64,7 @@ function reducer(state, action) {
     case "NEXT":
       return {
         ...state,
-        currentStep: state.currentStep + 1,
+
         formData: {
           ...state.formData,
           ...action.payload,
@@ -84,6 +83,7 @@ function reducer(state, action) {
 
 export const FormDataProvider = ({ children }) => {
   const [formData, dispatch] = useReducer(reducer, initialState);
+
   console.log(formData);
   return (
     <formDataContext.Provider value={{ formData, dispatch }}>

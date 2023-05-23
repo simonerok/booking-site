@@ -19,7 +19,7 @@ import AvailableSpotsSection from "./AvailableSpots";
 import TicketsSection from "./TicketSection";
 import { formDataContext } from "@/contexts/bookingContext";
 
-export default function MainTicket({ spotData }) {
+export default function MainTicket({ spotData, currentStepSetter }) {
   console.log(spotData, "from ticket");
   const [selectedSpot, setSelectedSpot] = useState("");
   const [selectedArea, setSelectedArea] = useState("");
@@ -55,6 +55,7 @@ export default function MainTicket({ spotData }) {
   function handleNextFormComponent() {
     dispatch({ action: "NEXT" });
     dispatch({ type: "CREATE_ATTENDEE_STRUCTURE" });
+    currentStepSetter(1);
   }
   return (
     <>
