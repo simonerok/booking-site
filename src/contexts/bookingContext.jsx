@@ -1,7 +1,7 @@
 import PersonalInfo from "@/components/PersonalInfo";
 import { createContext, useReducer } from "react";
 
-export const PaymentContext = createContext();
+export const formDataContext = createContext();
 
 export const UpdatePaymentContext = createContext();
 
@@ -12,7 +12,7 @@ const initialState = {
     ticketType: "",
     ticketAmount: 0,
     area: "",
-    spotsChosen: "",
+    amount: 0,
     attendees: [
       {
         fullname: "",
@@ -77,13 +77,13 @@ function reducer(state, action) {
   }
 }
 
-export const PaymentProvider = ({ children }) => {
+export const FormDataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   //  const { currentStep, formData } = state;
 
   return (
-    <PaymentContext.Provider value={{ state, dispatch }}>
+    <formDataContext.Provider value={{ state, dispatch }}>
       {children}
-    </PaymentContext.Provider>
+    </formDataContext.Provider>
   );
 };

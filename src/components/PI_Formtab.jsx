@@ -9,13 +9,13 @@ import {
   AccordionSummary,
 } from "@mui/material";
 import styles from "../styles/Form.module.css";
-import { PaymentContext } from "../contexts/bookingContext";
+import { formDataContext } from "../contexts/bookingContext";
 import { useContext, useRef } from "react";
 
 export default function FormTab({ title }) {
   const formsEl = useRef(null);
   //destructure context
-  const { paymentInfo, dispatch } = useContext(PaymentContext);
+  const { paymentInfo, dispatch } = useContext(formDataContext);
   //destructure attendees array from formData
   const { attendees } = paymentInfo;
 
