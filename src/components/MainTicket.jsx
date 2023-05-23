@@ -68,12 +68,10 @@ export default function MainTicket({ spotData }) {
                 // handleChange={handleChange}
                 />
                 <AvailableSpotsSection
-                  globalData={formData}
-                  dispatch={dispatch}
                   areaData={spotData}
                   selectedSpot={selectedSpot}
                   selectedArea={selectedArea}
-                  // handleChange={handleChange}
+                  handleChange={handleChange}
                 />
                 <OtherOptionsSection
                   open={open}

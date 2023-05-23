@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Alert,
   InputLabel,
@@ -14,15 +14,16 @@ import {
 } from "@mui/material";
 import MyButton from "@/components/MyButton.jsx";
 import styles from "../styles/Form.module.css";
+import { formDataContext } from "@/contexts/bookingContext";
 
 export default function AvailableSpotsSection({
-  globalData,
-  dispatch,
   areaData,
   selectedSpot,
-  selectedArea, //handleChange
+  selectedArea,
+  handleChange,
 }) {
-  console.log(areaData);
+  //consume the context
+  const { formData, dispatch } = useContext(formDataContext);
   return (
     <>
       <h2>Available Spots:</h2>
@@ -31,7 +32,14 @@ export default function AvailableSpotsSection({
         labelId="dropdown-label"
         id="dropdowm"
         label="Available spots"
-        value={selectedArea}
+        // value={formData.area}
+        // onChange={(e) =>
+        //   dispatch({
+        //     //dispatch to the global formData obj. with new state value
+        //     action: "UPDATE_FIELD",
+        //     payload: { field: "area", value: e.target.value },
+        //   })
+        // }
       >
         {areaData.map((spot, availability) => (
           <p key={availability} value={spot.available}>
@@ -52,11 +60,9 @@ export default function AvailableSpotsSection({
           labelId="dropdown-label"
           id="dropdowm"
           label="Available spots"
-          value={selectedArea}
-          // onChange={handleChange}
           onChange={(e) => {
             dispatch({
-              type: "UPDATE_FIELD",
+              action: "UPDATE_FIELD",
               payload: { field: "area", value: e.target.value },
             });
           }}
