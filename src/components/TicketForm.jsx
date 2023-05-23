@@ -1,14 +1,14 @@
-import React from "react";
+/* import React from "react";
 import { useState } from "react";
 import { Alert, InputLabel, FormControl, Card, CardContent, TextField, Select, Checkbox, FormGroup, FormControlLabel, MenuItem } from "@mui/material";
 import MyButton from "@/components/MyButton.jsx";
 import styles from "../styles/Form.module.css";
-import { getServerSideProps } from "../pages/index";
+import { getServerSideProps } from "../pages/index"; */
 
 /* import Alert from "@/components/Alert.jsx"; */
 /* henter spotData fra getServerSideProps som er importeret fra index */
 
-export default function TicketForm({ spotData }) {
+/* export default function TicketForm({ spotData }) {
   const [selectedSpot, setSelectedSpot] = useState("");
   const [selectedArea, setSelectedArea] = useState("");
   const [numberOfTickets, setNumberOfTickets] = useState(0);
@@ -17,9 +17,9 @@ export default function TicketForm({ spotData }) {
     setSelectedSpot(event.target.value);
     setSelectedArea(event.target.value);
   };
-  /* åben og luk af info ikon */
+ 
   const [open, setOpen] = useState(false);
-  /* tjekker staten på info ikon om det er åbent(true) eller lukket (false) */
+
   const handleInfoClick = () => {
     setOpen(!open);
   };
@@ -34,11 +34,11 @@ export default function TicketForm({ spotData }) {
         area: selectedArea,
         amount: numberOfTickets,
       }),
-      /* async function der mapper gennem alt */
+     
     });
     console.log("test");
-  }
-
+  } */
+/* 
   return (
     <>
       <h1>Ticket details</h1>
@@ -63,7 +63,7 @@ export default function TicketForm({ spotData }) {
                 <h2>Available Spots:</h2>
                 <FormGroup className={styles.campText} labelId="dropdown-label" id="dropdowm" label="Available spots" value={(selectedSpot, selectedArea)} onChange={handleChange}>
                   {spotData.map((spot, availability) => (
-                    /* Dette udskriver hvor mange spots der er ledige og på hvilken camp via map */
+                    
                     <p key={availability} value={(spot.available, spot.area)}>
                       {spot.area + ": " + spot.available}
                     </p>
@@ -73,8 +73,7 @@ export default function TicketForm({ spotData }) {
                   </InputLabel>
                   <Select className={styles.inputField} labelId="dropdown-label" id="dropdowm" label="Available spots" value={(selectedSpot, selectedArea)} onChange={handleChange}>
                     {spotData.map((spot, availability) => (
-                      /* Dette viser camps i dropdown menu */
-                      <MenuItem key={availability} value={spot.area}>
+                       <MenuItem key={availability} value={spot.area}>
                         {spot.area}
                       </MenuItem>
                     ))}
@@ -97,7 +96,7 @@ export default function TicketForm({ spotData }) {
                       </div>
                       {open && (
                         <div>
-                          {/* modal besked med info om priser */}
+                         
                           <Alert severity="info" sx={{ backgroundColor: "#DCF2C7" }}>
                             2-pers: +299,- <br /> 3-pers: +399,- <br />
                             OBS: Including the tent
@@ -117,5 +116,6 @@ export default function TicketForm({ spotData }) {
       </div>
     </>
   );
-}
-export { getServerSideProps };
+} */
+
+/* export { getServerSideProps }; */
