@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  Card,
-  CardContent,
-  TextField,
-  FormGroup,
-} from "@mui/material";
+import { FormControl, Card, CardContent, TextField, FormGroup } from "@mui/material";
 import InputMask from "react-input-mask";
 import { useContext, useRef, useState } from "react";
 import styles from "../styles/Form.module.css";
@@ -72,6 +66,21 @@ export default function FormPay() {
       });
     }
   }
+  /* CONFIRM RESERVATION */
+  function confirmReservation(e) {
+    e.preventDefault();
+    fetch("http://localhost:8080//fullfill-reservation", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        /* dette er vores payload med id´et fra reservation */
+        id: "",
+      }),
+    });
+    console.log("confirm reservation");
+  }
 
   return (
     <>
@@ -91,47 +100,16 @@ export default function FormPay() {
           <Card>
             <CardContent className={styles.formWrapper}>
               <h2>Personal data</h2>
-              <TextField
-                name="fullname"
-                id="fullname"
-                label="Name"
-                placeholder={"fx: John Doe"}
-                required
-                onChange={handlePIChanges}
-              />
+              <TextField name="fullname" id="fullname" label="Name" placeholder={"fx: John Doe"} required onChange={handlePIChanges} />
 
               <br></br>
-              <TextField
-                name="email"
-                id="email"
-                label="Email"
-                placeholder={"fx: JohnDoe@gmail.com"}
-                required
-                onChange={handlePIChanges}
-                error={!!formErrors.email}
-                helperText={formErrors.email}
-              />
+              <TextField name="email" id="email" label="Email" placeholder={"fx: JohnDoe@gmail.com"} required onChange={handlePIChanges} error={!!formErrors.email} helperText={formErrors.email} />
               <br></br>
-              <TextField
-                name="phone"
-                type="tel"
-                id="phone"
-                label="Phone"
-                maxLength="4"
-                pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"
-                placeholder={"fx: 11111111"}
-                required
-                onChange={handlePIChanges}
-              />
+              <TextField name="phone" type="tel" id="phone" label="Phone" maxLength="4" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder={"fx: 11111111"} required onChange={handlePIChanges} />
 
               <h2>Payment</h2>
               <FormGroup variant="standard" id="paymentInfoGroup">
-                <TextField
-                  type="text"
-                  name="Cardholder's name"
-                  label="Cardholder's name"
-                  required
-                ></TextField>
+                <TextField type="text" name="Cardholder's name" label="Cardholder's name" required></TextField>
                 <br></br>
                 <TextField
                   type="text"
@@ -171,15 +149,12 @@ export default function FormPay() {
                     },
                   }}
                 />
-                <TextField
-                  type="text"
-                  name="CVC"
-                  label="CVC"
-                  min="3"
-                ></TextField>
+                <TextField type="text" name="CVC" label="CVC" min="3"></TextField>
               </FormGroup>
             </CardContent>
-            <button type="submit">Submit</button>
+            <button onSubmit={confirmReservation} type="submit">
+              Submit
+            </button>
           </Card>
         </FormControl>
       </form>

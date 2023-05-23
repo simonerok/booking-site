@@ -50,12 +50,7 @@ export default function MainTicket({ spotData }) {
         amount: formData.formData.ticketAmount,
       }),
     });
-
-    console.log("test", formData.formData.area);
-  }
-  function handleNextFormComponent() {
-    dispatch({ action: "NEXT" });
-    dispatch({ type: "CREATE_ATTENDEE_STRUCTURE" });
+    console.log("test");
   }
   return (
     <>
