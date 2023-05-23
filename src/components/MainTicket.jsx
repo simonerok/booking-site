@@ -52,6 +52,10 @@ export default function MainTicket({ spotData }) {
     });
     console.log("test");
   }
+  function handleNextFormComponent() {
+    dispatch({ action: "NEXT" });
+    dispatch({ type: "CREATE_ATTENDEE_STRUCTURE" });
+  }
   return (
     <>
       <h1>Ticket details</h1>
