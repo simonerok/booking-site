@@ -1,0 +1,5 @@
+.ModalInfo {
+  display: flex;
+  flex-flow: wrap;
+  background-color: red;
+}

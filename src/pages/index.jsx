@@ -48,11 +48,6 @@ export async function getServerSideProps() {
   const scheduleData = await scheduleRes.json();
   const spotData = await spotRes.json();
 
-  /* console.log({
-    bandData,
-    scheduleData,
-    spotData,
-  }); */
   return {
     props: {
       bandData,
