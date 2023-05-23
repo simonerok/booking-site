@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PaymentContext } from "@/contexts/ticketContext";
+import { PaymentContext } from "@/contexts/bookingContext";
 export default function Confirmation() {
   //get booking order from supabase. if using db
 

@@ -6,7 +6,7 @@ export const PaymentContext = createContext();
 export const UpdatePaymentContext = createContext();
 
 //useReducer to manage complex states in ticketContext
-//global object with help and inspiration taken from https://github.com/Robert-d-s/foofest-app/blob/tereattendees/src/components/BookingForm.js
+//global object expanded with inspiration  from https://github.com/Robert-d-s/foofest-app/blob/tereattendees/src/components/BookingForm.js
 const initialState = {
   formData: {
     ticketType: "",
