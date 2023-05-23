@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import MainTicket from "../components/MainTicket";
 import { formDataContext } from "@/contexts/bookingContext";
+import PersonalInfo from "@/components/PersonalInfo";
 export async function getServerSideProps() {
   const api = "http://localhost:8080/available-spots";
   const res = await fetch(api);
@@ -14,7 +15,14 @@ export async function getServerSideProps() {
 }
 
 export default function BookingDisplay({ data }) {
+  //provide the context to the component
   const { formState, dispatch } = useContext(formDataContext);
+  const [currentStep] = useState(0);
 
-  return <MainTicket formData={{ formState, dispatch }} spotData={data} />;
+  switch (currentStep) {
+    case 1:
+      return <PersonalInfo />;
+    default:
+      return <MainTicket formData={{ formState, dispatch }} spotData={data} />;
+  }
 }
