@@ -30,11 +30,12 @@ export default function TicketForm({ spotData }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        /* dette er vores payload */
         area: selectedArea,
         amount: numberOfTickets,
       }),
     });
-    console.log("test");
+    console.log("reserve");
   }
 
   return (
