@@ -1,7 +1,22 @@
 /* FONTS FORM */
 
+/* .formBackground {
+  background-image: url("/ticket.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+} */
+
+.form {
+  display: grid;
+  place-content: center;
+}
+
 .formWrapper {
   display: grid;
+  margin-bottom: 2rem;
+  max-width: 350px;
 }
 
 /* retter label tekst på dropdown */
@@ -11,4 +26,28 @@
   left: 0;
   bottom: 0;
   top: 20px;
+}
+
+.inputField {
+  max-width: 350px;
+}
+
+.campText p {
+  margin: 0px;
+  font-size: 1.5rem;
+  margin-block: 1rem;
+  text-align: left;
+}
+.tentOption {
+  text-align: left;
+}
+
+/* knap */
+.btn_container {
+  display: flex;
+  justify-content: center;
+}
+
+.form_btn {
+  margin-bottom: 3rem;
 }
