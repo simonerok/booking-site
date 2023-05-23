@@ -8,11 +8,11 @@
   --heading: condor-extended, sans-serif;
   --paragraph: eurostile, sans-serif;
   --color-default: #000000;
-  --h1: 8rem;
-  --h2: 6.2rem;
-  --h3: 5rem;
-  --h4: 3.125rem;
-  --p: 3.125rem;
+  --h1: clamp(4.4rem, 2.8rem + 6.4vw, 8rem);
+  --h2: clamp(3rem, 1.6667rem + 5.3333vw, 6rem);
+  --h3: clamp(2.5rem, 1.3889rem + 4.4444vw, 5rem);
+  --h4: clamp(2rem, 1.5556rem + 1.7778vw, 3rem);
+  --p: clamp(1.3rem, 1.1667rem + 0.5333vw, 1.6rem);
   --p-footer: 1.875rem;
 }
 img {

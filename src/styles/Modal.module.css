@@ -1,5 +1,21 @@
 .ModalInfo {
   display: flex;
   flex-flow: wrap;
-  background-color: red;
+}
+
+.ModalArtistName {
+  position: absolute;
+  margin-top: -9rem;
+  color: white;
+}
+
+.ModalImg {
+  aspect-ratio: 16/9;
+  height: 60%;
+}
+.ModalConcertInfo {
+  flex-basis: 40vw;
+}
+.ModalBio {
+  flex-basis: 55vw;
 }
