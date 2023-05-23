@@ -27,6 +27,34 @@
   max-width: 50rem;
 }
 
+/* ARTIST SECTION */
 .landingArtistGrid {
   display: flex;
+  gap: 0.8rem;
 }
+.landingArtistGrid article {
+  width: 100%;
+  filter: grayscale(1);
+  object-fit: cover;
+}
+
+.landingArtistGrid img:hover {
+  cursor: pointer;
+}
+.landingArtistGrid article img {
+  position: absolute;
+}
+
+.landingArtistGrid article p {
+  z-index: 1;
+  position: relative;
+  color: white;
+  text-align: center;
+  margin-top: 50%;
+}
+/* .landingArtistGrid article div {
+  visibility: hidden;
+}
+.landingArtistGrid article div:hover {
+  visibility: visible;
+} */

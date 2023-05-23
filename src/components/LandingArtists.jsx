@@ -2,12 +2,26 @@ import styles from "@/styles/Home.module.css";
 
 export default function LandingArtists({ bandData }) {
   return (
-    <section>
-      <article className={styles.landingArtistGrid}>
-        {/* Display the logo */}
+    <section className={styles.landingArtistGrid}>
+      <article>
         <img src={`http://localhost:8080/logos/` + bandData[3].logo} alt="Logo" />
-        <img src={`http://localhost:8080/logos/` + bandData[5].logo} alt="Logo" />
+        <div>
+          <p>
+            {bandData[3].name} <br /> / <br /> Midgard at 04:00 - 06:00
+          </p>
+        </div>
+      </article>
+      <article>
         <img src={`http://localhost:8080/logos/` + bandData[2].logo} alt="Logo" />
+        <p>
+          {bandData[2].name} <br /> / <br /> Midgard at 00:00 - 02:00
+        </p>
+      </article>
+      <article>
+        <img src={`http://localhost:8080/logos/` + bandData[6].logo} alt="Logo" />
+        <p>
+          {bandData[6].name} <br /> / <br /> Vanaheim at 04:00 - 06:00
+        </p>
       </article>
     </section>
   );
