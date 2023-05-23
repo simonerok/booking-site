@@ -10,13 +10,20 @@ export default function Modal({ bandData, scheduleData }) {
       </section>
       <section className={styles.ModalInfo}>
         <article className={styles.ModalConcertInfo}>
-          <p>STAGE: {bandData[3].name}</p>
-          <p>DATE:</p>
-          <p>TIME: </p>
+          <p>
+            <span>STAGE:</span> {bandData[3].name}
+          </p>
+          <p>
+            <span>DATE:</span>
+          </p>
+          <p>
+            <span>TIME: {scheduleData.Midgard.mon[0].start}</span>
+          </p>
         </article>
         <article className={styles.ModalBio}>
           <p>
-            BIO DESCRIPTION: <br /> {bandData[3].bio}
+            <span>BIO DESCRIPTION: </span>
+            <br /> {bandData[3].bio}
           </p>
         </article>
       </section>

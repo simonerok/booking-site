@@ -12,7 +12,43 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
 const columns = [
-  { id: "time10", label: "10:00 - 12:00", minWidth: 100 },
+  {
+    id: "time00",
+    label: "00:00 - 02:00",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "time02",
+    label: "02:00 - 04:00",
+    minWidth: 170,
+    align: "right",
+  },
+
+  {
+    id: "time04",
+    label: "04:00 - 06:00",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "time06",
+    label: "06:00 - 08:00",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "time08",
+    label: "08:00 - 10:00",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "time10",
+    label: "10:00 - 12:0",
+    minWidth: 170,
+    align: "right",
+  },
   {
     id: "time12",
     label: "12:00 - 14:00",
@@ -30,68 +66,29 @@ const columns = [
     label: "16:00 - 18:00",
     minWidth: 170,
     align: "right",
-    format: (value) => value.toFixed(2),
   },
   {
     id: "time18",
     label: "18:00 - 20:00",
     minWidth: 170,
     align: "right",
-    format: (value) => value.toFixed(2),
   },
   {
     id: "time20",
     label: "20:00 - 22:00",
     minWidth: 170,
     align: "right",
-    format: (value) => value.toFixed(2),
   },
   {
     id: "time22",
     label: "22:00 - 00:00",
     minWidth: 170,
     align: "right",
-    format: (value) => value.toFixed(2),
-  },
-  {
-    id: "time00",
-    label: "22:00 - 00:00",
-    minWidth: 170,
-    align: "right",
-    format: (value) => value.toFixed(2),
-  },
-  {
-    id: "time02",
-    label: "00:00 - 02:00",
-    minWidth: 170,
-    align: "right",
-    format: (value) => value.toFixed(2),
-  },
-  {
-    id: "time04",
-    label: "02:00 - 04:00",
-    minWidth: 170,
-    align: "right",
-    format: (value) => value.toFixed(2),
-  },
-  {
-    id: "time06",
-    label: "04:00 - 06:00",
-    minWidth: 170,
-    align: "right",
-    format: (value) => value.toFixed(2),
-  },
-  {
-    id: "time08",
-    label: "06:00 - 08:00",
-    minWidth: 170,
-    align: "right",
-    format: (value) => value.toFixed(2),
   },
 ];
 
-function createData(time10, time12, time14, time16, time18, time20, time22, time00, time02, time04, time06, time08) {
-  return { time10, time12, time14, time16, time18, time20, time22, time00, time02, time04, time06, time08 };
+function createData(time00, time02, time04, time06, time08, time10, time12, time14, time16, time18, time20, time22) {
+  return { time00, time02, time04, time06, time08, time10, time12, time14, time16, time18, time20, time22 };
 }
 
 export default function StickyHeadTable({ schedule }) {
@@ -183,8 +180,12 @@ export default function StickyHeadTable({ schedule }) {
     for (const activity of activities) {
       if (activity.act !== "break") {
         results.push(activity.act);
+      } else {
+        // Push an empty string as a placeholder for the empty spot
+        results.push("");
       }
     }
+
     //}
     console.log({ results });
     return results;
@@ -217,12 +218,12 @@ export default function StickyHeadTable({ schedule }) {
           Sunday
         </button>
       </div>
-      <p className={stylesSchedule.dayName}>{day}</p>
+      <h2 className={stylesSchedule.dayName}>{day}</h2>
 
       <section className={stylesSchedule.scheduleSection}>
         <div>
-          <p>Midgard</p>
-          <p>Vanaheim</p>
+          <p>Midgard</p> <br />
+          <p>Vanaheim</p> <br />
           <p>Jotunheim</p>
         </div>
         <Paper sx={{ width: "100%", overflow: "hidden" }}>

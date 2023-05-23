@@ -48,7 +48,7 @@ export default function Schedule({ scheduleData, bandData }) {
             }
             return (
               <p className={stylesSchedule.programText} key={bandEvent.act}>
-                {bandEvent.act} /{" "}
+                {bandEvent.act} /
               </p>
             );
           })}
@@ -64,7 +64,7 @@ export default function Schedule({ scheduleData, bandData }) {
             }
             return (
               <p className={stylesSchedule.programText} key={bandEvent.act}>
-                {bandEvent.act} /{" "}
+                {bandEvent.act} /
               </p>
             );
           })}
@@ -80,7 +80,7 @@ export default function Schedule({ scheduleData, bandData }) {
             }
             return (
               <p className={stylesSchedule.programText} key={bandEvent.act}>
-                {bandEvent.act} /{" "}
+                {bandEvent.act} /
               </p>
             );
           })}
@@ -96,7 +96,7 @@ export default function Schedule({ scheduleData, bandData }) {
             }
             return (
               <p className={stylesSchedule.programText} key={bandEvent.act}>
-                {bandEvent.act} /{" "}
+                {bandEvent.act} /
               </p>
             );
           })}
@@ -112,7 +112,7 @@ export default function Schedule({ scheduleData, bandData }) {
             }
             return (
               <p className={stylesSchedule.programText} key={bandEvent.act}>
-                {bandEvent.act} /{" "}
+                {bandEvent.act} /
               </p>
             );
           })}
@@ -128,7 +128,7 @@ export default function Schedule({ scheduleData, bandData }) {
             }
             return (
               <p className={stylesSchedule.programText} key={bandEvent.act}>
-                {bandEvent.act} /{" "}
+                {bandEvent.act} /
               </p>
             );
           })}
@@ -144,7 +144,7 @@ export default function Schedule({ scheduleData, bandData }) {
             }
             return (
               <p className={stylesSchedule.programText} key={bandEvent.act}>
-                {bandEvent.act} /{" "}
+                {bandEvent.act} /
               </p>
             );
           })}

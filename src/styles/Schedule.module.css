@@ -11,6 +11,7 @@
 }
 .programText {
   display: inline;
+  text-align: center;
 }
 
 /* SCHEDULE */
@@ -46,6 +47,7 @@
 
 .dayName {
   text-align: center;
+  font-size: 3rem;
 }
 .days_program {
   display: flex;
