@@ -35,6 +35,14 @@ export default function TicketsSection(
         className={styles.inputField}
         type="date"
         helperText="Choose a date"
+        value={formData.date}
+        onChange={(e) =>
+          dispatch({
+            //dispatch to the global formData obj. with new state value
+            action: "UPDATE_FIELD",
+            payload: { field: "date", value: e.target.value },
+          })
+        }
       />
       <br />
       <TextField
@@ -42,7 +50,7 @@ export default function TicketsSection(
         type="number"
         label="Number of tickets"
         value={formData.ticketType}
-        onChange={(e) =>
+        onBlur={(e) =>
           dispatch({
             //dispatch to the global formData obj. with new state value
             action: "UPDATE_FIELD",
@@ -64,10 +72,16 @@ export default function TicketsSection(
       <Select
         className={styles.inputField}
         labelId="ticket-type"
-        id="dropdowm"
+        id="dropdown"
         label="Ticket-Type"
-        // value={selectedSpot}
-        // onChange={handleChange}
+        value={formData.ticketType}
+        onBlur={(e) =>
+          dispatch({
+            //dispatch to the global formData obj. with new state value
+            action: "UPDATE_FIELD",
+            payload: { field: "ticketType", value: e.target.value },
+          })
+        }
       >
         <MenuItem value="reg">Regular 799,-</MenuItem>
         <MenuItem value="vip">VIP 1299,-</MenuItem>
