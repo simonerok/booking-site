@@ -8,7 +8,7 @@ import {
 import InputMask from "react-input-mask";
 import { useContext, useRef, useState } from "react";
 import styles from "../styles/Form.module.css";
-import { PaymentContext } from "@/contexts/bookingContext";
+import { formDataContext } from "@/contexts/bookingContext";
 import BookFormContext from "@/contexts/bookFormContext";
 
 export default function FormPay() {

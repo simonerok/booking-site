@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { PaymentContext } from "@/contexts/bookingContext";
+import { formDataContext } from "@/contexts/bookingContext";
 export default function Confirmation() {
   //get booking order from supabase. if using db
 
   //using context and reducer - pyamentInfo is state
-  const paymentInfo = useContext(PaymentContext);
+  const paymentInfo = useContext(formDataContext);
   console.log(paymentInfo);
   return (
     <>
