@@ -95,10 +95,7 @@ function reducer(state, action) {
         ...state,
         formData: {
           ...state.formData,
-          attendees: [
-            ...state.formData.attendees,
-            { fullname: "", email: "", phone: "" },
-          ],
+          attendees: [...state.formData.attendees, { fullname: "", email: "", phone: "" }],
         },
       };
     case "NEXT":
@@ -125,9 +122,5 @@ export const FormDataProvider = ({ children }) => {
   const [formData, dispatch] = useReducer(reducer, initialState);
 
   console.log(formData);
-  return (
-    <formDataContext.Provider value={{ formData, dispatch }}>
-      {children}
-    </formDataContext.Provider>
-  );
+  return <formDataContext.Provider value={{ formData, dispatch }}>{children}</formDataContext.Provider>;
 };

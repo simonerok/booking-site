@@ -32,9 +32,11 @@ export default function MainTicket({ spotData, currentStepSetter }) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data.id);
-
+        /* sætter formDatas id til at være det id vi får i response så det kan sende med videre */
+        formData.id = data.id;
         handleNextFormComponent();
       });
+    console.log(formData, formData.id);
   }
 
   function handleNextFormComponent() {

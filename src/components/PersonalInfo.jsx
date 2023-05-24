@@ -9,8 +9,6 @@ export default function PersonalInfo({ currentStepSetter }) {
   // //destructure context
   const { formData, dispatch } = useContext(formDataContext);
   //destructure attendees array from formData
-  const { attendees } = formData.formData;
-  console.log(formData.formData.attendees);
 
   return (
     <>
@@ -20,15 +18,10 @@ export default function PersonalInfo({ currentStepSetter }) {
       <MyButton
         onClick={() => {
           currentStepSetter(2);
-          console.log("clicked next");
         }}
       >
         Next
       </MyButton>
     </>
   );
-
-  attendees.forEach((attendee) => {
-    return <PI_Formtab title="Person"></PI_Formtab>;
-  });
 }

@@ -1,19 +1,19 @@
 import { FormControl, Card, CardContent, TextField, FormGroup } from "@mui/material";
 import InputMask from "react-input-mask";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styles from "../styles/Form.module.css";
 import MyButton from "@/components/MyButton";
+import { formDataContext } from "@/contexts/bookingContext";
 
 export default function FormPay() {
-  //const { paymentInfo: ticketInfo, dispatch } = useContext(PaymentContext); //ticket booking context
-  const [formPayment, setFormPayment] = useState({
+  const { formData, dispatch } = useContext(formDataContext); //ticket booking context
+  /*  const [formPayment, setFormPayment] = useState({
     fullname: "",
     email: "",
     phone: "",
-  });
-  console.log(formPayment);
+  }) */ /* console.log(formPayment); */
   //handle input changes for personal info:
-  function handlePIChanges(e) {
+  /*   function handlePIChanges(e) {
     const { name, value } = e.target;
     setFormPayment((prevValues) => ({
       ...prevValues,
@@ -27,7 +27,7 @@ export default function FormPay() {
   //creditcard exp. date state
   const [expDate, setExpDate] = useState("");
   const handleExpInput = ({ target: { value } }) => setExpDate(value);
-
+ */
   //const invalid form input - error state:
   /* const [formErrors, setFormErrors] = useState({}); */
 
@@ -49,17 +49,16 @@ export default function FormPay() {
   /* CONFIRM RESERVATION */
   function confirmReservation(e) {
     e.preventDefault();
-    fetch("http://localhost:8080//fullfill-reservation", {
+    fetch("http://localhost:8080/fullfill-reservation", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        /* dette er vores payload med id´et fra reservation */
-        id: data.id,
+        id: formData.id,
       }),
     });
-    console.log(id, "confirm reservation");
+    console.log(formData);
   }
 
   return (
@@ -80,12 +79,33 @@ export default function FormPay() {
           <Card>
             <CardContent className={styles.formWrapper}>
               <h2>Personal data</h2>
-              <TextField name="fullname" id="fullname" label="Name" placeholder={"fx: John Doe"} required onChange={handlePIChanges} />
+              <TextField
+                name="fullname"
+                id="fullname"
+                label="Name"
+                placeholder={"fx: John Doe"}
+                required //onChange={handlePIChanges}
+              />
 
               <br></br>
-              <TextField name="email" id="email" label="Email" placeholder={"fx: JohnDoe@gmail.com"} required onChange={handlePIChanges} /* error={!!formErrors.email} */ /* helperText={formErrors.email} */ />
+              <TextField
+                name="email"
+                id="email"
+                label="Email"
+                placeholder={"fx: JohnDoe@gmail.com"}
+                required //onChange={handlePIChanges} /* error={!!formErrors.email} */ /* helperText={formErrors.email} */
+              />
               <br></br>
-              <TextField name="phone" type="tel" id="phone" label="Phone" maxLength="4" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder={"fx: 11111111"} required onChange={handlePIChanges} />
+              <TextField
+                name="phone"
+                type="tel"
+                id="phone"
+                label="Phone"
+                maxLength="4"
+                pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"
+                placeholder={"fx: 11111111"}
+                required //onChange={handlePIChanges}
+              />
 
               <h2>Payment</h2>
               <FormGroup variant="standard" id="paymentInfoGroup">
@@ -98,8 +118,8 @@ export default function FormPay() {
                   required
                   name="creditcard"
                   maxLength="16"
-                  value={creditcard}
-                  onChange={handleCCInput}
+                  //value={creditcard}
+                  // onChange={handleCCInput}
                   variant="outlined"
                   /* error={!!formErrors.creditcard} */
                   /*    helperText={formErrors.creditcard} */
@@ -121,7 +141,7 @@ export default function FormPay() {
                   variant="outlined"
                   name="expDate"
                   label="Exp. Date (MM/YY)"
-                  onChange={handleExpInput}
+                  // onChange={handleExpInput}
                   InputProps={{
                     inputComponent: InputMask,
                     inputProps: {
