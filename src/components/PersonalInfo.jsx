@@ -15,7 +15,7 @@ export default function PersonalInfo() {
     <>
       <h2>Personal Infomation</h2>
       {/* {attendees.map((attendee, index) => { */}
-      <PI_Formtab title="Person"></PI_Formtab>;{/* })} */}
+      <PI_Formtab></PI_Formtab>;{/* })} */}
     </>
   );
 
