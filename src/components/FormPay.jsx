@@ -64,8 +64,9 @@ export default function FormPay({ currentStepSetter }) {
         id: formData.id,
       }),
     });
+    dispatch({ action: "SUBMIT" });
     console.log(formData);
-    // currentStepSetter(3)
+    currentStepSetter(3);
   }
   console.log(formData);
   return (

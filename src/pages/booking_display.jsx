@@ -3,6 +3,7 @@ import MainTicket from "../components/MainTicket";
 import { formDataContext } from "@/contexts/bookingContext";
 import PersonalInfo from "@/components/PersonalInfo";
 import FormPay from "@/components/FormPay";
+import Confirmation from "@/components/Confirmation";
 export async function getServerSideProps() {
   const api = "http://localhost:8080/available-spots";
   const res = await fetch(api);
@@ -23,8 +24,16 @@ export default function BookingDisplay({ data }) {
     case 1:
       return <PersonalInfo currentStepSetter={setCurrentStep} />;
     case 2:
-      return <FormPay />;
+      return <FormPay currentStepSetter={setCurrentStep} />;
+    case 3:
+      return <Confirmation />;
     default:
-      return <MainTicket currentStepSetter={setCurrentStep} formData={{ formState, dispatch }} spotData={data} />;
+      return (
+        <MainTicket
+          currentStepSetter={setCurrentStep}
+          formData={{ formState, dispatch }}
+          spotData={data}
+        />
+      );
   }
 }
