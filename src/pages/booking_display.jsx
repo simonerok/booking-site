@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import MainTicket from "../components/MainTicket";
 import { formDataContext } from "@/contexts/bookingContext";
 import PersonalInfo from "@/components/PersonalInfo";
+import FormPay from "@/components/FormPay";
 export async function getServerSideProps() {
   const api = "http://localhost:8080/available-spots";
   const res = await fetch(api);
@@ -21,6 +22,8 @@ export default function BookingDisplay({ data }) {
   switch (currentStep) {
     case 1:
       return <PersonalInfo currentStepSetter={setCurrentStep} />;
+    case 2:
+      return <FormPay />;
     default:
       return <MainTicket currentStepSetter={setCurrentStep} formData={{ formState, dispatch }} spotData={data} />;
   }

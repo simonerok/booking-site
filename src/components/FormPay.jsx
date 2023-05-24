@@ -1,13 +1,10 @@
 import { FormControl, Card, CardContent, TextField, FormGroup } from "@mui/material";
 import InputMask from "react-input-mask";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import styles from "../styles/Form.module.css";
-
 import MyButton from "@/components/MyButton";
 
 export default function FormPay() {
-  /* const ref = useRef(null);
-  const inputRef = useRef(null); */
   //const { paymentInfo: ticketInfo, dispatch } = useContext(PaymentContext); //ticket booking context
   const [formPayment, setFormPayment] = useState({
     fullname: "",
@@ -32,21 +29,22 @@ export default function FormPay() {
   const handleExpInput = ({ target: { value } }) => setExpDate(value);
 
   //const invalid form input - error state:
-  const [formErrors, setFormErrors] = useState({});
+  /* const [formErrors, setFormErrors] = useState({}); */
 
-  setFormErrors(errors);
+  /*  setFormErrors(errors); */
 
-  if (Object.keys(errors).length === 0) {
-    //dispatch function that returns new state
-    dispatch({
-      action: "SUBMIT",
-      payload: {
-        fullname: e.target.name.value,
-        email: e.target.email.value,
-        phone: e.target.phone.value,
-      },
-    });
-  }
+  /*  if (Object.keys(errors).length === 0) {
+   
+  } */
+  //dispatch function that returns new state
+  /*  dispatch({
+    action: "SUBMIT",
+    payload: {
+      fullname: e.target.name.value,
+      email: e.target.email.value,
+      phone: e.target.phone.value,
+    },
+  }); */
 
   /* CONFIRM RESERVATION */
   function confirmReservation(e) {
@@ -72,7 +70,7 @@ export default function FormPay() {
         <article className="TicketOverview_container">
           {/* Fetch data from tickets with TicketContext*/}
           {/* <p>{ticketInfo.name}</p>
-          <p>{ticketInfo.email}</p> */}
+            <p>{ticketInfo.email}</p> */}
           {/* date */}
           {/* number of tickets/ ticket type */}
         </article>
@@ -85,7 +83,7 @@ export default function FormPay() {
               <TextField name="fullname" id="fullname" label="Name" placeholder={"fx: John Doe"} required onChange={handlePIChanges} />
 
               <br></br>
-              <TextField name="email" id="email" label="Email" placeholder={"fx: JohnDoe@gmail.com"} required onChange={handlePIChanges} error={!!formErrors.email} helperText={formErrors.email} />
+              <TextField name="email" id="email" label="Email" placeholder={"fx: JohnDoe@gmail.com"} required onChange={handlePIChanges} /* error={!!formErrors.email} */ /* helperText={formErrors.email} */ />
               <br></br>
               <TextField name="phone" type="tel" id="phone" label="Phone" maxLength="4" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder={"fx: 11111111"} required onChange={handlePIChanges} />
 
@@ -103,8 +101,8 @@ export default function FormPay() {
                   value={creditcard}
                   onChange={handleCCInput}
                   variant="outlined"
-                  error={!!formErrors.creditcard}
-                  helperText={formErrors.creditcard}
+                  /* error={!!formErrors.creditcard} */
+                  /*    helperText={formErrors.creditcard} */
                   //used InputProps for custom inputs and components with react-input-mask
                   //chatgpt helped
                   InputProps={{
