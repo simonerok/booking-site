@@ -1,17 +1,5 @@
-import React, { useState, useContext } from "react";
-import {
-  Alert,
-  InputLabel,
-  FormControl,
-  Card,
-  CardContent,
-  TextField,
-  Select,
-  Checkbox,
-  FormGroup,
-  FormControlLabel,
-  MenuItem,
-} from "@mui/material";
+import React, { useState, useContext, useEffect } from "react";
+import { Alert, InputLabel, FormControl, Card, CardContent, TextField, Select, Checkbox, FormGroup, FormControlLabel, MenuItem } from "@mui/material";
 import MyButton from "@/components/MyButton.jsx";
 import styles from "../styles/Form.module.css";
 import OtherOptionsSection from "./OtherOptions";
@@ -39,24 +27,31 @@ export default function MainTicket({ spotData, currentStepSetter }) {
 
   function reserveSpot(e) {
     e.preventDefault();
-    handleNextFormComponent();
     fetch("http://localhost:8080/reserve-spot", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        area: formData.formData.area, //call the formData function and anccess the formData obj with area prop value
+        area: formData.formData.area,
         amount: formData.formData.ticketAmount,
       }),
-    });
-    console.log("test");
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setReservationId(data.id);
+        handleNextFormComponent();
+      });
+
+    console.log("reserve spot");
   }
+
   function handleNextFormComponent() {
     dispatch({ action: "NEXT" });
     dispatch({ type: "CREATE_ATTENDEE_STRUCTURE" });
     currentStepSetter(1); //change current step
   }
+
   return (
     <>
       <h1>Ticket details</h1>
@@ -67,10 +62,7 @@ export default function MainTicket({ spotData, currentStepSetter }) {
               <CardContent className={styles.formWrapper}>
                 <TicketsSection />
                 <AvailableSpotsSection areaData={spotData} />
-                <OtherOptionsSection
-                  open={open}
-                  handleInfoClick={handleInfoClick}
-                />
+                <OtherOptionsSection open={open} handleInfoClick={handleInfoClick} />
               </CardContent>
               <div className={styles.btn_container}>
                 <MyButton type="submit">Go to payment</MyButton>
