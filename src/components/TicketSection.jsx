@@ -1,36 +1,15 @@
-import React, { useContext, useState } from "react";
-import {
-  Alert,
-  InputLabel,
-  FormControl,
-  Card,
-  CardContent,
-  TextField,
-  Select,
-  Checkbox,
-  FormGroup,
-  FormControlLabel,
-  MenuItem,
-} from "@mui/material";
-import MyButton from "@/components/MyButton.jsx";
+import React, { useContext } from "react";
+import { InputLabel, TextField, Select, MenuItem } from "@mui/material";
 import styles from "../styles/Form.module.css";
 import { formDataContext } from "@/contexts/bookingContext";
 
-export default function TicketsSection(
-  {
-    // numberOfTickets,
-    // setNumberOfTickets,
-    // selectedSpot,
-    // selectedArea,
-    // handleChange,
-  }
-) {
+export default function TicketsSection() {
   //context call for the child component
   const { formData, dispatch } = useContext(formDataContext);
 
   return (
     <>
-      <h2>Tickets</h2>
+      <h2 className={styles.h2}>Tickets</h2>
       <TextField
         className={styles.inputField}
         type="date"
@@ -60,13 +39,7 @@ export default function TicketsSection(
         // value={numberOfTickets}
         // onChange={(e) => setNumberOfTickets(e.target.value)}
       />
-      <InputLabel
-        id="dropdown-label"
-        label="ticket-type"
-        placeholder="Ticket-type"
-        className={styles.dropdownLabel}
-        style={{ position: "relative" }}
-      >
+      <InputLabel id="dropdown-label" label="ticket-type" placeholder="Ticket-type" className={styles.dropdownLabel} style={{ position: "relative" }}>
         Choose ticket type
       </InputLabel>
       <Select

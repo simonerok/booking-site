@@ -47,8 +47,8 @@ export default function MainTicket({ spotData, currentStepSetter }) {
 
   return (
     <>
-      <h1>Ticket details</h1>
-      <div className={styles.formBackground}>
+      <h1 className={styles.h1}>Ticket details</h1>
+      <div>
         <form className={styles.form} onSubmit={reserveSpot}>
           <FormControl variant="filled">
             <Card>

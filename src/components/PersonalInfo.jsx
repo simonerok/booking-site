@@ -1,4 +1,3 @@
-import styles from "../styles/Form.module.css";
 import { useContext } from "react";
 import { formDataContext } from "@/contexts/bookingContext";
 import PI_Formtab from "../components/PI_Formtab";

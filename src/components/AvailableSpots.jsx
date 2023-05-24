@@ -1,32 +1,14 @@
-import React, { useState, useContext } from "react";
-import {
-  Alert,
-  InputLabel,
-  FormControl,
-  Card,
-  CardContent,
-  TextField,
-  Select,
-  Checkbox,
-  FormGroup,
-  FormControlLabel,
-  MenuItem,
-} from "@mui/material";
-import MyButton from "@/components/MyButton.jsx";
+import React, { useContext } from "react";
+import { InputLabel, Select, FormGroup, MenuItem } from "@mui/material";
 import styles from "../styles/Form.module.css";
 import { formDataContext } from "@/contexts/bookingContext";
 
-export default function AvailableSpotsSection({
-  areaData,
-  selectedSpot,
-  selectedArea,
-  handleChange,
-}) {
+export default function AvailableSpotsSection({ areaData }) {
   //consume the context
   const { formData, dispatch } = useContext(formDataContext);
   return (
     <>
-      <h2>Available Spots:</h2>
+      <h2 className={styles.h2}>Available Spots</h2>
       <FormGroup
         className={styles.campText}
         labelId="dropdown-label"
@@ -46,13 +28,7 @@ export default function AvailableSpotsSection({
             {spot.area + ": " + spot.available}
           </p>
         ))}
-        <InputLabel
-          id="dropdown-label"
-          label="spots"
-          placeholder="form"
-          className={styles.dropdownLabel}
-          style={{ position: "relative" }}
-        >
+        <InputLabel id="dropdown-label" label="spots" placeholder="form" className={styles.dropdownLabel} style={{ position: "relative" }}>
           Choose Camp
         </InputLabel>
         <Select

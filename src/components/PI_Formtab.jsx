@@ -1,13 +1,4 @@
-import {
-  FormControl,
-  Card,
-  CardContent,
-  TextField,
-  FormGroup,
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-} from "@mui/material";
+import { FormControl, Card, CardContent, TextField, Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import styles from "../styles/Form.module.css";
 import { formDataContext } from "../contexts/bookingContext";
 import { useContext, useRef } from "react";
@@ -43,9 +34,7 @@ export default function FormTab({ title, attendee }) {
     <>
       {attendees.map((attendee, index) => (
         <Accordion>
-          <AccordionSummary>
-            Personal data for Person {index + 1}
-          </AccordionSummary>
+          <AccordionSummary>Personal data for Person {index + 1}</AccordionSummary>
           <AccordionDetails>
             <form>
               <FormControl>
@@ -54,18 +43,7 @@ export default function FormTab({ title, attendee }) {
                     <h3>Personal data for Person {index + 1}</h3>
 
                     <>
-                      <TextField
-                        key={index}
-                        name="fullname"
-                        id="fullname"
-                        label="Fullname"
-                        placeholder={"fx: John Doe"}
-                        required
-                        value={attendee.fullname}
-                        onChange={(e) =>
-                          handlePIChanges(index, "fullname", e.target.value)
-                        }
-                      />
+                      <TextField key={index} name="fullname" id="fullname" label="Fullname" placeholder={"fx: John Doe"} required value={attendee.fullname} onChange={(e) => handlePIChanges(index, "fullname", e.target.value)} />
 
                       <br></br>
                       <TextField
@@ -75,27 +53,12 @@ export default function FormTab({ title, attendee }) {
                         placeholder={"fx: JohnDoe@gmail.com"}
                         required
                         value={attendee.email}
-                        onChange={(e) =>
-                          handlePIChanges(index, "email", e.target.value)
-                        }
+                        onChange={(e) => handlePIChanges(index, "email", e.target.value)}
                         // error={!!formErrors.email}
                         // helperText={formErrors.email}
                       />
                       <br></br>
-                      <TextField
-                        name="phone"
-                        type="tel"
-                        id="phone"
-                        label="Phone"
-                        maxLength="4"
-                        pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"
-                        placeholder={"fx: 11111111"}
-                        required
-                        value={attendee.phone}
-                        onChange={(e) =>
-                          handlePIChanges(index, "phone", e.target.value)
-                        }
-                      />
+                      <TextField name="phone" type="tel" id="phone" label="Phone" maxLength="4" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder={"fx: 11111111"} required value={attendee.phone} onChange={(e) => handlePIChanges(index, "phone", e.target.value)} />
                     </>
                   </CardContent>
                   {/* <button type="next">Submit</button> */}

@@ -1,6 +1,3 @@
-import { useContext } from "react";
-import { ProgramContext } from "../contexts/programContext";
-
 function ProgramSite() {
   /*   const artistName = useContext(ProgramContext);
   console.log(artistName); */
