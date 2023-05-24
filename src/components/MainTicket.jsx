@@ -55,7 +55,7 @@ export default function MainTicket({ spotData, currentStepSetter }) {
   function handleNextFormComponent() {
     dispatch({ action: "NEXT" });
     dispatch({ type: "CREATE_ATTENDEE_STRUCTURE" });
-    currentStepSetter(1);
+    currentStepSetter(currentStep + 1);
   }
   return (
     <>

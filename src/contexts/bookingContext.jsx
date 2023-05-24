@@ -43,7 +43,7 @@ function reducer(state, action) {
     case "CREATE_ATTENDEE_STRUCTURE":
       let attendees = [];
       //run through ticketAmount to get correct personal Info tabs loaded
-      for (let i = 0; i < state.formData.ticketAmount; i++) {
+      for (let i = 0; i < formData.formData.ticketAmount; i++) {
         attendees.push({ fullname: "", email: "", phone: "" });
       }
       return {
