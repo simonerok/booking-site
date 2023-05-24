@@ -8,7 +8,6 @@ import TicketsSection from "./TicketSection";
 import { formDataContext } from "@/contexts/bookingContext";
 
 export default function MainTicket({ spotData, currentStepSetter }) {
-  console.log(spotData, "from ticket");
   const [open, setOpen] = useState(false);
 
   //context call on the parent
@@ -32,11 +31,10 @@ export default function MainTicket({ spotData, currentStepSetter }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        setReservationId(data.id);
+        console.log(data.id);
+
         handleNextFormComponent();
       });
-
-    console.log("reserve spot");
   }
 
   function handleNextFormComponent() {

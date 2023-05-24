@@ -58,10 +58,10 @@ export default function FormPay() {
       },
       body: JSON.stringify({
         /* dette er vores payload med id´et fra reservation */
-        id: id,
+        id: data.id,
       }),
     });
-    console.log("confirm reservation");
+    console.log(id, "confirm reservation");
   }
 
   return (

@@ -4,7 +4,7 @@ import { formDataContext } from "@/contexts/bookingContext";
 import PI_Formtab from "../components/PI_Formtab";
 import MyButton from "./MyButton";
 
-export default function PersonalInfo(currentStepSetter) {
+export default function PersonalInfo({ currentStepSetter }) {
   function changeFormComponent() {}
   // //destructure context
   const { formData, dispatch } = useContext(formDataContext);
