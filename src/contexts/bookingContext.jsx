@@ -39,11 +39,28 @@ function reducer(state, action) {
         },
       };
     case "UPDATE_ATTENDEE_FIELD":
-      return {};
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          //map through the existing atteendees[]
+
+          attendees: state.formData.attendees.map((attendee, index) => {
+            if (index === action.payload.index) {
+              //and make sure each value is on the correct attendee index
+              return {
+                ...attendee,
+                [action.payload.field]: action.payload.value,
+              };
+            }
+            return attendee;
+          }),
+        },
+      };
     case "CREATE_ATTENDEE_STRUCTURE":
       let attendees = [];
       //run through ticketAmount to get correct personal Info tabs loaded
-      for (let i = 0; i < formData.formData.ticketAmount; i++) {
+      for (let i = 0; i < state.formData.ticketAmount; i++) {
         attendees.push({ fullname: "", email: "", phone: "" });
       }
       return {
@@ -53,12 +70,35 @@ function reducer(state, action) {
           attendees: attendees,
         },
       };
+    // case "CREATE_ATTENDEE_STRUCTURE":
+    //   setState((prevState) => {
+    //     const newAttendees = [];
+    //     for (let i = 0; i < formData.formData.ticketAmount; i++) {
+    //       if (i < prevState.attendees.length) {
+    //         // If the index is within the previous attendees length, use the existing attendee
+    //         newAttendees.push(prevState.attendees[i]);
+    //       } else {
+    //         // If the index exceeds the previous attendees length, add a new attendee
+    //         newAttendees.push({ fullname: "", email: "", phone: "" });
+    //       }
+    //     }
+    //     return {
+    //       ...state,
+    //       formData: {
+    //         ...state.formData,
+    //         attendees: [newAttendees],
+    //       },
+    //     };
+    //   });
     case "ADD_ATTENDEE":
       return {
         ...state,
         formData: {
           ...state.formData,
-          attendees: [{ fullname: "", email: "", phone: "" }],
+          attendees: [
+            ...state.formData.attendees,
+            { fullname: "", email: "", phone: "" },
+          ],
         },
       };
     case "NEXT":
