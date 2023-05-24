@@ -1,11 +1,17 @@
-import { FormControl, Card, CardContent, TextField, FormGroup } from "@mui/material";
+import {
+  FormControl,
+  Card,
+  CardContent,
+  TextField,
+  FormGroup,
+} from "@mui/material";
 import InputMask from "react-input-mask";
 import { useState, useContext } from "react";
 import styles from "../styles/Form.module.css";
 import MyButton from "@/components/MyButton";
 import { formDataContext } from "@/contexts/bookingContext";
 
-export default function FormPay() {
+export default function FormPay({ currentStepSetter }) {
   const { formData, dispatch } = useContext(formDataContext); //ticket booking context
   /*  const [formPayment, setFormPayment] = useState({
     fullname: "",
@@ -59,26 +65,32 @@ export default function FormPay() {
       }),
     });
     console.log(formData);
+    // currentStepSetter(3)
   }
-
+  console.log(formData);
   return (
     <>
       <h1>Payment details</h1>
       <article>
         <h2>Overview</h2>
         <article className="TicketOverview_container">
-          {/* Fetch data from tickets with TicketContext*/}
-          {/* <p>{ticketInfo.name}</p>
-            <p>{ticketInfo.email}</p> */}
-          {/* date */}
-          {/* number of tickets/ ticket type */}
+          <h3>Tickets booked</h3>
+          <p>Date: {formData.formData.date}</p>
+          <p>Types of tickets: {formData.formData.ticketType}</p>
+          <p>{formData.formData.green ? <p>Green Option</p> : <p></p>}</p>
+          <p>{formData.formData.tentSetUp ? <p>Setup of tent</p> : <p></p>}</p>
+          <p>
+            <strong>Area</strong>
+          </p>
+          <p>Area: {formData.formData.area}</p>
+          <p>Spots: {formData.formData.ticketAmount}</p>
         </article>
       </article>
       <form onSubmit={confirmReservation}>
         <FormControl variant="outlined">
           <Card>
             <CardContent className={styles.formWrapper}>
-              <h2>Personal data</h2>
+              <h2>Payment</h2>
               <TextField
                 name="fullname"
                 id="fullname"
@@ -107,9 +119,14 @@ export default function FormPay() {
                 required //onChange={handlePIChanges}
               />
 
-              <h2>Payment</h2>
+              <h2>Card Info</h2>
               <FormGroup variant="standard" id="paymentInfoGroup">
-                <TextField type="text" name="Cardholder's name" label="Cardholder's name" required></TextField>
+                <TextField
+                  type="text"
+                  name="Cardholder's name"
+                  label="Cardholder's name"
+                  required
+                ></TextField>
                 <br></br>
                 <TextField
                   type="text"
@@ -149,7 +166,12 @@ export default function FormPay() {
                     },
                   }}
                 />
-                <TextField type="text" name="CVC" label="CVC" min="3"></TextField>
+                <TextField
+                  type="text"
+                  name="CVC"
+                  label="CVC"
+                  min="3"
+                ></TextField>
               </FormGroup>
             </CardContent>
             <MyButton type="submit">Submit</MyButton>
