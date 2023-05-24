@@ -1,13 +1,13 @@
 import { FormControl, Card, CardContent, TextField, FormGroup } from "@mui/material";
 import InputMask from "react-input-mask";
-import { useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import styles from "../styles/Form.module.css";
-import { formDataContext } from "@/contexts/bookingContext";
-import BookFormContext from "@/contexts/bookFormContext";
+
+import MyButton from "@/components/MyButton";
 
 export default function FormPay() {
-  const ref = useRef(null);
-  const inputRef = useRef(null);
+  /* const ref = useRef(null);
+  const inputRef = useRef(null); */
   //const { paymentInfo: ticketInfo, dispatch } = useContext(PaymentContext); //ticket booking context
   const [formPayment, setFormPayment] = useState({
     fullname: "",
@@ -34,38 +34,20 @@ export default function FormPay() {
   //const invalid form input - error state:
   const [formErrors, setFormErrors] = useState({});
 
-  //handle Submit get full payload
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(formPayment);
-    //chatgpt helped
-    const errors = {};
-    //set to default false with each submit
+  setFormErrors(errors);
 
-    if (!formPayment.fullname) {
-      errors.name = "Name is required";
-    }
-    if (!formPayment.email || !formPayment.email.includes("@")) {
-      errors.email = "Email is required";
-    }
-    if (!formPayment.card || formPayment.card < 16) {
-      errors.creditcard = "Creditcard full no is required";
-    }
-
-    setFormErrors(errors);
-
-    if (Object.keys(errors).length === 0) {
-      //dispatch function that returns new state
-      dispatch({
-        action: "SUBMIT",
-        payload: {
-          fullname: e.target.name.value,
-          email: e.target.email.value,
-          phone: e.target.phone.value,
-        },
-      });
-    }
+  if (Object.keys(errors).length === 0) {
+    //dispatch function that returns new state
+    dispatch({
+      action: "SUBMIT",
+      payload: {
+        fullname: e.target.name.value,
+        email: e.target.email.value,
+        phone: e.target.phone.value,
+      },
+    });
   }
+
   /* CONFIRM RESERVATION */
   function confirmReservation(e) {
     e.preventDefault();
@@ -76,10 +58,10 @@ export default function FormPay() {
       },
       body: JSON.stringify({
         /* dette er vores payload med id´et fra reservation */
-        id: "",
+        id: data.id,
       }),
     });
-    console.log("confirm reservation");
+    console.log(id, "confirm reservation");
   }
 
   return (
@@ -95,7 +77,7 @@ export default function FormPay() {
           {/* number of tickets/ ticket type */}
         </article>
       </article>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={confirmReservation}>
         <FormControl variant="outlined">
           <Card>
             <CardContent className={styles.formWrapper}>
@@ -152,9 +134,7 @@ export default function FormPay() {
                 <TextField type="text" name="CVC" label="CVC" min="3"></TextField>
               </FormGroup>
             </CardContent>
-            <button onSubmit={confirmReservation} type="submit">
-              Submit
-            </button>
+            <MyButton type="submit">Submit</MyButton>
           </Card>
         </FormControl>
       </form>

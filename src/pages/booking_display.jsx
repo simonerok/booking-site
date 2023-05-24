@@ -20,14 +20,8 @@ export default function BookingDisplay({ data }) {
   const [currentStep, setCurrentStep] = useState(0);
   switch (currentStep) {
     case 1:
-      return <PersonalInfo />;
+      return <PersonalInfo currentStepSetter={setCurrentStep} />;
     default:
-      return (
-        <MainTicket
-          currentStepSetter={setCurrentStep}
-          formData={{ formState, dispatch }}
-          spotData={data}
-        />
-      );
+      return <MainTicket currentStepSetter={setCurrentStep} formData={{ formState, dispatch }} spotData={data} />;
   }
 }
