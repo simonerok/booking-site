@@ -25,8 +25,21 @@ export default function Confirmation() {
           </p>
           <p>Area: {formData.formData.area}</p>
           <p>Spots: {formData.formData.ticketAmount}</p>
-          <p>Attending festival goers:</p>
-          <p>{formData.formData.attendees[0].fullname}</p>
+          <section>
+            <p>
+              <italic>Attending festival goers:</italic>
+            </p>
+            <div>
+              {formData.formData.attendees.map((attending, index) => (
+                <p key={index}>
+                  <p>Attendee {index + 1}</p>
+                  <p>Full Name:{attending.fullname}</p>
+                  <p>Email:{attending.email}</p>
+                  <p>Phone:{attending.phone}</p>
+                </p>
+              ))}
+            </div>{" "}
+          </section>
         </article>
       </article>
     </>
