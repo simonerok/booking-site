@@ -14,13 +14,8 @@ export default function PersonalInfo() {
   return (
     <>
       <h2>Personal Infomation</h2>
-      {attendees.map((attendee, index) => {
-        <PI_Formtab
-          title="Person"
-          key={index}
-          attendee={attendee}
-        ></PI_Formtab>;
-      })}
+      {/* {attendees.map((attendee, index) => { */}
+      <PI_Formtab title="Person"></PI_Formtab>;{/* })} */}
     </>
   );
 
