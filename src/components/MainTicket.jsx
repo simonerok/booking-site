@@ -1,5 +1,5 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Alert, InputLabel, FormControl, Card, CardContent, TextField, Select, Checkbox, FormGroup, FormControlLabel, MenuItem } from "@mui/material";
+import React, { useState, useContext } from "react";
+import { FormControl, Card, CardContent } from "@mui/material";
 import MyButton from "@/components/MyButton.jsx";
 import styles from "../styles/Form.module.css";
 import OtherOptionsSection from "./OtherOptions";
@@ -9,17 +9,10 @@ import { formDataContext } from "@/contexts/bookingContext";
 
 export default function MainTicket({ spotData, currentStepSetter }) {
   console.log(spotData, "from ticket");
-  const [selectedSpot, setSelectedSpot] = useState("");
-  const [selectedArea, setSelectedArea] = useState("");
-  const [numberOfTickets, setNumberOfTickets] = useState(0);
   const [open, setOpen] = useState(false);
 
   //context call on the parent
   const { formData, dispatch } = useContext(formDataContext);
-  // const handleChange = (event) => {
-  //   setSelectedSpot(event.target.value);
-  //   setSelectedArea(event.target.value);
-  // };
 
   const handleInfoClick = () => {
     setOpen(!open);
