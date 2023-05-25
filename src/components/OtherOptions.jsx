@@ -12,16 +12,10 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
   const [tents3Counter, setTents3Counter] = useState(0);
 
   function incrementTents2() {
-    /* if statement der gør man ikke kan vælge flere tickets end "sleeping spots" */
-    const sleepingSpots = (tents2Counter + 1) * 2 + tents3Counter * 3;
-    if (
-      formData.formData.ticketAmount <= sleepingSpots &&
-      sleepingSpots <= formData.formData.ticketAmount + 1
-    ) {
-      /* updated counter gør at det globale object (async function) bliver opdateret på samme tid som klikket sker */
+    const sleepingSpots = tents2Counter * 2 + tents3Counter * 3;
+    if (formData.formData.ticketAmount >= sleepingSpots + 2) {
       const updatedCounter = tents2Counter + 1;
       setTents2Counter(updatedCounter);
-      /* her sendes staten til vores globale object */
       dispatch({
         action: "UPDATE_FIELD",
         payload: { field: "tents2", value: updatedCounter },
@@ -30,10 +24,10 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
   }
 
   function incrementTents3() {
-    const sleepingSpots = tents2Counter * 2 + (tents3Counter + 1) * 3;
+    const sleepingSpots = tents2Counter * 2 + tents3Counter * 3;
     if (
-      formData.formData.ticketAmount <= sleepingSpots &&
-      sleepingSpots <= formData.formData.ticketAmount + 1
+      formData.formData.ticketAmount > sleepingSpots &&
+      sleepingSpots + 2 <= formData.formData.ticketAmount
     ) {
       const updatedCounter = tents3Counter + 1;
       setTents3Counter(updatedCounter);
