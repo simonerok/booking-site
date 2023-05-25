@@ -5,7 +5,7 @@
 
 .ModalSection {
   display: grid;
-  margin-bottom: -5rem;
+  margin-bottom: -3rem;
 }
 
 .ModalInfo {
@@ -27,6 +27,7 @@
   color: white;
   text-align: left;
   margin-left: 2rem;
+  font-size: var(--h2);
 }
 
 .ModalImg {
@@ -39,7 +40,7 @@
 
 @media (max-width: 750px) {
   .ModalSection {
-    margin-bottom: -3rem;
+    margin-bottom: -1rem;
   }
   .ModalButton {
     width: 10rem;

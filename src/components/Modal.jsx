@@ -20,10 +20,7 @@ export default function Modal({ selectedBand, handleCloseModal }) {
         </button>
         <img className={styles.ModalImg} src={logoSrc} alt="Logo" />
 
-        <h1 className={styles.ModalArtistName}>
-          {" "}
-          <span>{act}</span>
-        </h1>
+        <h1 className={styles.ModalArtistName}>{act}</h1>
       </section>
       <section className={styles.ModalInfo}>
         <article className={styles.ModalConcertInfo}>

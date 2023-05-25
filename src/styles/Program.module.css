@@ -1,7 +1,7 @@
 /* PROGRAM */
 .programBackground {
-  background: rgb(75, 222, 22);
-  background: linear-gradient(0deg, rgba(75, 222, 22, 1) 0%, rgba(19, 38, 191, 1) 47%, rgba(253, 45, 45, 1) 100%);
+  background: rgb(86, 229, 230);
+  background: linear-gradient(180deg, rgba(86, 229, 230, 1) 9%, rgba(232, 82, 219, 1) 49%, rgba(160, 235, 88, 1) 90%);
 }
 
 .programContainer {
@@ -53,5 +53,6 @@
 @media (max-width: 750px) {
   .programText {
     font-size: 2rem;
+    line-height: 2;
   }
 }
