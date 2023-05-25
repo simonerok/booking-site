@@ -4,6 +4,28 @@ import Modal from "@/components/Modal";
 
 export default function Program({ scheduleData, bandData }) {
   // const [stage, setStage] = useState("Monday");
+  const [selectedBand, setSelectedBand] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  // callback function that is called when a band event is clicked. It takes the selected bandEvent as a parameter.
+  const handleBandSelection = (bandEvent, day) => {
+    let stage = scheduleData.Jotunheim[day].filter((act) => act.act === bandEvent.act).length ? "Jotunheim" : false;
+    if (!stage) {
+      stage = scheduleData.Midgard[day].filter((act) => act.act === bandEvent.act).length ? "Midgard" : false;
+    }
+    if (!stage) {
+      stage = scheduleData.Vanaheim[day].filter((act) => act.act === bandEvent.act).length ? "Vanaheim" : false;
+    }
+
+    let bandInfo = bandData.find((band) => band.name === bandEvent.act);
+    setSelectedBand({
+      ...bandEvent,
+      day,
+      stage,
+      bandInfo,
+    });
+    setShowModal(true);
+  };
 
   const Midmon = scheduleData.Midgard.mon;
   const Midtue = scheduleData.Midgard.tue;
@@ -36,7 +58,7 @@ export default function Program({ scheduleData, bandData }) {
   return (
     <>
       <h1>Program</h1>
-      <Modal bandData={bandData} scheduleData={scheduleData} />
+      <Modal selectedBand={selectedBand} showModal={showModal} handleCloseModal={() => setShowModal(false)} />
       {/* {schedule with acts section} */}
       <section className={stylesProgram.programContainer}>
         <h2>Monday</h2>
@@ -47,7 +69,7 @@ export default function Program({ scheduleData, bandData }) {
               return null;
             }
             return (
-              <p className={stylesProgram.programText} key={bandEvent.act}>
+              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "mon")}>
                 {bandEvent.act} /
               </p>
             );
