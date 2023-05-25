@@ -44,7 +44,7 @@ export default function AvailableSpotsSection({ areaData }) {
           labelId="dropdown-label"
           id="dropdowm"
           label="Available spots"
-          onClick={(e) => {
+          onChange={(e) => {
             dispatch({
               action: "UPDATE_FIELD",
               payload: { field: "area", value: e.target.value },
