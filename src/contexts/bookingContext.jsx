@@ -47,7 +47,12 @@ function reducer(state, action) {
       //here extract the prop from payload
       const { ticketType } = action.payload;
       //modify payload based on choice and then insert into global state, chatgpt helped
-      const ticketPrice = ticketType === "Regular" ? 799 : 1299;
+      // const ticketPrice = ticketType === "Regular" ? 799 : 1299;
+      const ticketPrice = calculateTicketPrice(
+        state.formData.ticketType,
+        state.formData.ticketAmount,
+        state.formData.green
+      );
       return {
         ...state,
         formData: {
@@ -65,10 +70,16 @@ function reducer(state, action) {
     // };
     case "SET_TICKET_AMOUNT":
       const { ticketAmount } = action.payload;
-      const updatedTicketPrice =
-        state.formData.ticketType === "Regular"
-          ? ticketAmount * 799
-          : ticketAmount * 1299;
+      // const updatedTicketPrice =
+      //   state.formData.ticketType === "Regular"
+      //     ? ticketAmount * 799
+      //     : ticketAmount * 1299;
+
+      const updatedTicketPrice = calculateTicketPrice(
+        state.formData.ticketType,
+        state.formData.ticketAmount,
+        state.formData.green
+      );
       return {
         ...state,
         formData: {
@@ -78,6 +89,35 @@ function reducer(state, action) {
         },
       };
       return {};
+
+    //Incase of green option
+    case "GREEN":
+      //here extract the prop from payload
+      const { isChecked } = action.payload;
+      //modify payload based on choice and then insert into global state, chatgpt helped
+      // const ticketPrice = ticketType === "Regular" ? 799 : 1299;
+      const updatedticketwithGreen = calculateTicketPrice(
+        state.formData.ticketType,
+        state.formData.ticketAmount,
+        isChecked
+      );
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          green: isChecked,
+          ticketPrice: updatedticketwithGreen,
+        },
+      };
+    //Incase of tent set up
+    case "TENT_ON":
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+        },
+      };
+
     case "UPDATE_ATTENDEE_FIELD":
       return {
         ...state,
@@ -122,23 +162,7 @@ function reducer(state, action) {
           ],
         },
       };
-    // //Incase of green option
-    // case "GREEN":
-    //   return {
-    //     ...state,
-    //     formData: {
-    //       ...state.formData,
 
-    //     },
-    //   };
-    //Incase of tent set up
-    case "TENT_ON":
-      return {
-        ...state,
-        formData: {
-          ...state.formData,
-        },
-      };
     case "NEXT":
       return {
         ...state,
@@ -158,6 +182,23 @@ function reducer(state, action) {
     default:
       return state;
   }
+}
+
+function calculateTicketPrice(ticketType, ticketAmount, isGreenChecked) {
+  let basePrice = 0;
+  if (ticketType === "Regular") {
+    basePrice = 799;
+  } else {
+    // Add other ticket types'
+    basePrice = 1299;
+  }
+
+  let totalPrice = basePrice * ticketAmount;
+  if (isGreenChecked) {
+    totalPrice += 249;
+  }
+
+  return totalPrice;
 }
 
 export const FormDataProvider = ({ children }) => {
