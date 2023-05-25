@@ -13,21 +13,23 @@ export default function AvailableSpotsSection({ areaData }) {
         className={styles.campText}
         labelId="dropdown-label"
         id="dropdowm"
+        required
         label="Available spots"
-        // value={formData.area}
-        // onChange={(e) =>
-        //   dispatch({
-        //     //dispatch to the global formData obj. with new state value
-        //     action: "UPDATE_FIELD",
-        //     payload: { field: "area", value: e.target.value },
-        //   })
-        // }
+        value={formData.area}
+        onChange={(e) =>
+          dispatch({
+            //dispatch to the global formData obj. with new state value
+            action: "UPDATE_FIELD",
+            payload: { field: "area", value: e.target.value },
+          })
+        }
       >
-        {areaData.map((spot, availability) => (
-          <p key={availability} value={spot.available}>
-            {spot.area + ": " + spot.available}
+        {areaData.map((spots, availability) => (
+          <p key={availability} value={spots.available}>
+            {spots.area + ": " + spots.available}
           </p>
         ))}
+
         <InputLabel id="dropdown-label" label="spots" placeholder="form" className={styles.dropdownLabel} style={{ position: "relative" }}>
           Choose Camp
         </InputLabel>
@@ -44,7 +46,7 @@ export default function AvailableSpotsSection({ areaData }) {
           }}
         >
           {areaData.map((spot, availability) => (
-            <MenuItem key={availability} value={spot.area}>
+            <MenuItem key={availability} value={spot.area} disabled={spot.available === 0}>
               {spot.area}
             </MenuItem>
           ))}
