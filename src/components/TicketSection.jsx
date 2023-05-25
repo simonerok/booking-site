@@ -39,7 +39,13 @@ export default function TicketsSection() {
         // value={numberOfTickets}
         // onChange={(e) => setNumberOfTickets(e.target.value)}
       />
-      <InputLabel id="dropdown-label" label="ticket-type" placeholder="Ticket-type" className={styles.dropdownLabel} style={{ position: "relative" }}>
+      <InputLabel
+        id="dropdown-label"
+        label="ticket-type"
+        placeholder="Ticket-type"
+        className={styles.dropdownLabel}
+        style={{ position: "relative" }}
+      >
         Choose ticket type
       </InputLabel>
       <Select
@@ -56,8 +62,8 @@ export default function TicketsSection() {
           })
         }
       >
-        <MenuItem value="reg">Regular 799,-</MenuItem>
-        <MenuItem value="vip">VIP 1299,-</MenuItem>
+        <MenuItem value="Regular">Regular 799,-</MenuItem>
+        <MenuItem value="VIP">VIP 1299,-</MenuItem>
       </Select>
     </>
   );

@@ -22,6 +22,7 @@ const initialState = {
     ],
     green: false,
     tent: false,
+
     id: "",
   },
 };
@@ -70,32 +71,33 @@ function reducer(state, action) {
           attendees: attendees,
         },
       };
-    // case "CREATE_ATTENDEE_STRUCTURE":
-    //   setState((prevState) => {
-    //     const newAttendees = [];
-    //     for (let i = 0; i < formData.formData.ticketAmount; i++) {
-    //       if (i < prevState.attendees.length) {
-    //         // If the index is within the previous attendees length, use the existing attendee
-    //         newAttendees.push(prevState.attendees[i]);
-    //       } else {
-    //         // If the index exceeds the previous attendees length, add a new attendee
-    //         newAttendees.push({ fullname: "", email: "", phone: "" });
-    //       }
-    //     }
-    //     return {
-    //       ...state,
-    //       formData: {
-    //         ...state.formData,
-    //         attendees: [newAttendees],
-    //       },
-    //     };
-    //   });
+
     case "ADD_ATTENDEE":
       return {
         ...state,
         formData: {
           ...state.formData,
-          attendees: [...state.formData.attendees, { fullname: "", email: "", phone: "" }],
+          attendees: [
+            ...state.formData.attendees,
+            { fullname: "", email: "", phone: "" },
+          ],
+        },
+      };
+    // //Incase of green option
+    // case "GREEN":
+    //   return {
+    //     ...state,
+    //     formData: {
+    //       ...state.formData,
+
+    //     },
+    //   };
+    //Incase of tent set up
+    case "TENT_ON":
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
         },
       };
     case "NEXT":
@@ -110,8 +112,9 @@ function reducer(state, action) {
     case "SUBMIT":
       return {
         ...state,
-        fullname: action.payload.fullname,
-        email: action.payload.email,
+        formData: {
+          ...state.formData,
+        },
       };
     default:
       return state;
@@ -122,5 +125,9 @@ export const FormDataProvider = ({ children }) => {
   const [formData, dispatch] = useReducer(reducer, initialState);
 
   console.log(formData);
-  return <formDataContext.Provider value={{ formData, dispatch }}>{children}</formDataContext.Provider>;
+  return (
+    <formDataContext.Provider value={{ formData, dispatch }}>
+      {children}
+    </formDataContext.Provider>
+  );
 };
