@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  Card,
-  CardContent,
-  TextField,
-  FormGroup,
-} from "@mui/material";
+import { FormControl, Card, CardContent, TextField, FormGroup } from "@mui/material";
 import InputMask from "react-input-mask";
 import { useContext } from "react";
 import styles from "../styles/Form.module.css";
@@ -71,27 +65,27 @@ export default function FormPay({ currentStepSetter }) {
   console.log(formData);
   return (
     <>
-      <h1>Payment details</h1>
-      <article>
-        <h2>Overview</h2>
+      <h1 className={styles.h1}>Payment details</h1>
+      <article className={styles.overviewContainer}>
+        <h2 className={styles.h2}> Overview</h2>
         <article className="TicketOverview_container">
-          <h3>Tickets booked</h3>
-          <p>Date: {formData.formData.date}</p>
-          <p>Types of tickets: {formData.formData.ticketType}</p>
-          <p>{formData.formData.green ? <p>Green Option</p> : <p></p>}</p>
-          <p>{formData.formData.tentSetUp ? <p>Setup of tent</p> : <p></p>}</p>
+          <p className={styles.p}>Tickets booked:</p>
+          <p className={styles.p}>Types of tickets: {formData.formData.ticketType}</p>
+          <p className={styles.p}>{formData.formData.green ? <p>Green Option</p> : <p></p>}</p>
+          <p className={styles.p}>Date: {formData.formData.date}</p>
+          <p>{formData.formData.tentSetUp ? <p className={styles.p}>Setup of tent</p> : <p></p>}</p>
           <p>
-            <strong>Area</strong>
+            <h2 className={styles.h2}>Area</h2>
           </p>
-          <p>Area: {formData.formData.area}</p>
-          <p>Spots: {formData.formData.ticketAmount}</p>
+          <p className={styles.p}>Area: {formData.formData.area}</p>
+          <p className={styles.p}>Spots: {formData.formData.ticketAmount}</p>
         </article>
       </article>
       <form onSubmit={confirmReservation}>
         <FormControl variant="outlined">
           <Card>
             <CardContent className={styles.formWrapper}>
-              <h2>Payment</h2>
+              <h2 className={styles.h2}>Payment</h2>
               <TextField
                 name="fullname"
                 id="fullname"
@@ -120,14 +114,9 @@ export default function FormPay({ currentStepSetter }) {
                 required //onChange={handlePIChanges}
               />
 
-              <h2>Card Info</h2>
+              <h2 className={styles.h2}>Card Info</h2>
               <FormGroup variant="standard" id="paymentInfoGroup">
-                <TextField
-                  type="text"
-                  name="Cardholder's name"
-                  label="Cardholder's name"
-                  required
-                ></TextField>
+                <TextField type="text" name="Cardholder's name" label="Cardholder's name" required></TextField>
                 <br></br>
                 <TextField
                   type="text"
@@ -167,15 +156,12 @@ export default function FormPay({ currentStepSetter }) {
                     },
                   }}
                 />
-                <TextField
-                  type="text"
-                  name="CVC"
-                  label="CVC"
-                  min="3"
-                ></TextField>
+                <TextField type="text" name="CVC" label="CVC" min="3"></TextField>
               </FormGroup>
             </CardContent>
-            <MyButton type="submit">Submit</MyButton>
+            <MyButton className={styles.form_btn} type="submit">
+              Submit
+            </MyButton>
           </Card>
         </FormControl>
       </form>
