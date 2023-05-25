@@ -85,7 +85,7 @@ export default function Program({ scheduleData, bandData }) {
               return null;
             }
             return (
-              <p className={stylesProgram.programText} key={bandEvent.act}>
+              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "tue")}>
                 {bandEvent.act} /
               </p>
             );
@@ -101,7 +101,7 @@ export default function Program({ scheduleData, bandData }) {
               return null;
             }
             return (
-              <p className={stylesProgram.programText} key={bandEvent.act}>
+              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "wed")}>
                 {bandEvent.act} /
               </p>
             );
@@ -117,7 +117,7 @@ export default function Program({ scheduleData, bandData }) {
               return null;
             }
             return (
-              <p className={stylesProgram.programText} key={bandEvent.act}>
+              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "thu")}>
                 {bandEvent.act} /
               </p>
             );
@@ -133,7 +133,7 @@ export default function Program({ scheduleData, bandData }) {
               return null;
             }
             return (
-              <p className={stylesProgram.programText} key={bandEvent.act}>
+              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "fri")}>
                 {bandEvent.act} /
               </p>
             );
@@ -149,7 +149,7 @@ export default function Program({ scheduleData, bandData }) {
               return null;
             }
             return (
-              <p className={stylesProgram.programText} key={bandEvent.act}>
+              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "sat")}>
                 {bandEvent.act} /
               </p>
             );
@@ -165,7 +165,7 @@ export default function Program({ scheduleData, bandData }) {
               return null;
             }
             return (
-              <p className={stylesProgram.programText} key={bandEvent.act}>
+              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "sun")}>
                 {bandEvent.act} /
               </p>
             );
