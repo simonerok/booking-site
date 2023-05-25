@@ -75,3 +75,20 @@
   max-width: 400px;
   margin-bottom: 2rem;
 }
+
+/* Add button */
+.addBtn {
+  max-width: 20px;
+  max-height: 20px;
+  margin-block: 5px;
+}
+.addBtnWrapper {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.btnText {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 1rem;
+}

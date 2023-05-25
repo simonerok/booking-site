@@ -22,6 +22,8 @@ const initialState = {
     ],
     green: false,
     tent: false,
+    tents2: false,
+    tents3: false,
     id: "",
   },
 };
