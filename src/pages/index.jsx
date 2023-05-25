@@ -2,7 +2,6 @@ import styles from "@/styles/Home.module.css";
 // import Button from "@mui/material";
 import Landing from "@/components/Landing";
 import Head from "next/head";
-import ProgramSite from "@/components/LandingProgram";
 import LandingTickets from "@/components/LandingTickets";
 import LandingArtists from "@/components/LandingArtists";
 import LandingProgram from "@/components/LandingProgram";
@@ -21,7 +20,7 @@ export default function Home({ bandData }) {
       <Landing />
       <LandingTickets />
       <LandingArtists bandData={bandData} />
-      <LandingProgram />
+      <LandingProgram bandData={bandData} />
       {/* {bandData.map((perBand) => (
         //key & value fortæller hvad bands sorteres på
         <section key={bandData.slug} value={bandData.slug}>

@@ -1,0 +1,11 @@
+/* PROGRAM */
+
+.programContainer {
+  text-align: center;
+  margin-inline: auto;
+  max-width: 1200px;
+}
+.programText {
+  display: inline;
+  text-align: center;
+}

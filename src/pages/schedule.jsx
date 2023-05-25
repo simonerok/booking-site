@@ -1,683 +1,269 @@
 import stylesSchedule from "../styles/Schedule.module.css";
 import { useState } from "react";
 
-export default function Schedule({ schedule }) {
-  const [stage, setStage] = useState("Midgard");
+// MUI
 
-  const Midmon = schedule.Midgard.mon;
-  const Midtue = schedule.Midgard.tue;
-  const Midwed = schedule.Midgard.wed;
-  const Midthu = schedule.Midgard.thu;
-  const Midfri = schedule.Midgard.fri;
-  const Midsat = schedule.Midgard.sat;
-  const Midsun = schedule.Midgard.sun;
+import * as React from "react";
+import { Paper, Table } from "@mui/material";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
 
-  //JOTUNHEIM
-  const Jotmon = schedule.Jotunheim.mon;
-  const Jottue = schedule.Jotunheim.tue;
-  const Jotwed = schedule.Jotunheim.wed;
-  const Jotthu = schedule.Jotunheim.thu;
-  const Jotfri = schedule.Jotunheim.fri;
-  const Jotsat = schedule.Jotunheim.sat;
-  const Jotsun = schedule.Jotunheim.sun;
+const columns = [
+  {
+    id: "time00",
+    label: "00:00 - 02:00",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "time02",
+    label: "02:00 - 04:00",
+    minWidth: 170,
+    align: "right",
+  },
 
-  //VANAHEIM
-  const Vanmon = schedule.Vanaheim.mon;
-  const Vantue = schedule.Vanaheim.tue;
-  const Vanwed = schedule.Vanaheim.wed;
-  const Vanthu = schedule.Vanaheim.thu;
-  const Vanfri = schedule.Vanaheim.fri;
-  const Vansat = schedule.Vanaheim.sat;
-  const Vansun = schedule.Vanaheim.sun;
+  {
+    id: "time04",
+    label: "04:00 - 06:00",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "time06",
+    label: "06:00 - 08:00",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "time08",
+    label: "08:00 - 10:00",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "time10",
+    label: "10:00 - 12:0",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "time12",
+    label: "12:00 - 14:00",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "time14",
+    label: "14:00 - 16:00",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "time16",
+    label: "16:00 - 18:00",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "time18",
+    label: "18:00 - 20:00",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "time20",
+    label: "20:00 - 22:00",
+    minWidth: 170,
+    align: "right",
+  },
+  {
+    id: "time22",
+    label: "22:00 - 00:00",
+    minWidth: 170,
+    align: "right",
+  },
+];
 
-  //filter for button days
-  function changeDay(event) {
-    if (event.target.value === "Midgard") {
-      setStage("Midgard");
-      console.log(stage);
-    }
-    if (event.target.value === "Vanaheim") {
-      setStage("Vanaheim");
-      console.log(stage);
-    }
-    if (event.target.value === "Jotunheim") {
-      setStage("Jotunheim");
-      console.log(stage);
-    }
+function createData(time00, time02, time04, time06, time08, time10, time12, time14, time16, time18, time20, time22) {
+  return { time00, time02, time04, time06, time08, time10, time12, time14, time16, time18, time20, time22 };
+}
+
+export default function StickyHeadTable({ schedule }) {
+  const rows = {
+    Monday: [createData(...test("mon", "Midgard")), createData(...test("mon", "Vanaheim")), createData(...test("mon", "Jotunheim"))],
+    Tuesday: [createData(...test("tue", "Midgard")), createData(...test("tue", "Vanaheim")), createData(...test("tue", "Jotunheim"))],
+    Wednesday: [createData(...test("wed", "Midgard")), createData(...test("wed", "Vanaheim")), createData(...test("wed", "Jotunheim"))],
+    Thursday: [createData(...test("thu", "Midgard")), createData(...test("thu", "Vanaheim")), createData(...test("thu", "Jotunheim"))],
+    Friday: [createData(...test("fri", "Midgard")), createData(...test("fri", "Vanaheim")), createData(...test("fri", "Jotunheim"))],
+    Saturday: [createData(...test("sat", "Midgard")), createData(...test("sat", "Vanaheim")), createData(...test("sat", "Jotunheim"))],
+    Sunday: [createData(...test("sun", "Midgard")), createData(...test("sun", "Vanaheim")), createData(...test("sun", "Jotunheim"))],
+  };
+
+  // export default function StickyHeadTable({ schedule }) {
+  //   const rows = [createData(...test("mon", "Midgard")), createData(...test("mon", "Vanaheim")), createData(...test("mon", "Jotunheim"))];
+  //   const rows2 = [createData(...test("tue", "Midgard")), createData(...test("tue", "Vanaheim")), createData(...test("tue", "Jotunheim"))];
+  //   const [day, setDay] = useState("Monday");
+  //   //filter for button days
+  //   function changeDay(event) {
+  //     if (event.target.value === "Monday") {
+  //       setDay("Monday");
+  //       console.log(day);
+  //     }
+  //     if (event.target.value === "Tuesday") {
+  //       setDay("Tuesday");
+  //       console.log(day);
+  //     }
+  //     if (event.target.value === "Wednesday") {
+  //       setDay("Wednesday");
+  //       console.log(day);
+  //     }
+  //     if (event.target.value === "Thursday") {
+  //       setDay("Thursday");
+  //       console.log(day);
+  //     }
+  //     if (event.target.value === "Friday") {
+  //       setDay("Friday");
+  //       console.log(day);
+  //     }
+  //     if (event.target.value === "Saturday") {
+  //       setDay("Saturday");
+  //       console.log(day);
+  //     }
+  //     if (event.target.value === "Sunday") {
+  //       setDay("Sunday");
+  //       console.log(day);
+  //     }
+  //   }
+
+  const [day, setDay] = useState("Monday");
+  const [displayedDay, setDisplayedDay] = useState("Monday");
+
+  // Function to update the displayed day and rows based on the selected day
+  function updateDisplayedDay(selectedDay) {
+    setDisplayedDay(selectedDay);
   }
 
+  // Filter for button days
+  function changeDay(event) {
+    const selectedDay = event.target.value;
+    setDay(selectedDay);
+    console.log(day);
+    updateDisplayedDay(selectedDay);
+  }
+
+  // Retrieve the rows for the displayed day
+  // || is used to provide a fallback value, which is an empty array [].
+  // This ensures that displayedRows will always be an array, even if the displayedDay is not found in the rows object.
+  const displayedRows = rows[displayedDay] || [];
+
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  function test(day, stage) {
+    // Object to store the results
+    const results = [];
+    //for (const day in schedule.Midgard) {
+
+    const activities = schedule[stage][day];
+    for (const activity of activities) {
+      if (activity.act !== "break") {
+        results.push(activity.act);
+      } else {
+        // Push an empty string as a placeholder for the empty spot
+        results.push("");
+      }
+    }
+
+    //}
+    console.log({ results });
+    return results;
+  }
   return (
     <>
       <h1>Schedule</h1>
       {/* schedule timetable */}
       {/* BUTTONS TO CHOOSE DAYS */}
-      <div className={stylesSchedule.stages}>
-        <button onClick={changeDay} value="Midgard">
-          Midgard
+      <div className={stylesSchedule.days}>
+        <button onClick={changeDay} value="Monday">
+          Monday
         </button>
-        <button onClick={changeDay} value="Vanaheim">
-          Vanaheim
+        <button onClick={changeDay} value="Tuesday">
+          Tuesday
         </button>
-        <button onClick={changeDay} value="Jotunheim">
-          Jotunheim
+        <button onClick={changeDay} value="Wednesday">
+          Wednesday
+        </button>
+        <button onClick={changeDay} value="Thursday">
+          Thursday
+        </button>
+        <button onClick={changeDay} value="Friday">
+          Friday
+        </button>
+        <button onClick={changeDay} value="Saturday">
+          Saturday
+        </button>
+        <button onClick={changeDay} value="Sunday">
+          Sunday
         </button>
       </div>
-      <p>{stage}</p>
-      <br></br>
-      {/* <button onClick={changeDay}>Thursday</button> */}
-      {/* schedule scenes grid 
-      Indpisration from tinderbox grid and hour indication setup:
-      https://tinderbox.dk/program/?gad=1&gclid=CjwKCAjwjYKjBhB5EiwAiFdSfiRSNWo1SbtqktdsBSz9BluuzPH0NGo6nI9zuTTo43puyqPPzRvPhBoCFG4QAvD_BwE*/}
-      {/* times section */}
-      <div className={stylesSchedule.timetable}>
-        <section className="00:00_hour">
-          <span className={stylesSchedule.timetable_hour}>
-            00:00
-            <span className={stylesSchedule.hourLine_Quarter_highlight}></span>
-            <span className={stylesSchedule.hourLine_Quarter}></span>
-          </span>
-        </section>
-        <section className="02:00_hour">
-          <span className={stylesSchedule.timetable_hour}>
-            02:00
-            <span className={stylesSchedule.hourLine_Quarter_highlight}></span>
-            <span className={stylesSchedule.hourLine_Quarter}></span>
-          </span>
-        </section>
-        <section className="04:00_hour">
-          <span className={stylesSchedule.timetable_hour}>
-            04:00
-            <span className={stylesSchedule.hourLine_Quarter_highlight}></span>
-            <span className={stylesSchedule.hourLine_Quarter}></span>
-          </span>
-        </section>
-        <section className="06:00_hour">
-          <span className={stylesSchedule.timetable_hour}>
-            06:00
-            <span className={stylesSchedule.hourLine_Quarter_highlight}></span>
-            <span className={stylesSchedule.hourLine_Quarter}></span>
-          </span>
-        </section>
-        <section className="08:00_hour">
-          <span className={stylesSchedule.timetable_hour}>
-            08:00
-            <span className={stylesSchedule.hourLine_Quarter_highlight}></span>
-            <span className={stylesSchedule.hourLine_Quarter}></span>
-          </span>
-        </section>
-        <section className="10:00_hour">
-          <span className={stylesSchedule.timetable_hour}>
-            10:00
-            <span className={stylesSchedule.hourLine_Quarter_highlight}></span>
-            <span className={stylesSchedule.hourLine_Quarter}></span>
-          </span>
-        </section>
-        <section className="12:00_hour">
-          <span className={stylesSchedule.timetable_hour}>
-            12:00
-            <span className={stylesSchedule.hourLine_Quarter_highlight}></span>
-            <span className={stylesSchedule.hourLine_Quarter}></span>
-            <span className={stylesSchedule.hourLine_Quarter}></span>
-            <span className={stylesSchedule.hourLine_Quarter}></span>
-          </span>
-        </section>
-        <section className="14:00_hour">
-          <span className={stylesSchedule.timetable_hour}>
-            14:00
-            <span className={stylesSchedule.hourLine_Quarter_highlight}></span>
-            <span className={stylesSchedule.hourLine_Quarter}></span>
-          </span>
-        </section>
-        <section className="16:00_hour">
-          <span className={stylesSchedule.timetable_hour}>
-            16:00
-            <span className={stylesSchedule.hourLine_Quarter_highlight}></span>
-            <span className={stylesSchedule.hourLine_Quarter}></span>
-          </span>
-        </section>
-        <section className="18:00_hour">
-          <span className={stylesSchedule.timetable_hour}>
-            18:00
-            <span className={stylesSchedule.hourLine_Quarter_highlight}></span>
-            <span className={stylesSchedule.hourLine_Quarter}></span>
-          </span>
-        </section>
-        <section className="20:00_hour">
-          <span className={stylesSchedule.timetable_hour}>
-            20:00
-            <span className={stylesSchedule.hourLine_Quarter_highlight}></span>
-            <span className={stylesSchedule.hourLine_Quarter}></span>
-          </span>
-        </section>
-        <section className="22:00_hour">
-          <span className={stylesSchedule.timetable_hour}>
-            22:00
-            <span className={stylesSchedule.hourLine_Quarter_highlight}></span>
-            <span className={stylesSchedule.hourLine_Quarter}></span>
-          </span>
-        </section>
-      </div>
-      {/* {schedule with acts section} */}
-      <section className={stylesSchedule.days_program}>
-        <div className={stylesSchedule.act_wrapper}>
-          <div className={stylesSchedule.schedule_scenes}>
-            {/* section with day labels */}
-            <section className={stylesSchedule.day_label}>
-              <span className={stylesSchedule.scene_label}> Monday</span>
-              <span className={stylesSchedule.scene_label}> Tuesday</span>
-              <span className={stylesSchedule.scene_label}> Wednesday</span>
-              <span className={stylesSchedule.scene_label}> Thursday</span>
-              <span className={stylesSchedule.scene_label}> Friday</span>
-              <span className={stylesSchedule.scene_label}> Saturday</span>
-              <span className={stylesSchedule.scene_label}> Sunday</span>
-            </section>
-            <div>
-              {stage === "Midgard" ? (
-                <div className={stylesSchedule.schema_grid}>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Midmon.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Midtue.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Midwed.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Midthu.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Midfri.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Midsat.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Midsun.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                </div>
-              ) : null}
-              {/* VANAHEIM */}
-              {stage === "Vanaheim" ? (
-                <div className={stylesSchedule.schema_grid}>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Vanmon.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Vantue.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Vanwed.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Vanthu.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Vanfri.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Vansat.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Vansun.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                </div>
-              ) : null}
-              {/* JOTUNHEIM */}
-              {stage === "Jotunheim" ? (
-                <div className={stylesSchedule.schema_grid}>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Jotmon.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Jottue.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Jotwed.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Jotthu.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Jotfri.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Jotsat.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                  <div className={stylesSchedule.schedule_act}>
-                    {Jotsun.map((bandEvent) =>
-                      bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent_break}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent}>
-                            <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
-                            </div>
-                            <p>{bandEvent.act}</p>
-                          </article>
-                        </section>
-                      )
-                    )}{" "}
-                  </div>
-                </div>
-              ) : null}
-            </div>
-          </div>
+      <h2 className={stylesSchedule.dayName}>{day}</h2>
+
+      <section className={stylesSchedule.scheduleSection}>
+        <div>
+          <p>Midgard</p> <br />
+          <p>Vanaheim</p> <br />
+          <p>Jotunheim</p>
         </div>
+        <Paper sx={{ width: "100%", overflow: "hidden" }}>
+          <TableContainer sx={{ maxHeight: 440 }}>
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow>
+                  {columns.map((column) => (
+                    <TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
+                      {column.label}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {/* changed the MUI "structure" from rows to displayedRows */}
+                {displayedRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                  return (
+                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                      {columns.map((column) => {
+                        const value = row[column.id];
+                        return (
+                          <TableCell key={column.id} align={column.align}>
+                            {column.format && typeof value === "number" ? column.format(value) : value}
+                          </TableCell>
+                        );
+                      })}
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Paper>
       </section>
     </>
   );
 }
+
 export async function getServerSideProps() {
-  //provide appContext in order to do 404's
   const api = "http://localhost:8080/schedule";
   const res = await fetch(api);
   const data = await res.json();

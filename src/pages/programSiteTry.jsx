@@ -1,9 +1,9 @@
-import stylesSchedule from "../styles/Schedule.module.css";
+import stylesProgram from "../styles/Program.module.css";
 import { useState } from "react";
 import Modal from "@/components/Modal";
 
-export default function Schedule({ scheduleData, bandData }) {
-  const [stage, setStage] = useState("Monday");
+export default function Program({ scheduleData, bandData }) {
+  // const [stage, setStage] = useState("Monday");
 
   const Midmon = scheduleData.Midgard.mon;
   const Midtue = scheduleData.Midgard.tue;
@@ -38,7 +38,7 @@ export default function Schedule({ scheduleData, bandData }) {
       <h1>Program</h1>
       <Modal bandData={bandData} scheduleData={scheduleData} />
       {/* {schedule with acts section} */}
-      <section className={stylesSchedule.programContainer}>
+      <section className={stylesProgram.programContainer}>
         <h2>Monday</h2>
         <>
           {Midmon.concat(Jotmon, Vanmon).map((bandEvent) => {
@@ -47,14 +47,14 @@ export default function Schedule({ scheduleData, bandData }) {
               return null;
             }
             return (
-              <p className={stylesSchedule.programText} key={bandEvent.act}>
+              <p className={stylesProgram.programText} key={bandEvent.act}>
                 {bandEvent.act} /
               </p>
             );
           })}
         </>
       </section>
-      <section className={stylesSchedule.programContainer}>
+      <section className={stylesProgram.programContainer}>
         <h2>Tuesday</h2>
         <>
           {Midtue.concat(Jottue, Vantue).map((bandEvent) => {
@@ -63,14 +63,14 @@ export default function Schedule({ scheduleData, bandData }) {
               return null;
             }
             return (
-              <p className={stylesSchedule.programText} key={bandEvent.act}>
+              <p className={stylesProgram.programText} key={bandEvent.act}>
                 {bandEvent.act} /
               </p>
             );
           })}
         </>
       </section>
-      <section className={stylesSchedule.programContainer}>
+      <section className={stylesProgram.programContainer}>
         <h2>Wednesday</h2>
         <>
           {Midwed.concat(Jotwed, Vanwed).map((bandEvent) => {
@@ -79,14 +79,14 @@ export default function Schedule({ scheduleData, bandData }) {
               return null;
             }
             return (
-              <p className={stylesSchedule.programText} key={bandEvent.act}>
+              <p className={stylesProgram.programText} key={bandEvent.act}>
                 {bandEvent.act} /
               </p>
             );
           })}
         </>
       </section>
-      <section className={stylesSchedule.programContainer}>
+      <section className={stylesProgram.programContainer}>
         <h2>Thursday</h2>
         <>
           {Midthu.concat(Jotmon, Vanmon).map((bandEvent) => {
@@ -95,14 +95,14 @@ export default function Schedule({ scheduleData, bandData }) {
               return null;
             }
             return (
-              <p className={stylesSchedule.programText} key={bandEvent.act}>
+              <p className={stylesProgram.programText} key={bandEvent.act}>
                 {bandEvent.act} /
               </p>
             );
           })}
         </>
       </section>
-      <section className={stylesSchedule.programContainer}>
+      <section className={stylesProgram.programContainer}>
         <h2>Friday</h2>
         <>
           {Midfri.concat(Jotfri, Vanfri).map((bandEvent) => {
@@ -111,14 +111,14 @@ export default function Schedule({ scheduleData, bandData }) {
               return null;
             }
             return (
-              <p className={stylesSchedule.programText} key={bandEvent.act}>
+              <p className={stylesProgram.programText} key={bandEvent.act}>
                 {bandEvent.act} /
               </p>
             );
           })}
         </>
       </section>
-      <section className={stylesSchedule.programContainer}>
+      <section className={stylesProgram.programContainer}>
         <h2>Saturday</h2>
         <>
           {Midsat.concat(Jotmon, Vanmon).map((bandEvent) => {
@@ -127,14 +127,14 @@ export default function Schedule({ scheduleData, bandData }) {
               return null;
             }
             return (
-              <p className={stylesSchedule.programText} key={bandEvent.act}>
+              <p className={stylesProgram.programText} key={bandEvent.act}>
                 {bandEvent.act} /
               </p>
             );
           })}
         </>
       </section>
-      <section className={stylesSchedule.programContainer}>
+      <section className={stylesProgram.programContainer}>
         <h2>Sunday</h2>
         <>
           {Midsun.concat(Jotsun, Vansun).map((bandEvent) => {
@@ -143,7 +143,7 @@ export default function Schedule({ scheduleData, bandData }) {
               return null;
             }
             return (
-              <p className={stylesSchedule.programText} key={bandEvent.act}>
+              <p className={stylesProgram.programText} key={bandEvent.act}>
                 {bandEvent.act} /
               </p>
             );

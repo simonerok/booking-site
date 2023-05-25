@@ -17,7 +17,7 @@ export default function Modal({ bandData, scheduleData }) {
             <span>DATE:</span>
           </p>
           <p>
-            <span>TIME: {scheduleData.Midgard.mon[0].start}</span>
+            <span>TIME: </span> {scheduleData.Midgard.mon[0].start} - {scheduleData.Midgard.mon[0].end}
           </p>
         </article>
         <article className={styles.ModalBio}>

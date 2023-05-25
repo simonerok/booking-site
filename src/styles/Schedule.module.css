@@ -2,18 +2,6 @@
  https://tinderbox.dk/program/?gad=1&gclid=CjwKCAjwjYKjBhB5EiwAiFdSfiRSNWo1SbtqktdsBSz9BluuzPH0NGo6nI9zuTTo43puyqPPzRvPhBoCFG4QAvD_BwE
  */
 
-/* PROGRAM */
-
-.programContainer {
-  text-align: center;
-  margin-inline: auto;
-  max-width: 1200px;
-}
-.programText {
-  display: inline;
-  text-align: center;
-}
-
 /* SCHEDULE */
 
 .scheduleSection {
@@ -44,6 +32,8 @@
     justify-content: flex-start; /* This ensures the left alignment of items */
   }
 }
+
+/* OLD SCHEDULE */
 
 .dayName {
   text-align: center;
