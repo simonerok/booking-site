@@ -57,126 +57,121 @@ export default function Program({ scheduleData, bandData }) {
 
   return (
     <>
-      <h1>Program</h1>
-
       <Modal selectedBand={selectedBand} showModal={showModal} handleCloseModal={() => setShowModal(false)} />
-      {/* {schedule with acts section} */}
-      <section className={stylesProgram.programContainer}>
-        <h2>Monday</h2>
+      {/* program site wraped inside a conditional rendering */}
+      {/* checks if showModal is false using the logical NOT operator - if true, the content within the parentheses will be rendered. */}
+      {!showModal && (
         <>
-          {Midmon.concat(Jotmon, Vanmon).map((bandEvent) => {
-            if (bandEvent.act.includes("break")) {
-              // Skip rendering the band event if it includes "break"
-              return null;
-            }
-            return (
-              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "mon")}>
-                {bandEvent.act} /
-              </p>
-            );
-          })}
+          <h1>Program</h1>
+          <section className={stylesProgram.programContainer}>
+            <h2>Monday</h2>
+
+            {Midmon.concat(Jotmon, Vanmon).map((bandEvent) => {
+              if (bandEvent.act.includes("break")) {
+                // Skip rendering the band event if it includes "break"
+                return null;
+              }
+              return (
+                <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "mon")}>
+                  {bandEvent.act} /
+                </p>
+              );
+            })}
+          </section>
+          <section className={stylesProgram.programContainer}>
+            <h2>Tuesday</h2>
+
+            {Midtue.concat(Jottue, Vantue).map((bandEvent) => {
+              if (bandEvent.act.includes("break")) {
+                // Skip rendering the band event if it includes "break"
+                return null;
+              }
+              return (
+                <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "tue")}>
+                  {bandEvent.act} /
+                </p>
+              );
+            })}
+          </section>
+          <section className={stylesProgram.programContainer}>
+            <h2>Wednesday</h2>
+
+            {Midwed.concat(Jotwed, Vanwed).map((bandEvent) => {
+              if (bandEvent.act.includes("break")) {
+                // Skip rendering the band event if it includes "break"
+                return null;
+              }
+              return (
+                <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "wed")}>
+                  {bandEvent.act} /
+                </p>
+              );
+            })}
+          </section>
+          <section className={stylesProgram.programContainer}>
+            <h2>Thursday</h2>
+
+            {Midthu.concat(Jotmon, Vanmon).map((bandEvent) => {
+              if (bandEvent.act.includes("break")) {
+                // Skip rendering the band event if it includes "break"
+                return null;
+              }
+              return (
+                <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "thu")}>
+                  {bandEvent.act} /
+                </p>
+              );
+            })}
+          </section>
+          <section className={stylesProgram.programContainer}>
+            <h2>Friday</h2>
+            {Midfri.concat(Jotfri, Vanfri).map((bandEvent) => {
+              if (bandEvent.act.includes("break")) {
+                // Skip rendering the band event if it includes "break"
+                return null;
+              }
+              return (
+                <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "fri")}>
+                  {bandEvent.act} /
+                </p>
+              );
+            })}
+          </section>
+          <section className={stylesProgram.programContainer}>
+            <h2>Saturday</h2>
+
+            {Midsat.concat(Jotmon, Vanmon).map((bandEvent) => {
+              if (bandEvent.act.includes("break")) {
+                // Skip rendering the band event if it includes "break"
+                return null;
+              }
+              return (
+                <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "sat")}>
+                  {bandEvent.act} /
+                </p>
+              );
+            })}
+          </section>
+          <section className={stylesProgram.programContainer}>
+            <h2>Sunday</h2>
+
+            {Midsun.concat(Jotsun, Vansun).map((bandEvent) => {
+              if (bandEvent.act.includes("break")) {
+                // Skip rendering the band event if it includes "break"
+                return null;
+              }
+              return (
+                <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "sun")}>
+                  {bandEvent.act} /
+                </p>
+              );
+            })}
+          </section>
         </>
-      </section>
-      <section className={stylesProgram.programContainer}>
-        <h2>Tuesday</h2>
-        <>
-          {Midtue.concat(Jottue, Vantue).map((bandEvent) => {
-            if (bandEvent.act.includes("break")) {
-              // Skip rendering the band event if it includes "break"
-              return null;
-            }
-            return (
-              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "tue")}>
-                {bandEvent.act} /
-              </p>
-            );
-          })}
-        </>
-      </section>
-      <section className={stylesProgram.programContainer}>
-        <h2>Wednesday</h2>
-        <>
-          {Midwed.concat(Jotwed, Vanwed).map((bandEvent) => {
-            if (bandEvent.act.includes("break")) {
-              // Skip rendering the band event if it includes "break"
-              return null;
-            }
-            return (
-              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "wed")}>
-                {bandEvent.act} /
-              </p>
-            );
-          })}
-        </>
-      </section>
-      <section className={stylesProgram.programContainer}>
-        <h2>Thursday</h2>
-        <>
-          {Midthu.concat(Jotmon, Vanmon).map((bandEvent) => {
-            if (bandEvent.act.includes("break")) {
-              // Skip rendering the band event if it includes "break"
-              return null;
-            }
-            return (
-              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "thu")}>
-                {bandEvent.act} /
-              </p>
-            );
-          })}
-        </>
-      </section>
-      <section className={stylesProgram.programContainer}>
-        <h2>Friday</h2>
-        <>
-          {Midfri.concat(Jotfri, Vanfri).map((bandEvent) => {
-            if (bandEvent.act.includes("break")) {
-              // Skip rendering the band event if it includes "break"
-              return null;
-            }
-            return (
-              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "fri")}>
-                {bandEvent.act} /
-              </p>
-            );
-          })}
-        </>
-      </section>
-      <section className={stylesProgram.programContainer}>
-        <h2>Saturday</h2>
-        <>
-          {Midsat.concat(Jotmon, Vanmon).map((bandEvent) => {
-            if (bandEvent.act.includes("break")) {
-              // Skip rendering the band event if it includes "break"
-              return null;
-            }
-            return (
-              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "sat")}>
-                {bandEvent.act} /
-              </p>
-            );
-          })}
-        </>
-      </section>
-      <section className={stylesProgram.programContainer}>
-        <h2>Sunday</h2>
-        <>
-          {Midsun.concat(Jotsun, Vansun).map((bandEvent) => {
-            if (bandEvent.act.includes("break")) {
-              // Skip rendering the band event if it includes "break"
-              return null;
-            }
-            return (
-              <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "sun")}>
-                {bandEvent.act} /
-              </p>
-            );
-          })}
-        </>
-      </section>
+      )}
     </>
   );
 }
-
 // export async function getServerSideProps() {
 //   const api = "http://localhost:8080/schedule";
 //   const res = await fetch(api);
