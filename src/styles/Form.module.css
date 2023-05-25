@@ -92,3 +92,11 @@
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 1rem;
 }
+
+.noStyleBtn {
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  width: 0px;
+  height: 0px;
+}
