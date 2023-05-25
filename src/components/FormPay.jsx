@@ -54,40 +54,37 @@ export default function FormPay({ currentStepSetter }) {
 
   return (
     <>
-      <h1>Payment details</h1>
-      <article>
-        <h2>Overview</h2>
+      <h1 className={styles.h1}>Payment details</h1>
+      <article className={styles.overviewContainer}>
+        <h2 className={styles.h2}> Overview</h2>
         <article className="TicketOverview_container">
-          <h3>Ticket Checkout</h3>
-          <p>Date: {formData.formData.date}</p>
-          <p>
-            Types of tickets: {formData.formData.ticketType} x{" "}
-            {formData.formData.ticketAmount}
+          <p className={styles.p}>Tickets booked:</p>
+          <p className={styles.p}>
+            Types of tickets: {formData.formData.ticketType}
           </p>
-
-          <p>
-            {formData.formData.green ? <p>Green Option: 249,-</p> : <p></p>}
+          <p className={styles.p}>
+            {formData.formData.green ? <p>Green Option</p> : <p></p>}
           </p>
-          <p>{formData.formData.tentSetUp ? <p>Setup of tent</p> : <p></p>}</p>
-          {/* statement here to calculate how many tents and type of tents should be set up */}
-
+          <p className={styles.p}>Date: {formData.formData.date}</p>
           <p>
-            <strong>Area</strong>
+            {formData.formData.tentSetUp ? (
+              <p className={styles.p}>Setup of tent</p>
+            ) : (
+              <p></p>
+            )}
           </p>
-          <p>Area: {formData.formData.area}</p>
-          <p>Spots: {formData.formData.ticketAmount}</p>
-
           <p>
-            <strong>Total amount to pay:</strong>
+            <h2 className={styles.h2}>Area</h2>
           </p>
-          <p>Total: {totalAmount}</p>
+          <p className={styles.p}>Area: {formData.formData.area}</p>
+          <p className={styles.p}>Spots: {formData.formData.ticketAmount}</p>
         </article>
       </article>
       <form onSubmit={confirmReservation}>
         <FormControl variant="outlined">
           <Card>
             <CardContent className={styles.formWrapper}>
-              <h2>Payment</h2>
+              <h2 className={styles.h2}>Payment</h2>
               <TextField
                 name="fullname"
                 id="fullname"
@@ -116,7 +113,7 @@ export default function FormPay({ currentStepSetter }) {
                 required //onChange={handlePIChanges}
               />
 
-              <h2>Card Info</h2>
+              <h2 className={styles.h2}>Card Info</h2>
               <FormGroup variant="standard" id="paymentInfoGroup">
                 <TextField
                   type="text"
@@ -171,7 +168,9 @@ export default function FormPay({ currentStepSetter }) {
                 ></TextField>
               </FormGroup>
             </CardContent>
-            <MyButton type="submit">Submit</MyButton>
+            <MyButton className={styles.form_btn} type="submit">
+              Submit
+            </MyButton>
           </Card>
         </FormControl>
       </form>

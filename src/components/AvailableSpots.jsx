@@ -43,11 +43,13 @@ export default function AvailableSpotsSection({ areaData }) {
             });
           }}
         >
-          {areaData.map((spot, availability) => (
-            <MenuItem key={availability} value={spot.area}>
-              {spot.area}
-            </MenuItem>
-          ))}
+          {areaData.map((spot, availability) =>
+            formData.ticketAmount <= spot.area ? (
+              <MenuItem key={availability} value={spot.area}>
+                {spot.area}
+              </MenuItem>
+            ) : null
+          )}
         </Select>
       </FormGroup>
     </>
