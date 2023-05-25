@@ -6,7 +6,7 @@ import {
   FormGroup,
 } from "@mui/material";
 import InputMask from "react-input-mask";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import styles from "../styles/Form.module.css";
 import MyButton from "@/components/MyButton";
 import { formDataContext } from "@/contexts/bookingContext";
@@ -33,10 +33,8 @@ export default function FormPay({ currentStepSetter }) {
   }
   console.log(formData);
 
-  // let totalAmount = 0;
-  // if (formData.ticketType === "Regular") {
-  //   return (totalAmount = ticketAmount * 799);
-  // }
+  const [totalAmount, setTotalAmount] = useState(0);
+
   // if (formData.ticketType === "VIP") {
   //   if (formData.green || (formData.green && !formData.tentSetUp)) {
   //     return totalAmount + 249;
@@ -51,7 +49,7 @@ export default function FormPay({ currentStepSetter }) {
   // ? totalAmount + 249
   // : totalAmount;
 
-  // console.log(totalAmount);
+  console.log(totalAmount);
 
   return (
     <>
