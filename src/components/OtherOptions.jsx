@@ -8,11 +8,21 @@ import AddButton from "./AddButton";
 export default function OtherOptionsSection({ open, handleInfoClick }) {
   //consume the context
   const { formData, dispatch } = useContext(formDataContext);
-  const [counter, setCounter] = useState(0);
-  function Increment() {
-    const updatedCounter = counter + 1;
-    /* updatedCounter sørger for at det samme tal tæller i vores globale array som der bliver klikket på knapppen */
-    setCounter(updatedCounter);
+  const [tents2Counter, setTents2Counter] = useState(0); // Counter for 2-person tent
+  const [tents3Counter, setTents3Counter] = useState(0);
+
+  function incrementTents2() {
+    const updatedCounter = tents2Counter + 1;
+    setTents2Counter(updatedCounter);
+    dispatch({
+      action: "UPDATE_FIELD",
+      payload: { field: "tents2", value: updatedCounter },
+    });
+  }
+
+  function incrementTents3() {
+    const updatedCounter = tents3Counter + 1;
+    setTents3Counter(updatedCounter);
     dispatch({
       action: "UPDATE_FIELD",
       payload: { field: "tents3", value: updatedCounter },
@@ -23,6 +33,28 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
     if (counter > 0) {
       const updatedCounter = counter - 1;
       setCounter(updatedCounter);
+      dispatch({
+        action: "UPDATE_FIELD",
+        payload: { field: "tents3", value: updatedCounter },
+      });
+    }
+  }
+
+  function removeTents2() {
+    if (tents2Counter > 0) {
+      const updatedCounter = tents2Counter - 1;
+      setTents2Counter(updatedCounter);
+      dispatch({
+        action: "UPDATE_FIELD",
+        payload: { field: "tents2", value: updatedCounter },
+      });
+    }
+  }
+
+  function removeTents3() {
+    if (tents3Counter > 0) {
+      const updatedCounter = tents3Counter - 1;
+      setTents3Counter(updatedCounter);
       dispatch({
         action: "UPDATE_FIELD",
         payload: { field: "tents3", value: updatedCounter },
@@ -90,22 +122,34 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
         </div>
       </FormGroup>
       {/* 2 personers telt */}
-
-      {/* <FormGroup>
+      <FormGroup>
+        {/* 2 person tent */}
+        {tents2Counter}
+        {formData.formData.tents2}
         <div className={styles.addBtnWrapper}>
+          <p className={styles.btnText}>2 person tent</p>
           <button
-            className={styles.addBtn}
-            onChange={(e) => {
-              const { checked } = e.target;
-              dispatch({
-                action: "UPDATE_FIELD",
-                payload: { field: "tents3", value: checked },
-              });
+            className={styles.noStyleBtn}
+            value={formData.formData.tents2}
+            onClick={(e) => {
+              e.preventDefault();
+              incrementTents2();
             }}
-          />
-          <p className={styles.btnText}>2 person tent </p>
+          >
+            <AddButton></AddButton>
+          </button>
+          <button
+            className={styles.noStyleBtn}
+            value={formData.formData.tents2}
+            onClick={(e) => {
+              e.preventDefault();
+              removeTents2();
+            }}
+          >
+            <RemoveButton></RemoveButton>
+          </button>
         </div>
-      </FormGroup> */}
+      </FormGroup>
 
       {/*  const sleepingSpots = formData.tents2 * 2 + formData.tents3 * 3;
             const enabled = formData.ticketAmount <= sleepingSpots && sleepingSpots <= formData.ticketAmount + 1;
@@ -113,29 +157,26 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
 
       {/* 3 personer telt */}
       <FormGroup>
-        {counter}
+        {tents3Counter}
         {formData.formData.tents3}
         <div className={styles.addBtnWrapper}>
-          <p className={styles.btnText}>3 person tent </p>
+          <p className={styles.btnText}>3 person tent</p>
           <button
             className={styles.noStyleBtn}
             value={formData.formData.tents3}
             onClick={(e) => {
               e.preventDefault();
-              /* increment funktionen tæller +1 når der klikkes på et 2/3 personers telt */
-              Increment();
+              incrementTents3();
             }}
           >
             <AddButton></AddButton>
           </button>
-
           <button
             className={styles.noStyleBtn}
             value={formData.formData.tents3}
             onClick={(e) => {
               e.preventDefault();
-              /* increment funktionen tæller -1 når der klikkes på et 2/3 personers telt så længe counteren ikke er under 0 */
-              remove();
+              removeTents3();
             }}
           >
             <RemoveButton></RemoveButton>
