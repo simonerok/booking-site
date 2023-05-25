@@ -1,21 +1,47 @@
+.ModalSection {
+  display: grid;
+  margin-bottom: -5rem;
+}
+
 .ModalInfo {
   display: flex;
   flex-flow: wrap;
+  justify-content: space-between;
+}
+
+.ModalButton {
+  z-index: 1;
+  position: absolute;
+  place-self: center;
 }
 
 .ModalArtistName {
-  position: absolute;
-  margin-top: -9rem;
+  margin-top: -10%;
   color: white;
+  text-align: left;
 }
 
 .ModalImg {
-  aspect-ratio: 16/9;
-  height: 60%;
+  margin-top: -25%;
 }
 .ModalConcertInfo {
-  flex-basis: 40vw;
+  /* flex-basis: 40vw; */
 }
 .ModalBio {
-  flex-basis: 55vw;
+  /* flex-basis: 55vw; */
+  max-width: 650px;
+}
+
+@media (max-width: 750px) {
+  .ModalSection {
+    margin-bottom: -3rem;
+  }
+
+  .ModalImg {
+    margin-top: 0;
+  }
+
+  .ModalArtistName {
+    margin-top: -15%;
+  }
 }

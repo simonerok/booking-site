@@ -13,8 +13,13 @@ export default function Modal({ selectedBand, handleCloseModal }) {
 
   return (
     <>
-      <section>
+      <section className={styles.ModalSection}>
+        {/* Button to close the modal */}
+        <button className={styles.ModalButton} onClick={handleCloseModal}>
+          Close
+        </button>
         <img className={styles.ModalImg} src={logoSrc} alt="Logo" />
+
         <h1 className={styles.ModalArtistName}>{act}</h1>
       </section>
       <section className={styles.ModalInfo}>
