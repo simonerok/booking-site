@@ -58,6 +58,7 @@ export default function Program({ scheduleData, bandData }) {
   return (
     <>
       <h1>Program</h1>
+
       <Modal selectedBand={selectedBand} showModal={showModal} handleCloseModal={() => setShowModal(false)} />
       {/* {schedule with acts section} */}
       <section className={stylesProgram.programContainer}>
