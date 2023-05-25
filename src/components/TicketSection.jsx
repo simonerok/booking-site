@@ -29,13 +29,14 @@ export default function TicketsSection() {
         className={styles.inputField}
         type="number"
         label="Number of tickets"
-        value={formData.ticketType}
+        value={formData.ticketAmount}
         required
         onBlur={(e) =>
           dispatch({
             //dispatch to the global formData obj. with new state value
-            action: "UPDATE_FIELD",
-            payload: { field: "ticketAmount", value: e.target.value },
+            action: "SET_TICKET_AMOUNT",
+            //payload: { field: "ticketAmount", value: e.target.value },
+            payload: { ticketAmount: e.target.value },
           })
         }
         // value={numberOfTickets}
@@ -60,14 +61,16 @@ export default function TicketsSection() {
         onBlur={(e) =>
           dispatch({
             //dispatch to the global formData obj. with new state value
-            action: "UPDATE_FIELD",
-            payload: { field: "ticketType", value: e.target.value },
+            action: "SET_TICKET_TYPE",
+            //payload: { field: "ticketType", value: e.target.value },
+            payload: { ticketType: e.target.value },
           })
         }
       >
         <MenuItem value="Regular">Regular 799,-</MenuItem>
         <MenuItem value="VIP">VIP 1299,-</MenuItem>
       </Select>
+      <p>ticketPrice: {formData.formData.ticketPrice}</p>
     </>
   );
 }

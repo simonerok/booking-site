@@ -26,6 +26,8 @@ const initialState = {
     tents2: 0,
     tents3: 0,
     id: "",
+
+    ticketPrice: 0,
   },
 };
 
@@ -41,6 +43,41 @@ function reducer(state, action) {
           [action.payload.field]: action.payload.value,
         },
       };
+    case "SET_TICKET_TYPE":
+      //here extract the prop from payload
+      const { ticketType } = action.payload;
+      //modify payload based on choice and then insert into global state, chatgpt helped
+      const ticketPrice = ticketType === "Regular" ? 799 : 1299;
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          ticketType: ticketType,
+          ticketPrice: ticketPrice,
+        },
+      };
+    // return {
+    //   ...state,
+    //   formData: {
+    //     ...state.formData,
+    //     [action.payload.field]: action.payload.value,
+    //   },
+    // };
+    case "SET_TICKET_AMOUNT":
+      const { ticketAmount } = action.payload;
+      const updatedTicketPrice =
+        state.formData.ticketType === "Regular"
+          ? ticketAmount * 799
+          : ticketAmount * 1299;
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          ticketAmount: parseInt(ticketAmount),
+          ticketPrice: updatedTicketPrice,
+        },
+      };
+      return {};
     case "UPDATE_ATTENDEE_FIELD":
       return {
         ...state,
