@@ -13,7 +13,7 @@ export default function Landing() {
         <button>DOWNLOAD THE FESTIVAL APP</button>
       </div>
       <p>
-        BRINGING the <span>NORSE MYTHOLOGY</span> <br /> BACK to LIFE
+        BRINGING the <span className={styles.bold}>NORSE MYTHOLOGY</span> <br /> BACK to LIFE
       </p>
     </>
   );

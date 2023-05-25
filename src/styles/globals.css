@@ -37,6 +37,7 @@ h4 {
 p {
   font-family: var(--paragraph);
   font-size: var(--p);
+  line-height: 2rem;
 }
 
 button {
@@ -47,8 +48,4 @@ button {
 }
 button:hover {
   cursor: pointer;
-}
-
-span {
-  font-weight: bold;
 }

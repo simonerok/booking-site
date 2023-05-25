@@ -1,5 +1,7 @@
 /* LANDIGN */
-
+.bold {
+  font-weight: bold;
+}
 .date {
   display: flex;
   justify-content: space-around;
