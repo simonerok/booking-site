@@ -27,6 +27,7 @@ export default function FormPay({ currentStepSetter }) {
       }),
     });
     dispatch({ action: "SUBMIT" });
+    //post formdata content to DB!!!
     console.log(formData);
     currentStepSetter(3);
   }
@@ -50,7 +51,7 @@ export default function FormPay({ currentStepSetter }) {
   // ? totalAmount + 249
   // : totalAmount;
 
-  console.log(totalAmount);
+  // console.log(totalAmount);
 
   return (
     <>

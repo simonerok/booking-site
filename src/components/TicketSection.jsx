@@ -15,6 +15,7 @@ export default function TicketsSection() {
         type="date"
         helperText="Choose a date"
         value={formData.date}
+        required
         onChange={(e) =>
           dispatch({
             //dispatch to the global formData obj. with new state value
@@ -29,6 +30,7 @@ export default function TicketsSection() {
         type="number"
         label="Number of tickets"
         value={formData.ticketType}
+        required
         onBlur={(e) =>
           dispatch({
             //dispatch to the global formData obj. with new state value
@@ -54,6 +56,7 @@ export default function TicketsSection() {
         id="dropdown"
         label="Ticket-Type"
         value={formData.ticketType}
+        required
         onBlur={(e) =>
           dispatch({
             //dispatch to the global formData obj. with new state value

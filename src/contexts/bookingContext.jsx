@@ -23,8 +23,8 @@ const initialState = {
     green: false,
     tent: false,
 
-    tents2: false,
-    tents3: false,
+    tents2: 0,
+    tents3: 0,
     id: "",
   },
 };
@@ -79,7 +79,10 @@ function reducer(state, action) {
         ...state,
         formData: {
           ...state.formData,
-          attendees: [...state.formData.attendees, { fullname: "", email: "", phone: "" }],
+          attendees: [
+            ...state.formData.attendees,
+            { fullname: "", email: "", phone: "" },
+          ],
         },
       };
     // //Incase of green option
@@ -124,5 +127,9 @@ export const FormDataProvider = ({ children }) => {
   const [formData, dispatch] = useReducer(reducer, initialState);
 
   console.log(formData);
-  return <formDataContext.Provider value={{ formData, dispatch }}>{children}</formDataContext.Provider>;
+  return (
+    <formDataContext.Provider value={{ formData, dispatch }}>
+      {children}
+    </formDataContext.Provider>
+  );
 };
