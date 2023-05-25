@@ -24,24 +24,7 @@ export default function TicketsSection() {
           })
         }
       />
-      <br />
-      <TextField
-        className={styles.inputField}
-        type="number"
-        label="Number of tickets"
-        value={formData.ticketAmount}
-        required
-        onBlur={(e) =>
-          dispatch({
-            //dispatch to the global formData obj. with new state value
-            action: "SET_TICKET_AMOUNT",
-            //payload: { field: "ticketAmount", value: e.target.value },
-            payload: { ticketAmount: e.target.value },
-          })
-        }
-        // value={numberOfTickets}
-        // onChange={(e) => setNumberOfTickets(e.target.value)}
-      />
+      <br></br>{" "}
       <InputLabel
         id="dropdown-label"
         label="ticket-type"
@@ -70,6 +53,24 @@ export default function TicketsSection() {
         <MenuItem value="Regular">Regular 799,-</MenuItem>
         <MenuItem value="VIP">VIP 1299,-</MenuItem>
       </Select>
+      <br />
+      <TextField
+        className={styles.inputField}
+        type="number"
+        label="Number of tickets"
+        value={formData.ticketAmount}
+        required
+        onBlur={(e) =>
+          dispatch({
+            //dispatch to the global formData obj. with new state value
+            action: "SET_TICKET_AMOUNT",
+            //payload: { field: "ticketAmount", value: e.target.value },
+            payload: { ticketAmount: e.target.value },
+          })
+        }
+        // value={numberOfTickets}
+        // onChange={(e) => setNumberOfTickets(e.target.value)}
+      />
       <p>ticketPrice: {formData.formData.ticketPrice}</p>
     </>
   );

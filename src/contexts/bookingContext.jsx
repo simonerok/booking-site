@@ -49,7 +49,7 @@ function reducer(state, action) {
       //modify payload based on choice and then insert into global state, chatgpt helped
       // const ticketPrice = ticketType === "Regular" ? 799 : 1299;
       const ticketPrice = calculateTicketPrice(
-        state.formData.ticketType,
+        ticketType,
         state.formData.ticketAmount,
         state.formData.green
       );
@@ -77,7 +77,7 @@ function reducer(state, action) {
 
       const updatedTicketPrice = calculateTicketPrice(
         state.formData.ticketType,
-        state.formData.ticketAmount,
+        ticketAmount,
         state.formData.green
       );
       return {

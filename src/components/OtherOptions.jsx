@@ -14,7 +14,10 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
   function incrementTents2() {
     /* if statement der gør man ikke kan vælge flere tickets end "sleeping spots" */
     const sleepingSpots = (tents2Counter + 1) * 2 + tents3Counter * 3;
-    if (formData.formData.ticketAmount <= sleepingSpots && sleepingSpots <= formData.formData.ticketAmount + 1) {
+    if (
+      formData.formData.ticketAmount <= sleepingSpots &&
+      sleepingSpots <= formData.formData.ticketAmount + 1
+    ) {
       /* updated counter gør at det globale object (async function) bliver opdateret på samme tid som klikket sker */
       const updatedCounter = tents2Counter + 1;
       setTents2Counter(updatedCounter);
@@ -28,7 +31,10 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
 
   function incrementTents3() {
     const sleepingSpots = tents2Counter * 2 + (tents3Counter + 1) * 3;
-    if (formData.formData.ticketAmount <= sleepingSpots && sleepingSpots <= formData.formData.ticketAmount + 1) {
+    if (
+      formData.formData.ticketAmount <= sleepingSpots &&
+      sleepingSpots <= formData.formData.ticketAmount + 1
+    ) {
       const updatedCounter = tents3Counter + 1;
       setTents3Counter(updatedCounter);
       dispatch({
@@ -75,9 +81,9 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
               action: "UPDATE_FIELD",
               payload: { field: "green", value: checked },
             });
-            dispatch({ action: "GREEN", payload: { idChecked: checked } });
+            dispatch({ action: "GREEN", payload: { isChecked: checked } });
           }}
-        />
+        />{" "}
         <div className={styles.tentOption}>
           <FormControlLabel
             control={<Checkbox />}
@@ -122,10 +128,12 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
       {/* 2 personers telt */}
       <FormGroup>
         {/* 2 person tent */}
-        {tents2Counter}
-        {formData.formData.tents2}
+
         <div className={styles.addBtnWrapper}>
-          <p className={styles.btnText}>2 person tent</p>
+          <p className={styles.btnText}>
+            {" "}
+            2 person tent x {formData.formData.tents2}
+          </p>
           <button
             className={styles.noStyleBtn}
             value={formData.formData.tents2}
@@ -155,10 +163,11 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
 
       {/* 3 personer telt */}
       <FormGroup>
-        {tents3Counter}
-        {formData.formData.tents3}
         <div className={styles.addBtnWrapper}>
-          <p className={styles.btnText}>3 person tent</p>
+          <p className={styles.btnText}>
+            {" "}
+            3 person tent x {formData.formData.tents3}
+          </p>
           <button
             className={styles.noStyleBtn}
             value={formData.formData.tents3}
@@ -180,6 +189,7 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
             <RemoveButton></RemoveButton>
           </button>
         </div>
+        <p>ticketPrice: {formData.formData.ticketPrice}</p>
       </FormGroup>
     </>
   );
