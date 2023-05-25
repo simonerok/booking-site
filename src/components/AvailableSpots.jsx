@@ -24,13 +24,32 @@ export default function AvailableSpotsSection({ areaData }) {
           })
         }
       >
-        {areaData.map((spots, availability) => (
-          <p key={availability} value={spots.available}>
-            {spots.area + ": " + spots.available}
-          </p>
-        ))}
+        {/* DETAJLE */}
+        {areaData.map(
+          (spots, availability) =>
+            spots.available === 0 && (
+              <p key={availability} value={spots.available}>
+                <strike>{spots.area + ": " + spots.available}</strike>{" "}
+              </p>
+            )
+        )}
+        {/* hvis der er mere end 0 spots */}
+        {areaData.map(
+          (spots, availability) =>
+            spots.available !== 0 && (
+              <p key={availability} value={spots.available}>
+                {spots.area + ": " + spots.available}{" "}
+              </p>
+            )
+        )}
 
-        <InputLabel id="dropdown-label" label="spots" placeholder="form" className={styles.dropdownLabel} style={{ position: "relative" }}>
+        <InputLabel
+          id="dropdown-label"
+          label="spots"
+          placeholder="form"
+          className={styles.dropdownLabel}
+          style={{ position: "relative" }}
+        >
           Choose Camp
         </InputLabel>
         <Select
@@ -46,7 +65,11 @@ export default function AvailableSpotsSection({ areaData }) {
           }}
         >
           {areaData.map((spot, availability) => (
-            <MenuItem key={availability} value={spot.area} disabled={spot.available === 0}>
+            <MenuItem
+              key={availability}
+              value={spot.area}
+              disabled={spot.available < formData.formData.ticketAmount}
+            >
               {spot.area}
             </MenuItem>
           ))}
