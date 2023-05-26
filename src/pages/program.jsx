@@ -66,7 +66,7 @@ export default function Program({ scheduleData, bandData }) {
         <link rel="stylesheet" href="https://use.typekit.net/bxq7sds.css" />
         <link rel="icon" href="" />
       </Head>
-      <Modal selectedBand={selectedBand} showModal={showModal} handleCloseModal={() => setShowModal(false)} />
+      <Modal selectedBand={selectedBand} showModal={showModal} handleCloseModal={setShowModal} />
       {/* program site wraped inside a conditional rendering */}
       {/* checks if showModal is false using the logical NOT operator - if true, the content within the parentheses will be rendered. */}
       {!showModal && (

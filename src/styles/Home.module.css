@@ -27,11 +27,15 @@
   cursor: pointer;
 }
 
+/* TICKET SECTION */
 .ticketSection {
   display: flex;
 }
 .ticketSection img {
   max-width: 50rem;
+}
+.ticketSection img:hover {
+  cursor: pointer;
 }
 
 /* ARTIST SECTION */
@@ -65,3 +69,15 @@
 .landingArtistGrid article div:hover {
   visibility: visible;
 } */
+.link {
+  /* z-index: 1;
+  position: absolute; */
+  /* text-decoration: none; */
+  font-size: var(--h4);
+  font-family: var(--paragraph);
+  color: white;
+  display: grid;
+  text-align: center;
+}
+
+/*  */

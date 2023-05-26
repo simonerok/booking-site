@@ -1,9 +1,11 @@
 // import styles from "@/styles/Home.module.css";
 import styles from "@/styles/Modal.module.css";
 
-export default function Modal({ selectedBand, handleCloseModal }) {
-  if (!selectedBand) {
-    return null; // Don't render anything if selectedBand is null
+export default function Modal({ selectedBand, handleCloseModal, showModal }) {
+  // Checks if either selectedBand is null or showModal is false using the logical OR operator ||.
+  // if true, the modal will not be displayed -> component returns null to prevent rendering anything.
+  if (!selectedBand || !showModal) {
+    return null;
   }
   const { act, start, end, bandInfo, stage, day } = selectedBand;
   console.log(selectedBand);
@@ -15,7 +17,7 @@ export default function Modal({ selectedBand, handleCloseModal }) {
     <>
       <section className={styles.ModalSection}>
         {/* Button to close the modal */}
-        <button className={styles.ModalButton} onClick={handleCloseModal}>
+        <button className={styles.ModalButton} onClick={() => handleCloseModal(false)}>
           Back to program
         </button>
         <img className={styles.ModalImg} src={logoSrc} alt="Logo" />
