@@ -47,29 +47,21 @@ export default function FormPay({ currentStepSetter }) {
 
   return (
     <>
-      {/*   <h1 className={styles.h1}>Payment details</h1>
-      <article className={styles.overviewContainer}>
-        <h2 className={styles.h2}> Overview</h2>
-        <article>
-          <p className={styles.p}>Tickets booked:</p>
-          <p className={styles.p}>Types of tickets: {formData.formData.ticketType}</p>
-          <p className={styles.p}>{formData.formData.green ? <p>Green Option</p> : <p></p>}</p>
+      <h1 className={styles.h1}>Payment details</h1>
+      <section className={styles.body}>
+        <article className={styles.overviewContainer}>
+          <h2 className={styles.h2}> Overview</h2>
+          <p className={styles.p}>Tickets booked: {formData.formData.ticketAmount}</p>
+          <p className={styles.p}>Type of tickets: {formData.formData.ticketType}</p>
           <p className={styles.p}>Date: {formData.formData.date}</p>
-          <p>{formData.formData.tentSetUp ? <p className={styles.p}>Setup of tent</p> : <p></p>}</p>
-          <p>
-            <h2 className={styles.h2}>Area</h2>
-          </p>
           <p className={styles.p}>Area: {formData.formData.area}</p>
           <p className={styles.p}>Spots: {formData.formData.ticketAmount}</p>
+          <p className={styles.p}>{formData.formData.green ? <p>Green Option</p> : <p></p>}</p>
+          <p>{formData.formData.tentSetUp ? <p className={styles.p}>Setup of tent</p> : <p></p>}</p>
         </article>
-      </article> */}
+      </section>
 
-      <h1 className={styles.h1}>Payment details</h1>
-      <article>
-        <h2 className={styles.h2}> Overview</h2>
-      </article>
-
-      <form onSubmit={confirmReservation}>
+      <form onSubmit={confirmReservation} className={styles.form}>
         <FormControl variant="outlined">
           <Card>
             <CardContent className={styles.formWrapper}>
@@ -147,9 +139,11 @@ export default function FormPay({ currentStepSetter }) {
                 <TextField type="text" name="CVC" label="CVC" min="3"></TextField>
               </FormGroup>
             </CardContent>
-            <MyButton className={styles.form_btn} type="submit">
-              Submit
-            </MyButton>
+            <div className={styles.btnWrapper}>
+              <div className={styles.btn_container}>
+                <MyButton type="submit">Submit</MyButton>
+              </div>
+            </div>
           </Card>
         </FormControl>
       </form>
