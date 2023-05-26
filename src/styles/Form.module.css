@@ -25,7 +25,7 @@
 
 .body {
   display: grid;
-  align-content: center;
+  place-content: center;
 }
 
 .form {
@@ -82,10 +82,8 @@
 .overviewContainer {
   border: 1px solid black;
   padding: 2rem;
-  max-width: 365px;
+  min-width: 365px;
   margin-bottom: 2rem;
-  display: grid;
-  align-self: center;
 }
 
 /* Form buttons */
@@ -98,6 +96,11 @@
   display: flex;
   gap: 0.7rem;
   align-items: center;
+}
+
+.buttonWrapper {
+  display: grid;
+  place-content: center;
 }
 
 .btnText {

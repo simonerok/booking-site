@@ -9,6 +9,16 @@ export default function Confirmation() {
     <>
       <h2>Booking Order for Foo Festival</h2>
 
+      <article className={styles.overviewContainer}>
+        <h2 className={styles.h2}> Your order</h2>
+        {/* ticket + type */}
+        <p className={styles.p}>
+          {formData.formData.ticketAmount} x {formData.formData.ticketType} tickets
+        </p>
+        <p className={styles.p}>Day: {formData.formData.date} </p>
+        <p className={styles.p}>Scene: {formData.formData.area} </p>
+      </article>
+
       <article>
         <h2>Overview</h2>
         <article className="TicketOverview_container">
