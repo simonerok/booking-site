@@ -15,6 +15,9 @@
   --p: clamp(1.3rem, 1.1667rem + 0.5333vw, 1.6rem);
   --p-footer: 1.875rem;
 }
+.link {
+  font-family: var(--heading);
+}
 img {
   width: 100%;
 }

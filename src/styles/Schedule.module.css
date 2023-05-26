@@ -7,6 +7,25 @@
 .scheduleSection {
   display: flex;
 }
+.scheduleHeading {
+  /* line-height: 6rem; */
+  text-transform: uppercase;
+}
+.link {
+  font-size: var(--h3);
+  -webkit-text-stroke: 1.5px black;
+  color: transparent;
+  font-family: var(--heading);
+  text-align: center;
+  display: grid;
+  margin-top: -4rem;
+  margin-bottom: 8rem;
+}
+.link:hover {
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+}
 
 .act_wrapper {
   padding-left: 80px;

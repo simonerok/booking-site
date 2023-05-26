@@ -1,5 +1,6 @@
 import stylesSchedule from "../styles/Schedule.module.css";
 import { useState } from "react";
+import Link from "next/link";
 
 // MUI
 
@@ -192,7 +193,10 @@ export default function StickyHeadTable({ schedule }) {
   }
   return (
     <>
-      <h1>Schedule</h1>
+      <h1 className={stylesSchedule.scheduleHeading}>Schedule</h1>
+      <Link className={stylesSchedule.link} href="/program">
+        / Program
+      </Link>
       {/* schedule timetable */}
       {/* BUTTONS TO CHOOSE DAYS */}
       <div className={stylesSchedule.days}>
@@ -219,7 +223,6 @@ export default function StickyHeadTable({ schedule }) {
         </button>
       </div>
       <h2 className={stylesSchedule.dayName}>{day}</h2>
-
       <section className={stylesSchedule.scheduleSection}>
         <div>
           <p>Midgard</p> <br />

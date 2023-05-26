@@ -2,6 +2,7 @@ import stylesProgram from "../styles/Program.module.css";
 import { useState } from "react";
 import Modal from "@/components/Modal";
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Program({ scheduleData, bandData }) {
   // const [stage, setStage] = useState("Monday");
@@ -70,10 +71,10 @@ export default function Program({ scheduleData, bandData }) {
       {/* checks if showModal is false using the logical NOT operator - if true, the content within the parentheses will be rendered. */}
       {!showModal && (
         <section className={stylesProgram.programBackground}>
-          <h1 className={stylesProgram.programHeading}>
-            Program <br />
-            <span>/ Schedule</span>
-          </h1>
+          <h1 className={stylesProgram.programHeading}>Program</h1>
+          <Link className={stylesProgram.link} href="/schedule">
+            / Schedule
+          </Link>
           <section className={stylesProgram.programContainer}>
             <h2>Monday</h2>
 
