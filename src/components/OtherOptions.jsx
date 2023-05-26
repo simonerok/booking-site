@@ -18,8 +18,12 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
       setTents2Counter(updatedCounter);
       dispatch({
         action: "SET_TENTS2_AMOUNT",
-        //payload: { field: "tents2", value: updatedCounter },
         payload: { tents2Amount: updatedCounter },
+        //payload: { tents2Amount: updatedCounter },
+      });
+      dispatch({
+        action: "UPDATE_FIELD",
+        payload: { field: "tents2", value: updatedCounter },
       });
     }
   }
@@ -37,8 +41,8 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
       const updatedCounter = tents3Counter + 1;
       setTents3Counter(updatedCounter);
       dispatch({
-        action: "UPDATE_FIELD",
-        payload: { field: "tents3", value: updatedCounter },
+        action: "SET_TENTS3_AMOUNT",
+        payload: { tents3Amount: updatedCounter },
       });
     }
   }
@@ -48,9 +52,13 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
       const updatedCounter = tents2Counter - 1;
       setTents2Counter(updatedCounter);
       dispatch({
-        action: "UPDATE_FIELD",
-        payload: { field: "tents2", value: updatedCounter },
+        action: "SET_TENTS2_AMOUNT",
+        payload: { tents2Amount: updatedCounter },
       });
+      // dispatch({
+      //   action: "UPDATE_FIELD",
+      //   payload: { tents2: updatedCounter },
+      // });
     }
   }
 
@@ -59,8 +67,8 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
       const updatedCounter = tents3Counter - 1;
       setTents3Counter(updatedCounter);
       dispatch({
-        action: "UPDATE_FIELD",
-        payload: { field: "tents3", value: updatedCounter },
+        action: "SET_TENTS3_AMOUNT",
+        payload: { tents3Amount: updatedCounter },
       });
     }
   }
@@ -90,8 +98,8 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
             onChange={(e) => {
               const { checked } = e.target;
               dispatch({
-                action: "UPDATE_FIELD",
-                payload: { field: "tent", value: checked },
+                action: "TENT_SETUP",
+                payload: { isTentChecked: checked },
               });
             }}
           />
@@ -122,10 +130,73 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
               </div>
             )}
           </div>
-        </div>
-      </FormGroup>
+          {formData.formData.tent && (
+            <div>
+              {/* 2 personers telt */}
+              <FormGroup>
+                <div className={styles.addBtnWrapper}>
+                  <p className={styles.btnText}>
+                    {" "}
+                    2 person tent x {formData.formData.tents2}
+                  </p>
+                  <button
+                    className={styles.noStyleBtn}
+                    value={formData.formData.tents2}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      incrementTents2();
+                    }}
+                  >
+                    <AddButton></AddButton>
+                  </button>
+                  <button
+                    className={styles.noStyleBtn}
+                    value={formData.formData.tents2}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      removeTents2();
+                    }}
+                  >
+                    <RemoveButton></RemoveButton>
+                  </button>
+                </div>
+              </FormGroup>
 
-      {/* 2 personers telt */}
+              {/* 3 personer telt */}
+              <FormGroup>
+                <div className={styles.addBtnWrapper}>
+                  <p className={styles.btnText}>
+                    3 person tent x {formData.formData.tents3}
+                  </p>
+                  <button
+                    className={styles.noStyleBtn}
+                    value={formData.formData.tents3}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      incrementTents3();
+                    }}
+                  >
+                    <AddButton></AddButton>
+                  </button>
+                  <button
+                    className={styles.noStyleBtn}
+                    value={formData.formData.tents3}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      removeTents3();
+                    }}
+                  >
+                    <RemoveButton></RemoveButton>
+                  </button>
+                </div>
+              </FormGroup>
+            </div>
+          )}
+        </div>
+        <p className={styles.p}>Total price: {formData.formData.ticketPrice}</p>
+      </FormGroup>
+      {/*
+       2 personers telt
       <FormGroup>
         <div className={styles.addBtnWrapper}>
           <p className={styles.btnText}>
@@ -155,7 +226,7 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
         </div>
       </FormGroup>
 
-      {/* 3 personer telt */}
+       3 personer telt
       <FormGroup>
         <div className={styles.addBtnWrapper}>
           <p className={styles.btnText}>
@@ -183,7 +254,7 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
           </button>
         </div>
         <p className={styles.p}>Total price: {formData.formData.ticketPrice}</p>
-      </FormGroup>
+      </FormGroup> */}
     </>
   );
 }
