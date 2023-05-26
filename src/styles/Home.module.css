@@ -1,4 +1,9 @@
 /* LANDIGN */
+.landingpageBackground {
+  background: rgb(86, 230, 201);
+  background: linear-gradient(180deg, rgba(86, 230, 201, 1) 25%, rgba(160, 235, 88, 1) 61%, rgba(232, 82, 219, 1) 97%);
+}
+
 .bold {
   font-weight: bold;
 }

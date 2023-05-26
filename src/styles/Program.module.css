@@ -3,6 +3,9 @@
   background: rgb(86, 229, 230);
   background: linear-gradient(180deg, rgba(86, 229, 230, 1) 9%, rgba(232, 82, 219, 1) 49%, rgba(160, 235, 88, 1) 90%);
 }
+.programContainer h2 {
+  color: white;
+}
 
 .programContainer {
   text-align: center;
@@ -18,7 +21,7 @@
   font-size: 3rem;
   /* -webkit-text-stroke: 1px black;
   color: white; */
-  line-height: 3rem;
+  line-height: 3.5rem;
 }
 
 /* .programText span {
@@ -37,7 +40,7 @@
 }
 
 .programHeading span {
-  font-size: 3rem;
+  font-size: var(--h2);
   -webkit-text-stroke: 1.5px black;
   color: transparent;
 }
@@ -53,6 +56,6 @@
 @media (max-width: 750px) {
   .programText {
     font-size: 2rem;
-    line-height: 2;
+    line-height: 1.2;
   }
 }

@@ -18,7 +18,8 @@
 .ModalButton {
   z-index: 1;
   position: absolute;
-  place-self: center;
+  margin: 2rem 0rem 0rem 2rem;
+  /* place-self: center; */
   background-color: white;
 }
 
@@ -28,7 +29,12 @@
   text-align: left;
   margin-left: 2rem;
   font-size: var(--h2);
+  white-space: pre-wrap;
 }
+/* 
+.longText {
+  margin-top: -20%;
+} */
 
 .ModalImg {
   margin-top: -25%;

@@ -82,6 +82,7 @@ export default function Program({ scheduleData, bandData }) {
                 // Skip rendering the band event if it includes "break"
                 return null;
               }
+
               return (
                 <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "mon")}>
                   <span>{" " + bandEvent.act}</span> /

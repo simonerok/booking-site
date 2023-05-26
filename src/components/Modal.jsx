@@ -19,8 +19,8 @@ export default function Modal({ selectedBand, handleCloseModal }) {
           Back to program
         </button>
         <img className={styles.ModalImg} src={logoSrc} alt="Logo" />
-
         <h1 className={styles.ModalArtistName}>{act}</h1>
+        {/* <h1 className={`${styles.ModalArtistName} ${act.length > 12 ? styles.longText : ""}`}>{act}</h1> */}
       </section>
       <section className={styles.ModalInfo}>
         <article className={styles.ModalConcertInfo}>
