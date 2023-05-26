@@ -75,14 +75,13 @@ export default function Program({ scheduleData, bandData }) {
             <span>/ Schedule</span>
           </h1>
           <section className={stylesProgram.programContainer}>
-            <h2> Monday</h2>
+            <h2>Monday</h2>
 
             {Midmon.concat(Jotmon, Vanmon).map((bandEvent) => {
               if (bandEvent.act.includes("break")) {
                 // Skip rendering the band event if it includes "break"
                 return null;
               }
-
               return (
                 <p className={stylesProgram.programText} key={bandEvent.act} onClick={() => handleBandSelection(bandEvent, "mon")}>
                   <span>{" " + bandEvent.act}</span> /

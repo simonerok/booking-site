@@ -40,7 +40,7 @@
 }
 
 .programHeading span {
-  font-size: var(--h2);
+  font-size: var(--h3);
   -webkit-text-stroke: 1.5px black;
   color: transparent;
 }
@@ -49,7 +49,7 @@
   color: black;
 }
 .programHeading {
-  line-height: 6rem;
+  /* line-height: 6rem; */
   text-transform: uppercase;
 }
 
