@@ -23,8 +23,15 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
     }
   }
 
+  {
+    /*  const sleepingSpots = formData.tents2 * 2 + formData.tents3 * 3;
+            const enabled = formData.ticketAmount <= sleepingSpots && sleepingSpots <= formData.ticketAmount + 1;
+            console.log(sleepingSpots); */
+  }
+
   function incrementTents3() {
     const sleepingSpots = tents2Counter * 2 + tents3Counter * 3;
+
     if (formData.formData.ticketAmount >= sleepingSpots + 1) {
       const updatedCounter = tents3Counter + 1;
       setTents3Counter(updatedCounter);
@@ -109,10 +116,9 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
           </div>
         </div>
       </FormGroup>
+
       {/* 2 personers telt */}
       <FormGroup>
-        {/* 2 person tent */}
-
         <div className={styles.addBtnWrapper}>
           <p className={styles.btnText}> 2 person tent x {formData.formData.tents2}</p>
           <button
@@ -137,10 +143,6 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
           </button>
         </div>
       </FormGroup>
-
-      {/*  const sleepingSpots = formData.tents2 * 2 + formData.tents3 * 3;
-            const enabled = formData.ticketAmount <= sleepingSpots && sleepingSpots <= formData.ticketAmount + 1;
-            console.log(sleepingSpots); */}
 
       {/* 3 personer telt */}
       <FormGroup>
