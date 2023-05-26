@@ -44,6 +44,10 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
         action: "SET_TENTS3_AMOUNT",
         payload: { tents3Amount: updatedCounter },
       });
+      dispatch({
+        action: "UPDATE_FIELD",
+        payload: { field: "tents3", value: updatedCounter },
+      });
     }
   }
 
@@ -55,10 +59,10 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
         action: "SET_TENTS2_AMOUNT",
         payload: { tents2Amount: updatedCounter },
       });
-      // dispatch({
-      //   action: "UPDATE_FIELD",
-      //   payload: { tents2: updatedCounter },
-      // });
+      dispatch({
+        action: "UPDATE_FIELD",
+        payload: { tents2: updatedCounter },
+      });
     }
   }
 
@@ -69,6 +73,10 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
       dispatch({
         action: "SET_TENTS3_AMOUNT",
         payload: { tents3Amount: updatedCounter },
+      });
+      dispatch({
+        action: "UPDATE_FIELD",
+        payload: { field: "tents3", value: updatedCounter },
       });
     }
   }
