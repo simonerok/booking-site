@@ -68,7 +68,10 @@ export default function AvailableSpotsSection({ areaData }) {
             <MenuItem
               key={availability}
               value={spot.area}
-              disabled={spot.available < formData.formData.ticketAmount}
+              disabled={
+                spot.available < formData.formData.ticketAmount ||
+                spot.available < 0
+              }
             >
               {spot.area}
             </MenuItem>
