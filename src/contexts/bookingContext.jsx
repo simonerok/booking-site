@@ -138,12 +138,13 @@ function reducer(state, action) {
         },
       };
     case "SET_TENTS2_AMOUNT":
+      const { tents2Amount } = action.payload;
       const updatedPriceWithTent2 = calculateTicketPrice(
         state.formData.ticketType,
         state.formData.ticketAmount,
         state.formData.green,
         state.formData.tent,
-        state.formData.tents2,
+        parseInt(tents2Amount),
         state.formData.tents3Amount
       );
       // return {
@@ -158,7 +159,8 @@ function reducer(state, action) {
         ...state,
         formData: {
           ...state.formData,
-          [action.payload.field]: action.payload.value,
+          // [action.payload.field]: action.payload.value,
+          tents2Amount: tents2Amount,
           ticketPrice: updatedPriceWithTent2,
         },
       };
@@ -276,8 +278,8 @@ function calculateTicketPrice(
     totalPrice += 249;
   }
 
-  if (!isTentChecked) {
-    totalPrice += tents2Amount * 299 + tents3Amount * 399;
+  if (isTentChecked) {
+    totalPrice += state.formData.tents2 * 299 + state.formData.tents3 * 399;
   }
   return totalPrice;
 }
