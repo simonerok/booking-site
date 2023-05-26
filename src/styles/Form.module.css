@@ -23,6 +23,11 @@
   object-fit: cover;
 } */
 
+.body {
+  display: grid;
+  align-content: center;
+}
+
 .form {
   display: grid;
   place-content: center;
@@ -77,11 +82,13 @@
 .overviewContainer {
   border: 1px solid black;
   padding: 2rem;
-  max-width: 400px;
+  max-width: 365px;
   margin-bottom: 2rem;
+  display: grid;
+  align-self: center;
 }
 
-/* Add button */
+/* Form buttons */
 .addBtn {
   max-width: 20px;
   max-height: 20px;
