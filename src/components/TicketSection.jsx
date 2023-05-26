@@ -25,13 +25,7 @@ export default function TicketsSection() {
         }
       />
       <br></br>{" "}
-      <InputLabel
-        id="dropdown-label"
-        label="ticket-type"
-        placeholder="Ticket-type"
-        className={styles.dropdownLabel}
-        style={{ position: "relative" }}
-      >
+      <InputLabel id="dropdown-label" label="ticket-type" placeholder="Ticket-type" className={styles.dropdownLabel} style={{ position: "relative" }}>
         Choose ticket type
       </InputLabel>
       <Select
@@ -55,7 +49,7 @@ export default function TicketsSection() {
       </Select>
       <br />
       <TextField
-        className={styles.inputField}
+        className={styles.ticketNumber}
         type="number"
         label="Number of tickets"
         value={formData.ticketAmount}
@@ -71,7 +65,7 @@ export default function TicketsSection() {
         // value={numberOfTickets}
         // onChange={(e) => setNumberOfTickets(e.target.value)}
       />
-      <p>ticketPrice: {formData.formData.ticketPrice}</p>
+      <p className={styles.p}>ticketPrice: {formData.formData.ticketPrice}</p>
     </>
   );
 }

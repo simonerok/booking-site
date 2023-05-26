@@ -13,7 +13,7 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
 
   function incrementTents2() {
     const sleepingSpots = tents2Counter * 2 + tents3Counter * 3;
-    if (formData.formData.ticketAmount >= sleepingSpots + 2) {
+    if (formData.formData.ticketAmount >= sleepingSpots + 1) {
       const updatedCounter = tents2Counter + 1;
       setTents2Counter(updatedCounter);
       dispatch({
@@ -23,12 +23,16 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
     }
   }
 
+  {
+    /*  const sleepingSpots = formData.tents2 * 2 + formData.tents3 * 3;
+            const enabled = formData.ticketAmount <= sleepingSpots && sleepingSpots <= formData.ticketAmount + 1;
+            console.log(sleepingSpots); */
+  }
+
   function incrementTents3() {
     const sleepingSpots = tents2Counter * 2 + tents3Counter * 3;
-    if (
-      formData.formData.ticketAmount > sleepingSpots &&
-      sleepingSpots + 2 <= formData.formData.ticketAmount
-    ) {
+
+    if (formData.formData.ticketAmount >= sleepingSpots + 1) {
       const updatedCounter = tents3Counter + 1;
       setTents3Counter(updatedCounter);
       dispatch({
@@ -94,14 +98,7 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
             <div>
               {/* open er en state(fra MainTicket) der tjekker om info beskeden er åben eller ej. && bruges til at render/bygge vores indhold. */}
               {!open && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-info-circle"
-                  viewBox="0 0 16 16"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                   <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                 </svg>
@@ -119,15 +116,11 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
           </div>
         </div>
       </FormGroup>
+
       {/* 2 personers telt */}
       <FormGroup>
-        {/* 2 person tent */}
-
         <div className={styles.addBtnWrapper}>
-          <p className={styles.btnText}>
-            {" "}
-            2 person tent x {formData.formData.tents2}
-          </p>
+          <p className={styles.btnText}> 2 person tent x {formData.formData.tents2}</p>
           <button
             className={styles.noStyleBtn}
             value={formData.formData.tents2}
@@ -151,17 +144,10 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
         </div>
       </FormGroup>
 
-      {/*  const sleepingSpots = formData.tents2 * 2 + formData.tents3 * 3;
-            const enabled = formData.ticketAmount <= sleepingSpots && sleepingSpots <= formData.ticketAmount + 1;
-            console.log(sleepingSpots); */}
-
       {/* 3 personer telt */}
       <FormGroup>
         <div className={styles.addBtnWrapper}>
-          <p className={styles.btnText}>
-            {" "}
-            3 person tent x {formData.formData.tents3}
-          </p>
+          <p className={styles.btnText}>3 person tent x {formData.formData.tents3}</p>
           <button
             className={styles.noStyleBtn}
             value={formData.formData.tents3}
@@ -183,7 +169,7 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
             <RemoveButton></RemoveButton>
           </button>
         </div>
-        <p>ticketPrice: {formData.formData.ticketPrice}</p>
+        <p className={styles.p}>Total price: {formData.formData.ticketPrice}</p>
       </FormGroup>
     </>
   );
