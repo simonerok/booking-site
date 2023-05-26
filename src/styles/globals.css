@@ -1,13 +1,25 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
 :root {
   --heading: condor-extended, sans-serif;
   --paragraph: eurostile, sans-serif;
   --color-default: #000000;
-  --h1: 8rem;
-  --h2: 6.2rem;
-  --h3: 5rem;
-  --h4: 3.125rem;
-  --p: 3.125rem;
+  --h1: clamp(2.5rem, 0.0556rem + 9.7778vw, 8rem);
+  --h2: clamp(2rem, 0.2222rem + 7.1111vw, 6rem);
+  --h3: clamp(1.5rem, -0.0556rem + 6.2222vw, 5rem);
+  --h4: clamp(1.2rem, 0.4rem + 3.2vw, 3rem);
+  --p: clamp(1.3rem, 1.1667rem + 0.5333vw, 1.6rem);
   --p-footer: 1.875rem;
+}
+.link {
+  font-family: var(--heading);
+}
+img {
+  width: 100%;
 }
 
 h1 {
@@ -28,6 +40,7 @@ h4 {
 p {
   font-family: var(--paragraph);
   font-size: var(--p);
+  line-height: 2rem;
 }
 
 button {
@@ -36,7 +49,6 @@ button {
   height: 3rem;
   background-color: transparent;
 }
-
-span {
-  font-weight: bold;
+button:hover {
+  cursor: pointer;
 }

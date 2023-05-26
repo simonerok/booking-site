@@ -2,6 +2,31 @@
  https://tinderbox.dk/program/?gad=1&gclid=CjwKCAjwjYKjBhB5EiwAiFdSfiRSNWo1SbtqktdsBSz9BluuzPH0NGo6nI9zuTTo43puyqPPzRvPhBoCFG4QAvD_BwE
  */
 
+/* SCHEDULE */
+
+.scheduleSection {
+  display: flex;
+}
+.scheduleHeading {
+  /* line-height: 6rem; */
+  text-transform: uppercase;
+}
+.link {
+  font-size: var(--h3);
+  -webkit-text-stroke: 1.5px black;
+  color: transparent;
+  font-family: var(--heading);
+  text-align: center;
+  display: grid;
+  margin-top: -4rem;
+  margin-bottom: 8rem;
+}
+.link:hover {
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+}
+
 .act_wrapper {
   padding-left: 80px;
   padding-right: 20px;
@@ -10,10 +35,28 @@
 .days {
   display: flex;
   justify-content: center;
+
   gap: 1rem;
+  overflow-x: auto;
 }
+
+.days button {
+  flex-shrink: 0;
+  /* ensures buttons don't shrink to fit the container width. */
+  width: 10rem;
+}
+
+@media (max-width: 1215px) {
+  .days {
+    justify-content: flex-start; /* This ensures the left alignment of items */
+  }
+}
+
+/* OLD SCHEDULE */
+
 .dayName {
   text-align: center;
+  font-size: 3rem;
 }
 .days_program {
   display: flex;

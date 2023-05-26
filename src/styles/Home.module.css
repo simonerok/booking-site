@@ -1,5 +1,12 @@
 /* LANDIGN */
+.landingpageBackground {
+  background: rgb(86, 230, 201);
+  background: linear-gradient(180deg, rgba(86, 230, 201, 1) 25%, rgba(160, 235, 88, 1) 61%, rgba(232, 82, 219, 1) 97%);
+}
 
+.bold {
+  font-weight: bold;
+}
 .date {
   display: flex;
   justify-content: space-around;
@@ -19,3 +26,58 @@
   background-color: white;
   cursor: pointer;
 }
+
+/* TICKET SECTION */
+.ticketSection {
+  display: flex;
+}
+.ticketSection img {
+  max-width: 50rem;
+}
+.ticketSection img:hover {
+  cursor: pointer;
+}
+
+/* ARTIST SECTION */
+.landingArtistGrid {
+  display: flex;
+  gap: 0.8rem;
+}
+.landingArtistGrid article {
+  width: 100%;
+  filter: grayscale(1);
+  object-fit: cover;
+}
+
+.landingArtistGrid img:hover {
+  cursor: pointer;
+}
+.landingArtistGrid article img {
+  position: absolute;
+}
+
+.landingArtistGrid article p {
+  z-index: 1;
+  position: relative;
+  color: white;
+  text-align: center;
+  margin-top: 50%;
+}
+/* .landingArtistGrid article div {
+  visibility: hidden;
+}
+.landingArtistGrid article div:hover {
+  visibility: visible;
+} */
+.link {
+  /* z-index: 1;
+  position: absolute; */
+  /* text-decoration: none; */
+  font-size: var(--h4);
+  font-family: var(--paragraph);
+  color: white;
+  display: grid;
+  text-align: center;
+}
+
+/*  */
