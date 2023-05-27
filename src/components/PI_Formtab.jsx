@@ -26,6 +26,12 @@ export default function FormTab({ setNextStep }) {
   const [fullnameErrors, setFullnameErrors] = useState([]);
   const [emailErrors, setEmailErrors] = useState([]);
   const [phoneErrors, setPhoneErrors] = useState([]);
+  //refactor the code
+  const [inputErrors, setInputErrors] = useState({
+    fullnameErrors: [],
+    emailErrors: [],
+    phoneErrors: [],
+  });
   //handle input changes for personal info:
   function handlePIChanges(index, field, value) {
     dispatch({
@@ -45,57 +51,43 @@ export default function FormTab({ setNextStep }) {
     //chatgpt helped
     //check for each attendee in the array of objects whether or not these props has been filled and validate
 
-    //fullname validation
-    const newFullnameErrors = formData.formData.attendees.map((attendee) => {
+    //refactor validation
+    const newInputErrors = formData.formData.attendees.map((attendee) => {
+      //make state variables to store error
       let errorFullname = false;
+      let errorEmail = false;
+      let errorPhone = false;
 
+      //check input field if not filled, set whole form to invalid
       if (!attendee.fullname || !attendee.email || !attendee.phone) {
         isFormValid = false;
       }
-
       if (!attendee.fullname) {
         errorFullname = true;
         isFormValid = false;
-
-        //return this error
-        return { errorFullname };
       }
-    });
-    setFullnameErrors(newFullnameErrors);
-
-    //email validation
-    const newEmailErrors = formData.formData.attendees.map((attendee) => {
-      let errorEmail = false;
-
-      if (!attendee.fullname || !attendee.email || !attendee.phone) {
-        isFormValid = false;
-      }
-
       if (!attendee.email) {
         errorEmail = true;
         isFormValid = false;
-
-        //return this error
-        return { errorEmail };
       }
-    });
-    setEmailErrors(newEmailErrors);
-
-    //phone
-    const newPhoneErrors = formData.formData.attendees.map((attendee) => {
-      let errorPhone = false;
-
-      if (!attendee.fullname || !attendee.email || !attendee.phone) {
-        isFormValid = false;
-      }
-
       if (!attendee.phone) {
         errorPhone = true;
         isFormValid = false;
-
-        //return this error
-        return { errorPhone };
       }
+      //return if error state is true for any and each individual field
+      return {
+        errorFullname,
+        errorEmail,
+        errorPhone,
+      };
+    });
+
+    //push the errors to the array
+    // The fullnameErrors, emailErrors, and phoneErrors states hold the respective errors for each attendee.
+    setInputErrors({
+      fullnameErrors: newInputErrors.map((errors) => errors.errorFullname),
+      emailErrors: newInputErrors.map((errors) => errors.errorEmail),
+      phoneErrors: newInputErrors.map((errors) => errors.errorPhone),
     });
 
     if (isFormValid) {
@@ -103,8 +95,6 @@ export default function FormTab({ setNextStep }) {
       setNextStep(2);
     }
     //update state var with new errors
-
-    setPhoneErrors(newPhoneErrors);
   }
   return (
     <>
@@ -132,9 +122,9 @@ export default function FormTab({ setNextStep }) {
                         onChange={(e) =>
                           handlePIChanges(index, "fullname", e.target.value)
                         }
-                        error={fullnameErrors[index]?.errorFullname} //set error prop based on emailErros array on that index
+                        error={inputErrors.fullnameErrors[index]} //set error prop based on emailErros array on that index
                         helperText={
-                          fullnameErrors[index]?.errorFullname &&
+                          inputErrors.fullnameErrors[index] &&
                           "Full Name is required"
                         }
                       />
@@ -150,9 +140,9 @@ export default function FormTab({ setNextStep }) {
                         onChange={(e) =>
                           handlePIChanges(index, "email", e.target.value)
                         }
-                        error={emailErrors[index]?.errorEmail} //set error prop based on emailErros array on that index
+                        error={inputErrors.emailErrors[index]} //set error prop based on emailErros array on that index
                         helperText={
-                          emailErrors[index]?.errorEmail && "Email is required"
+                          inputErrors.emailErrors[index] && "Email is required"
                         }
                       />
                       <br></br>
@@ -169,9 +159,9 @@ export default function FormTab({ setNextStep }) {
                         onChange={(e) =>
                           handlePIChanges(index, "phone", e.target.value)
                         }
-                        error={phoneErrors[index]?.errorPhone}
+                        error={inputErrors.phoneErrors[index]}
                         helperText={
-                          phoneErrors[index]?.errorPhone &&
+                          inputErrors.phoneErrors[index] &&
                           "Phone number is required"
                         }
                       />
