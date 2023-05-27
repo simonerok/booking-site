@@ -17,16 +17,15 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
       const updatedCounter = tents2Counter + 1;
       setTents2Counter(updatedCounter);
       dispatch({
+        action: "SET_TENTS2_AMOUNT",
+        payload: { tents2Amount: updatedCounter },
+        //payload: { tents2Amount: updatedCounter },
+      });
+      dispatch({
         action: "UPDATE_FIELD",
         payload: { field: "tents2", value: updatedCounter },
       });
     }
-  }
-
-  {
-    /*  const sleepingSpots = formData.tents2 * 2 + formData.tents3 * 3;
-            const enabled = formData.ticketAmount <= sleepingSpots && sleepingSpots <= formData.ticketAmount + 1;
-            console.log(sleepingSpots); */
   }
 
   function incrementTents3() {
@@ -35,6 +34,10 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
     if (formData.formData.ticketAmount >= sleepingSpots + 1) {
       const updatedCounter = tents3Counter + 1;
       setTents3Counter(updatedCounter);
+      dispatch({
+        action: "SET_TENTS3_AMOUNT",
+        payload: { tents3Amount: updatedCounter },
+      });
       dispatch({
         action: "UPDATE_FIELD",
         payload: { field: "tents3", value: updatedCounter },
@@ -47,8 +50,12 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
       const updatedCounter = tents2Counter - 1;
       setTents2Counter(updatedCounter);
       dispatch({
+        action: "SET_TENTS2_AMOUNT",
+        payload: { tents2Amount: updatedCounter },
+      });
+      dispatch({
         action: "UPDATE_FIELD",
-        payload: { field: "tents2", value: updatedCounter },
+        payload: { tents2: updatedCounter },
       });
     }
   }
@@ -57,6 +64,10 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
     if (tents3Counter > 0) {
       const updatedCounter = tents3Counter - 1;
       setTents3Counter(updatedCounter);
+      dispatch({
+        action: "SET_TENTS3_AMOUNT",
+        payload: { tents3Amount: updatedCounter },
+      });
       dispatch({
         action: "UPDATE_FIELD",
         payload: { field: "tents3", value: updatedCounter },
@@ -89,8 +100,8 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
             onChange={(e) => {
               const { checked } = e.target;
               dispatch({
-                action: "UPDATE_FIELD",
-                payload: { field: "tent", value: checked },
+                action: "TENT_SETUP",
+                payload: { isTentChecked: checked },
               });
             }}
           />
@@ -98,7 +109,14 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
             <div>
               {/* open er en state(fra MainTicket) der tjekker om info beskeden er åben eller ej. && bruges til at render/bygge vores indhold. */}
               {!open && (
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-info-circle"
+                  viewBox="0 0 16 16"
+                >
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                   <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                 </svg>
@@ -114,13 +132,79 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
               </div>
             )}
           </div>
-        </div>
-      </FormGroup>
+          {formData.formData.tent && (
+            <div>
+              {/* 2 personers telt */}
+              <FormGroup>
+                <div className={styles.addBtnWrapper}>
+                  <p className={styles.btnText}>
+                    {" "}
+                    2 person tent x {formData.formData.tents2}
+                  </p>
+                  <button
+                    className={styles.noStyleBtn}
+                    value={formData.formData.tents2}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      incrementTents2();
+                    }}
+                  >
+                    <AddButton></AddButton>
+                  </button>
+                  <button
+                    className={styles.noStyleBtn}
+                    value={formData.formData.tents2}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      removeTents2();
+                    }}
+                  >
+                    <RemoveButton></RemoveButton>
+                  </button>
+                </div>
+              </FormGroup>
 
-      {/* 2 personers telt */}
+              {/* 3 personer telt */}
+              <FormGroup>
+                <div className={styles.addBtnWrapper}>
+                  <p className={styles.btnText}>
+                    3 person tent x {formData.formData.tents3}
+                  </p>
+                  <button
+                    className={styles.noStyleBtn}
+                    value={formData.formData.tents3}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      incrementTents3();
+                    }}
+                  >
+                    <AddButton></AddButton>
+                  </button>
+                  <button
+                    className={styles.noStyleBtn}
+                    value={formData.formData.tents3}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      removeTents3();
+                    }}
+                  >
+                    <RemoveButton></RemoveButton>
+                  </button>
+                </div>
+              </FormGroup>
+            </div>
+          )}
+        </div>
+        <p className={styles.p}>Total price: {formData.formData.ticketPrice}</p>
+      </FormGroup>
+      {/*
+       2 personers telt
       <FormGroup>
         <div className={styles.addBtnWrapper}>
-          <p className={styles.btnText}> 2 person tent x {formData.formData.tents2}</p>
+          <p className={styles.btnText}>
+            {" "}
+            2 person tent x {formData.formData.tents2}
+          </p>
           <button
             className={styles.noStyleBtn}
             value={formData.formData.tents2}
@@ -144,10 +228,12 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
         </div>
       </FormGroup>
 
-      {/* 3 personer telt */}
+       3 personer telt
       <FormGroup>
         <div className={styles.addBtnWrapper}>
-          <p className={styles.btnText}>3 person tent x {formData.formData.tents3}</p>
+          <p className={styles.btnText}>
+            3 person tent x {formData.formData.tents3}
+          </p>
           <button
             className={styles.noStyleBtn}
             value={formData.formData.tents3}
@@ -170,7 +256,7 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
           </button>
         </div>
         <p className={styles.p}>Total price: {formData.formData.ticketPrice}</p>
-      </FormGroup>
+      </FormGroup> */}
     </>
   );
 }

@@ -53,8 +53,8 @@ function reducer(state, action) {
         state.formData.ticketAmount,
         state.formData.green,
         state.formData.tent,
-        action.payload.tents2Amount,
-        action.payload.tents3Amount
+        state.formData.tents2,
+        state.formData.tents3
       );
       return {
         ...state,
@@ -78,7 +78,7 @@ function reducer(state, action) {
       //     ? ticketAmount * 799
       //     : ticketAmount * 1299;
 
-      const updatedTicketPrice = calculateTicketPrice(
+      const updatedPriceTicketAmount = calculateTicketPrice(
         state.formData.ticketType,
         ticketAmount,
         state.formData.green,
@@ -91,7 +91,7 @@ function reducer(state, action) {
         formData: {
           ...state.formData,
           ticketAmount: parseInt(ticketAmount),
-          ticketPrice: updatedTicketPrice,
+          ticketPrice: updatedPriceTicketAmount,
         },
       };
       return {};
@@ -121,72 +121,100 @@ function reducer(state, action) {
     //Incase of tent set up
     case "TENT_SETUP":
       const { isTentChecked } = action.payload;
-      const updatedPriceWithTent = calculateTicketPrice(
-        state.formData.ticketType,
-        state.formData.ticketAmount,
-        state.formData.green,
-        isTentChecked,
-        action.payload.tents2Amount,
-        action.payload.tents3Amount
-      );
+      // const updatedPriceWithTent = calculateTicketPrice(
+      //   state.formData.ticketType,
+      //   state.formData.ticketAmount,
+      //   state.formData.green,
+      //   isTentChecked,
+      //   action.payload.tents2Amount,
+      //   action.payload.tents3Amount
+      // );
       return {
         ...state,
         formData: {
           ...state.formData,
           tent: isTentChecked,
-          ticketPrice: updatedPriceWithTent,
         },
       };
+    case "UPDATE_TICKET_PRICE":
+      let updatedTicketPriceWithTent = 0;
+
+      if (state.formData.tent) {
+        // Define the cost of each tent (adjust according to your requirements)
+        const tent2Cost = 10;
+        const tent3Cost = 20;
+
+        // Calculate the updated ticket price based on tent costs
+        updatedTicketPriceWithTent =
+          state.formData.ticketPrice +
+          state.formData.tents2 * tent2Cost +
+          state.formData.tents3 * tent3Cost;
+      } else {
+        updatedTicketPriceWithTent = ticketPrice;
+      }
+
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          ticketPrice: updatedTicketPriceWithTent,
+        },
+      };
+
     case "SET_TENTS2_AMOUNT":
+      const { tents2Amount } = action.payload;
       const updatedPriceWithTent2 = calculateTicketPrice(
         state.formData.ticketType,
         state.formData.ticketAmount,
         state.formData.green,
         state.formData.tent,
-        state.formData.tents2,
-        state.formData.tents3Amount
+        parseInt(tents2Amount),
+
+        state.formData.tents3
       );
-      // return {
-      //   ...state,
-      //   formData: {
-      //     ...state.formData,
-      //     tents2: parseInt(tents2Amount),
-      //     ticketPrice: updatedPriceWithTent2,
-      //   },
-      // };
       return {
         ...state,
         formData: {
           ...state.formData,
-          [action.payload.field]: action.payload.value,
+          tents2: parseInt(tents2Amount),
+          ticketPrice: updatedPriceWithTent2,
+        },
+      };
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          // [action.payload.field]: action.payload.value,
+          tents2Amount: tents2Amount,
           ticketPrice: updatedPriceWithTent2,
         },
       };
     case "SET_TENTS3_AMOUNT":
+      const { tents3Amount } = action.payload;
       const updatedPriceWithTent3 = calculateTicketPrice(
         state.formData.ticketType,
         state.formData.ticketAmount,
         state.formData.green,
         state.formData.tent,
         state.formData.tents2,
-        state.formData.tents3
+        parseInt(tents3Amount)
       );
-      // return {
-      //   ...state,
-      //   formData: {
-      //     ...state.formData,
-      //     tents2: parseInt(tents2Amount),
-      //     ticketPrice: updatedPriceWithTent2,
-      //   },
-      // };
       return {
         ...state,
         formData: {
           ...state.formData,
-          [action.payload.field]: action.payload.value,
+          tents3: parseInt(tents3Amount),
           ticketPrice: updatedPriceWithTent3,
         },
       };
+    // return {
+    //   ...state,
+    //   formData: {
+    //     ...state.formData,
+    //     [action.payload.field]: action.payload.value,
+    //     ticketPrice: updatedPriceWithTent3,
+    //   },
+    // };
 
     case "UPDATE_ATTENDEE_FIELD":
       return {
@@ -276,7 +304,7 @@ function calculateTicketPrice(
     totalPrice += 249;
   }
 
-  if (!isTentChecked) {
+  if (isTentChecked) {
     totalPrice += tents2Amount * 299 + tents3Amount * 399;
   }
   return totalPrice;
