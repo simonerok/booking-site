@@ -7,7 +7,7 @@
 export default async function handler(req, res) {
   //res.status(200).json({ name: "req.body" });
 
-  const response = await fetch("https://qtdvllgzamuqiiztakux.supabase.co/rest/v1/Form Data?select=id", {
+  const response = await fetch("https://qtdvllgzamuqiiztakux.supabase.co/rest/v1/FormData?select=id", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
