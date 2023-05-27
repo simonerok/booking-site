@@ -25,6 +25,7 @@ export default function FormTab({ setNextStep }) {
   //State variable to track validation errors
   const [fullnameErrors, setFullnameErrors] = useState([]);
   const [emailErrors, setEmailErrors] = useState([]);
+  const [phoneErrors, setPhoneErrors] = useState([]);
   //handle input changes for personal info:
   function handlePIChanges(index, field, value) {
     dispatch({
@@ -43,10 +44,12 @@ export default function FormTab({ setNextStep }) {
 
     //chatgpt helped
     //check for each attendee in the array of objects whether or not these props has been filled and validate
+
+    //fullname validation
     const newFullnameErrors = formData.formData.attendees.map((attendee) => {
       let errorFullname = false;
 
-      if (!attendee.fullname || !attendee.email) {
+      if (!attendee.fullname || !attendee.email || !attendee.phone) {
         isFormValid = false;
       }
 
@@ -58,12 +61,50 @@ export default function FormTab({ setNextStep }) {
         return { errorFullname };
       }
     });
+    setFullnameErrors(newFullnameErrors);
+
+    //email validation
+    const newEmailErrors = formData.formData.attendees.map((attendee) => {
+      let errorEmail = false;
+
+      if (!attendee.fullname || !attendee.email || !attendee.phone) {
+        isFormValid = false;
+      }
+
+      if (!attendee.email) {
+        errorEmail = true;
+        isFormValid = false;
+
+        //return this error
+        return { errorEmail };
+      }
+    });
+    setEmailErrors(newEmailErrors);
+
+    //phone
+    const newPhoneErrors = formData.formData.attendees.map((attendee) => {
+      let errorPhone = false;
+
+      if (!attendee.fullname || !attendee.email || !attendee.phone) {
+        isFormValid = false;
+      }
+
+      if (!attendee.phone) {
+        errorPhone = true;
+        isFormValid = false;
+
+        //return this error
+        return { errorPhone };
+      }
+    });
+
     if (isFormValid) {
       //change to the next component in booking flow if form is valid
       setNextStep(2);
     }
     //update state var with new errors
-    setFullnameErrors(newFullnameErrors);
+
+    setPhoneErrors(newPhoneErrors);
   }
   return (
     <>
@@ -91,7 +132,7 @@ export default function FormTab({ setNextStep }) {
                         onChange={(e) =>
                           handlePIChanges(index, "fullname", e.target.value)
                         }
-                        error={fullnameErrors[index]?.errorFullname}
+                        error={fullnameErrors[index]?.errorFullname} //set error prop based on emailErros array on that index
                         helperText={
                           fullnameErrors[index]?.errorFullname &&
                           "Full Name is required"
@@ -109,11 +150,13 @@ export default function FormTab({ setNextStep }) {
                         onChange={(e) =>
                           handlePIChanges(index, "email", e.target.value)
                         }
-                        error={emailErrors[index]}
-                        helperText={emailErrors[index] && "Email is required"}
+                        error={emailErrors[index]?.errorEmail} //set error prop based on emailErros array on that index
+                        helperText={
+                          emailErrors[index]?.errorEmail && "Email is required"
+                        }
                       />
                       <br></br>
-                      {/* <TextField
+                      <TextField
                         name="phone"
                         type="tel"
                         id="phone"
@@ -126,7 +169,12 @@ export default function FormTab({ setNextStep }) {
                         onChange={(e) =>
                           handlePIChanges(index, "phone", e.target.value)
                         }
-                      /> */}
+                        error={phoneErrors[index]?.errorPhone}
+                        helperText={
+                          phoneErrors[index]?.errorPhone &&
+                          "Phone number is required"
+                        }
+                      />
                     </>
                   </CardContent>
                   {/* <button type="next">Submit</button> */}
