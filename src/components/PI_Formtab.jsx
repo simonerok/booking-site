@@ -91,7 +91,7 @@ export default function FormTab({ setNextStep }) {
     });
 
     if (isFormValid) {
-      //change to the next component in booking flow if form is valid
+      //change to the next component in booking flow if form is valid, invoking setCurrentStep, but passed as setNextStep prop.
       setNextStep(2);
     }
     //update state var with new errors
