@@ -1,6 +1,6 @@
 import { FormControl, Card, CardContent, TextField, FormGroup } from "@mui/material";
 import InputMask from "react-input-mask";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import styles from "../styles/Form.module.css";
 import MyButton from "@/components/MyButton";
 import { formDataContext } from "@/contexts/bookingContext";
@@ -8,9 +8,41 @@ import { formDataContext } from "@/contexts/bookingContext";
 export default function FormPay({ currentStepSetter }) {
   const { formData, dispatch } = useContext(formDataContext); //ticket booking context
 
+  /* SUBMIT TO SUPABASE
+   */
+  const formRef = useRef(null);
+
   /* CONFIRM RESERVATION */
   function confirmReservation(e) {
     e.preventDefault();
+    const payload = {
+      date: "",
+      ticketType: "",
+      ticketAmount: 0,
+      area: "",
+      attendees: [],
+      green: false,
+      tent: false,
+
+      tents2: 0,
+      tents3: 0,
+      id: "",
+
+      ticketPrice: 0,
+    };
+
+    /* Fetcher fra api "confirm-order" */
+    fetch("/api/confirm-order", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data, "hej"));
+
+    /* dispatch fetcher data fra udfyldte forms og sender det til api "fullfill-reservation" */
     fetch("http://localhost:8080/fullfill-reservation", {
       method: "post",
       headers: {
@@ -21,29 +53,12 @@ export default function FormPay({ currentStepSetter }) {
       }),
     });
     dispatch({ action: "SUBMIT" });
-    //post formdata content to DB!!!
     console.log(formData);
     currentStepSetter(3);
   }
   console.log(formData);
-
+  /* samled pris af bestilling state */
   const [totalAmount, setTotalAmount] = useState(0);
-
-  // if (formData.ticketType === "VIP") {
-  //   if (formData.green || (formData.green && !formData.tentSetUp)) {
-  //     return totalAmount + 249;
-  //   }
-  //   if (formData.green && formData.tentSetup) {
-  //     return totalAmount + 249 + formData.ticketAmount * 299;
-  //   }
-  //   return (totalAmount = ticketAmount * 1299);
-  // }
-
-  // formData.green
-  // ? totalAmount + 249
-  // : totalAmount;
-
-  console.log(totalAmount);
 
   return (
     <>
@@ -61,7 +76,7 @@ export default function FormPay({ currentStepSetter }) {
         </article>
       </section>
 
-      <form onSubmit={confirmReservation} className={styles.form}>
+      <form onSubmit={confirmReservation} className={styles.form} ref={formRef}>
         <FormControl variant="outlined">
           <Card>
             <CardContent className={styles.formWrapper}>
