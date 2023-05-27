@@ -22,19 +22,19 @@ export default function FormPay({ currentStepSetter }) {
   function confirmReservation(e) {
     e.preventDefault();
     const payload = {
-      date: "",
-      ticketType: "",
-      ticketAmount: 0,
-      area: "",
-      attendees: [],
-      green: false,
-      tent: false,
+      // date: formData.formData.date,
+      ticketType: formData.formData.ticketType,
+      ticketAmount: formData.formData.ticketAmount,
+      area: formData.formData.area,
+      attendees: formData.formData.attendees,
+      green: formData.formData.green,
+      tent: formData.formData.tent,
 
-      tents2: 0,
-      tents3: 0,
+      tents2: formData.formData.tents2,
+      tents3: formData.formData.tents3,
       id: "",
 
-      ticketPrice: 0,
+      ticketPrice: formData.formData.ticketPrice,
     };
 
     /* Fetcher fra api "confirm-order" */
@@ -59,7 +59,7 @@ export default function FormPay({ currentStepSetter }) {
       }),
     });
     dispatch({ action: "SUBMIT" });
-    console.log(formData);
+    console.log("THIS IS PAYLOAD", payload);
     currentStepSetter(3);
   }
   console.log(formData);
