@@ -19,8 +19,8 @@ export default function Home({ bandData }) {
 
       <Landing />
       <LandingTickets />
-      <LandingArtists bandData={bandData} />
       <LandingProgram bandData={bandData} />
+      <LandingArtists bandData={bandData} />
       <LandingStages />
       {/* {bandData.map((perBand) => (
         //key & value fortæller hvad bands sorteres på

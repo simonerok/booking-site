@@ -45,7 +45,6 @@ h4 {
 p {
   font-family: var(--paragraph);
   font-size: var(--p);
-  line-height: 2rem;
 }
 
 button {
