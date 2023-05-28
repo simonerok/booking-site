@@ -22,7 +22,7 @@ export default function FormPay({ currentStepSetter }) {
   function confirmReservation(e) {
     e.preventDefault();
     const payload = {
-      // date: formData.formData.date,
+      Date: formData.formData.date,
       ticketType: formData.formData.ticketType,
       ticketAmount: formData.formData.ticketAmount,
       area: formData.formData.area,
@@ -32,7 +32,7 @@ export default function FormPay({ currentStepSetter }) {
 
       tents2: formData.formData.tents2,
       tents3: formData.formData.tents3,
-      id: "",
+      // id: "",
 
       ticketPrice: formData.formData.ticketPrice,
     };
