@@ -1,5 +1,5 @@
 import styles from "@/styles/Home.module.css";
-
+import Link from "next/link";
 export default function Landing() {
   return (
     <>
@@ -9,8 +9,11 @@ export default function Landing() {
       </div>
       <h1>Foo Festival</h1>
       <div className={styles.landingButtons}>
-        <button>BUY TICKET</button>
-        <button>DOWNLOAD THE FESTIVAL APP</button>
+        <Link href="/booking_display">
+          <button>BUY TICKET</button>
+        </Link>
+        {/* indsæt LINK til festival app */}
+        <button>THE FESTIVAL APP</button>
       </div>
       <p>
         BRINGING the <span className={styles.bold}>NORSE MYTHOLOGY</span> <br /> BACK to LIFE

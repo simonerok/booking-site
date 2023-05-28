@@ -16,6 +16,7 @@ export default function Home({ bandData }) {
 
         <link rel="icon" href="" />
       </Head>
+
       <Landing />
       <LandingTickets />
       <LandingArtists bandData={bandData} />

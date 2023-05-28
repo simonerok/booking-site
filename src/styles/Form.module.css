@@ -1,4 +1,19 @@
 /* FONTS FORM */
+.h1 {
+  font-size: 5rem;
+}
+
+.h2 {
+  font-size: 2.6rem;
+}
+
+.h2 {
+  font-size: 2.2rem;
+}
+
+.p {
+  font-size: 1.5rem;
+}
 
 /* .formBackground {
   background-image: url("/ticket.svg");
@@ -8,6 +23,11 @@
   object-fit: cover;
 } */
 
+.body {
+  display: grid;
+  place-content: center;
+}
+
 .form {
   display: grid;
   place-content: center;
@@ -16,7 +36,7 @@
 .formWrapper {
   display: grid;
   margin-bottom: 2rem;
-  max-width: 350px;
+  min-width: 400px;
 }
 
 /* retter label tekst på dropdown */
@@ -29,6 +49,11 @@
 }
 
 .inputField {
+  max-width: 350px;
+}
+
+.ticketNumber {
+  margin-top: 2.5rem;
   max-width: 350px;
 }
 
@@ -50,4 +75,43 @@
 
 .form_btn {
   margin-bottom: 3rem;
+}
+
+/* Overview box */
+
+.overviewContainer {
+  border: 1px solid black;
+  padding: 2rem;
+  min-width: 365px;
+  margin-bottom: 2rem;
+}
+
+/* Form buttons */
+.addBtn {
+  max-width: 20px;
+  max-height: 20px;
+  margin-block: 5px;
+}
+.addBtnWrapper {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.buttonWrapper {
+  display: grid;
+  place-content: center;
+}
+
+.btnText {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 1rem;
+}
+
+.noStyleBtn {
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  width: 0px;
+  height: 0px;
 }

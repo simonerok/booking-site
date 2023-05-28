@@ -1,6 +1,6 @@
 import { FormControl, Card, CardContent, TextField, FormGroup } from "@mui/material";
 import InputMask from "react-input-mask";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import styles from "../styles/Form.module.css";
 import MyButton from "@/components/MyButton";
 import { formDataContext } from "@/contexts/bookingContext";
@@ -8,9 +8,41 @@ import { formDataContext } from "@/contexts/bookingContext";
 export default function FormPay({ currentStepSetter }) {
   const { formData, dispatch } = useContext(formDataContext); //ticket booking context
 
+  /* SUBMIT TO SUPABASE
+   */
+  const formRef = useRef(null);
+
   /* CONFIRM RESERVATION */
   function confirmReservation(e) {
     e.preventDefault();
+    const payload = {
+      Date: formData.formData.date,
+      ticketType: formData.formData.ticketType,
+      ticketAmount: formData.formData.ticketAmount,
+      area: formData.formData.area,
+      attendees: formData.formData.attendees,
+      green: formData.formData.green,
+      tent: formData.formData.tent,
+
+      tents2: formData.formData.tents2,
+      tents3: formData.formData.tents3,
+      // id: "",
+
+      ticketPrice: formData.formData.ticketPrice,
+    };
+
+    /* Fetcher fra api "confirm-order" */
+    fetch("/api/confirm-order", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data, "hej"));
+
+    /* dispatch fetcher data fra udfyldte forms og sender det til api "fullfill-reservation" */
     fetch("http://localhost:8080/fullfill-reservation", {
       method: "post",
       headers: {
@@ -21,29 +53,12 @@ export default function FormPay({ currentStepSetter }) {
       }),
     });
     dispatch({ action: "SUBMIT" });
-    //post formdata content to DB!!!
-    console.log(formData);
+    console.log("THIS IS PAYLOAD", payload);
     currentStepSetter(3);
   }
   console.log(formData);
-
+  /* samled pris af bestilling state */
   const [totalAmount, setTotalAmount] = useState(0);
-
-  // if (formData.ticketType === "VIP") {
-  //   if (formData.green || (formData.green && !formData.tentSetUp)) {
-  //     return totalAmount + 249;
-  //   }
-  //   if (formData.green && formData.tentSetup) {
-  //     return totalAmount + 249 + formData.ticketAmount * 299;
-  //   }
-  //   return (totalAmount = ticketAmount * 1299);
-  // }
-
-  // formData.green
-  // ? totalAmount + 249
-  // : totalAmount;
-
-  console.log(totalAmount);
 
   return (
     <>
@@ -58,10 +73,20 @@ export default function FormPay({ currentStepSetter }) {
           <p className={styles.p}>Spots: {formData.formData.ticketAmount}</p>
           <p className={styles.p}>{formData.formData.green ? <p>Green Option</p> : <p></p>}</p>
           <p>{formData.formData.tentSetUp ? <p className={styles.p}>Setup of tent</p> : <p></p>}</p>
+          <div>
+            {formData.formData.attendees.map((attending, index) => (
+              <p key={index}>
+                <p className={styles.p}>Attendee {index + 1}</p>
+                <p className={styles.p}>Full Name:{attending.fullname}</p>
+                <p className={styles.p}>Email:{attending.email}</p>
+                <p className={styles.p}>Phone:{attending.phone}</p>
+              </p>
+            ))}
+          </div>
         </article>
       </section>
 
-      <form onSubmit={confirmReservation} className={styles.form}>
+      <form onSubmit={confirmReservation} className={styles.form} ref={formRef}>
         <FormControl variant="outlined">
           <Card>
             <CardContent className={styles.formWrapper}>
