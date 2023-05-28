@@ -4,6 +4,8 @@ import { formDataContext } from "@/contexts/bookingContext";
 import PersonalInfo from "@/components/PersonalInfo";
 import FormPay from "@/components/FormPay";
 import Confirmation from "@/components/Confirmation";
+import Link from "next/link";
+
 export async function getServerSideProps() {
   const api = "http://localhost:8080/available-spots";
   const res = await fetch(api);
@@ -29,11 +31,12 @@ export default function BookingDisplay({ data }) {
       return <Confirmation />;
     default:
       return (
-        <MainTicket
-          currentStepSetter={setCurrentStep}
-          formData={{ formState, dispatch }}
-          spotData={data}
-        />
+        <>
+          <Link href="./">
+            <button>Home</button>
+          </Link>
+          <MainTicket currentStepSetter={setCurrentStep} formData={{ formState, dispatch }} spotData={data} />
+        </>
       );
   }
 }

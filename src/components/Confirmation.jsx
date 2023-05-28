@@ -1,20 +1,24 @@
 import { useContext } from "react";
 import { formDataContext } from "@/contexts/bookingContext";
 import styles from "../styles/Form.module.css";
+import Link from "next/link";
+
 export default function Confirmation() {
   //using context and reducer - pyamentInfo is state
   const { formData, dispatch } = useContext(formDataContext);
   console.log(formData);
   return (
     <>
+      <Link href="./">
+        <button>Home</button>
+      </Link>
       <h2>Booking Order for Foo Festival</h2>
 
       <article className={styles.overviewContainer}>
         <h2 className={styles.h2}> Your order</h2>
         {/* ticket + type */}
         <p className={styles.p}>
-          {formData.formData.ticketAmount} x {formData.formData.ticketType}{" "}
-          tickets
+          {formData.formData.ticketAmount} x {formData.formData.ticketType} tickets
         </p>
         <p className={styles.p}>Day: {formData.formData.date} </p>
         <p className={styles.p}>Scene: {formData.formData.area} </p>
@@ -28,15 +32,9 @@ export default function Confirmation() {
           {/* formData() access the obj: id for the reservation */}
           <p className={styles.p}>Date: {formData.formData.date}</p>
           {/* formData() access the obj: formData and it's prop */}
-          <p className={styles.p}>
-            Types of tickets: {formData.formData.ticketType}
-          </p>
-          <p className={styles.p}>
-            {formData.formData.green ? <p>Green Option</p> : <p></p>}
-          </p>
-          <p className={styles.p}>
-            {formData.formData.tentSetUp ? <p>Setup of tent</p> : <p></p>}
-          </p>
+          <p className={styles.p}>Types of tickets: {formData.formData.ticketType}</p>
+          <p className={styles.p}>{formData.formData.green ? <p>Green Option</p> : <p></p>}</p>
+          <p className={styles.p}>{formData.formData.tentSetUp ? <p>Setup of tent</p> : <p></p>}</p>
           <p className={styles.p}>
             <strong>Area</strong>
           </p>

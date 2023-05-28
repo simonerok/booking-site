@@ -65,7 +65,6 @@ export default function TicketsSection() {
         // value={numberOfTickets}
         // onChange={(e) => setNumberOfTickets(e.target.value)}
       />
-      <p className={styles.p}>ticketPrice: {formData.formData.ticketPrice}</p>
     </>
   );
 }

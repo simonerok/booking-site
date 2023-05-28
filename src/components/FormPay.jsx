@@ -160,6 +160,7 @@ export default function FormPay({ currentStepSetter }) {
                   variant="outlined"
                   name="expDate"
                   label="Exp. Date (MM/YY)"
+                  required
                   // onChange={handleExpInput}
                   InputProps={{
                     inputComponent: InputMask,
@@ -168,7 +169,7 @@ export default function FormPay({ currentStepSetter }) {
                     },
                   }}
                 />
-                <TextField type="text" name="CVC" label="CVC" min="3"></TextField>
+                <TextField type="text" name="CVC" label="CVC" min="3" required></TextField>
               </FormGroup>
             </CardContent>
             <div className={styles.btnWrapper}>
