@@ -60,8 +60,15 @@ export default function FormPay({ currentStepSetter }) {
   /* samled pris af bestilling state */
   const [totalAmount, setTotalAmount] = useState(0);
 
+  function handlePreviousFormComponent() {
+    dispatch({ action: "PREVIOUS" });
+    /* dispatch({ action: "CREATE_ATTENDEE_STRUCTURE" }); */
+    currentStepSetter(1); //change current step
+  }
+
   return (
     <>
+      <MyButton onClick={handlePreviousFormComponent}>Back</MyButton>
       <h1 className={styles.h1}>Payment details</h1>
       <section className={styles.body}>
         <article className={styles.overviewContainer}>
