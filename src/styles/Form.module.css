@@ -67,26 +67,40 @@
   text-align: left;
 }
 
-/* knap */
+/* Overview box */
+.overviewContainer {
+  border: 1px solid black;
+  padding: 2rem;
+  min-width: 365px;
+  max-width: 400px;
+  margin-bottom: 2rem;
+}
+
+.overviewContainerConfirm {
+  border: 1px solid black;
+  padding: 2rem;
+  min-width: 365px;
+  max-width: 400px;
+  margin-bottom: 2rem;
+  display: grid;
+  place-content: center;
+}
+
+.atendee_container {
+  display: grid;
+}
+
+/* Form buttons */
 .btn_container {
   display: flex;
   justify-content: center;
+  margin: 2rem;
 }
 
 .form_btn {
   margin-bottom: 3rem;
 }
 
-/* Overview box */
-
-.overviewContainer {
-  border: 1px solid black;
-  padding: 2rem;
-  min-width: 365px;
-  margin-bottom: 2rem;
-}
-
-/* Form buttons */
 .addBtn {
   max-width: 20px;
   max-height: 20px;
@@ -114,4 +128,14 @@
   cursor: pointer;
   width: 0px;
   height: 0px;
+}
+
+/* DESKTOP */
+@media (min-width: 640px) {
+  /* form Pay overview */
+  .body {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
 }

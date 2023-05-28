@@ -1,7 +1,7 @@
 import PI_Formtab from "../components/PI_Formtab";
 import styles from "../styles/Form.module.css";
 import { FormControl, CardContent } from "@mui/material";
-import MyButton from "./MyButton";
+import BackButton from "./BackButton";
 import { useContext } from "react";
 import { formDataContext } from "@/contexts/bookingContext";
 
@@ -10,17 +10,17 @@ export default function PersonalInfo({ currentStepSetter }) {
 
   function handlePreviousFormComponent() {
     dispatch({ action: "PREVIOUS" });
-    /* dispatch({ action: "CREATE_ATTENDEE_STRUCTURE" }); */
+    /* dispatch({ action: "CREATE_ATTENDEE_STRUCTURE" }) */
     currentStepSetter(0); //change current step
   }
 
   return (
     <>
-      <MyButton onClick={handlePreviousFormComponent}>Back</MyButton>
+      <BackButton onClick={handlePreviousFormComponent}>Back</BackButton>
       <h1 className={styles.h1}>Personal Infomation</h1>
-      <FormControl variant="outlined">
+      <FormControl variant="outlined" className={styles.form}>
         <CardContent>
-          <PI_Formtab setNextStep={currentStepSetter}></PI_Formtab>;
+          <PI_Formtab setNextStep={currentStepSetter}></PI_Formtab>
         </CardContent>
       </FormControl>
     </>

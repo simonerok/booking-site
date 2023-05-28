@@ -5,6 +5,7 @@ import PersonalInfo from "@/components/PersonalInfo";
 import FormPay from "@/components/FormPay";
 import Confirmation from "@/components/Confirmation";
 import Link from "next/link";
+import BackButton from "@/components/BackButton";
 
 export async function getServerSideProps() {
   const api = "http://localhost:8080/available-spots";
@@ -33,7 +34,7 @@ export default function BookingDisplay({ data }) {
       return (
         <>
           <Link href="./">
-            <button>Home</button>
+            <BackButton>Home</BackButton>
           </Link>
           <MainTicket currentStepSetter={setCurrentStep} formData={{ formState, dispatch }} spotData={data} />
         </>

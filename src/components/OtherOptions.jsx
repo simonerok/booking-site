@@ -19,7 +19,6 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
       dispatch({
         action: "SET_TENTS2_AMOUNT",
         payload: { tents2Amount: updatedCounter },
-        //payload: { tents2Amount: updatedCounter },
       });
       dispatch({
         action: "UPDATE_FIELD",
@@ -185,66 +184,6 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
         </div>
         <p className={styles.p}>Total price: {formData.formData.ticketPrice}</p>
       </FormGroup>
-      {/*
-       2 personers telt
-      <FormGroup>
-        <div className={styles.addBtnWrapper}>
-          <p className={styles.btnText}>
-            {" "}
-            2 person tent x {formData.formData.tents2}
-          </p>
-          <button
-            className={styles.noStyleBtn}
-            value={formData.formData.tents2}
-            onClick={(e) => {
-              e.preventDefault();
-              incrementTents2();
-            }}
-          >
-            <AddButton></AddButton>
-          </button>
-          <button
-            className={styles.noStyleBtn}
-            value={formData.formData.tents2}
-            onClick={(e) => {
-              e.preventDefault();
-              removeTents2();
-            }}
-          >
-            <RemoveButton></RemoveButton>
-          </button>
-        </div>
-      </FormGroup>
-
-       3 personer telt
-      <FormGroup>
-        <div className={styles.addBtnWrapper}>
-          <p className={styles.btnText}>
-            3 person tent x {formData.formData.tents3}
-          </p>
-          <button
-            className={styles.noStyleBtn}
-            value={formData.formData.tents3}
-            onClick={(e) => {
-              e.preventDefault();
-              incrementTents3();
-            }}
-          >
-            <AddButton></AddButton>
-          </button>
-          <button
-            className={styles.noStyleBtn}
-            value={formData.formData.tents3}
-            onClick={(e) => {
-              e.preventDefault();
-              removeTents3();
-            }}
-          >
-            <RemoveButton></RemoveButton>
-          </button>
-        </div>
-        <p className={styles.p}>Total price: {formData.formData.ticketPrice}</p>
-      </FormGroup> */}
     </>
   );
 }

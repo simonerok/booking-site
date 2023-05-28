@@ -2,6 +2,7 @@ import { FormControl, Card, CardContent, TextField, FormGroup } from "@mui/mater
 import InputMask from "react-input-mask";
 import { useContext, useState, useRef } from "react";
 import styles from "../styles/Form.module.css";
+import BackButton from "@/components/BackButton";
 import MyButton from "@/components/MyButton";
 import { formDataContext } from "@/contexts/bookingContext";
 
@@ -68,7 +69,7 @@ export default function FormPay({ currentStepSetter }) {
 
   return (
     <>
-      <MyButton onClick={handlePreviousFormComponent}>Back</MyButton>
+      <BackButton onClick={handlePreviousFormComponent}>Back</BackButton>
       <h1 className={styles.h1}>Payment details</h1>
       <section className={styles.body}>
         <article className={styles.overviewContainer}>
@@ -80,106 +81,106 @@ export default function FormPay({ currentStepSetter }) {
           <p className={styles.p}>Spots: {formData.formData.ticketAmount}</p>
           <p className={styles.p}>{formData.formData.green ? <p>Green Option</p> : <p></p>}</p>
           <p>{formData.formData.tentSetUp ? <p className={styles.p}>Setup of tent</p> : <p></p>}</p>
-          <div>
+          <div className={styles.atendee_container}>
             {formData.formData.attendees.map((attending, index) => (
               <p key={index}>
                 <p className={styles.p}>Attendee {index + 1}</p>
-                <p className={styles.p}>Full Name:{attending.fullname}</p>
-                <p className={styles.p}>Email:{attending.email}</p>
-                <p className={styles.p}>Phone:{attending.phone}</p>
+                <p className={styles.p}>Full Name: {attending.fullname}</p>
+                <p className={styles.p}>Email: {attending.email}</p>
+                <p className={styles.p}>Phone: {attending.phone}</p>
               </p>
             ))}
           </div>
         </article>
-      </section>
 
-      <form onSubmit={confirmReservation} className={styles.form} ref={formRef}>
-        <FormControl variant="outlined">
-          <Card>
-            <CardContent className={styles.formWrapper}>
-              <h2 className={styles.h2}>Payment</h2>
-              <TextField
-                name="fullname"
-                id="fullname"
-                label="Name"
-                placeholder={"fx: John Doe"}
-                required //onChange={handlePIChanges}
-              />
-
-              <br></br>
-              <TextField
-                name="email"
-                id="email"
-                label="Email"
-                placeholder={"fx: JohnDoe@gmail.com"}
-                required //onChange={handlePIChanges} /* error={!!formErrors.email} */ /* helperText={formErrors.email} */
-              />
-              <br></br>
-              <TextField
-                name="phone"
-                type="tel"
-                id="phone"
-                label="Phone"
-                maxLength="4"
-                pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"
-                placeholder={"fx: 11111111"}
-                required //onChange={handlePIChanges}
-              />
-
-              <h2 className={styles.h2}>Card Info</h2>
-              <FormGroup variant="standard" id="paymentInfoGroup">
-                <TextField type="text" name="Cardholder's name" label="Cardholder's name" required></TextField>
-                <br></br>
+        <form onSubmit={confirmReservation} className={styles.form} ref={formRef}>
+          <FormControl variant="outlined">
+            <Card>
+              <CardContent className={styles.formWrapper}>
+                <h2 className={styles.h2}>Payment</h2>
                 <TextField
-                  type="text"
-                  id="standardCard"
-                  label="Credit Card No."
-                  required
-                  name="creditcard"
-                  maxLength="16"
-                  //value={creditcard}
-                  // onChange={handleCCInput}
-                  variant="outlined"
-                  /* error={!!formErrors.creditcard} */
-                  /*    helperText={formErrors.creditcard} */
-                  //used InputProps for custom inputs and components with react-input-mask
-                  //chatgpt helped
-                  InputProps={{
-                    inputComponent: InputMask,
-                    inputProps: {
-                      mask: "9999 9999 9999 9999",
-                      maskChar: "-",
-                    },
-                  }}
-                ></TextField>
-                <br></br>
-                <TextField
-                  maxlength="4"
-                  type="text"
-                  id="exp.date"
-                  variant="outlined"
-                  name="expDate"
-                  label="Exp. Date (MM/YY)"
-                  required
-                  // onChange={handleExpInput}
-                  InputProps={{
-                    inputComponent: InputMask,
-                    inputProps: {
-                      mask: "99/99",
-                    },
-                  }}
+                  name="fullname"
+                  id="fullname"
+                  label="Name"
+                  placeholder={"fx: John Doe"}
+                  required //onChange={handlePIChanges}
                 />
-                <TextField type="text" name="CVC" label="CVC" min="3" required></TextField>
-              </FormGroup>
-            </CardContent>
-            <div className={styles.btnWrapper}>
-              <div className={styles.btn_container}>
-                <MyButton type="submit">Submit</MyButton>
+
+                <br></br>
+                <TextField
+                  name="email"
+                  id="email"
+                  label="Email"
+                  placeholder={"fx: JohnDoe@gmail.com"}
+                  required //onChange={handlePIChanges} /* error={!!formErrors.email} */ /* helperText={formErrors.email} */
+                />
+                <br></br>
+                <TextField
+                  name="phone"
+                  type="tel"
+                  id="phone"
+                  label="Phone"
+                  maxLength="4"
+                  pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"
+                  placeholder={"fx: 11111111"}
+                  required //onChange={handlePIChanges}
+                />
+
+                <h2 className={styles.h2}>Card Info</h2>
+                <FormGroup variant="standard" id="paymentInfoGroup">
+                  <TextField type="text" name="Cardholder's name" label="Cardholder's name" required></TextField>
+                  <br></br>
+                  <TextField
+                    type="text"
+                    id="standardCard"
+                    label="Credit Card No."
+                    required
+                    name="creditcard"
+                    maxLength="16"
+                    //value={creditcard}
+                    // onChange={handleCCInput}
+                    variant="outlined"
+                    /* error={!!formErrors.creditcard} */
+                    /*    helperText={formErrors.creditcard} */
+                    //used InputProps for custom inputs and components with react-input-mask
+                    //chatgpt helped
+                    InputProps={{
+                      inputComponent: InputMask,
+                      inputProps: {
+                        mask: "9999 9999 9999 9999",
+                        maskChar: "-",
+                      },
+                    }}
+                  ></TextField>
+                  <br></br>
+                  <TextField
+                    maxlength="4"
+                    type="text"
+                    id="exp.date"
+                    variant="outlined"
+                    name="expDate"
+                    label="Exp. Date (MM/YY)"
+                    required
+                    // onChange={handleExpInput}
+                    InputProps={{
+                      inputComponent: InputMask,
+                      inputProps: {
+                        mask: "99/99",
+                      },
+                    }}
+                  />
+                  <TextField type="text" name="CVC" label="CVC" min="3" required></TextField>
+                </FormGroup>
+              </CardContent>
+              <div className={styles.btnWrapper}>
+                <div className={styles.btn_container}>
+                  <MyButton type="submit">Submit</MyButton>
+                </div>
               </div>
-            </div>
-          </Card>
-        </FormControl>
-      </form>
+            </Card>
+          </FormControl>
+        </form>
+      </section>
     </>
   );
 }

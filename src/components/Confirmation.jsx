@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { formDataContext } from "@/contexts/bookingContext";
 import styles from "../styles/Form.module.css";
 import Link from "next/link";
+import BackButton from "@/components/BackButton";
 
 export default function Confirmation() {
   //using context and reducer - pyamentInfo is state
@@ -10,19 +11,20 @@ export default function Confirmation() {
   return (
     <>
       <Link href="./">
-        <button>Home</button>
+        <BackButton>Home</BackButton>
       </Link>
-      <h2>Booking Order for Foo Festival</h2>
-
-      <article className={styles.overviewContainer}>
-        <h2 className={styles.h2}> Your order</h2>
-        {/* ticket + type */}
-        <p className={styles.p}>
-          {formData.formData.ticketAmount} x {formData.formData.ticketType} tickets
-        </p>
-        <p className={styles.p}>Day: {formData.formData.date} </p>
-        <p className={styles.p}>Scene: {formData.formData.area} </p>
-      </article>
+      <h1 className={styles.h1}>Thank You for your order!</h1>
+      <section className={styles.form}>
+        <article className={styles.overviewContainerConfirm}>
+          <h2 className={styles.h2}> Overview</h2>
+          {/* ticket + type */}
+          <p className={styles.p}>
+            {formData.formData.ticketAmount} x {formData.formData.ticketType} tickets
+          </p>
+          <p className={styles.p}>Day: {formData.formData.date} </p>
+          <p className={styles.p}>Scene: {formData.formData.area} </p>
+        </article>
+      </section>
 
       <article>
         <h2 className={styles.h2}>Overview</h2>
