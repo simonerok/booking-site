@@ -1,4 +1,5 @@
 import styles from "@/styles/Home.module.css";
+import Link from "next/link";
 
 export default function LandingProgram({ bandData }) {
   return (
@@ -9,6 +10,9 @@ export default function LandingProgram({ bandData }) {
           {" " + band.name} /
         </p>
       ))}
+      <Link className={styles.link} href="/program">
+        See full program
+      </Link>
     </section>
   );
 }
