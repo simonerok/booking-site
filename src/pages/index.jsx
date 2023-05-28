@@ -11,11 +11,11 @@ export default function Home({ bandData }) {
   // console.log(bandData);
   return (
     <section className={styles.landingpageBackground}>
-      <Head>
+      {/* <Head>
         <title>Foo Festival</title>
 
         <link rel="icon" href="" />
-      </Head>
+      </Head> */}
 
       <Landing />
       <LandingTickets />
