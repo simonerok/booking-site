@@ -16,7 +16,6 @@
 }
 .programText {
   display: inline;
-  text-align: center;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 3rem;
@@ -47,7 +46,7 @@
   font-family: var(--heading);
   text-align: center;
   display: grid;
-  margin-top: -4rem;
+  /* margin-top: -4rem; */
   margin-bottom: 8rem;
 }
 .link:hover {
@@ -64,8 +63,5 @@
   .programText {
     font-size: 2rem;
     line-height: 1.2;
-  }
-  .link {
-    margin-top: -2rem;
   }
 }

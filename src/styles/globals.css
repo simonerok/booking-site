@@ -1,8 +1,8 @@
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} */
+}
 
 :root {
   --heading: condor-extended, sans-serif;
@@ -32,6 +32,11 @@ h2 {
   font-family: var(--heading);
   font-size: var(--h2);
 }
+h3 {
+  font-family: var(--paragraph);
+  font-size: var(--h3);
+  font-weight: 500;
+}
 
 h4 {
   font-size: var(--h4);
@@ -51,4 +56,11 @@ button {
 }
 button:hover {
   cursor: pointer;
+}
+
+/* SCHEDULE */
+.css-177gid-MuiTableCell-root {
+  font-family: var(--paragraph);
+  font-size: var(--p);
+  text-align: right;
 }

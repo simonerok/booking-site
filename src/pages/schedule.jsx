@@ -46,7 +46,7 @@ const columns = [
   },
   {
     id: "time10",
-    label: "10:00 - 12:0",
+    label: "10:00 - 12:00",
     minWidth: 170,
     align: "right",
   },
@@ -224,10 +224,10 @@ export default function StickyHeadTable({ schedule }) {
       </div>
       <h2 className={stylesSchedule.dayName}>{day}</h2>
       <section className={stylesSchedule.scheduleSection}>
-        <div>
-          <p>Midgard</p> <br />
-          <p>Vanaheim</p> <br />
-          <p>Jotunheim</p>
+        <div className={stylesSchedule.scheduleStages}>
+          <h3>Midgard</h3>
+          <h3>Vanaheim</h3>
+          <h3>Jotunheim</h3>
         </div>
         <Paper sx={{ width: "100%", overflow: "hidden" }}>
           <TableContainer sx={{ maxHeight: 440 }}>

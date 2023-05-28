@@ -1,11 +1,14 @@
-import stylesSchedule from "../styles/Schedule.module.css";
+import styles from "@/styles/Home.module.css";
 
 export default function LandingProgram({ bandData }) {
   return (
-    <section className={stylesSchedule.programContainer}>
-      <p className={stylesSchedule.programText} key={bandData.name}>
-        {bandData.name} /
-      </p>
+    <section className={styles.programContainer}>
+      <h2>ARTISTS</h2>
+      {bandData.slice(0, 15).map((band) => (
+        <p className={styles.programText} key={band.bandData}>
+          {" " + band.name} /
+        </p>
+      ))}
     </section>
   );
 }

@@ -36,6 +36,7 @@
 }
 .ticketSection img:hover {
   cursor: pointer;
+  filter: contrast(200%);
 }
 
 /* ARTIST SECTION */
@@ -52,16 +53,16 @@
 .landingArtistGrid img:hover {
   cursor: pointer;
 }
-.landingArtistGrid article img {
+/* .landingArtistGrid article img {
   position: absolute;
-}
+} */
 
 .landingArtistGrid article p {
   z-index: 1;
   position: relative;
   color: white;
   text-align: center;
-  margin-top: 50%;
+  /* margin-top: 50%; */
 }
 /* .landingArtistGrid article div {
   visibility: hidden;
@@ -80,4 +81,45 @@
   text-align: center;
 }
 
-/*  */
+/* PROGRAM SECTION */
+
+.programContainer {
+  /* text-align: center; */
+  margin-inline: auto;
+  max-width: 1200px;
+  margin-bottom: 8rem;
+}
+.programText {
+  display: inline;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 3rem;
+  /* -webkit-text-stroke: 1px black;
+  color: white; */
+  line-height: 3.5rem;
+}
+
+/* STAGE SECTION */
+
+.stageSection {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin-inline: 2rem;
+  /* display: flex;
+  margin-inline: 2rem; */
+}
+.stageSection div {
+  grid-column: 2;
+  grid-row: 2;
+}
+.stageSection div h3 {
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px black;
+}
+
+@media (max-width: 750px) {
+  .stageSection {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
