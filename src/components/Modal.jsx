@@ -13,6 +13,19 @@ export default function Modal({ selectedBand, handleCloseModal, showModal }) {
   // Check if the logo includes "http"
   const logoSrc = bandInfo.logo.includes("http") ? bandInfo.logo : `http://localhost:8080/logos/${bandInfo.logo}`;
 
+  function getFullDayName(day) {
+    const dayMap = {
+      mon: "Monday",
+      tue: "Tuesday",
+      wed: "Wednesday",
+      thu: "Thursday",
+      fri: "Friday",
+      sat: "Saturday",
+      sun: "Sunday",
+    };
+    return dayMap[day];
+  }
+
   return (
     <>
       <section className={styles.ModalSection}>
@@ -23,8 +36,8 @@ export default function Modal({ selectedBand, handleCloseModal, showModal }) {
         <img className={styles.ModalImg} src={logoSrc} alt="Logo" />
         {/* Ternary hvis band er cancelled(true), "cancelled" tilføjes. Span giver udstreget styling  */}
         <h1 className={styles.ModalArtistName}>
-          {cancelled ? <span className={styles.Cancelled}>{act}</span> : <span>{act}</span>}
-          {cancelled ? "Cancelled" : ""}
+          {cancelled ? <span className={styles.CancelledName}>{act}</span> : <span>{act}</span>}
+          {cancelled ? " CANCELLED" : ""}
         </h1>
       </section>
       <section className={styles.ModalInfo}>
@@ -35,7 +48,7 @@ export default function Modal({ selectedBand, handleCloseModal, showModal }) {
           </p>
           <p>
             <span>DATE</span> <br />
-            {day}
+            {getFullDayName(day)}
           </p>
           <p>
             <span>TIME </span> <br />
