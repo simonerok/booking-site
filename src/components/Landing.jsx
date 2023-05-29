@@ -1,10 +1,6 @@
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 
-export async function getStaticProps() {
-  return { props: { isLanding: false } };
-}
-
 export default function Landing() {
   return (
     <>

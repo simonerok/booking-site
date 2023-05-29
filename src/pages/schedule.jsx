@@ -1,6 +1,7 @@
 import stylesSchedule from "../styles/Schedule.module.css";
 import { useState } from "react";
 import Link from "next/link";
+import Head from "next/head";
 
 // MUI
 
@@ -103,42 +104,6 @@ export default function StickyHeadTable({ schedule }) {
     Sunday: [createData(...test("sun", "Midgard")), createData(...test("sun", "Vanaheim")), createData(...test("sun", "Jotunheim"))],
   };
 
-  // export default function StickyHeadTable({ schedule }) {
-  //   const rows = [createData(...test("mon", "Midgard")), createData(...test("mon", "Vanaheim")), createData(...test("mon", "Jotunheim"))];
-  //   const rows2 = [createData(...test("tue", "Midgard")), createData(...test("tue", "Vanaheim")), createData(...test("tue", "Jotunheim"))];
-  //   const [day, setDay] = useState("Monday");
-  //   //filter for button days
-  //   function changeDay(event) {
-  //     if (event.target.value === "Monday") {
-  //       setDay("Monday");
-  //       console.log(day);
-  //     }
-  //     if (event.target.value === "Tuesday") {
-  //       setDay("Tuesday");
-  //       console.log(day);
-  //     }
-  //     if (event.target.value === "Wednesday") {
-  //       setDay("Wednesday");
-  //       console.log(day);
-  //     }
-  //     if (event.target.value === "Thursday") {
-  //       setDay("Thursday");
-  //       console.log(day);
-  //     }
-  //     if (event.target.value === "Friday") {
-  //       setDay("Friday");
-  //       console.log(day);
-  //     }
-  //     if (event.target.value === "Saturday") {
-  //       setDay("Saturday");
-  //       console.log(day);
-  //     }
-  //     if (event.target.value === "Sunday") {
-  //       setDay("Sunday");
-  //       console.log(day);
-  //     }
-  //   }
-
   const [day, setDay] = useState("Monday");
   const [displayedDay, setDisplayedDay] = useState("Monday");
 
@@ -193,6 +158,9 @@ export default function StickyHeadTable({ schedule }) {
   }
   return (
     <>
+      <Head>
+        <title>Schedule</title>
+      </Head>
       <h1 className={stylesSchedule.scheduleHeading}>Schedule</h1>
       <Link className={stylesSchedule.link} href="/program">
         / Program
@@ -272,6 +240,9 @@ export async function getServerSideProps() {
   const data = await res.json();
   console.log(data);
   return {
-    props: { schedule: data },
+    props: {
+      schedule: data,
+      isSchedule: true,
+    },
   };
 }

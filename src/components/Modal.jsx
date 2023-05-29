@@ -1,5 +1,6 @@
 // import styles from "@/styles/Home.module.css";
 import styles from "@/styles/Modal.module.css";
+import Head from "next/head";
 
 export default function Modal({ selectedBand, handleCloseModal, showModal }) {
   // Checks if either selectedBand is null or showModal is false using the logical OR operator ||.
@@ -28,6 +29,9 @@ export default function Modal({ selectedBand, handleCloseModal, showModal }) {
 
   return (
     <>
+      <Head>
+        <title>Artist info</title>
+      </Head>
       <section className={styles.ModalSection}>
         {/* Button to close the modal */}
         <button className={styles.ModalButton} onClick={() => handleCloseModal(false)}>

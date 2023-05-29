@@ -1,7 +1,6 @@
 import styles from "@/styles/Home.module.css";
 // import Button from "@mui/material";
 import Landing from "@/components/Landing";
-import Head from "next/head";
 import LandingTickets from "@/components/LandingTickets";
 import LandingArtists from "@/components/LandingArtists";
 import LandingProgram from "@/components/LandingProgram";
@@ -11,11 +10,6 @@ export default function Home({ bandData }) {
   // console.log(bandData);
   return (
     <section>
-      <Head>
-        <title>TEST Festival</title>
-        <link rel="icon" href="" />
-      </Head>
-
       <Landing />
       <LandingTickets />
       <LandingProgram bandData={bandData} />
