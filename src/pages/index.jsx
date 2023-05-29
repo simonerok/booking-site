@@ -7,10 +7,10 @@ import LandingArtists from "@/components/LandingArtists";
 import LandingProgram from "@/components/LandingProgram";
 import LandingStages from "@/components/LandingStages";
 
-export default function Home({ bandData }, props) {
+export default function Home({ bandData }) {
   // console.log(bandData);
   return (
-    <section className={styles.landingpageBackground}>
+    <section>
       <Head>
         <title>TEST Festival</title>
         <link rel="icon" href="" />

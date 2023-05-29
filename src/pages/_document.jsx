@@ -20,7 +20,7 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head />
-        <body className={pageProps.isLanding ? "landing-background" : "light-mode"}>
+        <body className={pageProps.isLanding ? "landing-background" : "program-background"}>
           <Main />
           <NextScript />
         </body>

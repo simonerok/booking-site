@@ -11,7 +11,7 @@ import { useEffect } from "react";
 
 export default function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    document.body.className = pageProps.isLanding ? "landing-background" : "light-mode";
+    document.body.className = pageProps.isLanding ? "landing-background" : "program-background";
   });
   return (
     <>
