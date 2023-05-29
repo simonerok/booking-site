@@ -99,6 +99,7 @@ export default function FormPay({ currentStepSetter }) {
               <CardContent className={styles.formWrapper}>
                 <h2 className={styles.h2}>Payment</h2>
                 <TextField
+                  className={styles.formWrapper}
                   name="fullname"
                   id="fullname"
                   label="Name"
@@ -108,6 +109,7 @@ export default function FormPay({ currentStepSetter }) {
 
                 <br></br>
                 <TextField
+                  className={styles.formWrapper}
                   name="email"
                   id="email"
                   label="Email"
@@ -128,9 +130,10 @@ export default function FormPay({ currentStepSetter }) {
 
                 <h2 className={styles.h2}>Card Info</h2>
                 <FormGroup variant="standard" id="paymentInfoGroup">
-                  <TextField type="text" name="Cardholder's name" label="Cardholder's name" required></TextField>
+                  <TextField type="text" name="Cardholder's name" label="Cardholder's name" required className={styles.formWrapper}></TextField>
                   <br></br>
                   <TextField
+                    className={styles.formWrapper}
                     type="text"
                     id="standardCard"
                     label="Credit Card No."
@@ -154,6 +157,7 @@ export default function FormPay({ currentStepSetter }) {
                   ></TextField>
                   <br></br>
                   <TextField
+                    className={styles.formWrapper}
                     maxlength="4"
                     type="text"
                     id="exp.date"
