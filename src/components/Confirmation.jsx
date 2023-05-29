@@ -29,7 +29,7 @@ export default function Confirmation() {
         </article>
       </section>
 
-      <article>
+      {/*  <article>
         <h2 className={styles.h2}>Overview</h2>
         <article className={styles.overviewContainer}>
           <h3 className={styles.h3}>Tickets booked</h3>
@@ -61,7 +61,7 @@ export default function Confirmation() {
             </div>{" "}
           </section>
         </article>
-      </article>
+      </article> */}
     </>
   );
 }

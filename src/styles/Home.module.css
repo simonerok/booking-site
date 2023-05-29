@@ -80,4 +80,25 @@
   text-align: center;
 }
 
-/*  */
+/* Nav menu */
+.navMenu {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* BURGER */
+/* back icon style */
+.backIcon {
+  display: flex;
+  justify-content: start;
+}
+
+.burgerIcon {
+  /* Add your custom styles here */
+  background-color: transparent;
+}
+
+.burgerIcon:hover,
+button.burgerIcon:hover {
+  background-color: transparent;
+}
