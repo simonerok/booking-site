@@ -7,7 +7,7 @@ export default function Modal({ selectedBand, handleCloseModal, showModal }) {
   if (!selectedBand || !showModal) {
     return null;
   }
-  const { act, start, end, bandInfo, stage, day } = selectedBand;
+  const { act, start, end, bandInfo, stage, day, cancelled } = selectedBand;
   console.log(selectedBand);
 
   // Check if the logo includes "http"
@@ -21,8 +21,11 @@ export default function Modal({ selectedBand, handleCloseModal, showModal }) {
           Back to program
         </button>
         <img className={styles.ModalImg} src={logoSrc} alt="Logo" />
-        <h1 className={styles.ModalArtistName}>{act}</h1>
-        {/* <h1 className={`${styles.ModalArtistName} ${act.length > 12 ? styles.longText : ""}`}>{act}</h1> */}
+        {/* Ternary hvis band er cancelled(true), "cancelled" tilføjes. Span giver udstreget styling  */}
+        <h1 className={styles.ModalArtistName}>
+          {cancelled ? <span className={styles.Cancelled}>{act}</span> : <span>{act}</span>}
+          {cancelled ? "Cancelled" : ""}
+        </h1>
       </section>
       <section className={styles.ModalInfo}>
         <article className={styles.ModalConcertInfo}>

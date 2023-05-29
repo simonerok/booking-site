@@ -5,14 +5,17 @@
 
 .ModalSection {
   display: grid;
-  margin-bottom: -3rem;
+  /* margin-bottom: -3rem; */
+}
+.Cancelled {
+  text-decoration-line: line-through;
 }
 
 .ModalInfo {
   display: flex;
   flex-flow: wrap;
   justify-content: space-between;
-  margin-inline: 2rem;
+  margin: 2rem;
 }
 
 .ModalButton {
@@ -24,12 +27,11 @@
 }
 
 .ModalArtistName {
-  margin-top: -10%;
+  margin-top: -30%;
   color: white;
   text-align: left;
   margin-left: 2rem;
   font-size: var(--h2);
-  white-space: pre-wrap;
 }
 /* 
 .longText {

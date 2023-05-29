@@ -30,7 +30,7 @@ export default function LandingArtists({ bandData }) {
           </p>
         </div>
       </section>
-      <Link className={styles.link} href="/schedule">
+      <Link className={styles.link2} href="/schedule">
         See schedule
       </Link>
     </>

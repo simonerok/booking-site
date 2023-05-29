@@ -10,7 +10,7 @@ export default function LandingProgram({ bandData }) {
           {" " + band.name} /
         </p>
       ))}
-      <Link className={styles.link} href="/program">
+      <Link className={styles.link1} href="/program">
         See full program
       </Link>
     </section>
