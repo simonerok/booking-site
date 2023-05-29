@@ -9,8 +9,7 @@ import { formDataContext } from "@/contexts/bookingContext";
 export default function FormPay({ currentStepSetter }) {
   const { formData, dispatch } = useContext(formDataContext); //ticket booking context
 
-  /* SUBMIT TO SUPABASE
-   */
+  /* SUBMIT TO SUPABASE*/
   const formRef = useRef(null);
 
   /* CONFIRM RESERVATION */
