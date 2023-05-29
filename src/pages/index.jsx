@@ -7,27 +7,20 @@ import LandingArtists from "@/components/LandingArtists";
 import LandingProgram from "@/components/LandingProgram";
 import LandingStages from "@/components/LandingStages";
 
-export default function Home({ bandData }) {
+export default function Home({ bandData }, props) {
   // console.log(bandData);
   return (
     <section className={styles.landingpageBackground}>
-      {/* <Head>
-        <title>Foo Festival</title>
-
+      <Head>
+        <title>TEST Festival</title>
         <link rel="icon" href="" />
-      </Head> */}
+      </Head>
 
       <Landing />
       <LandingTickets />
       <LandingProgram bandData={bandData} />
       <LandingArtists bandData={bandData} />
       <LandingStages />
-      {/* {bandData.map((perBand) => (
-        //key & value fortæller hvad bands sorteres på
-        <section key={bandData.slug} value={bandData.slug}>
-          <h2>{perBand.name}</h2>
-        </section>
-      ))} */}
     </section>
   );
 }
@@ -53,6 +46,7 @@ export async function getServerSideProps() {
       bandData,
       scheduleData,
       spotData,
+      isLanding: true,
     },
   };
 }
