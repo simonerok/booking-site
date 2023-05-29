@@ -84,3 +84,14 @@ button:hover {
   background: rgb(63, 94, 251);
   background: radial-gradient(circle, rgba(63, 94, 251, 1) 31%, rgba(252, 135, 70, 1) 100%);
 }
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem;
+  border-top: solid 2px black;
+}
+.footerInfoBox {
+  display: flex;
+  gap: 3rem;
+}

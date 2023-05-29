@@ -140,6 +140,8 @@
   -webkit-text-stroke: 1px black;
 }
 
+/* FOOTER */
+
 @media (max-width: 750px) {
   /* LANDING */
   .landingQuote {

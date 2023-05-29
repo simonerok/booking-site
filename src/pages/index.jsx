@@ -1,10 +1,10 @@
-import styles from "@/styles/Home.module.css";
 // import Button from "@mui/material";
 import Landing from "@/components/Landing";
 import LandingTickets from "@/components/LandingTickets";
 import LandingArtists from "@/components/LandingArtists";
 import LandingProgram from "@/components/LandingProgram";
 import LandingStages from "@/components/LandingStages";
+import Footer from "@/components/Footer";
 
 export default function Home({ bandData }) {
   // console.log(bandData);
@@ -15,6 +15,7 @@ export default function Home({ bandData }) {
       <LandingProgram bandData={bandData} />
       <LandingArtists bandData={bandData} />
       <LandingStages />
+      <Footer />
     </section>
   );
 }
