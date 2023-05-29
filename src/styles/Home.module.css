@@ -109,10 +109,7 @@
   text-align: center;
 }
 .programContainer {
-  /* text-align: center; */
-  margin-inline: auto;
-  max-width: 1200px;
-  margin: 8rem 2rem;
+  margin: 8rem;
 }
 
 .programText {
@@ -130,7 +127,7 @@
 .stageSection {
   display: grid;
   grid-template-columns: 1fr auto;
-  margin: 8rem 2rem;
+  margin: 8rem 6rem;
   /* display: flex;
   margin-inline: 2rem; */
 }
@@ -157,6 +154,9 @@
     font-size: 2rem;
     line-height: 1.2;
   }
+  .programContainer {
+    margin-inline: 2rem;
+  }
   .link1,
   .link2 {
     font-size: 1.5rem;
@@ -166,5 +166,6 @@
   .stageSection {
     display: flex;
     flex-wrap: wrap;
+    margin-inline: 2rem;
   }
 }

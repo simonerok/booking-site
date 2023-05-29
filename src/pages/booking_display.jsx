@@ -5,6 +5,7 @@ import PersonalInfo from "@/components/PersonalInfo";
 import FormPay from "@/components/FormPay";
 import Confirmation from "@/components/Confirmation";
 import Link from "next/link";
+import Head from "next/head";
 
 export async function getServerSideProps() {
   const api = "http://localhost:8080/available-spots";
@@ -32,6 +33,9 @@ export default function BookingDisplay({ data }) {
     default:
       return (
         <>
+          <Head>
+            <title>Booking</title>
+          </Head>
           <Link href="./">
             <button>Home</button>
           </Link>

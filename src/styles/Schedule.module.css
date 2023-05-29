@@ -53,7 +53,6 @@
   display: flex;
   justify-content: center;
   margin-bottom: 3rem;
-
   gap: 1rem;
   overflow-x: auto;
 }
@@ -62,6 +61,9 @@
   flex-shrink: 0;
   /* ensures buttons don't shrink to fit the container width. */
   width: 10rem;
+}
+.days button:hover {
+  background-color: white;
 }
 
 @media (max-width: 1215px) {
