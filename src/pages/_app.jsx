@@ -5,9 +5,6 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
 
-// import { LocalizationProvider } from "@mui/x-date-pickers";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-
 export default function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const { isLanding, isSchedule, isProgram } = pageProps;
@@ -27,8 +24,7 @@ export default function MyApp({ Component, pageProps }) {
       <Navigation />
       <ProgramProvider>
         <FormDataProvider>
-          {/* <BookFormProvider> */}
-          <Component {...pageProps} />;{/* </BookFormProvider> */}
+          <Component {...pageProps} />;
         </FormDataProvider>
       </ProgramProvider>
       <Footer />
