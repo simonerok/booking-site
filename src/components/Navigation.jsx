@@ -17,6 +17,7 @@ export default function Navigation() {
         <Toolbar className={styles.landingButtons}>
           {/*Box hider navmenuen i mobil xs er en mediaQuiery */}
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
+            {/* Her indsættes vores menuelementer */}
             <Link href="/booking_display">
               <button>BUY TICKET</button>
             </Link>
@@ -24,7 +25,7 @@ export default function Navigation() {
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <button>THE FESTIVAL APP</button>
           </Box>
-          {/* smUp betyder at den skal vise burgermenuen */}
+          {/* Dette gør at burgermenuen forsvinder igen når skærmen bliver større */}
           {/* Burger menu */}
           <Box display={{ xs: "block", sm: "none" }}>
             <IconButton className={styles.burgerIcon}>
@@ -39,6 +40,7 @@ export default function Navigation() {
             <ChevronRightIcon onClick={() => setOpen(false)} />
           </IconButton>
           <Divider></Divider>
+          {/* Her indsættes vores menuelementer */}
           <List>
             <ListItem>
               <Link href="/booking_display">
