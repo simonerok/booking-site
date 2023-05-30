@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { ProgramProvider } from "../contexts/programContext";
 import { FormDataProvider } from "@/contexts/bookingContext";
 import Navigation from "@/components/Navigation";
+import BookingDisplay from "./booking_display";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
 
@@ -9,6 +10,9 @@ import { useEffect } from "react";
 // import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 export default function MyApp({ Component, pageProps }) {
+  // Checker om current page er BookingDisplay, bruges til at fjerne navoigation
+  const isBookingDisplayPage = Component === BookingDisplay;
+
   useEffect(() => {
     const { isLanding, isSchedule, isProgram } = pageProps;
 
@@ -24,7 +28,8 @@ export default function MyApp({ Component, pageProps }) {
   }, [pageProps]);
   return (
     <>
-      <Navigation />
+      {/* Render Navigation på alle andre sider end BookingDisplay */}
+      {!isBookingDisplayPage && <Navigation />}
       <ProgramProvider>
         <FormDataProvider>
           {/* <BookFormProvider> */}

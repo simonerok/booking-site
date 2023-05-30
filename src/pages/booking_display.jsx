@@ -5,7 +5,7 @@ import PersonalInfo from "@/components/PersonalInfo";
 import FormPay from "@/components/FormPay";
 import Confirmation from "@/components/Confirmation";
 import Link from "next/link";
-import BackButton from "@/components/BackButton";
+import NavigationBooking from "@/components/NavigationBooking";
 import Head from "next/head";
 
 export async function getServerSideProps() {
@@ -37,7 +37,7 @@ export default function BookingDisplay({ data }) {
           <Head>
             <title>Booking</title>
           </Head>
-          <Link href="./"></Link>
+          <NavigationBooking />
           <MainTicket currentStepSetter={setCurrentStep} formData={{ formState, dispatch }} spotData={data} />
         </>
       );
