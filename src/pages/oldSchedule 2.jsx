@@ -177,19 +177,31 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Midmon.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Midgard_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
                           <article className={stylesSchedule.Midgard_bandEvent}>
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -200,19 +212,31 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Midtue.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Midgard_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
                           <article className={stylesSchedule.Midgard_bandEvent}>
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -223,19 +247,31 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Midwed.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Midgard_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
                           <article className={stylesSchedule.Midgard_bandEvent}>
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -246,19 +282,31 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Midthu.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Midgard_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
                           <article className={stylesSchedule.Midgard_bandEvent}>
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -269,19 +317,31 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Midfri.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Midgard_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
                           <article className={stylesSchedule.Midgard_bandEvent}>
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -292,19 +352,31 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Midsat.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Midgard_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
                           <article className={stylesSchedule.Midgard_bandEvent}>
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -315,19 +387,31 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Midsun.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Midgard_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Midgard_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
                           <article className={stylesSchedule.Midgard_bandEvent}>
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -343,19 +427,33 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Vanmon.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Vanaheim_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Vanaheim_bandEvent}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -366,19 +464,33 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Vantue.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Vanaheim_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Vanaheim_bandEvent}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -389,19 +501,33 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Vanwed.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Vanaheim_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Vanaheim_bandEvent}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -412,19 +538,33 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Vanthu.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Vanaheim_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Vanaheim_bandEvent}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -435,19 +575,33 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Vanfri.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Vanaheim_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Vanaheim_bandEvent}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -458,19 +612,33 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Vansat.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Vanaheim_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Vanaheim_bandEvent}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -481,19 +649,33 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Vansun.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Vanaheim_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Vanaheim_bandEvent}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Vanaheim_bandEvent}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -509,19 +691,33 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Jotmon.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Jotunheim_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Jotunheim_bandEvent}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -532,19 +728,33 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Jottue.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Jotunheim_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Jotunheim_bandEvent}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -555,19 +765,33 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Jotwed.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Jotunheim_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Jotunheim_bandEvent}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -578,19 +802,33 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Jotthu.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Jotunheim_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Jotunheim_bandEvent}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -601,19 +839,33 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Jotfri.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Jotunheim_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Jotunheim_bandEvent}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -624,19 +876,33 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Jotsat.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Jotunheim_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Jotunheim_bandEvent}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -647,19 +913,33 @@ export default function Schedule({ schedule }) {
                   <div className={stylesSchedule.schedule_act}>
                     {Jotsun.map((bandEvent) =>
                       bandEvent.act.includes("break") ? (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent_break}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Jotunheim_bandEvent_break}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
                         </section>
                       ) : (
-                        <section key={bandEvent.act} value={bandEvent.act} className={stylesSchedule.bandEvent_section}>
-                          <article className={stylesSchedule.Jotunheim_bandEvent}>
+                        <section
+                          key={bandEvent.act}
+                          value={bandEvent.act}
+                          className={stylesSchedule.bandEvent_section}
+                        >
+                          <article
+                            className={stylesSchedule.Jotunheim_bandEvent}
+                          >
                             <div className={stylesSchedule.timeSlot_}>
-                              <h3>{bandEvent.start}</h3> <h3>{bandEvent.end}</h3>
+                              <h3>{bandEvent.start}</h3>{" "}
+                              <h3>{bandEvent.end}</h3>
                             </div>
                             <p>{bandEvent.act}</p>
                           </article>
@@ -678,7 +958,8 @@ export default function Schedule({ schedule }) {
 }
 export async function getServerSideProps() {
   //provide appContext in order to do 404's
-  const api = "http://localhost:8080/schedule";
+  //const api = "http://localhost:8080/schedule";
+  const api = "https://nova-enchanted-confidence.glitch.me/schedule";
   const res = await fetch(api);
   const data = await res.json();
   console.log(data);

@@ -2,6 +2,9 @@ import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 
 export default function Landing() {
+  function redirectToExternalLink() {
+    window.location.href = "https://festival-app-nine.vercel.app/"; // Replace with your desired external link
+  }
   return (
     <section className={styles.landingSection}>
       <div className={styles.date}>
@@ -13,7 +16,8 @@ export default function Landing() {
         <Link href="/booking_display">
           <button>BUY TICKET</button>
         </Link>
-        <button>THE FESTIVAL APP</button>
+        <button onClick={redirectToExternalLink}>THE FESTIVAL APP</button>
+        {/* */}
       </div>
 
       <p className={styles.landingQuote}>
