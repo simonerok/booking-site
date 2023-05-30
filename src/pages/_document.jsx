@@ -1,17 +1,3 @@
-// import { Html, Head, Main, NextScript } from "next/document";
-
-// export default function Document() {
-//   return (
-//     <Html lang="en">
-//       <Head />
-//       <body>
-//         <Main />
-//         <NextScript />
-//       </body>
-//     </Html>
-//   );
-// }
-
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
@@ -30,7 +16,7 @@ export default class MyDocument extends Document {
       bodyClass = "default-background";
     }
     return (
-      <Html>
+      <Html lang="en">
         <Head />
         <body className={bodyClass}>
           <link rel="stylesheet" href="https://use.typekit.net/bxq7sds.css" />
