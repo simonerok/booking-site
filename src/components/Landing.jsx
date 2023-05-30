@@ -9,7 +9,7 @@ export default function Landing() {
     <section className={styles.landingSection}>
       <div className={styles.date}>
         <p>FROM monday 10/07/23</p>
-        <p>FROM sunday 24/07/23</p>
+        <p>TO sunday 24/07/23</p>
       </div>
       <h1 className={styles.landingHeading}>FOO FESTIVAL</h1>
       <div className={styles.landingButtons}>

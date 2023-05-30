@@ -216,6 +216,10 @@ button.burgerIcon:hover {
 
 @media (max-width: 750px) {
   /* LANDING */
+  .date {
+    gap: 2rem;
+  }
+
   .landingSection {
     margin-top: 3rem;
   }
