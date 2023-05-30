@@ -7,12 +7,9 @@
   display: grid;
   /* margin-bottom: -3rem; */
 }
-.Cancelled {
+.CancelledName {
   text-decoration-line: line-through;
-}
-
-.Cancelled {
-  text-decoration-line: line-through;
+  color: rgb(130, 0, 0);
 }
 
 .ModalInfo {
@@ -25,22 +22,26 @@
 
 .ModalButton {
   z-index: 1;
-  position: absolute;
-  margin: 2rem 0rem 0rem 2rem;
-  /* place-self: center; */
-  background-color: white;
+  place-self: center;
+  border: none;
+  color: white;
+  font-family: var(--heading);
+  font-size: var(--p);
+  width: auto;
+  text-transform: uppercase;
 }
 
 .ModalArtistName {
-  margin-top: -30%;
+  margin-top: -40vh;
   color: white;
-  text-align: left;
+  /* text-align: left; */
   margin-left: 2rem;
   font-size: var(--h2);
 }
 
 .ModalImg {
-  margin-top: -25%;
+  margin-top: -40%;
+  object-fit: cover;
 }
 
 .ModalBio {
@@ -59,10 +60,13 @@
   .ModalButton {
     width: 10rem;
   }
-
-  .ModalImg {
-    margin-top: 0;
+  .ModalArtistName {
+    margin-top: -35%;
   }
+
+  /* .ModalImg {
+    margin-top: 0;
+  } */
 
   .ModalBio {
     margin-left: auto;
