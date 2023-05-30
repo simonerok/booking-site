@@ -6,7 +6,12 @@ export default function LandingArtists({ bandData }) {
     <>
       <section className={styles.landingArtistGrid}>
         <article className={styles.landingBand1}>
-          <img src={`http://localhost:8080/logos/` + bandData[3].logo} alt="Logo" />
+          <img
+            src={
+              `https://booking-site-lovat.vercel.app/logos/` + bandData[3].logo
+            }
+            alt="Logo"
+          />
         </article>
         <div className={styles.landingBand1}>
           <h3>
@@ -14,7 +19,12 @@ export default function LandingArtists({ bandData }) {
           </h3>
         </div>
         <article className={styles.landingBand2}>
-          <img src={`http://localhost:8080/logos/` + bandData[2].logo} alt="Logo" />
+          <img
+            src={
+              `https://booking-site-lovat.vercel.app/logos/` + bandData[2].logo
+            }
+            alt="Logo"
+          />
         </article>
         <div className={styles.landingBand2}>
           <h3>
@@ -22,7 +32,12 @@ export default function LandingArtists({ bandData }) {
           </h3>
         </div>
         <article className={styles.landingBand3}>
-          <img src={`http://localhost:8080/logos/` + bandData[6].logo} alt="Logo" />
+          <img
+            src={
+              `https://booking-site-lovat.vercel.app/logos/` + bandData[6].logo
+            }
+            alt="Logo"
+          />
         </article>
         <div className={styles.landingBand3}>
           <h3>

@@ -6,11 +6,23 @@ export default function LandingStages() {
       <h2>THE STAGES</h2>
       <div>
         <h3>Midgard</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        <p>
+          Welcome to Midgard, the pulsating realm of Norse mythology transformed
+          into a mind-bending techno stage for the ultimate dance experience!
+        </p>
         <h3>Vanaheim</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        <p>
+          Let the techno gods take you on a journey through Vanaheim, where
+          ancient legends harmonize with the pulsating energy of the dance
+          floor.
+        </p>
         <h3>Jotunheim</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        <p>
+          The frost giants dance amidst thunderous bass, their colossal frames
+          pulsating in synchrony with the hypnotic melodies. Laser beams pierce
+          through the misty air, creating a symphony of light that reflects off
+          the metallic glaciers beneath your feet.
+        </p>
       </div>
     </section>
   );
