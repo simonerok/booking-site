@@ -25,7 +25,13 @@ export default function TicketsSection() {
         }
       />
       <br></br>{" "}
-      <InputLabel id="dropdown-label" label="ticket-type" placeholder="Ticket-type" className={styles.dropdownLabel} style={{ position: "relative" }}>
+      <InputLabel
+        id="dropdown-label"
+        label="ticket-type"
+        placeholder="Ticket-type"
+        className={styles.dropdownLabel}
+        style={{ position: "relative" }}
+      >
         Choose ticket type
       </InputLabel>
       <Select
@@ -54,6 +60,7 @@ export default function TicketsSection() {
         label="Number of tickets"
         value={formData.ticketAmount}
         required
+        min="0"
         onBlur={(e) =>
           dispatch({
             //dispatch to the global formData obj. with new state value
