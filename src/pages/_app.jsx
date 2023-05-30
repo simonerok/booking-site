@@ -6,9 +6,6 @@ import BookingDisplay from "./booking_display";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
 
-// import { LocalizationProvider } from "@mui/x-date-pickers";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-
 export default function MyApp({ Component, pageProps }) {
   // Checker om current page er BookingDisplay, bruges til at fjerne navoigation
   const isBookingDisplayPage = Component === BookingDisplay;
@@ -32,8 +29,7 @@ export default function MyApp({ Component, pageProps }) {
       {!isBookingDisplayPage && <Navigation />}
       <ProgramProvider>
         <FormDataProvider>
-          {/* <BookFormProvider> */}
-          <Component {...pageProps} />;{/* </BookFormProvider> */}
+          <Component {...pageProps} />;
         </FormDataProvider>
       </ProgramProvider>
       <Footer />

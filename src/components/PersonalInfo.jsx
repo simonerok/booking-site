@@ -5,7 +5,10 @@ import BackButton from "./BackButton";
 import { useContext } from "react";
 import { formDataContext } from "@/contexts/bookingContext";
 
-export default function PersonalInfo({ currentStepSetter }) {
+export default function PersonalInfo({ currentStepSetter, timerValue }) {
+  if (timerValue === null) {
+    return <p>The timer value is null.</p>;
+  }
   const { formData, dispatch } = useContext(formDataContext);
 
   function handlePreviousFormComponent() {
