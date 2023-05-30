@@ -33,6 +33,12 @@
   text-decoration: none;
   color: black;
 }
+.navStyleBtn1:hover,
+.navStyleBtn2:hover {
+  font-weight: bold;
+  border: solid 3px black;
+}
+
 .navContainer {
   display: flex;
   justify-content: space-between;
