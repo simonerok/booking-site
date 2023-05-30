@@ -1,6 +1,5 @@
 // import styles from "@/styles/Home.module.css";
 import styles from "@/styles/Modal.module.css";
-import Head from "next/head";
 
 export default function Modal({ selectedBand, handleCloseModal, showModal }) {
   // Checks if either selectedBand is null or showModal is false using the logical OR operator ||.
@@ -8,41 +7,22 @@ export default function Modal({ selectedBand, handleCloseModal, showModal }) {
   if (!selectedBand || !showModal) {
     return null;
   }
-  const { act, start, end, bandInfo, stage, day, cancelled } = selectedBand;
+  const { act, start, end, bandInfo, stage, day } = selectedBand;
   console.log(selectedBand);
 
   // Check if the logo includes "http"
   const logoSrc = bandInfo.logo.includes("http") ? bandInfo.logo : `http://localhost:8080/logos/${bandInfo.logo}`;
 
-  function getFullDayName(day) {
-    const dayMap = {
-      mon: "Monday",
-      tue: "Tuesday",
-      wed: "Wednesday",
-      thu: "Thursday",
-      fri: "Friday",
-      sat: "Saturday",
-      sun: "Sunday",
-    };
-    return dayMap[day];
-  }
-
   return (
     <>
-      <Head>
-        <title>Artist info</title>
-      </Head>
       <section className={styles.ModalSection}>
         {/* Button to close the modal */}
         <button className={styles.ModalButton} onClick={() => handleCloseModal(false)}>
           Back to program
         </button>
         <img className={styles.ModalImg} src={logoSrc} alt="Logo" />
-        {/* Ternary hvis band er cancelled(true), "cancelled" tilføjes. Span giver udstreget styling  */}
-        <h1 className={styles.ModalArtistName}>
-          {cancelled ? <span className={styles.CancelledName}>{act}</span> : <span>{act}</span>}
-          {cancelled ? " CANCELLED" : ""}
-        </h1>
+        <h1 className={styles.ModalArtistName}>{act}</h1>
+        {/* <h1 className={`${styles.ModalArtistName} ${act.length > 12 ? styles.longText : ""}`}>{act}</h1> */}
       </section>
       <section className={styles.ModalInfo}>
         <article className={styles.ModalConcertInfo}>
@@ -52,7 +32,7 @@ export default function Modal({ selectedBand, handleCloseModal, showModal }) {
           </p>
           <p>
             <span>DATE</span> <br />
-            {getFullDayName(day)}
+            {day}
           </p>
           <p>
             <span>TIME </span> <br />

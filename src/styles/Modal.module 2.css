@@ -5,22 +5,14 @@
 
 .ModalSection {
   display: grid;
-  /* margin-bottom: -3rem; */
-}
-.Cancelled {
-  text-decoration-line: line-through;
-}
-
-.Cancelled {
-  text-decoration-line: line-through;
+  margin-bottom: 2rem;
 }
 
 .ModalInfo {
   display: flex;
   flex-flow: wrap;
   justify-content: space-between;
-  margin: 2rem;
-  row-gap: 2rem;
+  margin-inline: 2rem;
 }
 
 .ModalButton {
@@ -32,12 +24,17 @@
 }
 
 .ModalArtistName {
-  margin-top: -30%;
+  margin-top: -10%;
   color: white;
   text-align: left;
   margin-left: 2rem;
   font-size: var(--h2);
+  white-space: pre-wrap;
 }
+/* 
+.longText {
+  margin-top: -20%;
+} */
 
 .ModalImg {
   margin-top: -25%;
@@ -45,11 +42,6 @@
 
 .ModalBio {
   max-width: 60%;
-}
-
-.ModalConcertInfo p {
-  margin-bottom: 1rem;
-  text-transform: uppercase;
 }
 
 @media (max-width: 750px) {
@@ -64,6 +56,9 @@
     margin-top: 0;
   }
 
+  .ModalArtistName {
+    margin-top: -15%;
+  }
   .ModalBio {
     margin-left: auto;
     max-width: 800px;

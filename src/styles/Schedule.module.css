@@ -6,11 +6,28 @@
 
 .scheduleSection {
   display: flex;
+  margin-top: 3rem;
+  margin-left: 2rem;
 }
+
+.scheduleStages {
+  margin-top: 4.3rem;
+  margin-right: 1rem;
+}
+.scheduleStages h3 {
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  text-transform: uppercase;
+  /* -webkit-text-stroke: 1px black;
+  color: white; */
+  /* font-family: var(--heading); */
+}
+
 .scheduleHeading {
   /* line-height: 6rem; */
   text-transform: uppercase;
 }
+
 .link {
   font-size: var(--h3);
   -webkit-text-stroke: 1.5px black;
@@ -18,7 +35,7 @@
   font-family: var(--heading);
   text-align: center;
   display: grid;
-  margin-top: -4rem;
+  /* margin-top: -4rem; */
   margin-bottom: 8rem;
 }
 .link:hover {
@@ -35,7 +52,7 @@
 .days {
   display: flex;
   justify-content: center;
-
+  margin-bottom: 3rem;
   gap: 1rem;
   overflow-x: auto;
 }
@@ -45,10 +62,23 @@
   /* ensures buttons don't shrink to fit the container width. */
   width: 10rem;
 }
+.days button:hover {
+  background-color: white;
+}
 
 @media (max-width: 1215px) {
   .days {
     justify-content: flex-start; /* This ensures the left alignment of items */
+  }
+}
+
+@media (max-width: 750px) {
+  .scheduleStages {
+    margin-top: 5rem;
+  }
+  .scheduleStages h3 {
+    font-size: 2rem;
+    margin-bottom: 4rem;
   }
 }
 

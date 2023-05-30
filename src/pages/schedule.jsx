@@ -1,6 +1,7 @@
 import stylesSchedule from "../styles/Schedule.module.css";
 import { useState } from "react";
 import Link from "next/link";
+import Head from "next/head";
 
 // MUI
 
@@ -46,7 +47,7 @@ const columns = [
   },
   {
     id: "time10",
-    label: "10:00 - 12:0",
+    label: "10:00 - 12:00",
     minWidth: 170,
     align: "right",
   },
@@ -103,42 +104,6 @@ export default function StickyHeadTable({ schedule }) {
     Sunday: [createData(...test("sun", "Midgard")), createData(...test("sun", "Vanaheim")), createData(...test("sun", "Jotunheim"))],
   };
 
-  // export default function StickyHeadTable({ schedule }) {
-  //   const rows = [createData(...test("mon", "Midgard")), createData(...test("mon", "Vanaheim")), createData(...test("mon", "Jotunheim"))];
-  //   const rows2 = [createData(...test("tue", "Midgard")), createData(...test("tue", "Vanaheim")), createData(...test("tue", "Jotunheim"))];
-  //   const [day, setDay] = useState("Monday");
-  //   //filter for button days
-  //   function changeDay(event) {
-  //     if (event.target.value === "Monday") {
-  //       setDay("Monday");
-  //       console.log(day);
-  //     }
-  //     if (event.target.value === "Tuesday") {
-  //       setDay("Tuesday");
-  //       console.log(day);
-  //     }
-  //     if (event.target.value === "Wednesday") {
-  //       setDay("Wednesday");
-  //       console.log(day);
-  //     }
-  //     if (event.target.value === "Thursday") {
-  //       setDay("Thursday");
-  //       console.log(day);
-  //     }
-  //     if (event.target.value === "Friday") {
-  //       setDay("Friday");
-  //       console.log(day);
-  //     }
-  //     if (event.target.value === "Saturday") {
-  //       setDay("Saturday");
-  //       console.log(day);
-  //     }
-  //     if (event.target.value === "Sunday") {
-  //       setDay("Sunday");
-  //       console.log(day);
-  //     }
-  //   }
-
   const [day, setDay] = useState("Monday");
   const [displayedDay, setDisplayedDay] = useState("Monday");
 
@@ -193,6 +158,9 @@ export default function StickyHeadTable({ schedule }) {
   }
   return (
     <>
+      <Head>
+        <title>Schedule</title>
+      </Head>
       <h1 className={stylesSchedule.scheduleHeading}>Schedule</h1>
       <Link className={stylesSchedule.link} href="/program">
         / Program
@@ -224,10 +192,10 @@ export default function StickyHeadTable({ schedule }) {
       </div>
       <h2 className={stylesSchedule.dayName}>{day}</h2>
       <section className={stylesSchedule.scheduleSection}>
-        <div>
-          <p>Midgard</p> <br />
-          <p>Vanaheim</p> <br />
-          <p>Jotunheim</p>
+        <div className={stylesSchedule.scheduleStages}>
+          <h3>Midgard</h3>
+          <h3>Vanaheim</h3>
+          <h3>Jotunheim</h3>
         </div>
         <Paper sx={{ width: "100%", overflow: "hidden" }}>
           <TableContainer sx={{ maxHeight: 440 }}>
@@ -272,6 +240,9 @@ export async function getServerSideProps() {
   const data = await res.json();
   console.log(data);
   return {
-    props: { schedule: data },
+    props: {
+      schedule: data,
+      isSchedule: true,
+    },
   };
 }

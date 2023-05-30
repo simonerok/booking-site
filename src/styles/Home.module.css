@@ -1,9 +1,18 @@
 /* LANDIGN */
-.landingpageBackground {
+/* .landingpageBackground {
   background: rgb(86, 230, 201);
   background: linear-gradient(180deg, rgba(86, 230, 201, 1) 25%, rgba(160, 235, 88, 1) 61%, rgba(232, 82, 219, 1) 97%);
+} */
+.landingHeading {
+  margin-block: 3rem;
 }
-
+.landingQuote {
+  font-size: var(--h4);
+  margin: 5rem 6rem;
+}
+.spanThe {
+  margin-inline: 5rem;
+}
 .bold {
   font-weight: bold;
 }
@@ -36,69 +45,150 @@
 }
 .ticketSection img:hover {
   cursor: pointer;
+  filter: contrast(200%);
 }
 
 /* ARTIST SECTION */
 .landingArtistGrid {
-  display: flex;
-  gap: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
 }
 .landingArtistGrid article {
-  width: 100%;
   filter: grayscale(1);
-  object-fit: cover;
 }
+.landingBand1 {
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 1;
+  place-self: center;
+}
+.landingBand2 {
+  grid-column: 2;
+  grid-row: 1;
+  z-index: 1;
+  place-self: center;
+}
+.landingBand3 {
+  grid-column: 3;
+  grid-row: 1;
+  z-index: 1;
+  place-self: center;
+}
+/* .landingArtistGrid div {
+  visibility: hidden;
+}
+.landingArtistGrid div:hover {
+  visibility: visible;
+} */
 
 .landingArtistGrid img:hover {
   cursor: pointer;
 }
-.landingArtistGrid article img {
-  position: absolute;
-}
 
-.landingArtistGrid article p {
+.landingArtistGrid div p {
   z-index: 1;
   position: relative;
   color: white;
   text-align: center;
-  margin-top: 50%;
+  /* margin-top: 50%; */
 }
-/* .landingArtistGrid article div {
-  visibility: hidden;
-}
-.landingArtistGrid article div:hover {
-  visibility: visible;
-} */
-.link {
-  /* z-index: 1;
-  position: absolute; */
-  /* text-decoration: none; */
-  font-size: var(--h4);
+
+.link1,
+.link2 {
+  font-size: 2rem;
   font-family: var(--paragraph);
   color: white;
   display: grid;
+  /* text-align: center; */
+  margin-top: 2rem;
+}
+
+/* PROGRAM SECTION */
+.link2 {
   text-align: center;
 }
-
-/* Nav menu */
-.navMenu {
-  background-color: transparent;
-  box-shadow: none;
+.programContainer {
+  margin: 8rem;
 }
 
-/* BURGER */
-/* back icon style */
-.backIcon {
-  display: flex;
-  justify-content: start;
+.programText {
+  display: inline;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 3rem;
+  /* -webkit-text-stroke: 1px black;
+  color: white; */
+  line-height: 3.5rem;
 }
 
-.burgerIcon {
-  /* Add your custom styles here */
-  background-color: transparent;
+/* STAGE SECTION */
+
+.stageSection {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin: 8rem 6rem;
+  /* display: flex;
+  margin-inline: 2rem; */
+}
+.stageSection div {
+  grid-column: 2;
+  grid-row: 2;
+}
+.stageSection div h3 {
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px black;
 }
 
-.burgerIcon:hover,
-button.burgerIcon:hover {
-  background-color: transparent;
+/* FOOTER */
+
+@media (max-width: 750px) {
+  /* LANDING */
+  .landingQuote {
+    margin: 5rem 3rem;
+  }
+  .spanThe {
+    margin-inline: 1rem;
+  }
+
+  /* PROGRAM */
+  .programText {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  .programContainer {
+    margin-inline: 2rem;
+  }
+  .link1,
+  .link2 {
+    font-size: 1.5rem;
+  }
+
+  /* Nav menu */
+  .navMenu {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  /* BURGER */
+  /* back icon style */
+  .backIcon {
+    display: flex;
+    justify-content: start;
+  }
+
+  .burgerIcon {
+    /* Add your custom styles hereSTAGE */
+    background-color: transparent;
+  }
+
+  .burgerIcon:hover,
+  button.burgerIcon:hover {
+    background-color: transparent;
+  }
+  .stageSection {
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: 2rem;
+  }
 }
