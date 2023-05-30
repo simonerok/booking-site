@@ -1,8 +1,7 @@
 import "@/styles/globals.css";
 import { ProgramProvider } from "../contexts/programContext";
 import { FormDataProvider } from "@/contexts/bookingContext";
-
-import NavBar from "@/components/NavnBar";
+import Navigation from "@/components/Navigation";
 import { useEffect } from "react";
 
 // import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -24,7 +23,7 @@ export default function MyApp({ Component, pageProps }) {
   }, [pageProps]);
   return (
     <>
-      <NavBar />
+      <Navigation />
       <ProgramProvider>
         <FormDataProvider>
           {/* <BookFormProvider> */}

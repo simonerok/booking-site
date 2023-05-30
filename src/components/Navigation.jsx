@@ -19,11 +19,11 @@ export default function Navigation() {
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {/* Her indsættes vores menuelementer */}
             <Link href="/booking_display">
-              <button>BUY TICKET</button>
+              <button className={styles.noStyleBtn}>BUY TICKET</button>
             </Link>
           </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <button>THE FESTIVAL APP</button>
+            <button>PROGRAM</button>
           </Box>
           {/* Dette gør at burgermenuen forsvinder igen når skærmen bliver større */}
           {/* Burger menu */}

@@ -1,3 +1,34 @@
+/* NAVIGATION */
+.noStyleBtn {
+  border: solid 1px black;
+  padding: 5px;
+  cursor: pointer;
+  width: 0px;
+  height: 0px;
+}
+
+/* BURGER */
+/* back icon style */
+.backIcon {
+  display: flex;
+  justify-content: start;
+}
+
+.burgerIcon {
+  /* Add your custom styles hereSTAGE */
+  background-color: transparent;
+}
+
+.burgerIcon:hover,
+button.burgerIcon:hover {
+  background-color: transparent;
+}
+.stageSection {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: 2rem;
+}
+
 /* LANDIGN */
 /* .landingpageBackground {
   background: rgb(86, 230, 201);
@@ -168,27 +199,5 @@
   .navMenu {
     background-color: transparent;
     box-shadow: none;
-  }
-
-  /* BURGER */
-  /* back icon style */
-  .backIcon {
-    display: flex;
-    justify-content: start;
-  }
-
-  .burgerIcon {
-    /* Add your custom styles hereSTAGE */
-    background-color: transparent;
-  }
-
-  .burgerIcon:hover,
-  button.burgerIcon:hover {
-    background-color: transparent;
-  }
-  .stageSection {
-    display: flex;
-    flex-wrap: wrap;
-    margin-inline: 2rem;
   }
 }
