@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export default function Landing() {
   return (
-    <section>
+    <section className={styles.landingSection}>
       <div className={styles.date}>
         <p>FROM monday 10/07/23</p>
         <p>FROM sunday 24/07/23</p>
       </div>
-      <h1 className={styles.landingHeading}>Foo Festival</h1>
+      <h1 className={styles.landingHeading}>FOO FESTIVAL</h1>
       <div className={styles.landingButtons}>
         <Link href="/booking_display">
           <button>BUY TICKET</button>

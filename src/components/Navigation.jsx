@@ -13,18 +13,25 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <AppBar position="static" className={styles.navMenu}>
-        <Toolbar className={styles.landingButtons}>
-          {/*Box hider navmenuen i mobil xs er en mediaQuiery */}
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {/* Her indsættes vores menuelementer */}
-            <Link href="/booking_display">
-              <button className={styles.noStyleBtn}>BUY TICKET</button>
-            </Link>
-          </Box>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <button>PROGRAM</button>
-          </Box>
+      <AppBar position="sticky" className={styles.navMenu}>
+        <Toolbar className={styles.navContainer}>
+          <Link className={styles.logo} href="./">
+            FOO <br /> FESTIVAL
+          </Link>
+          <div className={styles.flexBox}>
+            {/*Box hider navmenuen i mobil xs er en mediaQuiery */}
+            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              {/* Her indsættes vores menuelementer */}
+              <Link className={styles.navStyleBtn1} href="/booking_display">
+                BUY TICKET
+              </Link>
+            </Box>
+            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              <Link className={styles.navStyleBtn2} href="/program">
+                PROGRAM
+              </Link>
+            </Box>
+          </div>
           {/* Dette gør at burgermenuen forsvinder igen når skærmen bliver større */}
           {/* Burger menu */}
           <Box display={{ xs: "block", sm: "none" }}>

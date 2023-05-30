@@ -1,10 +1,46 @@
 /* NAVIGATION */
-.noStyleBtn {
-  border: solid 1px black;
+/* Nav menu */
+.logo {
+  font-family: var(--heading);
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: var(--p);
+}
+.navMenu {
+  background-color: transparent;
+  box-shadow: none;
+}
+.navStyleBtn1 {
+  border: solid 2px black;
   padding: 5px;
   cursor: pointer;
-  width: 0px;
-  height: 0px;
+  width: auto;
+  height: auto;
+  font-size: 2rem;
+  font-family: var(--paragraph);
+  text-decoration: none;
+  color: black;
+}
+.navStyleBtn2 {
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  font-size: 2rem;
+  font-family: var(--paragraph);
+  text-decoration: none;
+  color: black;
+}
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 2rem;
+}
+.flexBox {
+  display: flex;
+  gap: 1rem;
 }
 
 /* BURGER */
@@ -17,6 +53,7 @@
 .burgerIcon {
   /* Add your custom styles hereSTAGE */
   background-color: transparent;
+  width: auto;
 }
 
 .burgerIcon:hover,
@@ -34,6 +71,10 @@ button.burgerIcon:hover {
   background: rgb(86, 230, 201);
   background: linear-gradient(180deg, rgba(86, 230, 201, 1) 25%, rgba(160, 235, 88, 1) 61%, rgba(232, 82, 219, 1) 97%);
 } */
+
+.landingSection {
+  margin-top: 5rem;
+}
 .landingHeading {
   margin-block: 3rem;
 }
@@ -53,7 +94,7 @@ button.burgerIcon:hover {
   text-align: center;
 }
 .date p {
-  font-size: 1.8rem;
+  font-size: var(--p);
 }
 
 .landingButtons {
@@ -171,10 +212,11 @@ button.burgerIcon:hover {
   -webkit-text-stroke: 1px black;
 }
 
-/* FOOTER */
-
 @media (max-width: 750px) {
   /* LANDING */
+  .landingSection {
+    margin-top: 3rem;
+  }
   .landingQuote {
     margin: 5rem 3rem;
   }
@@ -193,11 +235,5 @@ button.burgerIcon:hover {
   .link1,
   .link2 {
     font-size: 1.5rem;
-  }
-
-  /* Nav menu */
-  .navMenu {
-    background-color: transparent;
-    box-shadow: none;
   }
 }
