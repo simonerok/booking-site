@@ -19,7 +19,7 @@ export default function MainTicket({ spotData, currentStepSetter }) {
 
   function reserveSpot(e) {
     e.preventDefault();
-    fetch("http://localhost:8080/reserve-spot", {
+    fetch("https://nova-enchanted-confidence.glitch.me/reserve-spot", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +55,10 @@ export default function MainTicket({ spotData, currentStepSetter }) {
               <CardContent className={styles.formWrapper}>
                 <TicketsSection />
                 <AvailableSpotsSection areaData={spotData} />
-                <OtherOptionsSection open={open} handleInfoClick={handleInfoClick} />
+                <OtherOptionsSection
+                  open={open}
+                  handleInfoClick={handleInfoClick}
+                />
               </CardContent>
               <div className={styles.btn_container}>
                 <MyButton type="submit">Next</MyButton>
