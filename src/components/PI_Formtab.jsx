@@ -92,26 +92,26 @@ export default function FormTab({ setNextStep }) {
     <>
       {attendees.map((attendee, index) => (
         <Accordion>
-          <AccordionSummary>Personal information for person {index + 1}</AccordionSummary>
+          <AccordionSummary className={styles.overviewText}>Person {index + 1}</AccordionSummary>
           <AccordionDetails>
             <form>
-              <FormControl variant="filled">
+              <FormControl className={styles.formControl} variant="filled">
                 <Card>
                   <CardContent>
-                    <h3> Person {index + 1}</h3>
-
+                    <p> Information</p> <br />
                     <>
                       <TextField
                         key={index}
                         name="fullname"
                         id="fullname"
-                        label="Fullname"
+                        label="Full name"
                         placeholder={"fx: John Doe"}
                         required
                         value={attendee.fullname}
                         onChange={(e) => handlePIChanges(index, "fullname", e.target.value)}
                         error={inputErrors.fullnameErrors[index]} //set error prop based on emailErros array on that index
                         helperText={inputErrors.fullnameErrors[index] && "Full Name is required"}
+                        style={{ marginBottom: "1rem" }}
                       />
 
                       <br></br>
@@ -125,9 +125,23 @@ export default function FormTab({ setNextStep }) {
                         onChange={(e) => handlePIChanges(index, "email", e.target.value)}
                         error={inputErrors.emailErrors[index]} //set error prop based on emailErros array on that index
                         helperText={inputErrors.emailErrors[index] && "Email is required"}
+                        style={{ marginBottom: "1rem" }}
                       />
                       <br></br>
-                      <TextField name="phone" type="tel" id="phone" label="Phone" maxLength="4" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder={"fx: 11111111"} required value={attendee.phone} onChange={(e) => handlePIChanges(index, "phone", e.target.value)} error={inputErrors.phoneErrors[index]} helperText={inputErrors.phoneErrors[index] && "Phone number is required"} />
+                      <TextField
+                        name="phone"
+                        type="tel"
+                        id="phone"
+                        label="Phone"
+                        maxLength="4"
+                        pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"
+                        placeholder={"fx: 11111111"}
+                        required
+                        value={attendee.phone}
+                        onChange={(e) => handlePIChanges(index, "phone", e.target.value)}
+                        error={inputErrors.phoneErrors[index]}
+                        helperText={inputErrors.phoneErrors[index] && "Phone number is required"}
+                      />
                     </>
                   </CardContent>
                   {/* <button type="next">Submit</button> */}

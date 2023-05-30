@@ -13,10 +13,12 @@ export default function Back({ onClick, children }) {
         fontSize: "1rem",
         width: 0,
         ":hover": {
-          bgcolor: "#DCF2C7",
+          // bgcolor: "white",
           border: "none",
           color: "black",
+          textDecoration: "underline",
           borderRadius: 0,
+          fontWeight: "bold",
         },
       }}
       onClick={onClick}

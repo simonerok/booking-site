@@ -1,10 +1,12 @@
 /* FONTS FORM */
 .h1 {
   font-size: 5rem;
+  margin-block: 4rem;
 }
 
 .h2 {
   font-size: 2.6rem;
+  margin-block: 2rem 1rem;
 }
 
 .h2 {
@@ -14,15 +16,14 @@
 .p {
   font-size: 1.5rem;
 }
-
-/* .formBackground {
-  background-image: url("/ticket.svg");
-  background-repeat: no-repeat;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-} */
-
+.p:first-child {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.bold {
+  font-weight: bold;
+}
 .body {
   display: grid;
   place-content: center;
@@ -37,6 +38,18 @@
   display: grid;
   margin-bottom: 1.8rem;
   min-width: 400px;
+}
+.containerTicketInfo {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.formControl {
+  display: grid;
+  place-content: center;
+}
+.overviewText {
+  font-family: var(--paragraph);
+  font-size: 2rem;
 }
 
 /* retter label tekst på dropdown */
@@ -97,19 +110,16 @@
   margin: 2rem;
 }
 
-.form_btn {
-  margin-bottom: 3rem;
-}
-
 .addBtn {
   max-width: 20px;
   max-height: 20px;
   margin-block: 5px;
 }
 .addBtnWrapper {
-  display: flex;
-  gap: 0.7rem;
-  align-items: center;
+  /* display: flex; */
+  /* gap: 0.7rem; */
+  /* align-items: center; */
+  margin-bottom: 1rem;
 }
 
 .buttonWrapper {
@@ -120,18 +130,21 @@
 .btnText {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 1rem;
+  margin-left: 2rem;
 }
-
+.addBtnWrapper div {
+  margin-left: 1.6rem;
+}
 .noStyleBtn {
   border: none;
   padding: 5px;
   cursor: pointer;
-  width: 0px;
+  width: auto;
   height: 0px;
 }
 
 /* DESKTOP */
-@media (min-width: 640px) {
+@media (min-width: 750px) {
   /* form Pay overview */
   .body {
     display: flex;

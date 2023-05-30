@@ -37,9 +37,7 @@ export default function BookingDisplay({ data }) {
           <Head>
             <title>Booking</title>
           </Head>
-          <Link href="./">
-            <BackButton>Home</BackButton>
-          </Link>
+          <Link href="./"></Link>
           <MainTicket currentStepSetter={setCurrentStep} formData={{ formState, dispatch }} spotData={data} />
         </>
       );

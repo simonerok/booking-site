@@ -130,26 +130,28 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
               <FormGroup>
                 <div className={styles.addBtnWrapper}>
                   <p className={styles.btnText}> 2 person tent x {formData.formData.tents2}</p>
-                  <button
-                    className={styles.noStyleBtn}
-                    value={formData.formData.tents2}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      incrementTents2();
-                    }}
-                  >
-                    <AddButton></AddButton>
-                  </button>
-                  <button
-                    className={styles.noStyleBtn}
-                    value={formData.formData.tents2}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      removeTents2();
-                    }}
-                  >
-                    <RemoveButton></RemoveButton>
-                  </button>
+                  <div>
+                    <button
+                      className={styles.noStyleBtn}
+                      value={formData.formData.tents2}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        incrementTents2();
+                      }}
+                    >
+                      <AddButton></AddButton>
+                    </button>
+                    <button
+                      className={styles.noStyleBtn}
+                      value={formData.formData.tents2}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        removeTents2();
+                      }}
+                    >
+                      <RemoveButton></RemoveButton>
+                    </button>
+                  </div>
                 </div>
               </FormGroup>
 
@@ -157,26 +159,28 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
               <FormGroup>
                 <div className={styles.addBtnWrapper}>
                   <p className={styles.btnText}>3 person tent x {formData.formData.tents3}</p>
-                  <button
-                    className={styles.noStyleBtn}
-                    value={formData.formData.tents3}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      incrementTents3();
-                    }}
-                  >
-                    <AddButton></AddButton>
-                  </button>
-                  <button
-                    className={styles.noStyleBtn}
-                    value={formData.formData.tents3}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      removeTents3();
-                    }}
-                  >
-                    <RemoveButton></RemoveButton>
-                  </button>
+                  <div>
+                    <button
+                      className={styles.noStyleBtn}
+                      value={formData.formData.tents3}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        incrementTents3();
+                      }}
+                    >
+                      <AddButton></AddButton>
+                    </button>
+                    <button
+                      className={styles.noStyleBtn}
+                      value={formData.formData.tents3}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        removeTents3();
+                      }}
+                    >
+                      <RemoveButton></RemoveButton>
+                    </button>
+                  </div>
                 </div>
               </FormGroup>
             </div>

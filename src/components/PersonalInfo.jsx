@@ -16,7 +16,9 @@ export default function PersonalInfo({ currentStepSetter }) {
 
   return (
     <>
-      <BackButton onClick={handlePreviousFormComponent}>Back</BackButton>
+      <div className={styles.btn_container}>
+        <BackButton onClick={handlePreviousFormComponent}>Back</BackButton>
+      </div>
       <h1 className={styles.h1}>Personal Infomation</h1>
       <FormControl variant="outlined" className={styles.form}>
         <CardContent>

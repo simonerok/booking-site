@@ -10,14 +10,15 @@ export default function MyButton({ onClick, children }) {
       sx={{
         borderRadius: 0,
         backgroundColor: "transparent",
-        border: "1px solid black",
+        border: "2px solid black",
         boxShadow: "none",
         color: "black",
         ":hover": {
-          bgcolor: "#DCF2C7",
-          border: "none",
+          bgcolor: "white",
+          border: "3px solid black",
           color: "black",
           borderRadius: 0,
+          boxShadow: "none",
         },
       }}
       onClick={onClick}

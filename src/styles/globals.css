@@ -66,10 +66,6 @@ button:hover {
 }
 
 .landing-background {
-  /* background: rgb(86, 230, 201);
-  background: linear-gradient(180deg, rgba(86, 230, 201, 1) 25%, rgba(160, 235, 88, 1) 61%, rgba(232, 82, 219, 1) 97%); */
-  /* background: rgb(86, 229, 230);
-  background: linear-gradient(180deg, rgba(86, 229, 230, 1) 16%, rgba(171, 231, 88, 1) 50%, rgba(90, 82, 232, 1) 84%); */
   background: rgb(75, 242, 211);
   background: linear-gradient(180deg, rgba(75, 242, 211, 1) 15%, rgba(166, 235, 38, 1) 48%, rgba(1, 54, 231, 1) 82%);
 }
