@@ -66,11 +66,6 @@
 button.burgerIcon:hover {
   background-color: transparent;
 }
-.stageSection {
-  display: flex;
-  flex-wrap: wrap;
-  margin-inline: 2rem;
-}
 
 /* LANDIGN */
 
@@ -149,23 +144,18 @@ button.burgerIcon:hover {
   z-index: 1;
   place-self: center;
 }
-/* .landingArtistGrid div {
-  visibility: hidden;
-}
-.landingArtistGrid div:hover {
-  visibility: visible;
-} */
 
 .landingArtistGrid img:hover {
   cursor: pointer;
 }
 
-.landingArtistGrid div p {
+.landingArtistGrid div h3 {
   z-index: 1;
   position: relative;
   color: white;
   text-align: center;
   /* margin-top: 50%; */
+  color: hotpink;
 }
 
 .link1,
@@ -202,8 +192,6 @@ button.burgerIcon:hover {
   display: grid;
   grid-template-columns: 1fr auto;
   margin: 8rem 6rem;
-  /* display: flex;
-  margin-inline: 2rem; */
 }
 .stageSection div {
   grid-column: 2;
@@ -241,5 +229,13 @@ button.burgerIcon:hover {
   .link1,
   .link2 {
     font-size: 1.5rem;
+  }
+
+  /* STAGE */
+  .stageSection div {
+    grid-column: 1;
+  }
+  .stageSection {
+    margin-inline: 2rem;
   }
 }
