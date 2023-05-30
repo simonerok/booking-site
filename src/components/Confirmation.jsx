@@ -10,7 +10,7 @@ export default function Confirmation() {
   console.log(formData);
   return (
     <>
-      <Navigation></Navigation>
+      {/* <Navigation></Navigation> */}
       <h1 className={styles.h1}>Thank You!</h1>
       <section className={styles.formBackground}>
         <article className={styles.overviewContainerConfirm}>
