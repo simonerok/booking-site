@@ -33,6 +33,11 @@
   display: grid;
   place-content: center;
 }
+.formBackground {
+  background-image: url("/ticket.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 
 .formWrapper {
   display: grid;
@@ -90,13 +95,13 @@
 }
 
 .overviewContainerConfirm {
-  border: 1px solid black;
   padding: 2rem;
-  min-width: 365px;
-  max-width: 400px;
   margin-bottom: 2rem;
   display: grid;
   place-content: center;
+}
+.overviewContainerConfirm p {
+  margin-bottom: 1rem;
 }
 
 .atendee_container {
