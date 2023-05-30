@@ -39,6 +39,7 @@ h3 {
 }
 
 h4 {
+  font-family: var(--heading);
   font-size: var(--h4);
   font-weight: 500;
 }
@@ -88,8 +89,8 @@ button:hover {
 .footerContainer {
   display: flex;
   justify-content: space-between;
-  margin: 2rem;
   border-top: solid 2px black;
+  padding: 2rem 2rem 4rem 2rem;
 }
 .footerInfoBox {
   display: flex;
