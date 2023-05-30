@@ -37,11 +37,13 @@
   /* text-align: left; */
   margin-left: 2rem;
   font-size: var(--h2);
+  z-index: 1;
 }
 
 .ModalImg {
   margin-top: -40%;
   object-fit: cover;
+  filter: grayscale(1);
 }
 
 .ModalBio {

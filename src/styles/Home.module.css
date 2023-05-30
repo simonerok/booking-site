@@ -11,6 +11,10 @@
   background-color: transparent;
   box-shadow: none;
 }
+
+.navMenu:hover {
+  background-color: rgba(255, 255, 255, 0.539);
+}
 .navStyleBtn1 {
   border: solid 2px black;
   padding: 5px;
@@ -43,6 +47,7 @@
   display: flex;
   justify-content: space-between;
   padding-block: 2rem;
+  opacity: none;
 }
 .flexBox {
   display: flex;
