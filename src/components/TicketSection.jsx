@@ -60,7 +60,7 @@ export default function TicketsSection() {
         label="Number of tickets"
         value={formData.ticketAmount}
         required
-        min="0"
+        InputProps={(min = "0")}
         onBlur={(e) =>
           dispatch({
             //dispatch to the global formData obj. with new state value
