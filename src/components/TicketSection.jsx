@@ -68,7 +68,7 @@ export default function TicketsSection() {
             payload: { ticketAmount: e.target.value },
           })
         }
-        InputProps={{ min: 0 }}
+        inputProps={{ min: 0 }}
         // value={numberOfTickets}
         // onChange={(e) => setNumberOfTickets(e.target.value)}
       />
