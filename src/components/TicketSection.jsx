@@ -60,7 +60,6 @@ export default function TicketsSection() {
         label="Number of tickets"
         value={formData.ticketAmount}
         required
-        InputProps={(min = "0")}
         onBlur={(e) =>
           dispatch({
             //dispatch to the global formData obj. with new state value
@@ -69,6 +68,7 @@ export default function TicketsSection() {
             payload: { ticketAmount: e.target.value },
           })
         }
+        InputProps={{ min: 0 }}
         // value={numberOfTickets}
         // onChange={(e) => setNumberOfTickets(e.target.value)}
       />
