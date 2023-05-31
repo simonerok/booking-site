@@ -12,7 +12,7 @@ export default function Modal({ selectedBand, handleCloseModal, showModal }) {
   console.log(selectedBand);
 
   // Check if the logo includes "http"
-  const logoSrc = bandInfo.logo.includes("http") ? bandInfo.logo : `http://localhost:8080/logos/${bandInfo.logo}`;
+  const logoSrc = bandInfo.logo.includes("http") ? bandInfo.logo : `https://nova-enchanted-confidence.glitch.me/logos/${bandInfo.logo}`;
 
   function getFullDayName(day) {
     const dayMap = {

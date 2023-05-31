@@ -151,9 +151,9 @@ button.burgerIcon:hover {
   place-self: center;
 }
 
-.landingArtistGrid img:hover {
+/* .landingArtistGrid img:hover {
   cursor: pointer;
-}
+} */
 
 .landingArtistGrid div h3 {
   z-index: 1;
