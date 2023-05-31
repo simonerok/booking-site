@@ -7,11 +7,11 @@ import Footer from "@/components/Footer";
 import { useEffect } from "react";
 
 export default function MyApp({ Component, pageProps }) {
-  // Checker om current page er BookingDisplay, bruges til at fjerne navoigation
+  // Checker om current page er BookingDisplay, bruges til at fjerne navigation
   const isBookingDisplayPage = Component === BookingDisplay;
 
   useEffect(() => {
-    // destructurere pageProps, så den kun pagePropsne defineret inde i const
+    // destructurere pageProps, så det kun er pagePropsne defineret inde i const
     const { isLanding, isSchedule, isProgram } = pageProps;
 
     if (isLanding) {
@@ -24,7 +24,7 @@ export default function MyApp({ Component, pageProps }) {
       document.body.className = "default-background";
     }
   }, [pageProps]);
-  // sætter pageprops til at værw i et array for at tjekke om det sker ændringer med pageprops.
+  // sætter pageprops til at være i et array for at tjekke om det sker ændringer med pageprops.
   // useEffect kræver at have et array, hvorpå den kigger efter ændringer.
   return (
     <>
