@@ -10,10 +10,9 @@ export default function Back({ onClick, children }) {
         color: "black",
         padding: 0,
         textDecoration: "underline",
-        fontSize: "1rem",
+        fontSize: "1.5rem",
         width: 0,
         ":hover": {
-          // bgcolor: "white",
           border: "none",
           color: "black",
           textDecoration: "underline",

@@ -1,16 +1,8 @@
-/* FONTS FORM */
-.h1 {
-  font-size: 5rem;
-  margin-block: 4rem;
-}
+/* FONTS SIZES FORM */
 
 .h2 {
-  font-size: 2.6rem;
+  font-size: 2rem;
   margin-block: 2rem 1rem;
-}
-
-.h2 {
-  font-size: 2.2rem;
 }
 
 .p {
@@ -155,5 +147,14 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
+  }
+}
+
+@media (max-width: 750px) {
+  /* form Pay overview */
+
+  .h2 {
+    font-size: 1.5rem;
+    margin-block: 2rem 1rem;
   }
 }

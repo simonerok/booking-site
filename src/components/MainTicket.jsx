@@ -33,7 +33,7 @@ export default function MainTicket({ spotData, currentStepSetter }) {
       .then((data) => {
         console.log(data.id);
         /* sætter formDatas id til at være det id vi får i response så det kan sende med videre */
-        formData.id = data.id;
+        formData.formData.id = data.id;
         handleNextFormComponent();
       });
     console.log(formData, formData.id);
@@ -55,10 +55,7 @@ export default function MainTicket({ spotData, currentStepSetter }) {
               <CardContent className={styles.formWrapper}>
                 <TicketsSection />
                 <AvailableSpotsSection areaData={spotData} />
-                <OtherOptionsSection
-                  open={open}
-                  handleInfoClick={handleInfoClick}
-                />
+                <OtherOptionsSection open={open} handleInfoClick={handleInfoClick} />
               </CardContent>
               <div className={styles.btn_container}>
                 <MyButton type="submit">Next</MyButton>

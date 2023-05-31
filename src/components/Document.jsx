@@ -1,4 +1,4 @@
-import { Html, Head, Main } from "next/document";
+import { Html, Head } from "next/document";
 
 export default function Document() {
   return (
@@ -10,7 +10,6 @@ export default function Document() {
         <link rel="stylesheet" href="https://use.typekit.net/bxq7sds.css" />
         <link rel="icon" href="" />
       </Head>
-      {/* <body></body> */}
     </Html>
   );
 }
