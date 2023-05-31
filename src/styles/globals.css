@@ -80,7 +80,10 @@ button:hover {
   background: rgb(63, 94, 251);
   background: radial-gradient(circle, rgba(63, 94, 251, 1) 31%, rgba(252, 135, 70, 1) 100%);
 }
-
+/*NAV MENU HEADER*/
+.css-1xfvyax {
+  background-color: blueviolet;
+}
 .footerContainer {
   display: flex;
   justify-content: space-between;
