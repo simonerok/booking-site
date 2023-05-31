@@ -48,7 +48,14 @@ function reducer(state, action) {
       const { ticketType } = action.payload;
       //modify payload based on choice and then insert into global state, chatgpt helped
       // const ticketPrice = ticketType === "Regular" ? 799 : 1299;
-      const ticketPrice = calculateTicketPrice(ticketType, state.formData.ticketAmount, state.formData.green, state.formData.tent, state.formData.tents2, state.formData.tents3);
+      const ticketPrice = calculateTicketPrice(
+        ticketType,
+        state.formData.ticketAmount,
+        state.formData.green,
+        state.formData.tent,
+        state.formData.tents2,
+        state.formData.tents3
+      );
       return {
         ...state,
         formData: {
@@ -57,21 +64,18 @@ function reducer(state, action) {
           ticketPrice: ticketPrice,
         },
       };
-    // return {
-    //   ...state,
-    //   formData: {
-    //     ...state.formData,
-    //     [action.payload.field]: action.payload.value,
-    //   },
-    // };
+
     case "SET_TICKET_AMOUNT":
       const { ticketAmount } = action.payload;
-      // const updatedTicketPrice =
-      //   state.formData.ticketType === "Regular"
-      //     ? ticketAmount * 799
-      //     : ticketAmount * 1299;
 
-      const updatedPriceTicketAmount = calculateTicketPrice(state.formData.ticketType, ticketAmount, state.formData.green, state.formData.tent, action.payload.tents2Amount, action.payload.tents3Amount);
+      const updatedPriceTicketAmount = calculateTicketPrice(
+        state.formData.ticketType,
+        ticketAmount,
+        state.formData.green,
+        state.formData.tent,
+        action.payload.tents2Amount,
+        action.payload.tents3Amount
+      );
       return {
         ...state,
         formData: {
@@ -88,7 +92,14 @@ function reducer(state, action) {
       const { isChecked } = action.payload;
       //modify payload based on choice and then insert into global state, chatgpt helped
       // const ticketPrice = ticketType === "Regular" ? 799 : 1299;
-      const updatedticketwithGreen = calculateTicketPrice(state.formData.ticketType, state.formData.ticketAmount, isChecked, state.formData.tent, action.payload.tents2Amount, action.payload.tents3Amount);
+      const updatedticketwithGreen = calculateTicketPrice(
+        state.formData.ticketType,
+        state.formData.ticketAmount,
+        isChecked,
+        state.formData.tent,
+        action.payload.tents2Amount,
+        action.payload.tents3Amount
+      );
       return {
         ...state,
         formData: {
@@ -100,14 +111,6 @@ function reducer(state, action) {
     //Incase of tent set up
     case "TENT_SETUP":
       const { isTentChecked } = action.payload;
-      // const updatedPriceWithTent = calculateTicketPrice(
-      //   state.formData.ticketType,
-      //   state.formData.ticketAmount,
-      //   state.formData.green,
-      //   isTentChecked,
-      //   action.payload.tents2Amount,
-      //   action.payload.tents3Amount
-      // );
       return {
         ...state,
         formData: {
@@ -124,7 +127,10 @@ function reducer(state, action) {
         const tent3Cost = 20;
 
         // Calculate the updated ticket price based on tent costs
-        updatedTicketPriceWithTent = state.formData.ticketPrice + state.formData.tents2 * tent2Cost + state.formData.tents3 * tent3Cost;
+        updatedTicketPriceWithTent =
+          state.formData.ticketPrice +
+          state.formData.tents2 * tent2Cost +
+          state.formData.tents3 * tent3Cost;
       } else {
         updatedTicketPriceWithTent = ticketPrice;
       }
@@ -156,18 +162,17 @@ function reducer(state, action) {
           ticketPrice: updatedPriceWithTent2,
         },
       };
-      return {
-        ...state,
-        formData: {
-          ...state.formData,
-          // [action.payload.field]: action.payload.value,
-          tents2Amount: tents2Amount,
-          ticketPrice: updatedPriceWithTent2,
-        },
-      };
+
     case "SET_TENTS3_AMOUNT":
       const { tents3Amount } = action.payload;
-      const updatedPriceWithTent3 = calculateTicketPrice(state.formData.ticketType, state.formData.ticketAmount, state.formData.green, state.formData.tent, state.formData.tents2, parseInt(tents3Amount));
+      const updatedPriceWithTent3 = calculateTicketPrice(
+        state.formData.ticketType,
+        state.formData.ticketAmount,
+        state.formData.green,
+        state.formData.tent,
+        state.formData.tents2,
+        parseInt(tents3Amount)
+      );
       return {
         ...state,
         formData: {
@@ -176,14 +181,6 @@ function reducer(state, action) {
           ticketPrice: updatedPriceWithTent3,
         },
       };
-    // return {
-    //   ...state,
-    //   formData: {
-    //     ...state.formData,
-    //     [action.payload.field]: action.payload.value,
-    //     ticketPrice: updatedPriceWithTent3,
-    //   },
-    // };
 
     case "UPDATE_ATTENDEE_FIELD":
       return {
@@ -223,7 +220,10 @@ function reducer(state, action) {
         ...state,
         formData: {
           ...state.formData,
-          attendees: [...state.formData.attendees, { fullname: "", email: "", phone: "" }],
+          attendees: [
+            ...state.formData.attendees,
+            { fullname: "", email: "", phone: "" },
+          ],
         },
       };
 
@@ -259,7 +259,14 @@ function reducer(state, action) {
   }
 }
 
-function calculateTicketPrice(ticketType, ticketAmount, isGreenChecked, isTentChecked, tents2Amount, tents3Amount) {
+function calculateTicketPrice(
+  ticketType,
+  ticketAmount,
+  isGreenChecked,
+  isTentChecked,
+  tents2Amount,
+  tents3Amount
+) {
   let basePrice = 0;
   if (ticketType === "Regular") {
     basePrice = 799;
@@ -284,5 +291,9 @@ export const FormDataProvider = ({ children }) => {
   const [formData, dispatch] = useReducer(reducer, initialState);
 
   console.log(formData);
-  return <formDataContext.Provider value={{ formData, dispatch }}>{children}</formDataContext.Provider>;
+  return (
+    <formDataContext.Provider value={{ formData, dispatch }}>
+      {children}
+    </formDataContext.Provider>
+  );
 };
