@@ -33,7 +33,7 @@ export default function Confirmation() {
             {formData.formData.tent ? (
               <p>
                 Tent:
-                <br />2 person tents: {formData.formData.tents2} 2 person tents: {formData.formData.tents3}
+                <br />2 person tents: {formData.formData.tents2} <br /> 3 person tents: {formData.formData.tents3}
               </p>
             ) : (
               <p></p>
