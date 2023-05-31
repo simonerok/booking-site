@@ -8,7 +8,8 @@ export default function LandingArtists({ bandData }) {
         <article className={styles.landingBand1}>
           <img
             src={
-              `https://booking-site-lovat.vercel.app/logos/` + bandData[3].logo
+              `https://nova-enchanted-confidence.glitch.me/logos/` +
+              bandData[3].logo
             }
             alt="Logo"
           />
@@ -21,7 +22,8 @@ export default function LandingArtists({ bandData }) {
         <article className={styles.landingBand2}>
           <img
             src={
-              `https://booking-site-lovat.vercel.app/logos/` + bandData[2].logo
+              `https://nova-enchanted-confidence.glitch.me/logos/` +
+              bandData[2].logo
             }
             alt="Logo"
           />
@@ -34,7 +36,8 @@ export default function LandingArtists({ bandData }) {
         <article className={styles.landingBand3}>
           <img
             src={
-              `https://booking-site-lovat.vercel.app/logos/` + bandData[6].logo
+              `https://nova-enchanted-confidence.glitch.me/logos/` +
+              bandData[6].logo
             }
             alt="Logo"
           />
