@@ -65,7 +65,7 @@ export default function Navigation() {
           <List>
             <ListItem>
               {/* Her indsættes vores menuelementer */}
-              <Link className={styles.navStyleBtn1} href="/booking_display">
+              <Link className={styles.navStyleBtn2} href="/booking_display">
                 BUY TICKET
               </Link>
             </ListItem>
