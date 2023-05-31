@@ -46,8 +46,8 @@ export default function Confirmation() {
           <p className={styles.p}>
             {formData.formData.tent ? (
               <p>
-                Setup of tent: {formData.formData.tent2Amount}{" "}
-                {formData.formData.tent3Amount}
+                Setup of tent: {formData.formData.tents2}{" "}
+                {formData.formData.tents3}
               </p>
             ) : (
               <p></p>
