@@ -22,7 +22,7 @@ export default function PersonalInfo({ currentStepSetter, timerValue }) {
     setTents2Counter(0);
     setTents3Counter(0);
 
-    dispatch({ action: "UPDATE_TICKET_PRICE", payload: { ticketPrice: 0 } });
+    // dispatch({ action: "UPDATE_TICKET_PRICE", payload: { ticketPrice: 0 } });
     /* reset tents2 i dispatch med action og payload*/
     dispatch({ action: "SET_TENTS2_AMOUNT", payload: { tents2Amount: 0 } });
 
