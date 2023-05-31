@@ -19,12 +19,10 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
 
   //inline style to override vercels css styling
-  const navMenu = {
-    backgroundColor: "transparent",
-  };
+
   return (
     <>
-      <AppBar position="sticky" className={navMenu}>
+      <AppBar position="sticky" className={styles.navMenu}>
         <Toolbar className={styles.navContainer}>
           <Link className={styles.logo} href="./">
             FOO <br /> FESTIVAL
@@ -66,12 +64,15 @@ export default function Navigation() {
           {/* Her indsættes vores menuelementer i liste elementer for mellemrum */}
           <List>
             <ListItem>
-              <Link href="/booking_display">
-                <button>BUY TICKET</button>
+              {/* Her indsættes vores menuelementer */}
+              <Link className={styles.navStyleBtn2} href="/booking_display">
+                BUY TICKET
               </Link>
             </ListItem>
             <ListItem>
-              <button>THE FESTIVAL APP</button>
+              <Link className={styles.navStyleBtn2} href="/program">
+                PROGRAM
+              </Link>
             </ListItem>
           </List>
         </SwipeableDrawer>
