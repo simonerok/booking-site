@@ -8,7 +8,7 @@
   font-size: var(--p);
 }
 .navMenu {
-  background-color: transparent;
+  background-color: none;
   box-shadow: none;
 }
 
