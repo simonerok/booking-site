@@ -60,7 +60,7 @@ button:hover {
 /* SCHEDULE */
 .css-177gid-MuiTableCell-root {
   font-family: var(--paragraph);
-  font-size: var(--p);
+  font-size: 1.5rem;
   text-align: right;
 }
 
