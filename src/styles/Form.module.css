@@ -2,7 +2,7 @@
 
 .h2 {
   font-size: 2rem;
-  margin-block: 2rem 1rem;
+  margin-bottom: 1rem;
 }
 
 .p {
@@ -93,7 +93,11 @@
   place-content: center;
 }
 .overviewContainerConfirm p {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+.pID {
+  font-size: 1rem;
+  text-align: center;
 }
 
 .atendee_container {
@@ -159,6 +163,5 @@
 
   .h2 {
     font-size: 1.5rem;
-    margin-block: 2rem 1rem;
   }
 }
