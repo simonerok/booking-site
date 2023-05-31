@@ -19,17 +19,11 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
 
   //inline style to override vercels css styling
-  const navContainer = {
-    display: "flex",
-    justifyContent: "space-between",
-    paddingBlock: "2rem",
-    opacity: "none",
-    backgroundColor: "transparent",
-  };
+
   return (
     <>
       <AppBar position="sticky" className={styles.navMenu}>
-        <Toolbar className={navContainer}>
+        <Toolbar className={styles.navContainer}>
           <Link className={styles.logo} href="./">
             FOO <br /> FESTIVAL
           </Link>
