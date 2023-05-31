@@ -224,15 +224,6 @@ export default function Program({ scheduleData, bandData }) {
     </>
   );
 }
-// export async function getServerSideProps() {
-//   const api = "http://localhost:8080/schedule";
-//   const res = await fetch(api);
-//   const data = await res.json();
-//   console.log(data);
-//   return {
-//     props: { schedule: data },
-//   };
-// }
 
 export async function getServerSideProps() {
   //const apiEndpoints = ["http://localhost:8080/bands", "http://localhost:8080/schedule"];
