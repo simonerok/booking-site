@@ -108,13 +108,13 @@ function createData(time00, time02, time04, time06, time08, time10, time12, time
 
 export default function StickyHeadTable({ schedule }) {
   const rows = {
-    Monday: [createData(...test("mon", "Midgard")), createData(...test("mon", "Vanaheim")), createData(...test("mon", "Jotunheim"))],
-    Tuesday: [createData(...test("tue", "Midgard")), createData(...test("tue", "Vanaheim")), createData(...test("tue", "Jotunheim"))],
-    Wednesday: [createData(...test("wed", "Midgard")), createData(...test("wed", "Vanaheim")), createData(...test("wed", "Jotunheim"))],
-    Thursday: [createData(...test("thu", "Midgard")), createData(...test("thu", "Vanaheim")), createData(...test("thu", "Jotunheim"))],
-    Friday: [createData(...test("fri", "Midgard")), createData(...test("fri", "Vanaheim")), createData(...test("fri", "Jotunheim"))],
-    Saturday: [createData(...test("sat", "Midgard")), createData(...test("sat", "Vanaheim")), createData(...test("sat", "Jotunheim"))],
-    Sunday: [createData(...test("sun", "Midgard")), createData(...test("sun", "Vanaheim")), createData(...test("sun", "Jotunheim"))],
+    Monday: [createData(...days("mon", "Midgard")), createData(...days("mon", "Vanaheim")), createData(...days("mon", "Jotunheim"))],
+    Tuesday: [createData(...days("tue", "Midgard")), createData(...days("tue", "Vanaheim")), createData(...days("tue", "Jotunheim"))],
+    Wednesday: [createData(...days("wed", "Midgard")), createData(...days("wed", "Vanaheim")), createData(...days("wed", "Jotunheim"))],
+    Thursday: [createData(...days("thu", "Midgard")), createData(...days("thu", "Vanaheim")), createData(...days("thu", "Jotunheim"))],
+    Friday: [createData(...days("fri", "Midgard")), createData(...days("fri", "Vanaheim")), createData(...days("fri", "Jotunheim"))],
+    Saturday: [createData(...days("sat", "Midgard")), createData(...days("sat", "Vanaheim")), createData(...days("sat", "Jotunheim"))],
+    Sunday: [createData(...days("sun", "Midgard")), createData(...days("sun", "Vanaheim")), createData(...days("sun", "Jotunheim"))],
   };
 
   const [day, setDay] = useState("Monday");
@@ -150,7 +150,7 @@ export default function StickyHeadTable({ schedule }) {
     setPage(0);
   };
 
-  function test(day, stage) {
+  function days(day, stage) {
     // Object to store the results
     const results = [];
     //for (const day in schedule.Midgard) {
