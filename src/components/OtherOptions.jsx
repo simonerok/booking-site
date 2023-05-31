@@ -140,7 +140,7 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
                     {" "}
                     2 person tent x {formData.formData.tents2}
                   </p>
-                  <div className={tent_button_container}>
+                  <div className={styles.tent_button_container}>
                     <button
                       className={styles.noStyleBtn}
                       value={formData.formData.tents2}
@@ -171,7 +171,7 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
                   <p className={styles.btnText}>
                     3 person tent x {formData.formData.tents3}
                   </p>
-                  <div className={tent_button_container}>
+                  <div className={styles.tent_button_container}>
                     <button
                       className={styles.noStyleBtn}
                       value={formData.formData.tents3}
