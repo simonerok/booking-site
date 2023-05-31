@@ -31,7 +31,11 @@ export default function PersonalInfo({ currentStepSetter, timerValue }) {
     /* reset tents checked så den er lukket når der trykkes tilbage */
     dispatch({ action: "TENT_SETUP", payload: { isTentChecked: false } });
   }
-
+  //inline style object to override vercels css
+  const inlineStyle = {
+    display: "grid",
+    placeContent: center,
+  };
   return (
     <>
       <div className={styles.btn_container}>
@@ -39,7 +43,7 @@ export default function PersonalInfo({ currentStepSetter, timerValue }) {
       </div>
       <h1 className={styles.h1}>Personal Infomation</h1>
 
-      <FormControl variant="outlined" style={{ display: "grid" }}>
+      <FormControl variant="outlined" style={inlineStyle}>
         <CardContent>
           <PI_Formtab setNextStep={currentStepSetter}></PI_Formtab>
         </CardContent>
