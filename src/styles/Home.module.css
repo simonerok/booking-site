@@ -228,6 +228,10 @@ button.burgerIcon:hover {
   .spanThe {
     margin-inline: 1rem;
   }
+  /* TICKET SECTION */
+  .ticketSection {
+    flex-wrap: wrap;
+  }
 
   /* PROGRAM */
   .programText {

@@ -44,6 +44,7 @@
   -webkit-text-stroke: 1.5px black;
   color: transparent;
   font-family: var(--heading);
+  font-weight: bold;
   text-align: center;
   display: grid;
   /* margin-top: -4rem; */
