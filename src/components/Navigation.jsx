@@ -1,6 +1,15 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { AppBar, Toolbar, Box, IconButton, SwipeableDrawer, Divider, List, ListItem } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  IconButton,
+  SwipeableDrawer,
+  Divider,
+  List,
+  ListItem,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import styles from "@/styles/Home.module.css";
@@ -8,6 +17,9 @@ import styles from "@/styles/Home.module.css";
 /* Desktop navigation */
 export default function Navigation() {
   const [open, setOpen] = useState(false);
+
+  //inline style to override vercels css styling
+
   return (
     <>
       <AppBar position="sticky" className={styles.navMenu}>
@@ -38,7 +50,12 @@ export default function Navigation() {
             </IconButton>
           </Box>
         </Toolbar>
-        <SwipeableDrawer anchor="right" open={open} onOpen={() => setOpen(true)} onClose={() => setOpen(false)}>
+        <SwipeableDrawer
+          anchor="right"
+          open={open}
+          onOpen={() => setOpen(true)}
+          onClose={() => setOpen(false)}
+        >
           <IconButton className={styles.backIcon}>
             {/* Luk knap */}
             <ChevronRightIcon onClick={() => setOpen(false)} />
@@ -47,12 +64,15 @@ export default function Navigation() {
           {/* Her indsættes vores menuelementer i liste elementer for mellemrum */}
           <List>
             <ListItem>
-              <Link href="/booking_display">
-                <button>BUY TICKET</button>
+              {/* Her indsættes vores menuelementer */}
+              <Link className={styles.navStyleBtn2} href="/booking_display">
+                BUY TICKET
               </Link>
             </ListItem>
             <ListItem>
-              <button>THE FESTIVAL APP</button>
+              <Link className={styles.navStyleBtn2} href="/program">
+                PROGRAM
+              </Link>
             </ListItem>
           </List>
         </SwipeableDrawer>
