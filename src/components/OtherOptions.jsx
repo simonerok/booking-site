@@ -96,6 +96,7 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
           <FormControlLabel
             control={<Checkbox />}
             label="Tent setup"
+            /* checked er en konstant som ser efter havd der bliver klikket på og dispatch sender staten med payloaden med check staten og ændre det i vores globale obj. */
             onChange={(e) => {
               const { checked } = e.target;
               dispatch({
@@ -123,7 +124,9 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
                 </Alert>
               </div>
             )}
+            {/* {tents2Counter} */}
           </div>
+
           {formData.formData.tent && (
             <div>
               {/* 2 personers telt */}
