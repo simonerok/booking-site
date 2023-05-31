@@ -34,7 +34,7 @@ export default function PersonalInfo({ currentStepSetter, timerValue }) {
   //inline style object to override vercels css
   const inlineStyle = {
     display: "grid",
-    placeContent: center,
+    placeContent: "center",
   };
   return (
     <>
