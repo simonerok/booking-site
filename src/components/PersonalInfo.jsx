@@ -38,7 +38,8 @@ export default function PersonalInfo({ currentStepSetter, timerValue }) {
         <BackButton onClick={handlePreviousFormComponent}>Back</BackButton>
       </div>
       <h1 className={styles.h1}>Personal Infomation</h1>
-      <FormControl variant="outlined" className={styles.form}>
+
+      <FormControl variant="outlined" style={{ display: "grid" }}>
         <CardContent>
           <PI_Formtab setNextStep={currentStepSetter}></PI_Formtab>
         </CardContent>

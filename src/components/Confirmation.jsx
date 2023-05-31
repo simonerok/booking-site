@@ -44,7 +44,7 @@ export default function Confirmation() {
             {formData.formData.green ? <p>Green Option</p> : <p></p>}
           </p>
           <p className={styles.p}>
-            {formData.formData.tentSetUp ? (
+            {formData.formData.tent ? (
               <p>
                 Setup of tent: {formData.formData.tent2Amount}{" "}
                 {formData.formData.tent3Amount}
