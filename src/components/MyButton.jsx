@@ -3,6 +3,7 @@ import styles from "../styles/Form.module.css";
 
 export default function MyButton({ onClick, children }) {
   return (
+    /* MUIs måde at style knappen på */
     <Button
       type="submit"
       className={styles.form_btn}
@@ -23,6 +24,7 @@ export default function MyButton({ onClick, children }) {
       }}
       onClick={onClick}
     >
+      {/* children gør at den indeholder tekst på knappen */}
       {children}
     </Button>
   );

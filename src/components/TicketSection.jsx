@@ -25,16 +25,11 @@ export default function TicketsSection() {
         }
       />
       <br></br>{" "}
-      <InputLabel
-        id="dropdown-label"
-        label="ticket-type"
-        placeholder="Ticket-type"
-        className={styles.dropdownLabel}
-        style={{ position: "relative" }}
-      >
+      <InputLabel id="dropdown-label" label="ticket-type" placeholder="Ticket-type" className={styles.dropdownLabel} style={{ position: "relative" }}>
         Choose ticket type
       </InputLabel>
       <Select
+        style={{ position: "relative" }}
         className={styles.inputField}
         labelId="ticket-type"
         id="dropdown"
@@ -45,7 +40,6 @@ export default function TicketsSection() {
           dispatch({
             //dispatch to the global formData obj. with new state value
             action: "SET_TICKET_TYPE",
-            //payload: { field: "ticketType", value: e.target.value },
             payload: { ticketType: e.target.value },
           })
         }
@@ -64,13 +58,10 @@ export default function TicketsSection() {
           dispatch({
             //dispatch to the global formData obj. with new state value
             action: "SET_TICKET_AMOUNT",
-            //payload: { field: "ticketAmount", value: e.target.value },
             payload: { ticketAmount: e.target.value },
           })
         }
         inputProps={{ min: 0 }}
-        // value={numberOfTickets}
-        // onChange={(e) => setNumberOfTickets(e.target.value)}
       />
     </>
   );

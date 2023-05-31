@@ -43,7 +43,7 @@ export default function AvailableSpotsSection({ areaData }) {
             )
         )}
 
-        <InputLabel id="dropdown-label" label="spots" placeholder="form" className={styles.dropdownLabel} /* style={{ position: "relative" }} */>
+        <InputLabel id="dropdown-label" label="spots" placeholder="form" className={styles.dropdownLabel} style={{ position: "relative" }}>
           Choose Camp
         </InputLabel>
         <Select

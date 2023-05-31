@@ -1,12 +1,9 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { AppBar, Toolbar, Hidden, Box, IconButton, SwipeableDrawer, Divider, List, ListItem } from "@mui/material";
+import { AppBar, Toolbar, Box, IconButton, SwipeableDrawer, Divider, List, ListItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import styles from "@/styles/Home.module.css";
-
-/* alle skal indstallere følgende:
-npm install @mui/icons-material @mui/material @emotion/styled @emotion/react */
 
 /* Desktop navigation */
 export default function Navigation() {
@@ -47,7 +44,7 @@ export default function Navigation() {
             <ChevronRightIcon onClick={() => setOpen(false)} />
           </IconButton>
           <Divider></Divider>
-          {/* Her indsættes vores menuelementer */}
+          {/* Her indsættes vores menuelementer i liste elementer for mellemrum */}
           <List>
             <ListItem>
               <Link href="/booking_display">
