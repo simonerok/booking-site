@@ -64,12 +64,15 @@ export default function Navigation() {
           {/* Her indsættes vores menuelementer i liste elementer for mellemrum */}
           <List>
             <ListItem>
-              <Link href="/booking_display">
-                <button>BUY TICKET</button>
+              {/* Her indsættes vores menuelementer */}
+              <Link className={styles.navStyleBtn1} href="/booking_display">
+                BUY TICKET
               </Link>
             </ListItem>
             <ListItem>
-              <button>THE FESTIVAL APP</button>
+              <Link className={styles.navStyleBtn2} href="/program">
+                PROGRAM
+              </Link>
             </ListItem>
           </List>
         </SwipeableDrawer>
