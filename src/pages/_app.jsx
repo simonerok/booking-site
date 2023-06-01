@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import { ProgramProvider } from "../contexts/programContext";
 import { FormDataProvider } from "@/contexts/bookingContext";
 import Navigation from "@/components/Navigation";
 import BookingDisplay from "./booking_display";
@@ -30,11 +29,10 @@ export default function MyApp({ Component, pageProps }) {
     <>
       {/* Render Navigation på alle andre sider end BookingDisplay */}
       {!isBookingDisplayPage && <Navigation />}
-      <ProgramProvider>
-        <FormDataProvider>
-          <Component {...pageProps} />;
-        </FormDataProvider>
-      </ProgramProvider>
+
+      <FormDataProvider>
+        <Component {...pageProps} />;
+      </FormDataProvider>
       <Footer />
     </>
   );
