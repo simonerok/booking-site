@@ -1,15 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import {
-  AppBar,
-  Toolbar,
-  Box,
-  IconButton,
-  SwipeableDrawer,
-  Divider,
-  List,
-  ListItem,
-} from "@mui/material";
+import { AppBar, Toolbar, Box, IconButton, SwipeableDrawer, Divider, List, ListItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import styles from "@/styles/Home.module.css";
@@ -22,7 +13,7 @@ export default function Navigation() {
 
   return (
     <>
-      <AppBar position="sticky" className={styles.navMenu}>
+      <AppBar sx={{ bgcolor: "transparent" }} position="sticky" className={styles.navMenu}>
         <Toolbar className={styles.navContainer}>
           <Link className={styles.logo} href="./">
             FOO <br /> FESTIVAL
@@ -50,12 +41,7 @@ export default function Navigation() {
             </IconButton>
           </Box>
         </Toolbar>
-        <SwipeableDrawer
-          anchor="right"
-          open={open}
-          onOpen={() => setOpen(true)}
-          onClose={() => setOpen(false)}
-        >
+        <SwipeableDrawer anchor="right" open={open} onOpen={() => setOpen(true)} onClose={() => setOpen(false)}>
           <IconButton className={styles.backIcon}>
             {/* Luk knap */}
             <ChevronRightIcon onClick={() => setOpen(false)} />
