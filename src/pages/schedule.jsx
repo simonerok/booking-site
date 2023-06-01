@@ -211,18 +211,19 @@ export default function StickyHeadTable({ schedule }) {
           Sunday
         </button>
       </div>
+      <p className={stylesSchedule.scroll_tekst}>Scroll left</p>
       <h2 className={stylesSchedule.dayName}>{day}</h2>
       <section className={stylesSchedule.scheduleSection}>
         <div className={stylesSchedule.scheduleStages}>
-          <h3>Midgard</h3>
-          <h3>Vanaheim</h3>
-          <h3>Jotunheim</h3>
+          <h3 className={stylesSchedule.scene_mid}>Midgard</h3>
+          <h3 className={stylesSchedule.scene_van}>Vanaheim</h3>
+          <h3 className={stylesSchedule.scene_jotu}>Jotunheim</h3>
         </div>
-        <Paper sx={{ width: "100%", overflow: "hidden" }}>
-          <TableContainer sx={{ maxHeight: 600 }}>
+        <Paper sx={{ width: "100%", overflow: "hidden", bgcolor: "transparent" }}>
+          <TableContainer sx={{ maxHeight: 600, overflow: "scroll" }}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
-                <TableRow>
+                <TableRow sx={{ height: "80px", opacity: "80%" }}>
                   {columns.map((column) => (
                     <TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
                       {column.label}
@@ -234,7 +235,7 @@ export default function StickyHeadTable({ schedule }) {
                 {/* changed the MUI "structure" from rows to displayedRows */}
                 {displayedRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                   return (
-                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code} sx={{ height: "170px" }}>
                       {columns.map((column) => {
                         const value = row[column.id];
                         return (

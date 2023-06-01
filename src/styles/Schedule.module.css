@@ -11,17 +11,44 @@
 }
 
 .scheduleStages {
-  margin-top: 4.3rem;
+  margin-top: 12.8rem;
   margin-right: 1rem;
 }
 .scheduleStages h3 {
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 7.8rem;
   text-transform: uppercase;
+  margin-inline-end: -15px;
+  border-bottom: 1.2px solid rgba(224, 224, 224, 1);
 }
 .scheduleStages h3:last-child {
   margin-bottom: 0;
 }
+/* linje under knapper der indikerer at man kan scroll */
+.scroll_tekst {
+  padding-left: 30px;
+  margin-top: -10px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+/* scene navne med border-bottom for at lave streger på hele vh i mobil */
+/* .scene_van {
+  margin-inline-end: -15px;
+  border-bottom: 1.2px solid rgba(224, 224, 224, 1);
+  margin-top: 151px;
+}
+
+.scene_mid {
+  margin-inline-end: -15px;
+  border-bottom: 1.2px solid rgba(224, 224, 224, 1);
+  margin-top: 10.8rem;
+}
+
+.scene_jotu {
+  margin-inline-end: -15px;
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
+  margin-top: 148px;
+} */
 
 .scheduleHeading {
   /* line-height: 6rem; */
@@ -81,10 +108,10 @@
 
 @media (max-width: 750px) {
   .scheduleStages {
-    margin-top: 5rem;
+    margin-top: 14.2rem;
   }
   .scheduleStages h3 {
     font-size: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 9.2rem;
   }
 }
