@@ -25,6 +25,7 @@ h1 {
   font-family: var(--heading);
   font-size: var(--h1);
   text-align: center;
+  margin-top: 5rem;
 }
 
 h2 {
@@ -55,13 +56,6 @@ button {
 }
 button:hover {
   cursor: pointer;
-}
-
-/* SCHEDULE */
-.css-177gid-MuiTableCell-root {
-  font-family: var(--paragraph);
-  font-size: 1.5rem;
-  text-align: right;
 }
 
 .landing-background {

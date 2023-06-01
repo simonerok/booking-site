@@ -62,8 +62,11 @@
   flex-shrink: 0;
   /* ensures buttons don't shrink to fit the container width. */
   width: 10rem;
+  font-family: var(--paragraph);
+  font-size: 1rem;
 }
-.days button:hover {
+.days button:hover,
+.activeButton {
   background-color: white;
 }
 

@@ -129,8 +129,16 @@ export default function StickyHeadTable({ schedule }) {
   function changeDay(event) {
     const selectedDay = event.target.value;
     setDay(selectedDay);
-    console.log(day);
     updateDisplayedDay(selectedDay);
+    // Add active styling to the clicked button
+    const buttons = document.querySelectorAll(`.${stylesSchedule.days} button`);
+    buttons.forEach((button) => {
+      if (button.value === selectedDay) {
+        button.classList.add(stylesSchedule.activeButton);
+      } else {
+        button.classList.remove(stylesSchedule.activeButton);
+      }
+    });
   }
 
   // Retrieve the rows for the displayed day
@@ -212,7 +220,7 @@ export default function StickyHeadTable({ schedule }) {
         </div>
         <Paper sx={{ width: "100%", overflow: "hidden" }}>
           <TableContainer sx={{ maxHeight: 600 }}>
-            <Table stickyHeader aria-label="sticky table" style={{ minWidth: column.minWidth }}>
+            <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow>
                   {columns.map((column) => (
