@@ -89,7 +89,20 @@ const columns = [
   },
 ];
 
-function createData(time00, time02, time04, time06, time08, time10, time12, time14, time16, time18, time20, time22) {
+function createData(
+  time00,
+  time02,
+  time04,
+  time06,
+  time08,
+  time10,
+  time12,
+  time14,
+  time16,
+  time18,
+  time20,
+  time22
+) {
   return {
     time00,
     time02,
@@ -108,13 +121,41 @@ function createData(time00, time02, time04, time06, time08, time10, time12, time
 
 export default function StickyHeadTable({ schedule }) {
   const rows = {
-    Monday: [createData(...days("mon", "Midgard")), createData(...days("mon", "Vanaheim")), createData(...days("mon", "Jotunheim"))],
-    Tuesday: [createData(...days("tue", "Midgard")), createData(...days("tue", "Vanaheim")), createData(...days("tue", "Jotunheim"))],
-    Wednesday: [createData(...days("wed", "Midgard")), createData(...days("wed", "Vanaheim")), createData(...days("wed", "Jotunheim"))],
-    Thursday: [createData(...days("thu", "Midgard")), createData(...days("thu", "Vanaheim")), createData(...days("thu", "Jotunheim"))],
-    Friday: [createData(...days("fri", "Midgard")), createData(...days("fri", "Vanaheim")), createData(...days("fri", "Jotunheim"))],
-    Saturday: [createData(...days("sat", "Midgard")), createData(...days("sat", "Vanaheim")), createData(...days("sat", "Jotunheim"))],
-    Sunday: [createData(...days("sun", "Midgard")), createData(...days("sun", "Vanaheim")), createData(...days("sun", "Jotunheim"))],
+    Monday: [
+      createData(...days("mon", "Midgard")),
+      createData(...days("mon", "Vanaheim")),
+      createData(...days("mon", "Jotunheim")),
+    ],
+    Tuesday: [
+      createData(...days("tue", "Midgard")),
+      createData(...days("tue", "Vanaheim")),
+      createData(...days("tue", "Jotunheim")),
+    ],
+    Wednesday: [
+      createData(...days("wed", "Midgard")),
+      createData(...days("wed", "Vanaheim")),
+      createData(...days("wed", "Jotunheim")),
+    ],
+    Thursday: [
+      createData(...days("thu", "Midgard")),
+      createData(...days("thu", "Vanaheim")),
+      createData(...days("thu", "Jotunheim")),
+    ],
+    Friday: [
+      createData(...days("fri", "Midgard")),
+      createData(...days("fri", "Vanaheim")),
+      createData(...days("fri", "Jotunheim")),
+    ],
+    Saturday: [
+      createData(...days("sat", "Midgard")),
+      createData(...days("sat", "Vanaheim")),
+      createData(...days("sat", "Jotunheim")),
+    ],
+    Sunday: [
+      createData(...days("sun", "Midgard")),
+      createData(...days("sun", "Vanaheim")),
+      createData(...days("sun", "Jotunheim")),
+    ],
   };
 
   const [day, setDay] = useState("Monday");
@@ -148,15 +189,6 @@ export default function StickyHeadTable({ schedule }) {
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
 
   function days(day, stage) {
     // Object to store the results
@@ -211,7 +243,9 @@ export default function StickyHeadTable({ schedule }) {
           Sunday
         </button>
       </div>
-      <p className={stylesSchedule.scroll_tekst}>Scroll left</p>
+      <p className={stylesSchedule.scroll_tekst}>
+        Scroll left by buttons to see more weekdays
+      </p>
       <h2 className={stylesSchedule.dayName}>{day}</h2>
       <section className={stylesSchedule.scheduleSection}>
         <div className={stylesSchedule.scheduleStages}>
@@ -219,13 +253,19 @@ export default function StickyHeadTable({ schedule }) {
           <h3 className={stylesSchedule.scene_van}>Vanaheim</h3>
           <h3 className={stylesSchedule.scene_jotu}>Jotunheim</h3>
         </div>
-        <Paper sx={{ width: "100%", overflow: "hidden", bgcolor: "transparent" }}>
+        <Paper
+          sx={{ width: "100%", overflow: "hidden", bgcolor: "transparent" }}
+        >
           <TableContainer sx={{ maxHeight: 600, overflow: "scroll" }}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow sx={{ height: "80px", opacity: "80%" }}>
                   {columns.map((column) => (
-                    <TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
+                    <TableCell
+                      key={column.id}
+                      align={column.align}
+                      style={{ minWidth: column.minWidth }}
+                    >
                       {column.label}
                     </TableCell>
                   ))}
@@ -233,20 +273,30 @@ export default function StickyHeadTable({ schedule }) {
               </TableHead>
               <TableBody>
                 {/* changed the MUI "structure" from rows to displayedRows */}
-                {displayedRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                  return (
-                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code} sx={{ height: "170px" }}>
-                      {columns.map((column) => {
-                        const value = row[column.id];
-                        return (
-                          <TableCell key={column.id} align={column.align}>
-                            {column.format && typeof value === "number" ? column.format(value) : value}
-                          </TableCell>
-                        );
-                      })}
-                    </TableRow>
-                  );
-                })}
+                {displayedRows
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row) => {
+                    return (
+                      <TableRow
+                        hover
+                        role="checkbox"
+                        tabIndex={-1}
+                        key={row.code}
+                        sx={{ height: "170px" }}
+                      >
+                        {columns.map((column) => {
+                          const value = row[column.id];
+                          return (
+                            <TableCell key={column.id} align={column.align}>
+                              {column.format && typeof value === "number"
+                                ? column.format(value)
+                                : value}
+                            </TableCell>
+                          );
+                        })}
+                      </TableRow>
+                    );
+                  })}
               </TableBody>
             </Table>
           </TableContainer>
@@ -257,7 +307,6 @@ export default function StickyHeadTable({ schedule }) {
 }
 
 export async function getServerSideProps() {
-  //const api = "http://localhost:8080/schedule";
   const api = "https://nova-enchanted-confidence.glitch.me/schedule";
   const res = await fetch(api);
   const data = await res.json();

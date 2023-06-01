@@ -1,4 +1,3 @@
-import PersonalInfo from "@/components/PersonalInfo";
 import { createContext, useReducer } from "react";
 
 export const formDataContext = createContext();
@@ -47,7 +46,6 @@ function reducer(state, action) {
       //here extract the prop from payload
       const { ticketType } = action.payload;
       //modify payload based on choice and then insert into global state, chatgpt helped
-      // const ticketPrice = ticketType === "Regular" ? 799 : 1299;
       const ticketPrice = calculateTicketPrice(
         ticketType,
         state.formData.ticketAmount,
@@ -91,7 +89,6 @@ function reducer(state, action) {
       //here extract the prop from payload
       const { isChecked } = action.payload;
       //modify payload based on choice and then insert into global state, chatgpt helped
-      // const ticketPrice = ticketType === "Regular" ? 799 : 1299;
       const updatedticketwithGreen = calculateTicketPrice(
         state.formData.ticketType,
         state.formData.ticketAmount,

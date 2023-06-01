@@ -31,24 +31,7 @@
   font-size: 0.8rem;
   text-align: center;
 }
-/* scene navne med border-bottom for at lave streger på hele vh i mobil */
-/* .scene_van {
-  margin-inline-end: -15px;
-  border-bottom: 1.2px solid rgba(224, 224, 224, 1);
-  margin-top: 151px;
-}
 
-.scene_mid {
-  margin-inline-end: -15px;
-  border-bottom: 1.2px solid rgba(224, 224, 224, 1);
-  margin-top: 10.8rem;
-}
-
-.scene_jotu {
-  margin-inline-end: -15px;
-  border-bottom: 1px solid rgba(224, 224, 224, 1);
-  margin-top: 148px;
-} */
 
 .scheduleHeading {
   /* line-height: 6rem; */

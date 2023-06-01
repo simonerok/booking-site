@@ -63,7 +63,7 @@
 }
 
 .burgerIcon {
-  /* Add your custom styles hereSTAGE */
+  
   background-color: transparent;
   width: auto;
 }
@@ -73,7 +73,7 @@ button.burgerIcon:hover {
   background-color: transparent;
 }
 
-/* LANDIGN */
+/* LANDING */
 
 .landingSection {
   margin-top: 5rem;
@@ -151,9 +151,6 @@ button.burgerIcon:hover {
   place-self: center;
 }
 
-/* .landingArtistGrid img:hover {
-  cursor: pointer;
-} */
 
 .landingArtistGrid div h3 {
   z-index: 1;
@@ -174,7 +171,6 @@ button.burgerIcon:hover {
   font-family: var(--paragraph);
   color: black;
   display: grid;
-  /* text-align: center; */
   margin-top: 2rem;
 }
 .link1:hover,
@@ -195,8 +191,6 @@ button.burgerIcon:hover {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 3rem;
-  /* -webkit-text-stroke: 1px black;
-  color: white; */
   line-height: 3.5rem;
 }
 

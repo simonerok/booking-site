@@ -1,12 +1,6 @@
 /* DB Supabase */
-/**
- * Next.js API route support: https://nextjs.org/docs/api-routes/introduction
- * @param req {import('next').NextApiRequest}
- * @param res {import('next').NextApiResponse}
- */
-export default async function handler(req, res) {
-  //res.status(200).json({ name: "req.body" });
 
+export default async function handler(req, res) {
   const response = await fetch(
     "https://qtdvllgzamuqiiztakux.supabase.co/rest/v1/FormData",
     {
@@ -24,6 +18,4 @@ export default async function handler(req, res) {
 
   /*  sender et response og viser en status 200 og viser json object*/
   res.status(200).json({ response });
-
-  /* res.status(200).json({ name: "john Doe" }); */
 }

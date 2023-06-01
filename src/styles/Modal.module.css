@@ -5,7 +5,6 @@
 
 .ModalSection {
   display: grid;
-  /* margin-bottom: -3rem; */
 }
 .CancelledName {
   text-decoration-line: line-through;
@@ -39,7 +38,6 @@
 .ModalArtistName {
   margin-top: -40vh;
   color: white;
-  /* text-align: left; */
   font-size: var(--h2);
   z-index: 1;
 }
@@ -68,10 +66,6 @@
   .ModalArtistName {
     margin-top: 0vh;
   }
-
-  /* .ModalImg {
-    margin-top: 0;
-  } */
 
   .ModalBio {
     margin-left: auto;

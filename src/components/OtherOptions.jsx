@@ -8,7 +8,7 @@ import AddButton from "./AddButton";
 export default function OtherOptionsSection({ open, handleInfoClick }) {
   //consume the context
   const { formData, dispatch } = useContext(formDataContext);
-  const [tents2Counter, setTents2Counter] = useState(0); // Counter for 2-person tent
+  const [tents2Counter, setTents2Counter] = useState(0); // Counter for  tent
   const [tents3Counter, setTents3Counter] = useState(0);
 
   function incrementTents2() {
@@ -131,7 +131,6 @@ export default function OtherOptionsSection({ open, handleInfoClick }) {
                 </Alert>
               </div>
             )}
-            {/* {tents2Counter} */}
           </div>
 
           {formData.formData.tent && (

@@ -9,8 +9,7 @@ import NavigationBooking from "@/components/NavigationBooking";
 import Head from "next/head";
 
 export async function getServerSideProps() {
- /* const api = "http://localhost:8080/available-spots";*/
-    const api= "https://nova-enchanted-confidence.glitch.me/available-spots";
+  const api = "https://nova-enchanted-confidence.glitch.me/available-spots";
   const res = await fetch(api);
   const data = await res.json();
 
@@ -39,7 +38,11 @@ export default function BookingDisplay({ data }) {
             <title>Booking</title>
           </Head>
           <NavigationBooking />
-          <MainTicket currentStepSetter={setCurrentStep} formData={{ formState, dispatch }} spotData={data} />
+          <MainTicket
+            currentStepSetter={setCurrentStep}
+            formData={{ formState, dispatch }}
+            spotData={data}
+          />
         </>
       );
   }

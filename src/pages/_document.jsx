@@ -16,9 +16,6 @@ export default class MyDocument extends Document {
       bodyClass = "default-background";
     }
 
-    // Forkortelse af if-statement ved brug af ternary operator.
-    // const bodyClass = isLanding ? "landing-background" : isProgram ? "program-background" : isSchedule ? "schedule-background" : "default-background";
-
     return (
       <Html lang="en">
         <Head />

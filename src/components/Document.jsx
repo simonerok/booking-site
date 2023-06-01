@@ -10,7 +10,6 @@ export default function Document() {
         <link rel="stylesheet" href="https://use.typekit.net/bxq7sds.css" />
         <link rel="icon" href="" />
       </Head>
-      {/* <body></body> */}
     </Html>
   );
 }

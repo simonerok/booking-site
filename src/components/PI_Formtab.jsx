@@ -1,11 +1,17 @@
-import { FormControl, Card, CardContent, TextField, Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
+import {
+  FormControl,
+  Card,
+  CardContent,
+  TextField,
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+} from "@mui/material";
 import styles from "../styles/Form.module.css";
 import { formDataContext } from "../contexts/bookingContext";
 import { useContext, useState } from "react";
 import MyButton from "./MyButton";
 export default function FormTab({ setNextStep }) {
-  // const { formRef } = props;
-
   //destructure context
   const { formData, dispatch } = useContext(formDataContext);
 
@@ -15,10 +21,6 @@ export default function FormTab({ setNextStep }) {
   console.log(attendees, formData.formData.attendees);
 
   //State variable to track validation errors
-  /*  const [fullnameErrors, setFullnameErrors] = useState([]);
-  const [emailErrors, setEmailErrors] = useState([]);
-  const [phoneErrors, setPhoneErrors] = useState([]); */
-  //refactor the code
   const [inputErrors, setInputErrors] = useState({
     fullnameErrors: [],
     emailErrors: [],
@@ -92,7 +94,9 @@ export default function FormTab({ setNextStep }) {
     <>
       {attendees.map((attendee, index) => (
         <Accordion>
-          <AccordionSummary className={styles.overviewText}>Person {index + 1}</AccordionSummary>
+          <AccordionSummary className={styles.overviewText}>
+            Person {index + 1}
+          </AccordionSummary>
           <AccordionDetails>
             <form>
               <FormControl className={styles.formControl} variant="filled">
@@ -108,9 +112,14 @@ export default function FormTab({ setNextStep }) {
                         placeholder={"fx: John Doe"}
                         required
                         value={attendee.fullname}
-                        onChange={(e) => handlePIChanges(index, "fullname", e.target.value)}
+                        onChange={(e) =>
+                          handlePIChanges(index, "fullname", e.target.value)
+                        }
                         error={inputErrors.fullnameErrors[index]} //set error prop based on emailErros array on that index
-                        helperText={inputErrors.fullnameErrors[index] && "Full Name is required"}
+                        helperText={
+                          inputErrors.fullnameErrors[index] &&
+                          "Full Name is required"
+                        }
                         style={{ marginBottom: "1rem" }}
                       />
 
@@ -122,24 +131,44 @@ export default function FormTab({ setNextStep }) {
                         placeholder={"fx: JohnDoe@gmail.com"}
                         required
                         value={attendee.email}
-                        onChange={(e) => handlePIChanges(index, "email", e.target.value)}
+                        onChange={(e) =>
+                          handlePIChanges(index, "email", e.target.value)
+                        }
                         error={inputErrors.emailErrors[index]} //set error prop based on emailErros array on that index
-                        helperText={inputErrors.emailErrors[index] && "Email is required"}
+                        helperText={
+                          inputErrors.emailErrors[index] && "Email is required"
+                        }
                         style={{ marginBottom: "1rem" }}
                       />
                       <br></br>
-                      <TextField name="phone" type="tel" id="phone" label="Phone" inputProps={{ maxLength: 11, minLength: 8 }} pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder={"fx: 11111111"} required value={attendee.phone} onChange={(e) => handlePIChanges(index, "phone", e.target.value)} error={inputErrors.phoneErrors[index]} helperText={inputErrors.phoneErrors[index] && "Phone number is required"} />
+                      <TextField
+                        name="phone"
+                        type="tel"
+                        id="phone"
+                        label="Phone"
+                        inputProps={{ maxLength: 11, minLength: 8 }}
+                        pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"
+                        placeholder={"fx: 11111111"}
+                        required
+                        value={attendee.phone}
+                        onChange={(e) =>
+                          handlePIChanges(index, "phone", e.target.value)
+                        }
+                        error={inputErrors.phoneErrors[index]}
+                        helperText={
+                          inputErrors.phoneErrors[index] &&
+                          "Phone number is required"
+                        }
+                      />
                     </>
                   </CardContent>
-                  {/* <button type="next">Submit</button> */}
                 </Card>
               </FormControl>
-              {/* button to trigger form validation */}
-              {/* <MyButton onClick={validateForm}> </MyButton> */}
             </form>
           </AccordionDetails>
         </Accordion>
       ))}
+      {/* button to trigger form validation */}
       <div className={styles.btn_container}>
         <MyButton onClick={validateForm}>Next</MyButton>
       </div>

@@ -25,7 +25,13 @@ export default function TicketsSection() {
         }
       />
       <br></br>{" "}
-      <InputLabel id="dropdown-label" label="ticket-type" placeholder="Ticket-type" className={styles.dropdownLabel} style={{ position: "relative" }}>
+      <InputLabel
+        id="dropdown-label"
+        label="ticket-type"
+        placeholder="Ticket-type"
+        className={styles.dropdownLabel}
+        style={{ position: "relative" }}
+      >
         Choose ticket type
       </InputLabel>
       <Select

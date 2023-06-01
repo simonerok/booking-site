@@ -5,7 +5,6 @@ import Head from "next/head";
 import Link from "next/link";
 
 export default function Program({ scheduleData, bandData }) {
-  // const [stage, setStage] = useState("Monday");
   const [selectedBand, setSelectedBand] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -66,8 +65,6 @@ export default function Program({ scheduleData, bandData }) {
   const Vanfri = scheduleData.Vanaheim.fri;
   const Vansat = scheduleData.Vanaheim.sat;
   const Vansun = scheduleData.Vanaheim.sun;
-
-  //   const monday = { Midmon, Jotmon, Vanmon };
 
   return (
     <>
@@ -226,7 +223,6 @@ export default function Program({ scheduleData, bandData }) {
 }
 
 export async function getServerSideProps() {
-  //const apiEndpoints = ["http://localhost:8080/bands", "http://localhost:8080/schedule"];
   const apiEndpoints = [
     "https://nova-enchanted-confidence.glitch.me/bands",
     "https://nova-enchanted-confidence.glitch.me/schedule",
