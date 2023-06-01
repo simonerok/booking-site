@@ -13,7 +13,7 @@ export default function Navigation() {
 
   return (
     <>
-      <AppBar sx={{ bgcolor: "transparent" }} position="sticky" className={styles.navMenu}>
+      <AppBar sx={{ bgcolor: "transparent", boxShadow: "none" }} position="sticky" className={styles.navMenu}>
         <Toolbar className={styles.navContainer}>
           <Link className={styles.logo} href="./">
             FOO <br /> FESTIVAL
