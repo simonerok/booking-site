@@ -190,7 +190,7 @@ export default function FormPay({ currentStepSetter }) {
                     },
                   }}
                 />
-                <TextField type="text" name="CVC" label="CVC" inputProps={{ maxLength: 3, minLength: 3 }} required></TextField>
+                <TextField className={styles.formWrapper} type="text" name="CVC" label="CVC" inputProps={{ maxLength: 3, minLength: 3 }} required></TextField>
               </FormGroup>
             </CardContent>
             <div className={styles.btnWrapper}>
