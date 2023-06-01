@@ -195,7 +195,7 @@ export default function FormPay({ currentStepSetter }) {
             </CardContent>
             <div className={styles.btnWrapper}>
               <div className={styles.btn_container}>
-                <MyButton type="submit">Submit</MyButton>
+                <MyButton type="submit">Checkout</MyButton>
               </div>
             </div>
           </Card>
