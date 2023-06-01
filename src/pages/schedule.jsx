@@ -212,7 +212,7 @@ export default function StickyHeadTable({ schedule }) {
         </div>
         <Paper sx={{ width: "100%", overflow: "hidden" }}>
           <TableContainer sx={{ maxHeight: 600 }}>
-            <Table stickyHeader aria-label="sticky table">
+            <Table stickyHeader aria-label="sticky table" style={{ minWidth: column.minWidth }}>
               <TableHead>
                 <TableRow>
                   {columns.map((column) => (
