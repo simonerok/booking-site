@@ -53,6 +53,7 @@ button {
   width: 20rem;
   height: 3rem;
   background-color: transparent;
+  font-family: var(--paragraph);
 }
 button:hover {
   cursor: pointer;
