@@ -100,6 +100,7 @@
 }
 .pID {
   font-size: 1rem;
+  text-align: center;
 }
 
 .atendee_container {
@@ -174,14 +175,13 @@
     font-size: 1rem;
   }
   .formBackground {
-    background-size: 100%;
-    rotate: 90deg;
-    margin-left: auto;
-    margin-block: 10rem;
+    background-image: url("/ticket_vertical.svg");
+    background-size: contain;
+    padding: 5rem;
   }
 
   .overviewContainerConfirm {
-    rotate: -90deg;
     max-width: 300px;
+    margin: auto;
   }
 }
