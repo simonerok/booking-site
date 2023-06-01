@@ -130,7 +130,7 @@ export default function StickyHeadTable({ schedule }) {
     const selectedDay = event.target.value;
     setDay(selectedDay);
     updateDisplayedDay(selectedDay);
-    // Add active styling to the clicked button
+    // tilføjer active styling til valgte day buttons
     const buttons = document.querySelectorAll(`.${stylesSchedule.days} button`);
     buttons.forEach((button) => {
       if (button.value === selectedDay) {
