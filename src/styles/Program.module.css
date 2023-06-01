@@ -49,6 +49,7 @@
   display: grid;
   /* margin-top: -4rem; */
   margin-bottom: 8rem;
+  text-decoration: none;
 }
 .link:hover {
   cursor: pointer;
