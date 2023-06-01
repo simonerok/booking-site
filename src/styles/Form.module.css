@@ -100,7 +100,6 @@
 }
 .pID {
   font-size: 1rem;
-  text-align: center;
 }
 
 .atendee_container {
@@ -163,8 +162,26 @@
 
 @media (max-width: 750px) {
   /* form Pay overview */
-
   .h2 {
     font-size: 1.5rem;
+  }
+
+  /* confirmation styling af ticket */
+  .overviewContainerConfirm p {
+    font-size: 1rem;
+  }
+  .overviewContainerConfirm p:first-child {
+    font-size: 1rem;
+  }
+  .formBackground {
+    background-size: 100%;
+    rotate: 90deg;
+    margin-left: auto;
+    margin-block: 10rem;
+  }
+
+  .overviewContainerConfirm {
+    rotate: -90deg;
+    max-width: 300px;
   }
 }
