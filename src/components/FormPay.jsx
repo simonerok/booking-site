@@ -113,94 +113,94 @@ export default function FormPay({ currentStepSetter }) {
             ))}
           </div>
         </article>
-
-        <form onSubmit={confirmReservation} className={styles.form} ref={formRef}>
-          <FormControl variant="outlined">
-            <Card>
-              <CardContent className={styles.formWrapper}>
-                <h2 className={styles.h2}>Payment</h2>
-                <TextField
-                  className={styles.formWrapper}
-                  name="fullname"
-                  id="fullname"
-                  label="Name"
-                  placeholder={"fx: John Doe"}
-                  required //onChange={handlePIChanges}
-                />
-
-                <br></br>
-                <TextField
-                  className={styles.formWrapper}
-                  name="email"
-                  id="email"
-                  label="Email"
-                  placeholder={"fx: JohnDoe@gmail.com"}
-                  required //onChange={handlePIChanges} /* error={!!formErrors.email} */ /* helperText={formErrors.email} */
-                />
-                <br></br>
-                <TextField
-                  name="phone"
-                  type="tel"
-                  id="phone"
-                  label="Phone"
-                  inputProps={{ maxLength: 11, minLength: 8 }}
-                  pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"
-                  placeholder={"fx: 11111111"}
-                  required //onChange={handlePIChanges}
-                />
-
-                <h2 className={styles.h2}>Card Info</h2>
-                <FormGroup variant="standard" id="paymentInfoGroup">
-                  <TextField type="text" name="Cardholder's name" label="Cardholder's name" required className={styles.formWrapper}></TextField>
-                  <br></br>
-                  <TextField
-                    className={styles.formWrapper}
-                    type="text"
-                    id="standardCard"
-                    label="Credit Card No."
-                    required
-                    name="creditcard"
-                    inputProps={{ maxLength: 16 }}
-                    variant="outlined"
-                    //used InputProps for custom inputs and components with react-input-mask
-                    //chatgpt helped
-                    InputProps={{
-                      inputComponent: InputMask,
-                      inputProps: {
-                        mask: "9999 9999 9999 9999",
-                        maskChar: "-",
-                      },
-                    }}
-                  ></TextField>
-                  <br></br>
-                  <TextField
-                    className={styles.formWrapper}
-                    inputProps={{ maxLength: 4 }}
-                    type="text"
-                    id="exp.date"
-                    variant="outlined"
-                    name="expDate"
-                    label="Exp. Date (MM/YY)"
-                    required
-                    InputProps={{
-                      inputComponent: InputMask,
-                      inputProps: {
-                        mask: "99/99",
-                      },
-                    }}
-                  />
-                  <TextField type="text" name="CVC" label="CVC" inputProps={{ maxLength: 3, minLength: 3 }} required></TextField>
-                </FormGroup>
-              </CardContent>
-              <div className={styles.btnWrapper}>
-                <div className={styles.btn_container}>
-                  <MyButton type="submit">Submit</MyButton>
-                </div>
-              </div>
-            </Card>
-          </FormControl>
-        </form>
       </section>
+
+      <form onSubmit={confirmReservation} className={styles.form} ref={formRef}>
+        <FormControl variant="outlined">
+          <Card>
+            <CardContent className={styles.formWrapper}>
+              <h2 className={styles.h2}>Payment</h2>
+              <TextField
+                className={styles.formWrapper}
+                name="fullname"
+                id="fullname"
+                label="Name"
+                placeholder={"fx: John Doe"}
+                required //onChange={handlePIChanges}
+              />
+
+              <br></br>
+              <TextField
+                className={styles.formWrapper}
+                name="email"
+                id="email"
+                label="Email"
+                placeholder={"fx: JohnDoe@gmail.com"}
+                required //onChange={handlePIChanges} /* error={!!formErrors.email} */ /* helperText={formErrors.email} */
+              />
+              <br></br>
+              <TextField
+                name="phone"
+                type="tel"
+                id="phone"
+                label="Phone"
+                inputProps={{ maxLength: 11, minLength: 8 }}
+                pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"
+                placeholder={"fx: 11111111"}
+                required //onChange={handlePIChanges}
+              />
+
+              <h2 className={styles.h2}>Card Info</h2>
+              <FormGroup variant="standard" id="paymentInfoGroup">
+                <TextField type="text" name="Cardholder's name" label="Cardholder's name" required className={styles.formWrapper}></TextField>
+                <br></br>
+                <TextField
+                  className={styles.formWrapper}
+                  type="text"
+                  id="standardCard"
+                  label="Credit Card No."
+                  required
+                  name="creditcard"
+                  inputProps={{ maxLength: 16 }}
+                  variant="outlined"
+                  //used InputProps for custom inputs and components with react-input-mask
+                  //chatgpt helped
+                  InputProps={{
+                    inputComponent: InputMask,
+                    inputProps: {
+                      mask: "9999 9999 9999 9999",
+                      maskChar: "-",
+                    },
+                  }}
+                ></TextField>
+                <br></br>
+                <TextField
+                  className={styles.formWrapper}
+                  inputProps={{ maxLength: 4 }}
+                  type="text"
+                  id="exp.date"
+                  variant="outlined"
+                  name="expDate"
+                  label="Exp. Date (MM/YY)"
+                  required
+                  InputProps={{
+                    inputComponent: InputMask,
+                    inputProps: {
+                      mask: "99/99",
+                    },
+                  }}
+                />
+                <TextField type="text" name="CVC" label="CVC" inputProps={{ maxLength: 3, minLength: 3 }} required></TextField>
+              </FormGroup>
+            </CardContent>
+            <div className={styles.btnWrapper}>
+              <div className={styles.btn_container}>
+                <MyButton type="submit">Submit</MyButton>
+              </div>
+            </div>
+          </Card>
+        </FormControl>
+      </form>
     </>
   );
 }
