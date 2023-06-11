@@ -36,7 +36,6 @@ export default function BookingDisplay({ data }) {
         <>
           <Head>
             <title>Booking</title>
-            <title>HELLO MOTHER</title>
           </Head>
           <NavigationBooking />
           <MainTicket
