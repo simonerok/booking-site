@@ -32,7 +32,7 @@ const initialState = {
 
 //purpose of reducers returns the next state
 function reducer(state, action) {
-  console.log(action);
+  /* console.log(action); */
   switch (action.action) {
     case "UPDATE_FIELD":
       return {
@@ -286,8 +286,8 @@ function calculateTicketPrice(
 
 export const FormDataProvider = ({ children }) => {
   const [formData, dispatch] = useReducer(reducer, initialState);
-
-  console.log(formData);
+/* 
+  console.log(formData); */
   return (
     <formDataContext.Provider value={{ formData, dispatch }}>
       {children}

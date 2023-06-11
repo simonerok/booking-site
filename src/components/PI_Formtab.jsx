@@ -9,8 +9,8 @@ export default function FormTab({ setNextStep }) {
 
   //destructure attendees array from formData
   const { attendees } = formData.formData;
-  console.log(formData);
-  console.log(attendees, formData.formData.attendees);
+/*   console.log(formData);
+  console.log(attendees, formData.formData.attendees); */
 
   //State variable to track validation errors
   const [inputErrors, setInputErrors] = useState({

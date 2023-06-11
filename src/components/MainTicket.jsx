@@ -7,7 +7,8 @@ import AvailableSpotsSection from "./AvailableSpots";
 import TicketsSection from "./TicketSection";
 import { formDataContext } from "@/contexts/bookingContext";
 
-export default function MainTicket({ spotData, currentStepSetter }) {
+
+export default function MainTicket({ spotData, currentStepSetter}) {
   const [open, setOpen] = useState(false);
 
   //context call on the parent
@@ -16,6 +17,7 @@ export default function MainTicket({ spotData, currentStepSetter }) {
   const handleInfoClick = () => {
     setOpen(!open);
   };
+
 
   function reserveSpot(e) {
     e.preventDefault();

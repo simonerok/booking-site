@@ -2,16 +2,25 @@ import PI_Formtab from "../components/PI_Formtab";
 import styles from "../styles/Form.module.css";
 import { FormControl, CardContent } from "@mui/material";
 import BackButton from "./BackButton";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { formDataContext } from "@/contexts/bookingContext";
 
-export default function PersonalInfo({ currentStepSetter, timerValue }) {
-  if (timerValue === null) {
+
+/* Passer timer fra booking display */
+export default function PersonalInfo({ currentStepSetter, timer, setTimer, reservationTimer }) {
+/*   if (timerValue === null) {
     return <p>The timer value is null.</p>;
-  }
+  } */
   const { formData, dispatch } = useContext(formDataContext);
   const [tents2Counter, setTents2Counter] = useState(0); // Counter for 2-person tent
   const [tents3Counter, setTents3Counter] = useState(0);
+
+  useEffect(() => {
+    reservationTimer(); // Start the timer
+  }, []);
+
+    // Convert timer to seconds
+    const timerInSeconds = Math.floor(timer / 1000);
 
   function handlePreviousFormComponent() {
     dispatch({ action: "PREVIOUS" });
@@ -41,6 +50,7 @@ export default function PersonalInfo({ currentStepSetter, timerValue }) {
       <div className={styles.btn_container}>
         <BackButton onClick={handlePreviousFormComponent}>Back</BackButton>
       </div>
+      <div  className={styles.timer}><p>Timer: {timerInSeconds} seconds</p></div>
       <h1 className={styles.h1}>Personal Infomation</h1>
 
       <FormControl variant="outlined" style={inlineStyle}>
