@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import MainTicket from "../components/MainTicket";
 import PersonalInfo from "@/components/PersonalInfo";
 import { formDataContext } from "@/contexts/bookingContext";
@@ -24,22 +24,21 @@ export default function BookingDisplay({ data }) {
   const { formState, dispatch } = useContext(formDataContext);
   const [currentStep, setCurrentStep] = useState(0);
   const [timer, setTimer] = useState(0);
- 
 
   /* funktionen får timeren til at starte og tælle ned og stoppe igen */
+  const stopTimer = (intervalId) => {
+    clearInterval(intervalId);
+  };
+
   const reservationTimer = () => {
-    const countdownSeconds = 6; // Number of seconds to count down from
-  
-    setTimer(countdownSeconds);
-  
+    setTimer(6000);
     const handleTimer = setInterval(() => {
-      setTimer(prevTimer => prevTimer - 1);
-    }, 1000); // Interval set to 1000 milliseconds (1 second)
-  
+      setTimer((prevTimer) => prevTimer - 1);
+    }, 1000);
+
     setTimeout(() => {
-      clearInterval(handleTimer);
-      setTimer(null); // Reset timer
-    }, countdownSeconds * 1000);
+      stopTimer(handleTimer);
+    }, 6000);
   };
 
   const handleNextFormComponent = () => {
@@ -51,7 +50,7 @@ export default function BookingDisplay({ data }) {
 
   switch (currentStep) {
     case 1:
-      return <PersonalInfo currentStepSetter={setCurrentStep} timer={timer} setTimer={setTimer} reservationTimer={reservationTimer}/>;
+      return <PersonalInfo currentStepSetter={setCurrentStep} timer={timer} setTimer={setTimer} reservationTimer={reservationTimer} />;
     case 2:
       return <FormPay currentStepSetter={setCurrentStep} />;
     case 3:

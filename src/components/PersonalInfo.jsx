@@ -5,22 +5,22 @@ import BackButton from "./BackButton";
 import { useContext, useState, useEffect } from "react";
 import { formDataContext } from "@/contexts/bookingContext";
 
-
 /* Passer timer fra booking display */
 export default function PersonalInfo({ currentStepSetter, timer, setTimer, reservationTimer }) {
-/*   if (timerValue === null) {
+  /*   if (timerValue === null) {
     return <p>The timer value is null.</p>;
   } */
   const { formData, dispatch } = useContext(formDataContext);
   const [tents2Counter, setTents2Counter] = useState(0); // Counter for 2-person tent
   const [tents3Counter, setTents3Counter] = useState(0);
 
+  /* start timer en gang */
   useEffect(() => {
-    reservationTimer(); // Start the timer
+    reservationTimer();
   }, []);
 
-    // Convert timer to seconds
-    const timerInSeconds = Math.floor(timer / 1000);
+  /* timer in seconds */
+  const timerInSeconds = Math.floor(timer / 1000);
 
   function handlePreviousFormComponent() {
     dispatch({ action: "PREVIOUS" });
@@ -50,7 +50,9 @@ export default function PersonalInfo({ currentStepSetter, timer, setTimer, reser
       <div className={styles.btn_container}>
         <BackButton onClick={handlePreviousFormComponent}>Back</BackButton>
       </div>
-      <div  className={styles.timer}><p>Timer: {timerInSeconds} seconds</p></div>
+      <div className={styles.timer}>
+        <p>Timer: {timerInSeconds} seconds</p>
+      </div>
       <h1 className={styles.h1}>Personal Infomation</h1>
 
       <FormControl variant="outlined" style={inlineStyle}>
