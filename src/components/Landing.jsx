@@ -2,6 +2,7 @@ import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 
 export default function Landing() {
+  /* Javascripts måde at ændre URL til en ekstern URL -nyt link*/
   function redirectToExternalLink() {
     window.location.href = "https://festival-app-nine.vercel.app/"; // Replace with your desired external link
   }

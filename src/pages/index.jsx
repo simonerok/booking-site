@@ -24,6 +24,7 @@ export async function getServerSideProps() {
   return {
     props: {
       bandData,
+      /* Giver vores baggrund via en bestemtt dynamisk klasse */
       isLanding: true,
     },
   };

@@ -5,10 +5,12 @@ import BookingDisplay from "./booking_display";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
 
+/* pageProps indeholder al sidens data */
 export default function MyApp({ Component, pageProps }) {
   // Checker om current page er BookingDisplay, bruges til at fjerne navigation
   const isBookingDisplayPage = Component === BookingDisplay;
 
+  /* funktion der tjekker og sætter baggrunden */
   useEffect(() => {
     // destructurere pageProps, så det kun er pagePropsne defineret inde i const
     const { isLanding, isSchedule, isProgram } = pageProps;
