@@ -7,6 +7,7 @@ export const UpdateFormContext = createContext();
 //useReducer to manage complex states in ticketContext
 //global object expanded with inspiration  from https://github.com/Robert-d-s/foofest-app/blob/tereattendees/src/components/BookingForm.js
 const initialState = {
+  /* formdata er en property der indeholder vores obj */
   formData: {
     date: "",
     ticketType: "",
@@ -31,6 +32,7 @@ const initialState = {
 };
 
 //purpose of reducers returns the next state
+/* kigger efter 2 parametre action og state -reducer reducere så vi tager små bidder af hele det samlede initialstate */
 function reducer(state, action) {
   console.log(action);
   switch (action.action) {
@@ -39,6 +41,7 @@ function reducer(state, action) {
         ...state,
         formData: {
           ...state.formData,
+          /* læser feltet og opdatere værdien dynamisk  */
           [action.payload.field]: action.payload.value,
         },
       };
@@ -46,14 +49,7 @@ function reducer(state, action) {
       //here extract the prop from payload
       const { ticketType } = action.payload;
       //modify payload based on choice and then insert into global state, chatgpt helped
-      const ticketPrice = calculateTicketPrice(
-        ticketType,
-        state.formData.ticketAmount,
-        state.formData.green,
-        state.formData.tent,
-        state.formData.tents2,
-        state.formData.tents3
-      );
+      const ticketPrice = calculateTicketPrice(ticketType, state.formData.ticketAmount, state.formData.green, state.formData.tent, state.formData.tents2, state.formData.tents3);
       return {
         ...state,
         formData: {
@@ -66,14 +62,7 @@ function reducer(state, action) {
     case "SET_TICKET_AMOUNT":
       const { ticketAmount } = action.payload;
 
-      const updatedPriceTicketAmount = calculateTicketPrice(
-        state.formData.ticketType,
-        ticketAmount,
-        state.formData.green,
-        state.formData.tent,
-        action.payload.tents2Amount,
-        action.payload.tents3Amount
-      );
+      const updatedPriceTicketAmount = calculateTicketPrice(state.formData.ticketType, ticketAmount, state.formData.green, state.formData.tent, action.payload.tents2Amount, action.payload.tents3Amount);
       return {
         ...state,
         formData: {
@@ -89,14 +78,7 @@ function reducer(state, action) {
       //here extract the prop from payload
       const { isChecked } = action.payload;
       //modify payload based on choice and then insert into global state, chatgpt helped
-      const updatedticketwithGreen = calculateTicketPrice(
-        state.formData.ticketType,
-        state.formData.ticketAmount,
-        isChecked,
-        state.formData.tent,
-        action.payload.tents2Amount,
-        action.payload.tents3Amount
-      );
+      const updatedticketwithGreen = calculateTicketPrice(state.formData.ticketType, state.formData.ticketAmount, isChecked, state.formData.tent, action.payload.tents2Amount, action.payload.tents3Amount);
       return {
         ...state,
         formData: {
@@ -124,10 +106,7 @@ function reducer(state, action) {
         const tent3Cost = 20;
 
         // Calculate the updated ticket price based on tent costs
-        updatedTicketPriceWithTent =
-          state.formData.ticketPrice +
-          state.formData.tents2 * tent2Cost +
-          state.formData.tents3 * tent3Cost;
+        updatedTicketPriceWithTent = state.formData.ticketPrice + state.formData.tents2 * tent2Cost + state.formData.tents3 * tent3Cost;
       } else {
         updatedTicketPriceWithTent = ticketPrice;
       }
@@ -162,14 +141,7 @@ function reducer(state, action) {
 
     case "SET_TENTS3_AMOUNT":
       const { tents3Amount } = action.payload;
-      const updatedPriceWithTent3 = calculateTicketPrice(
-        state.formData.ticketType,
-        state.formData.ticketAmount,
-        state.formData.green,
-        state.formData.tent,
-        state.formData.tents2,
-        parseInt(tents3Amount)
-      );
+      const updatedPriceWithTent3 = /* state.formData.ticketType er et argument */ calculateTicketPrice(state.formData.ticketType, state.formData.ticketAmount, state.formData.green, state.formData.tent, state.formData.tents2, parseInt(tents3Amount));
       return {
         ...state,
         formData: {
@@ -217,10 +189,7 @@ function reducer(state, action) {
         ...state,
         formData: {
           ...state.formData,
-          attendees: [
-            ...state.formData.attendees,
-            { fullname: "", email: "", phone: "" },
-          ],
+          attendees: [...state.formData.attendees, { fullname: "", email: "", phone: "" }],
         },
       };
 
@@ -256,14 +225,7 @@ function reducer(state, action) {
   }
 }
 
-function calculateTicketPrice(
-  ticketType,
-  ticketAmount,
-  isGreenChecked,
-  isTentChecked,
-  tents2Amount,
-  tents3Amount
-) {
+function calculateTicketPrice(ticketType, ticketAmount, isGreenChecked, isTentChecked, tents2Amount, tents3Amount) {
   let basePrice = 0;
   if (ticketType === "Regular") {
     basePrice = 799;
@@ -288,9 +250,5 @@ export const FormDataProvider = ({ children }) => {
   const [formData, dispatch] = useReducer(reducer, initialState);
 
   console.log(formData);
-  return (
-    <formDataContext.Provider value={{ formData, dispatch }}>
-      {children}
-    </formDataContext.Provider>
-  );
+  return <formDataContext.Provider value={{ formData, dispatch }}>{children}</formDataContext.Provider>;
 };

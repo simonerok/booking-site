@@ -20,10 +20,12 @@ export default function MainTicket({ spotData, currentStepSetter }) {
   function reserveSpot(e) {
     e.preventDefault();
     fetch("https://nova-enchanted-confidence.glitch.me/reserve-spot", {
+      /* put betyder at vi sender noget til endpointet som vi senere kan hente med get */
       method: "put",
       headers: {
         "Content-Type": "application/json",
       },
+      /* den data vi sender med */
       body: JSON.stringify({
         area: formData.formData.area,
         amount: formData.formData.ticketAmount,
@@ -31,12 +33,12 @@ export default function MainTicket({ spotData, currentStepSetter }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.id);
-        /* sætter formDatas id til at være det id vi får i response så det kan sende med videre */
+        /* console.log(data.id); */
+        /* sætter formDatas id til at være det id vi får i response så det kan sende med videre = det vi får tilbage */
         formData.formData.id = data.id;
         handleNextFormComponent();
       });
-    console.log(formData, formData.id);
+    /* console.log(formData, formData.id); */
   }
 
   function handleNextFormComponent() {
