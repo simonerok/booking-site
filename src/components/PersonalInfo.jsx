@@ -13,9 +13,8 @@ export default function PersonalInfo({ currentStepSetter /* timer, setTimer, res
   const { formData, dispatch } = useContext(formDataContext);
   const [tents2Counter, setTents2Counter] = useState(0); // Counter for 2-person tent
   const [tents3Counter, setTents3Counter] = useState(0);
-  const [timer, setTimer] = useState(6);
 
-  const stopTimer = (timeInterval) => {
+  /*   const stopTimer = (timeInterval) => {
     clearInterval(timeInterval);
   };
 
@@ -23,25 +22,40 @@ export default function PersonalInfo({ currentStepSetter /* timer, setTimer, res
     const handleTimer = setInterval(() => {
       setTimer((prevTimer) => {
         if (prevTimer === 0) {
-          stopTimer(handleTimer);
+          stopTimer();
         }
         console.log("Timer:", prevTimer);
         return prevTimer - 1;
       });
-    }, 1000);
+    }, 10000);
 
-    return () => {
+      return () => {
       stopTimer(handleTimer);
-    };
-  }, []);
-
-  /* start timer en gang */
-  /*   useEffect(() => {
-    reservationTimer();
+    }; 
   }, []); */
 
-  /* timer in seconds */
-  const timerInSeconds = Math.floor(timer / 1000);
+  /*   /* timer in minutes & seconds */
+  /*   const minutes = prevTimer / 60;
+  const seconds = prevtimer;  */
+
+  const [seconds, setSeconds] = useState(10);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSeconds((prevTime) => {
+        if (prevTime === 0) {
+          clearInterval(timer);
+          return prevTime;
+        } else {
+          return prevTime - 1;
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  console.log(seconds);
 
   function handlePreviousFormComponent() {
     dispatch({ action: "PREVIOUS" });
@@ -72,7 +86,7 @@ export default function PersonalInfo({ currentStepSetter /* timer, setTimer, res
         <BackButton onClick={handlePreviousFormComponent}>Back</BackButton>
       </div>
       <div className={styles.timer}>
-        <p>Timer: {timerInSeconds} seconds</p>
+        <p>Timer: {seconds > 0 ? seconds : "times up"} </p>
       </div>
       <h1 className={styles.h1}>Personal Infomation</h1>
 
