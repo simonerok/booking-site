@@ -4,9 +4,10 @@ import { FormControl, CardContent } from "@mui/material";
 import BackButton from "./BackButton";
 import { useContext, useState, useEffect } from "react";
 import { formDataContext } from "@/contexts/bookingContext";
+import Alert from "./Alert";
 
 /* Passer timer fra booking display */
-export default function PersonalInfo({ currentStepSetter /* timer, setTimer, reservationTimer */ }) {
+export default function PersonalInfo({ currentStepSetter }) {
   /*   if (timerValue === null) {
     return <p>The timer value is null.</p>;
   } */
@@ -14,37 +15,20 @@ export default function PersonalInfo({ currentStepSetter /* timer, setTimer, res
   const [tents2Counter, setTents2Counter] = useState(0); // Counter for 2-person tent
   const [tents3Counter, setTents3Counter] = useState(0);
 
-  /*   const stopTimer = (timeInterval) => {
-    clearInterval(timeInterval);
-  };
-
-  useEffect(() => {
-    const handleTimer = setInterval(() => {
-      setTimer((prevTimer) => {
-        if (prevTimer === 0) {
-          stopTimer();
-        }
-        console.log("Timer:", prevTimer);
-        return prevTimer - 1;
-      });
-    }, 10000);
-
-      return () => {
-      stopTimer(handleTimer);
-    }; 
-  }, []); */
-
-  /*   /* timer in minutes & seconds */
-  /*   const minutes = prevTimer / 60;
-  const seconds = prevtimer;  */
-
-  const [seconds, setSeconds] = useState(10);
+  /* definere start tid for timeren */
+  const [timer, setTimer] = useState(5);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setSeconds((prevTime) => {
+      setTimer((prevTime) => {
         if (prevTime === 0) {
           clearInterval(timer);
+          setTimeout(() => {
+            {
+              /* redirect til start af booking flow */
+              currentStepSetter(0);
+            }
+          }, 5000);
           return prevTime;
         } else {
           return prevTime - 1;
@@ -55,7 +39,7 @@ export default function PersonalInfo({ currentStepSetter /* timer, setTimer, res
     return () => clearInterval(timer);
   }, []);
 
-  console.log(seconds);
+  console.log(timer);
 
   function handlePreviousFormComponent() {
     dispatch({ action: "PREVIOUS" });
@@ -86,7 +70,16 @@ export default function PersonalInfo({ currentStepSetter /* timer, setTimer, res
         <BackButton onClick={handlePreviousFormComponent}>Back</BackButton>
       </div>
       <div className={styles.timer}>
-        <p>Timer: {seconds > 0 ? seconds : "times up"} </p>
+        <p>
+          Timer:{" "}
+          {timer > 0 ? (
+            timer
+          ) : (
+            <div className={styles.modalContainer}>
+              <Alert message="The time is up. Please try again. You are being redirected to start."></Alert>
+            </div>
+          )}
+        </p>
       </div>
       <h1 className={styles.h1}>Personal Infomation</h1>
 
