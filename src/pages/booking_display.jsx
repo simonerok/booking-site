@@ -25,9 +25,8 @@ export default function BookingDisplay({ data }) {
   const [currentStep, setCurrentStep] = useState(0);
   /* const [timer, setTimer] = useState(0); */
 
-
   /* funktionen får timeren til at starte og tælle ned og stoppe igen */
- /*    const stopTimer = (timeInterval) => {
+  /*    const stopTimer = (timeInterval) => {
     clearInterval(timeInterval);
   }; 
 
@@ -41,10 +40,6 @@ export default function BookingDisplay({ data }) {
       stopTimer(handleTimer);
     }, 6000);  */
 
-
-
- 
-
   const handleNextFormComponent = () => {
     dispatch({ action: "NEXT" });
     dispatch({ action: "CREATE_ATTENDEE_STRUCTURE" });
@@ -52,12 +47,9 @@ export default function BookingDisplay({ data }) {
     reservationTimer(); // Start the timer when transitioning to the next step
   };
 
-
-
-
   switch (currentStep) {
     case 1:
-      return <PersonalInfo currentStepSetter={setCurrentStep} /* timer={timer} setTimer={setTimer} reservationTimer={reservationTimer}  *//>;
+      return <PersonalInfo currentStepSetter={setCurrentStep} /* timer={timer} setTimer={setTimer} reservationTimer={reservationTimer}  */ />;
     case 2:
       return <FormPay currentStepSetter={setCurrentStep} />;
     case 3:
@@ -69,14 +61,7 @@ export default function BookingDisplay({ data }) {
             <title>Booking</title>
           </Head>
           <NavigationBooking />
-          <MainTicket
-            currentStepSetter={setCurrentStep}
-            formData={{ formState, dispatch }}
-            spotData={data}
-           /*  reservationTimer={reservationTimer} // Pass the reservationTimer function as a prop
-            timer={timer}
-            setTimer={setTimer} */
-          />
+          <MainTicket currentStepSetter={setCurrentStep} formData={{ formState, dispatch }} spotData={data} />
         </>
       );
   }

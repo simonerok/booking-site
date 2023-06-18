@@ -15,11 +15,13 @@ export default function PersonalInfo({ currentStepSetter }) {
   const [tents2Counter, setTents2Counter] = useState(0); // Counter for 2-person tent
   const [tents3Counter, setTents3Counter] = useState(0);
 
-  /* definere start tid for timeren */
+  /* definere timer og sætter start tid */
   const [timer, setTimer] = useState(5);
 
+  /* useEffect fordi den skal kun sætte i gang 1 gang */
   useEffect(() => {
     const timer = setInterval(() => {
+      /* setTimer til at være prevTime og hvis prevTime er 0 skal den stoppe timeren */
       setTimer((prevTime) => {
         if (prevTime === 0) {
           clearInterval(timer);
@@ -28,14 +30,17 @@ export default function PersonalInfo({ currentStepSetter }) {
               /* redirect til start af booking flow */
               currentStepSetter(0);
             }
-          }, 5000);
+            /* sætter et delay på 5 sekunder inden siden skifter tilbage til start */
+          }, 6000);
           return prevTime;
         } else {
           return prevTime - 1;
         }
       });
+      /* Definere at den skal tælle ned 1 sekund ad gangen */
     }, 1000);
 
+    /* renskriver/clear intervallet så det kan starte forfra med useEffect */
     return () => clearInterval(timer);
   }, []);
 
@@ -71,7 +76,7 @@ export default function PersonalInfo({ currentStepSetter }) {
       </div>
       <div className={styles.timer}>
         <p>
-          Timer:{" "}
+          Booking time:{" "}
           {timer > 0 ? (
             timer
           ) : (
