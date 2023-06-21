@@ -20,11 +20,11 @@ export default function PersonalInfo({ currentStepSetter }) {
 
   /* useEffect fordi den skal kun sætte i gang 1 gang */
   useEffect(() => {
-    const timer = setInterval(() => {
+    const Timer = setInterval(() => {
       /* setTimer til at være prevTime og hvis prevTime er 0 skal den stoppe timeren */
       setTimer((prevTime) => {
         if (prevTime === 0) {
-          clearInterval(timer);
+          clearInterval(Timer);
           setTimeout(() => {
             {
               /* redirect til start af booking flow */
@@ -37,13 +37,12 @@ export default function PersonalInfo({ currentStepSetter }) {
           return prevTime - 1;
         }
       });
-      /* Definere at den skal tælle ned 1 sekund ad gangen */
+      /* Definere at den skal tælle ned 1 sekund ad gangen 1000 ms = 1 sek */
     }, 1000);
 
     /* renskriver/clear intervallet så det kan starte forfra med useEffect */
-    return () => clearInterval(timer);
+    return () => clearInterval(Timer);
   }, []);
-
   console.log(timer);
 
   function handlePreviousFormComponent() {
