@@ -81,7 +81,9 @@ export default function PersonalInfo({ currentStepSetter }) {
             timer
           ) : (
             <div className={styles.modalContainer}>
-              <Alert message="The time is up. Please try again. You are being redirected to start."></Alert>
+              <div className={styles.infoMessage}>
+                <Alert message="The time is up. Please try again. You are being redirected to start."></Alert>
+              </div>
             </div>
           )}
         </p>

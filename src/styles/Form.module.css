@@ -185,6 +185,16 @@
 
 /* TIMER MODAL */
 .modalContainer {
-  width: 500px;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 120vh;
+  background-color: rgba(3, 3, 3, 0.909);
+  z-index: 1;
+}
+
+.infoMessage {
   margin: 0 auto;
+  width: 60vw;
+  margin-top: 20rem;
 }
